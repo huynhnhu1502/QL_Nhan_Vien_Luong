@@ -45,8 +45,6 @@ namespace WinForms
         private void btnDong_Click(object sender, EventArgs e)
         {
             this.Close();
-            Form nv = new NhanVien();
-            nv.Show();
         }
 
     }

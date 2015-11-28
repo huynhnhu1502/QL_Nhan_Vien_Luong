@@ -124,7 +124,6 @@ namespace WinForms
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            txtMaNV.Text = "";
             txtHoTen.Text = "";
             comboBox1.Text = "";
             comboBox2.Text = "";
@@ -142,14 +141,23 @@ namespace WinForms
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
-            NhanVien nv = new NhanVien();
-            nv.Show();
         }
         public void autoMaNV()
         {
-            int idhientai = _db11.NhanViens.Max(a => a.id);
-            int idthemvao = idhientai + 1;
-            txtMaNV.Text = "NV00" +idthemvao;
+            int idhientai;
+            int countid = (from u in _db11.NhanViens select new { u.id }).Count();
+            if (countid == 0)
+            {
+                idhientai = 0;
+                int idthemvao = idhientai + 1;
+                txtMaNV.Text = "NV00" + idthemvao;
+            }
+            else
+            {
+                idhientai = _db11.NhanViens.Max(a => a.id);
+                int idthemvao = idhientai + 1;
+                txtMaNV.Text = "NV00" + idthemvao;
+            }
         }
     }
 }

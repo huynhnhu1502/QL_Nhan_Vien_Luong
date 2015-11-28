@@ -52,17 +52,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChiTietDonVi.cs">
+    <Compile Include="DonVi\ChiTietDonVi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChiTietDonVi.Designer.cs">
+    <Compile Include="DonVi\ChiTietDonVi.Designer.cs">
       <DependentUpon>ChiTietDonVi.cs</DependentUpon>
     </Compile>
-    <Compile Include="DonVi.cs">
+    <Compile Include="DonVi\DonVi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DonVi.Designer.cs">
+    <Compile Include="DonVi\DonVi.Designer.cs">
       <DependentUpon>DonVi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoaiDonVi\LoaiDonVi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoaiDonVi\LoaiDonVi.Designer.cs">
+      <DependentUpon>LoaiDonVi.cs</DependentUpon>
     </Compile>
     <Compile Include="NhanVien\ChiTietNV.cs">
       <SubType>Form</SubType>
@@ -94,17 +106,40 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyLuongDataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="ThemDonVi.cs">
+    <Compile Include="DonVi\ThemDonVi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ThemDonVi.Designer.cs">
+    <Compile Include="DonVi\ThemDonVi.Designer.cs">
       <DependentUpon>ThemDonVi.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ChiTietDonVi.resx">
+    <Compile Include="QuanLyLuongDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyLuongDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LoaiDonVi\SuaLoaiDV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoaiDonVi\SuaLoaiDV.Designer.cs">
+      <DependentUpon>SuaLoaiDV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoaiDonVi\ThemLoaiDV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoaiDonVi\ThemLoaiDV.Designer.cs">
+      <DependentUpon>ThemLoaiDV.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="DonVi\ChiTietDonVi.resx">
       <DependentUpon>ChiTietDonVi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DonVi.resx">
+    <EmbeddedResource Include="DonVi\DonVi.resx">
       <DependentUpon>DonVi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoaiDonVi\LoaiDonVi.resx">
+      <DependentUpon>LoaiDonVi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NhanVien\ChiTietNV.resx">
       <DependentUpon>ChiTietNV.cs</DependentUpon>
@@ -124,8 +159,14 @@
     <EmbeddedResource Include="NhanVien\ThemNV.resx">
       <DependentUpon>ThemNV.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ThemDonVi.resx">
+    <EmbeddedResource Include="DonVi\ThemDonVi.resx">
       <DependentUpon>ThemDonVi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoaiDonVi\SuaLoaiDV.resx">
+      <DependentUpon>SuaLoaiDV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoaiDonVi\ThemLoaiDV.resx">
+      <DependentUpon>ThemLoaiDV.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">
@@ -158,6 +199,17 @@
     </None>
     <None Include="QuanLyLuongDataSet1.xss">
       <DependentUpon>QuanLyLuongDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyLuongDataSet2.xsc">
+      <DependentUpon>QuanLyLuongDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyLuongDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyLuongDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLyLuongDataSet2.xss">
+      <DependentUpon>QuanLyLuongDataSet2.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

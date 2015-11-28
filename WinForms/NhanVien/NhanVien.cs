@@ -20,7 +20,7 @@ namespace WinForms
         {
             InitializeComponent();
             tonghop();
-
+            this.dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void NhanVien_Load(object sender, EventArgs e)
@@ -52,9 +52,8 @@ namespace WinForms
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            Form a = new ThemNV();
-            a.Show();
-            this.Hide();
+            ThemNV themnv = new ThemNV();
+            themnv.Show();           
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -100,8 +99,6 @@ namespace WinForms
                 {
                     ChiTietNV test = new ChiTietNV(a.Cells[1].Value.ToString(), a.Cells[2].Value.ToString());
                     test.Show();
-                    this.Hide();
-
                 }
             }
         }
@@ -110,6 +107,10 @@ namespace WinForms
         {
             var result2 = from a in db.NhanViens select new { a.MaNV, a.MaDonVi, a.MaChucVu, a.HoTen, a.GioiTinh, a.NgayBatDau };
             dataGridView1.DataSource = result2.ToList();
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                dataGridView1.Rows[i].Cells[5].Value = "Xem chi tiết";
+            }
         }
     }
 }
