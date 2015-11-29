@@ -14,8 +14,9 @@ namespace _3Layer
     
     public partial class LichSuChuyenBac
     {
-        public int MaNV { get; set; }
-        public int MaHeSo { get; set; }
+        public int id { get; set; }
+        public string MaNV { get; set; }
+        public string MaHeSo { get; set; }
         public System.DateTime NgayChuyen { get; set; }
     
         public virtual HeSoLuongPhuCap HeSoLuongPhuCap { get; set; }

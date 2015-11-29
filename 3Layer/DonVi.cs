@@ -14,26 +14,24 @@ namespace _3Layer
     
     public partial class DonVi
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DonVi()
         {
-            this.LichSuCongTac = new HashSet<LichSuCongTac>();
-            this.NhanVien = new HashSet<NhanVien>();
+            this.LichSuCongTacs = new HashSet<LichSuCongTac>();
+            this.NhanViens = new HashSet<NhanVien>();
         }
     
-        public int MaDonVi { get; set; }
+        public int id { get; set; }
+        public string MaDonVi { get; set; }
         public string TenDonVi { get; set; }
-        public int MaLoai { get; set; }
+        public string MaLoai { get; set; }
         public string DiaChi { get; set; }
         public string DienThoai { get; set; }
         public System.DateTime NamThanhLap { get; set; }
         public string ChucNang { get; set; }
         public string NhiemVu { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LichSuCongTac> LichSuCongTac { get; set; }
         public virtual LoaiDonVi LoaiDonVi { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<NhanVien> NhanVien { get; set; }
+        public virtual ICollection<LichSuCongTac> LichSuCongTacs { get; set; }
+        public virtual ICollection<NhanVien> NhanViens { get; set; }
     }
 }

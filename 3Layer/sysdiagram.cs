@@ -12,17 +12,12 @@ namespace _3Layer
     using System;
     using System.Collections.Generic;
     
-    public partial class LuongThucTe
+    public partial class sysdiagram
     {
-        public int id { get; set; }
-        public string MaLuong { get; set; }
-        public string MaNV { get; set; }
-        public System.DateTime NgayLap { get; set; }
-        public double HeSoLuong { get; set; }
-        public decimal LuongCoBan { get; set; }
-        public Nullable<decimal> LuongThucTe1 { get; set; }
-        public string TrangThai { get; set; }
-    
-        public virtual NhanVien NhanVien { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

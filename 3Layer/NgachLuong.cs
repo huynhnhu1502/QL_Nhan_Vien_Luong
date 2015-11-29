@@ -14,21 +14,19 @@ namespace _3Layer
     
     public partial class NgachLuong
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NgachLuong()
         {
-            this.HeSoLuongPhuCap = new HashSet<HeSoLuongPhuCap>();
-            this.LichSuCongTac = new HashSet<LichSuCongTac>();
+            this.HeSoLuongPhuCaps = new HashSet<HeSoLuongPhuCap>();
+            this.LichSuCongTacs = new HashSet<LichSuCongTac>();
         }
     
+        public int id { get; set; }
         public string MaNgach { get; set; }
         public string TenNgach { get; set; }
         public double NienHan { get; set; }
         public string MoTa { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HeSoLuongPhuCap> HeSoLuongPhuCap { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LichSuCongTac> LichSuCongTac { get; set; }
+        public virtual ICollection<HeSoLuongPhuCap> HeSoLuongPhuCaps { get; set; }
+        public virtual ICollection<LichSuCongTac> LichSuCongTacs { get; set; }
     }
 }

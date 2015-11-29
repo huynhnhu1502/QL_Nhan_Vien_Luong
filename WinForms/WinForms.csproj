@@ -129,6 +129,17 @@
     <Compile Include="LoaiDonVi\ThemLoaiDV.Designer.cs">
       <DependentUpon>ThemLoaiDV.cs</DependentUpon>
     </Compile>
+    <Compile Include="QuanLyLuongDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyLuongDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ThongKeNhanVienTheoDonVi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThongKeNhanVienTheoDonVi.Designer.cs">
+      <DependentUpon>ThongKeNhanVienTheoDonVi.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DonVi\ChiTietDonVi.resx">
       <DependentUpon>ChiTietDonVi.cs</DependentUpon>
     </EmbeddedResource>
@@ -167,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoaiDonVi\ThemLoaiDV.resx">
       <DependentUpon>ThemLoaiDV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKeNhanVienTheoDonVi.resx">
+      <DependentUpon>ThongKeNhanVienTheoDonVi.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">
@@ -210,6 +224,17 @@
     </None>
     <None Include="QuanLyLuongDataSet2.xss">
       <DependentUpon>QuanLyLuongDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyLuongDataSet3.xsc">
+      <DependentUpon>QuanLyLuongDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyLuongDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyLuongDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLyLuongDataSet3.xss">
+      <DependentUpon>QuanLyLuongDataSet3.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

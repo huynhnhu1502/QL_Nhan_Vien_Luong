@@ -8,7 +8,7 @@ namespace _3Layer.DAL
 {
     class DAL_DonVi
     {
-        QuanLyLuongEntities1 db = new QuanLyLuongEntities1();
+        QuanLyLuongEntities db = new QuanLyLuongEntities();
         DonVi _donvi = new DonVi();
         public bool TimKiem(DonVi donvi)
         {

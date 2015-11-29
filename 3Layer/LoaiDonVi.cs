@@ -14,10 +14,16 @@ namespace _3Layer
     
     public partial class LoaiDonVi
     {
-        public int MaLoai { get; set; }
+        public LoaiDonVi()
+        {
+            this.DonVis = new HashSet<DonVi>();
+        }
+    
+        public int id { get; set; }
+        public string MaLoai { get; set; }
         public string TenLoai { get; set; }
         public string MoTa { get; set; }
     
-        public virtual DonVi DonVi { get; set; }
+        public virtual ICollection<DonVi> DonVis { get; set; }
     }
 }

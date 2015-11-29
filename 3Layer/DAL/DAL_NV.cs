@@ -9,7 +9,7 @@ namespace _3Layer.DAL
 
     public class DAL_NV
     {
-        QuanLyLuongEntities1 db = new QuanLyLuongEntities1();
+        QuanLyLuongEntities db = new QuanLyLuongEntities();
         NhanVien _nhanvien = new NhanVien();
         public bool Create(NhanVien nv)
         {
@@ -28,7 +28,8 @@ namespace _3Layer.DAL
                     NgayBatDau = nv.NgayBatDau,
                     NgayHuu = nv.NgayHuu,
                     NgayNghi = nv.NgayNghi,
-                    NgaySinh = nv.NgaySinh
+                    NgaySinh = nv.NgaySinh,
+                    CMND = nv.CMND
                 };
                 db.NhanViens.Add(them);
                 db.SaveChanges();

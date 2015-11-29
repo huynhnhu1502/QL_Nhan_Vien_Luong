@@ -13,7 +13,7 @@ namespace WinForms
 {
     public partial class LoaiDonVi : Form
     {
-        QuanLyLuongEntities1 _db = new QuanLyLuongEntities1();
+        QuanLyLuongEntities _db = new QuanLyLuongEntities();
         _3Layer.LoaiDonVi _loaidv = new _3Layer.LoaiDonVi();
         _3Layer.BIZ.BIZ_LoaiDonVi _bizloaidv = new _3Layer.BIZ.BIZ_LoaiDonVi();
         public LoaiDonVi()

@@ -13,7 +13,7 @@ namespace WinForms
 {
     public partial class ThemDonVi : Form
     {
-        QuanLyLuongEntities1 db = new QuanLyLuongEntities1();
+        QuanLyLuongEntities db = new QuanLyLuongEntities();
         _3Layer.BIZ.BIZ_DonVi _bizdonvi = new _3Layer.BIZ.BIZ_DonVi();
         _3Layer.DonVi _donvi = new _3Layer.DonVi();
         public ThemDonVi()

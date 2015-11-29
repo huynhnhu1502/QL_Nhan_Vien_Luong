@@ -16,7 +16,7 @@ namespace WinForms
     {
         _3Layer.NhanVien nv = new _3Layer.NhanVien();
         _3Layer.BIZ.BIZ_NV biz = new _3Layer.BIZ.BIZ_NV();
-        QuanLyLuongEntities1 _db11 = new QuanLyLuongEntities1();
+        QuanLyLuongEntities _db11 = new QuanLyLuongEntities();
         public ThemNV()
         {
             InitializeComponent();           
@@ -76,7 +76,8 @@ namespace WinForms
             nv.NgaySinh = Convert.ToDateTime(dateTimePicker1.Text.Trim());
             nv.NgayNghi = Convert.ToDateTime(dateTimePicker4.Text.Trim());
             nv.HinhAnh =System.IO.Path.GetFileName(ofd.FileName);
-            if (nv.HoTen == "" || nv.DanToc == "" || nv.DiaChi == "" || ofd.CheckFileExists == false || comboBox3.SelectedIndex == -1)
+            nv.CMND = txtCMND.Text.Trim();
+            if (nv.HoTen == "" || nv.DanToc == "" || nv.DiaChi == "" || ofd.CheckFileExists == false || comboBox3.SelectedIndex == -1 || nv.CMND == "")
             {
                 flag = false;
                 lbErr.Visible = true;
@@ -111,9 +112,8 @@ namespace WinForms
                 if (biz.Create(nv) == true)
                 {
                     MessageBox.Show("Đã thêm!");
-                    this.Close();
-                    Form a = new NhanVien();
-                    a.Show();
+                    autoMaNV();
+                    reset();
                 }
                 else
                 {
@@ -158,6 +158,30 @@ namespace WinForms
                 int idthemvao = idhientai + 1;
                 txtMaNV.Text = "NV00" + idthemvao;
             }
+        }
+
+        private void txtCMND_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+        (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+        public void reset()
+        {
+            txtHoTen.Text = "";
+            comboBox1.Text = "";
+            comboBox2.Text = "";
+            txtDT.Text = "";
+            txtDC.Text = "";
+            pictureBox1.Image = null;
         }
     }
 }

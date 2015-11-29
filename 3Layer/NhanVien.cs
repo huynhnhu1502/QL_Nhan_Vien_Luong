@@ -14,18 +14,18 @@ namespace _3Layer
     
     public partial class NhanVien
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NhanVien()
         {
-            this.LichSuCongTac = new HashSet<LichSuCongTac>();
-            this.LichSuChuyenBac = new HashSet<LichSuChuyenBac>();
-            this.LuongThucTe = new HashSet<LuongThucTe>();
+            this.LichSuChuyenBacs = new HashSet<LichSuChuyenBac>();
+            this.LichSuCongTacs = new HashSet<LichSuCongTac>();
+            this.LuongThucTes = new HashSet<LuongThucTe>();
         }
     
-        public int MaNV { get; set; }
+        public int id { get; set; }
+        public string MaNV { get; set; }
         public string HoTen { get; set; }
-        public int MaDonVi { get; set; }
-        public int MaChucVu { get; set; }
+        public string MaDonVi { get; set; }
+        public string MaChucVu { get; set; }
         public System.DateTime NgaySinh { get; set; }
         public string DanToc { get; set; }
         public string GioiTinh { get; set; }
@@ -38,11 +38,8 @@ namespace _3Layer
     
         public virtual ChucVu ChucVu { get; set; }
         public virtual DonVi DonVi { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LichSuCongTac> LichSuCongTac { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LichSuChuyenBac> LichSuChuyenBac { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LuongThucTe> LuongThucTe { get; set; }
+        public virtual ICollection<LichSuChuyenBac> LichSuChuyenBacs { get; set; }
+        public virtual ICollection<LichSuCongTac> LichSuCongTacs { get; set; }
+        public virtual ICollection<LuongThucTe> LuongThucTes { get; set; }
     }
 }

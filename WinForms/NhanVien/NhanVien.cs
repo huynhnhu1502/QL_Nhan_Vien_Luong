@@ -13,7 +13,7 @@ namespace WinForms
 {
     public partial class NhanVien : Form
     {
-        QuanLyLuongEntities1 db = new QuanLyLuongEntities1();
+        QuanLyLuongEntities db = new QuanLyLuongEntities();
         _3Layer.NhanVien nv = new _3Layer.NhanVien();
         _3Layer.BIZ.BIZ_NV biz = new _3Layer.BIZ.BIZ_NV();
         public NhanVien()
@@ -37,7 +37,7 @@ namespace WinForms
         {
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-            using (QuanLyLuongEntities1 db = new QuanLyLuongEntities1())
+            using (QuanLyLuongEntities db = new QuanLyLuongEntities())
             {
                 var result1 = from a in db.DonVis select a;
                 var result2 = from a in db.ChucVus select a;

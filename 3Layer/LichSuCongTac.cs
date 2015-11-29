@@ -14,10 +14,11 @@ namespace _3Layer
     
     public partial class LichSuCongTac
     {
-        public int MaCongTac { get; set; }
-        public int MaNV { get; set; }
-        public int MaDonVi { get; set; }
-        public int MaChucVu { get; set; }
+        public int id { get; set; }
+        public string MaCongTac { get; set; }
+        public string MaNV { get; set; }
+        public string MaDonVi { get; set; }
+        public string MaChucVu { get; set; }
         public string MaNgach { get; set; }
         public System.DateTime NgayLam { get; set; }
         public Nullable<System.DateTime> NgayChuyen { get; set; }

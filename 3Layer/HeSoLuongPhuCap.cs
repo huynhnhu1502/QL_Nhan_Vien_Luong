@@ -14,19 +14,18 @@ namespace _3Layer
     
     public partial class HeSoLuongPhuCap
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public HeSoLuongPhuCap()
         {
-            this.LichSuChuyenBac = new HashSet<LichSuChuyenBac>();
+            this.LichSuChuyenBacs = new HashSet<LichSuChuyenBac>();
         }
     
-        public int MaHeSo { get; set; }
+        public int id { get; set; }
+        public string MaHeSo { get; set; }
         public string TenHeSo { get; set; }
         public double HeSo { get; set; }
         public string MaNgach { get; set; }
     
         public virtual NgachLuong NgachLuong { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LichSuChuyenBac> LichSuChuyenBac { get; set; }
+        public virtual ICollection<LichSuChuyenBac> LichSuChuyenBacs { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace WinForms
 {
     public partial class ChiTietNV : Form
     {
-        QuanLyLuongEntities1 db = new QuanLyLuongEntities1();
+        QuanLyLuongEntities db = new QuanLyLuongEntities();
         public ChiTietNV(string data1, string data2)
         {
             InitializeComponent();

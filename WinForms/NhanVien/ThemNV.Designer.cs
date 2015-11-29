@@ -57,6 +57,8 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.btnThoat = new System.Windows.Forms.Button();
             this.lbErr = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtCMND = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyLuongDataSet1)).BeginInit();
             this.SuspendLayout();
@@ -136,7 +138,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(361, 161);
+            this.label8.Location = new System.Drawing.Point(361, 150);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(57, 13);
             this.label8.TabIndex = 9;
@@ -145,7 +147,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 313);
+            this.label9.Location = new System.Drawing.Point(338, 191);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(80, 13);
             this.label9.TabIndex = 10;
@@ -258,7 +260,7 @@
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(119, 306);
+            this.dateTimePicker2.Location = new System.Drawing.Point(439, 185);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker2.TabIndex = 32;
@@ -272,7 +274,7 @@
             // 
             // dateTimePicker4
             // 
-            this.dateTimePicker4.Location = new System.Drawing.Point(439, 158);
+            this.dateTimePicker4.Location = new System.Drawing.Point(439, 144);
             this.dateTimePicker4.Name = "dateTimePicker4";
             this.dateTimePicker4.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker4.TabIndex = 34;
@@ -309,12 +311,31 @@
             this.lbErr.TabIndex = 37;
             this.lbErr.Text = "label5";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(51, 299);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(39, 13);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "CMND";
+            // 
+            // txtCMND
+            // 
+            this.txtCMND.Location = new System.Drawing.Point(119, 296);
+            this.txtCMND.Name = "txtCMND";
+            this.txtCMND.Size = new System.Drawing.Size(154, 20);
+            this.txtCMND.TabIndex = 39;
+            this.txtCMND.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCMND_KeyPress);
+            // 
             // ThemNV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(672, 396);
+            this.Controls.Add(this.txtCMND);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.lbErr);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.comboBox3);
@@ -385,5 +406,7 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Label lbErr;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtCMND;
     }
 }
