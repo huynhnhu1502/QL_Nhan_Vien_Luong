@@ -44,5 +44,17 @@ namespace WinForms
             comboBox1.ValueMember = "MaDonVi";
             comboBox1.DisplayMember = "TenDonVi";
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var a = dataGridView1.Rows[e.RowIndex];
+            if (e.ColumnIndex == dataGridView1.Columns["DanhSach"].Index && e.RowIndex >= 0)
+            {
+                {
+                    DanhSachNhanVienTheoDonVi test = new DanhSachNhanVienTheoDonVi(a.Cells[1].Value.ToString());
+                    test.Show();
+                }
+            }
+        }
     }
 }

@@ -53,6 +53,17 @@ namespace WinForms
                 panel1.Controls.Add(ldv);
                 ldv.Show();
             }
+            if (listBox1.SelectedIndex == 3)
+            {
+                panel1.Visible = true;
+                panel1.Controls.Clear();
+                ThongKeNhanVienTheoDonVi tknv = new ThongKeNhanVienTheoDonVi();
+                tknv.TopLevel = false;
+                tknv.AutoScroll = true;
+                tknv.Size = panel1.Size;
+                panel1.Controls.Add(tknv);
+                tknv.Show();
+            }
         }
     }
 }

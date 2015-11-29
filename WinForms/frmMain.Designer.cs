@@ -38,7 +38,8 @@
             this.listBox1.Items.AddRange(new object[] {
             "Nhân viên",
             "Đơn vị",
-            "Loại đơn vị"});
+            "Loại đơn vị",
+            "Thống kê nhân viên theo đơn vị"});
             this.listBox1.Location = new System.Drawing.Point(12, 12);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(191, 472);

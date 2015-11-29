@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DanhSachNhanVienTheoDonVi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhSachNhanVienTheoDonVi.Designer.cs">
+      <DependentUpon>DanhSachNhanVienTheoDonVi.cs</DependentUpon>
+    </Compile>
     <Compile Include="DonVi\ChiTietDonVi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,12 +140,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyLuongDataSet3.xsd</DependentUpon>
     </Compile>
+    <Compile Include="QuanLyLuongDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyLuongDataSet4.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ThongKeNhanVienTheoDonVi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ThongKeNhanVienTheoDonVi.Designer.cs">
       <DependentUpon>ThongKeNhanVienTheoDonVi.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DanhSachNhanVienTheoDonVi.resx">
+      <DependentUpon>DanhSachNhanVienTheoDonVi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DonVi\ChiTietDonVi.resx">
       <DependentUpon>ChiTietDonVi.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,6 +249,17 @@
     </None>
     <None Include="QuanLyLuongDataSet3.xss">
       <DependentUpon>QuanLyLuongDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyLuongDataSet4.xsc">
+      <DependentUpon>QuanLyLuongDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyLuongDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyLuongDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLyLuongDataSet4.xss">
+      <DependentUpon>QuanLyLuongDataSet4.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

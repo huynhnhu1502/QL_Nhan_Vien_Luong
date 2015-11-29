@@ -30,23 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.quanLyLuongDataSet3 = new WinForms.QuanLyLuongDataSet3();
-            this.donViBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.donViTableAdapter = new WinForms.QuanLyLuongDataSet3TableAdapters.DonViTableAdapter();
             this.maDonViDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenDonViDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DanhSach = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.donViBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.quanLyLuongDataSet3 = new WinForms.QuanLyLuongDataSet3();
+            this.donViTableAdapter = new WinForms.QuanLyLuongDataSet3TableAdapters.DonViTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyLuongDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.donViBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanLyLuongDataSet3)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -62,6 +62,31 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin thống kê";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(100, 46);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(160, 21);
+            this.comboBox1.TabIndex = 6;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(632, 90);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Lọc";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(549, 46);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(158, 20);
+            this.textBox2.TabIndex = 4;
             // 
             // label1
             // 
@@ -81,23 +106,6 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Số lượng";
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(549, 46);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(158, 20);
-            this.textBox2.TabIndex = 4;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(632, 90);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Lọc";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AutoGenerateColumns = false;
@@ -112,28 +120,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(750, 198);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(100, 46);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 21);
-            this.comboBox1.TabIndex = 6;
-            // 
-            // quanLyLuongDataSet3
-            // 
-            this.quanLyLuongDataSet3.DataSetName = "QuanLyLuongDataSet3";
-            this.quanLyLuongDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // donViBindingSource
-            // 
-            this.donViBindingSource.DataMember = "DonVi";
-            this.donViBindingSource.DataSource = this.quanLyLuongDataSet3;
-            // 
-            // donViTableAdapter
-            // 
-            this.donViTableAdapter.ClearBeforeFill = true;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // maDonViDataGridViewTextBoxColumn
             // 
@@ -159,10 +146,25 @@
             this.DanhSach.HeaderText = "Danh sách nhân viên";
             this.DanhSach.Name = "DanhSach";
             // 
+            // donViBindingSource
+            // 
+            this.donViBindingSource.DataMember = "DonVi";
+            this.donViBindingSource.DataSource = this.quanLyLuongDataSet3;
+            // 
+            // quanLyLuongDataSet3
+            // 
+            this.quanLyLuongDataSet3.DataSetName = "QuanLyLuongDataSet3";
+            this.quanLyLuongDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // donViTableAdapter
+            // 
+            this.donViTableAdapter.ClearBeforeFill = true;
+            // 
             // ThongKeNhanVienTheoDonVi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(774, 423);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
@@ -172,8 +174,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyLuongDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.donViBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanLyLuongDataSet3)).EndInit();
             this.ResumeLayout(false);
 
         }
