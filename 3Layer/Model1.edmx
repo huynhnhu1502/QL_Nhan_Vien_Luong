@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QuanLyLuongModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QuanLyLuongModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ChucVu">
           <Key>
             <PropertyRef Name="MaChucVu" />
@@ -38,16 +38,6 @@
           <Property Name="HeSo" Type="float" Nullable="false" />
           <Property Name="MaNgach" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="LichSuChuyenBac">
-          <Key>
-            <PropertyRef Name="MaNV" />
-            <PropertyRef Name="MaHeSo" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MaNV" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="MaHeSo" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="NgayChuyen" Type="date" Nullable="false" />
-        </EntityType>
         <EntityType Name="LichSuCongTac">
           <Key>
             <PropertyRef Name="MaCongTac" />
@@ -60,6 +50,16 @@
           <Property Name="MaNgach" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="NgayLam" Type="date" Nullable="false" />
           <Property Name="NgayChuyen" Type="date" />
+        </EntityType>
+        <EntityType Name="LichSuChuyenBac">
+          <Key>
+            <PropertyRef Name="MaNV" />
+            <PropertyRef Name="MaHeSo" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaNV" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MaHeSo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NgayChuyen" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="LoaiDonVi">
           <Key>
@@ -146,30 +146,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_LichSuChuyenBac_HeSoLuongPhuCap">
-          <End Role="HeSoLuongPhuCap" Type="Self.HeSoLuongPhuCap" Multiplicity="1" />
-          <End Role="LichSuChuyenBac" Type="Self.LichSuChuyenBac" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HeSoLuongPhuCap">
-              <PropertyRef Name="MaHeSo" />
-            </Principal>
-            <Dependent Role="LichSuChuyenBac">
-              <PropertyRef Name="MaHeSo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LichSuChuyenBac_NhanVien">
-          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
-          <End Role="LichSuChuyenBac" Type="Self.LichSuChuyenBac" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhanVien">
-              <PropertyRef Name="MaNV" />
-            </Principal>
-            <Dependent Role="LichSuChuyenBac">
-              <PropertyRef Name="MaNV" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_LichSuCongTac_ChucVu">
           <End Role="ChucVu" Type="Self.ChucVu" Multiplicity="1" />
           <End Role="LichSuCongTac" Type="Self.LichSuCongTac" Multiplicity="*" />
@@ -214,6 +190,30 @@
               <PropertyRef Name="MaNV" />
             </Principal>
             <Dependent Role="LichSuCongTac">
+              <PropertyRef Name="MaNV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LichSuChuyenBac_HeSoLuongPhuCap">
+          <End Role="HeSoLuongPhuCap" Type="Self.HeSoLuongPhuCap" Multiplicity="1" />
+          <End Role="LichSuChuyenBac" Type="Self.LichSuChuyenBac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HeSoLuongPhuCap">
+              <PropertyRef Name="MaHeSo" />
+            </Principal>
+            <Dependent Role="LichSuChuyenBac">
+              <PropertyRef Name="MaHeSo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LichSuChuyenBac_NhanVien">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="LichSuChuyenBac" Type="Self.LichSuChuyenBac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="MaNV" />
+            </Principal>
+            <Dependent Role="LichSuChuyenBac">
               <PropertyRef Name="MaNV" />
             </Dependent>
           </ReferentialConstraint>
@@ -289,8 +289,8 @@
           <EntitySet Name="ChucVu" EntityType="Self.ChucVu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DonVi" EntityType="Self.DonVi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HeSoLuongPhuCap" EntityType="Self.HeSoLuongPhuCap" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LichSuChuyenBac" EntityType="Self.LichSuChuyenBac" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LichSuCongTac" EntityType="Self.LichSuCongTac" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LichSuChuyenBac" EntityType="Self.LichSuChuyenBac" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LoaiDonVi" EntityType="Self.LoaiDonVi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LuongThucTe" EntityType="Self.LuongThucTe" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NgachLuong" EntityType="Self.NgachLuong" Schema="dbo" store:Type="Tables" />
@@ -303,14 +303,6 @@
           <AssociationSet Name="FK_HeSoLuongPhuCap_NgachLuong" Association="Self.FK_HeSoLuongPhuCap_NgachLuong">
             <End Role="NgachLuong" EntitySet="NgachLuong" />
             <End Role="HeSoLuongPhuCap" EntitySet="HeSoLuongPhuCap" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LichSuChuyenBac_HeSoLuongPhuCap" Association="Self.FK_LichSuChuyenBac_HeSoLuongPhuCap">
-            <End Role="HeSoLuongPhuCap" EntitySet="HeSoLuongPhuCap" />
-            <End Role="LichSuChuyenBac" EntitySet="LichSuChuyenBac" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LichSuChuyenBac_NhanVien" Association="Self.FK_LichSuChuyenBac_NhanVien">
-            <End Role="NhanVien" EntitySet="NhanVien" />
-            <End Role="LichSuChuyenBac" EntitySet="LichSuChuyenBac" />
           </AssociationSet>
           <AssociationSet Name="FK_LichSuCongTac_ChucVu" Association="Self.FK_LichSuCongTac_ChucVu">
             <End Role="ChucVu" EntitySet="ChucVu" />
@@ -328,6 +320,14 @@
             <End Role="NhanVien" EntitySet="NhanVien" />
             <End Role="LichSuCongTac" EntitySet="LichSuCongTac" />
           </AssociationSet>
+          <AssociationSet Name="FK_LichSuChuyenBac_HeSoLuongPhuCap" Association="Self.FK_LichSuChuyenBac_HeSoLuongPhuCap">
+            <End Role="HeSoLuongPhuCap" EntitySet="HeSoLuongPhuCap" />
+            <End Role="LichSuChuyenBac" EntitySet="LichSuChuyenBac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LichSuChuyenBac_NhanVien" Association="Self.FK_LichSuChuyenBac_NhanVien">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="LichSuChuyenBac" EntitySet="LichSuChuyenBac" />
+          </AssociationSet>
           <AssociationSet Name="FK_LuongThucTe_NhanVien" Association="Self.FK_LuongThucTe_NhanVien">
             <End Role="NhanVien" EntitySet="NhanVien" />
             <End Role="LuongThucTe" EntitySet="LuongThucTe" />
@@ -341,8 +341,7 @@
             <End Role="NhanVien" EntitySet="NhanVien" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QuanLyLuongModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
