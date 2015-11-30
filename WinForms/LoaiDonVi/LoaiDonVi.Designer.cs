@@ -39,19 +39,19 @@
             this.txtMaLoai = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maLoaiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenLoaiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.moTaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sua = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.loaiDonViBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.quanLyLuongDataSet2 = new WinForms.QuanLyLuongDataSet2();
-            this.loaiDonViTableAdapter = new WinForms.QuanLyLuongDataSet2TableAdapters.LoaiDonViTableAdapter();
             this.label3 = new System.Windows.Forms.Label();
+            this.moTaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenLoaiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maLoaiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quanLyLuongDataSet2 = new WinForms.QuanLyLuongDataSet2();
+            this.loaiDonViBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.loaiDonViTableAdapter = new WinForms.QuanLyLuongDataSet2TableAdapters.LoaiDonViTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loaiDonViBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyLuongDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loaiDonViBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -78,7 +78,7 @@
             this.lbErr.ForeColor = System.Drawing.Color.Red;
             this.lbErr.Location = new System.Drawing.Point(310, 16);
             this.lbErr.Name = "lbErr";
-            this.lbErr.Size = new System.Drawing.Size(51, 16);
+            this.lbErr.Size = new System.Drawing.Size(52, 16);
             this.lbErr.TabIndex = 8;
             this.lbErr.Text = "label4";
             // 
@@ -162,51 +162,11 @@
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // maLoaiDataGridViewTextBoxColumn
-            // 
-            this.maLoaiDataGridViewTextBoxColumn.DataPropertyName = "MaLoai";
-            this.maLoaiDataGridViewTextBoxColumn.HeaderText = "MaLoai";
-            this.maLoaiDataGridViewTextBoxColumn.Name = "maLoaiDataGridViewTextBoxColumn";
-            // 
-            // tenLoaiDataGridViewTextBoxColumn
-            // 
-            this.tenLoaiDataGridViewTextBoxColumn.DataPropertyName = "TenLoai";
-            this.tenLoaiDataGridViewTextBoxColumn.HeaderText = "TenLoai";
-            this.tenLoaiDataGridViewTextBoxColumn.Name = "tenLoaiDataGridViewTextBoxColumn";
-            // 
-            // moTaDataGridViewTextBoxColumn
-            // 
-            this.moTaDataGridViewTextBoxColumn.DataPropertyName = "MoTa";
-            this.moTaDataGridViewTextBoxColumn.HeaderText = "MoTa";
-            this.moTaDataGridViewTextBoxColumn.Name = "moTaDataGridViewTextBoxColumn";
-            // 
             // Sua
             // 
             this.Sua.HeaderText = "Sửa";
             this.Sua.Name = "Sua";
             this.Sua.ReadOnly = true;
-            // 
-            // loaiDonViBindingSource
-            // 
-            this.loaiDonViBindingSource.DataMember = "LoaiDonVi";
-            this.loaiDonViBindingSource.DataSource = this.quanLyLuongDataSet2;
-            // 
-            // quanLyLuongDataSet2
-            // 
-            this.quanLyLuongDataSet2.DataSetName = "QuanLyLuongDataSet2";
-            this.quanLyLuongDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // loaiDonViTableAdapter
-            // 
-            this.loaiDonViTableAdapter.ClearBeforeFill = true;
             // 
             // label3
             // 
@@ -217,6 +177,46 @@
             this.label3.Size = new System.Drawing.Size(183, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "THÔNG TIN CHI TIẾT";
+            // 
+            // moTaDataGridViewTextBoxColumn
+            // 
+            this.moTaDataGridViewTextBoxColumn.DataPropertyName = "MoTa";
+            this.moTaDataGridViewTextBoxColumn.HeaderText = "MoTa";
+            this.moTaDataGridViewTextBoxColumn.Name = "moTaDataGridViewTextBoxColumn";
+            // 
+            // tenLoaiDataGridViewTextBoxColumn
+            // 
+            this.tenLoaiDataGridViewTextBoxColumn.DataPropertyName = "TenLoai";
+            this.tenLoaiDataGridViewTextBoxColumn.HeaderText = "TenLoai";
+            this.tenLoaiDataGridViewTextBoxColumn.Name = "tenLoaiDataGridViewTextBoxColumn";
+            // 
+            // maLoaiDataGridViewTextBoxColumn
+            // 
+            this.maLoaiDataGridViewTextBoxColumn.DataPropertyName = "MaLoai";
+            this.maLoaiDataGridViewTextBoxColumn.HeaderText = "MaLoai";
+            this.maLoaiDataGridViewTextBoxColumn.Name = "maLoaiDataGridViewTextBoxColumn";
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // quanLyLuongDataSet2
+            // 
+            this.quanLyLuongDataSet2.DataSetName = "QuanLyLuongDataSet2";
+            this.quanLyLuongDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // loaiDonViBindingSource
+            // 
+            this.loaiDonViBindingSource.DataMember = "LoaiDonVi";
+            this.loaiDonViBindingSource.DataSource = this.quanLyLuongDataSet2;
+            // 
+            // loaiDonViTableAdapter
+            // 
+            this.loaiDonViTableAdapter.ClearBeforeFill = true;
             // 
             // LoaiDonVi
             // 
@@ -234,8 +234,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loaiDonViBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyLuongDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loaiDonViBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,15 +252,15 @@
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private QuanLyLuongDataSet2 quanLyLuongDataSet2;
-        private System.Windows.Forms.BindingSource loaiDonViBindingSource;
-        private QuanLyLuongDataSet2TableAdapters.LoaiDonViTableAdapter loaiDonViTableAdapter;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbErr;
+        private System.Windows.Forms.DataGridViewLinkColumn Sua;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn maLoaiDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenLoaiDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn moTaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewLinkColumn Sua;
+        private QuanLyLuongDataSet2 quanLyLuongDataSet2;
+        private System.Windows.Forms.BindingSource loaiDonViBindingSource;
+        private QuanLyLuongDataSet2TableAdapters.LoaiDonViTableAdapter loaiDonViTableAdapter;
     }
 }

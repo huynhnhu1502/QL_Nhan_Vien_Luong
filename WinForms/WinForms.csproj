@@ -102,11 +102,21 @@
     <Compile Include="NhanVien\ThemNV.Designer.cs">
       <DependentUpon>ThemNV.cs</DependentUpon>
     </Compile>
+    <Compile Include="QuanLyLuongDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyLuongDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DonVi\ThemDonVi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DonVi\ThemDonVi.Designer.cs">
       <DependentUpon>ThemDonVi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyLuongDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyLuongDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="LoaiDonVi\SuaLoaiDV.cs">
       <SubType>Form</SubType>
@@ -120,17 +130,12 @@
     <Compile Include="LoaiDonVi\ThemLoaiDV.Designer.cs">
       <DependentUpon>ThemLoaiDV.cs</DependentUpon>
     </Compile>
-    <Compile Include="QuanLyLuongDataSet11.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyLuongDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="QuanLyLuongDataSet21.Designer.cs">
+    <Compile Include="QuanLyLuongDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyLuongDataSet2.xsd</DependentUpon>
     </Compile>
-    <Compile Include="QuanLyLuongDataSet31.Designer.cs">
+    <Compile Include="QuanLyLuongDataSet3.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyLuongDataSet3.xsd</DependentUpon>
@@ -139,11 +144,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyLuongDataSet4.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="QuanLyLuongDataSet5.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyLuongDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="ThongKeNhanVienTheoDonVi.cs">
       <SubType>Form</SubType>
@@ -211,7 +211,7 @@
     </None>
     <None Include="QuanLyLuongDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLyLuongDataSet5.Designer.cs</LastGenOutput>
+      <LastGenOutput>QuanLyLuongDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="QuanLyLuongDataSet.xss">
@@ -222,7 +222,7 @@
     </None>
     <None Include="QuanLyLuongDataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLyLuongDataSet11.Designer.cs</LastGenOutput>
+      <LastGenOutput>QuanLyLuongDataSet1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="QuanLyLuongDataSet1.xss">
@@ -233,7 +233,7 @@
     </None>
     <None Include="QuanLyLuongDataSet2.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLyLuongDataSet21.Designer.cs</LastGenOutput>
+      <LastGenOutput>QuanLyLuongDataSet2.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="QuanLyLuongDataSet2.xss">
@@ -244,7 +244,7 @@
     </None>
     <None Include="QuanLyLuongDataSet3.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLyLuongDataSet31.Designer.cs</LastGenOutput>
+      <LastGenOutput>QuanLyLuongDataSet3.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="QuanLyLuongDataSet3.xss">

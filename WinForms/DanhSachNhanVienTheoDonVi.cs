@@ -31,6 +31,8 @@ namespace WinForms
         {
             // TODO: This line of code loads data into the 'quanLyLuongDataSet4.NhanVien' table. You can move, or remove it, as needed.
             this.nhanVienTableAdapter.Fill(this.quanLyLuongDataSet4.NhanVien);
+            // TODO: This line of code loads data into the 'quanLyLuongDataSet4.NhanVien' table. You can move, or remove it, as needed.
+            this.nhanVienTableAdapter.Fill(this.quanLyLuongDataSet4.NhanVien);
 
         }
     }

@@ -36,17 +36,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.quanLyLuongDataSet3 = new WinForms.QuanLyLuongDataSet3();
+            this.donViBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.donViTableAdapter = new WinForms.QuanLyLuongDataSet3TableAdapters.DonViTableAdapter();
             this.maDonViDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenDonViDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DanhSach = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.donViBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.quanLyLuongDataSet3 = new WinForms.QuanLyLuongDataSet3();
-            this.donViTableAdapter = new WinForms.QuanLyLuongDataSet3TableAdapters.DonViTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.donViBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyLuongDataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.donViBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -122,12 +122,25 @@
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
+            // quanLyLuongDataSet3
+            // 
+            this.quanLyLuongDataSet3.DataSetName = "QuanLyLuongDataSet3";
+            this.quanLyLuongDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // donViBindingSource
+            // 
+            this.donViBindingSource.DataMember = "DonVi";
+            this.donViBindingSource.DataSource = this.quanLyLuongDataSet3;
+            // 
+            // donViTableAdapter
+            // 
+            this.donViTableAdapter.ClearBeforeFill = true;
+            // 
             // maDonViDataGridViewTextBoxColumn
             // 
             this.maDonViDataGridViewTextBoxColumn.DataPropertyName = "MaDonVi";
             this.maDonViDataGridViewTextBoxColumn.HeaderText = "MaDonVi";
             this.maDonViDataGridViewTextBoxColumn.Name = "maDonViDataGridViewTextBoxColumn";
-            this.maDonViDataGridViewTextBoxColumn.Visible = false;
             // 
             // tenDonViDataGridViewTextBoxColumn
             // 
@@ -146,20 +159,6 @@
             this.DanhSach.HeaderText = "Danh sách nhân viên";
             this.DanhSach.Name = "DanhSach";
             // 
-            // donViBindingSource
-            // 
-            this.donViBindingSource.DataMember = "DonVi";
-            this.donViBindingSource.DataSource = this.quanLyLuongDataSet3;
-            // 
-            // quanLyLuongDataSet3
-            // 
-            this.quanLyLuongDataSet3.DataSetName = "QuanLyLuongDataSet3";
-            this.quanLyLuongDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // donViTableAdapter
-            // 
-            this.donViTableAdapter.ClearBeforeFill = true;
-            // 
             // ThongKeNhanVienTheoDonVi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,8 +173,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.donViBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyLuongDataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.donViBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
