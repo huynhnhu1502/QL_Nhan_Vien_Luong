@@ -112,5 +112,6 @@ namespace WinForms
                 dataGridView1.Rows[i].Cells[5].Value = "Xem chi tiết";
             }
         }
+
     }
 }

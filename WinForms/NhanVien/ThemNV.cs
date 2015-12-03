@@ -86,27 +86,27 @@ namespace WinForms
             if (flag)
             {
                 nv.GioiTinh = comboBox3.SelectedItem.ToString();
-                if (!Directory.Exists(@"~/Image"))
+                if (!Directory.Exists(@"../../../Webform/Images"))
                 {
-                    Directory.CreateDirectory(@"~/Image");
-                    if (!File.Exists(@"~/Image/" + ofd.SafeFileName))
+                    Directory.CreateDirectory(@"../../../Webform/Images");
+                    if (!File.Exists(@"../../../Webform/Images/" + ofd.SafeFileName))
                     {
-                        File.Copy(ofd.FileName, @"~/Image/" + ofd.SafeFileName);
+                        File.Copy(ofd.FileName, @"../../../Webform/Images/" + ofd.SafeFileName);
                     }
                     else
                     {
-                        File.Copy(ofd.FileName, @"~/Image/" + ofd.SafeFileName + RandomString(4) + ".jpg");
+                        File.Copy(ofd.FileName, @"../../../Webform/Images/" + ofd.SafeFileName + RandomString(4) + ".jpg");
                     }
                 }
                 else
                 {
-                    if (!File.Exists(@"~/Image/" + ofd.SafeFileName))
+                    if (!File.Exists(@"../../../Webform/Images/" + ofd.SafeFileName))
                     {
-                        File.Copy(ofd.FileName, @"~/Image/" + ofd.SafeFileName);
+                        File.Copy(ofd.FileName, @"../../../Webform/Images/" + ofd.SafeFileName);
                     }
                     else
                     {
-                        File.Copy(ofd.FileName, @"~/Image/" + ofd.SafeFileName + RandomString(4) + ".jpg");
+                        File.Copy(ofd.FileName, @"../../../Webform/Images/" + ofd.SafeFileName + RandomString(4) + ".jpg");
                     }
                 }
                 if (biz.Create(nv) == true)

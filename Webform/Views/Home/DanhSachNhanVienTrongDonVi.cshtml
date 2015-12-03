@@ -1,0 +1,87 @@
+﻿@model IEnumerable<_3Layer.NhanVien>
+    @using _3Layer;
+      @{QuanLyLuongEntities db = new QuanLyLuongEntities();
+        string tenchucvu;
+        }
+
+@{
+    ViewBag.Title = "DanhSachNhanVienTrongDonVi";
+}
+
+<h2>Dach sách nhân viên trong đơn vị</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Mã nhân viên
+        </th>
+        <th>
+            Họ và tên
+        </th>
+        <th>
+            Tên đơn vị
+        </th>
+        <th>
+            Chức vụ
+        </th>
+        <th>
+            Ngày sinh
+        </th>
+        <th>
+            Dân tộc
+        </th>
+        <th>
+           Giới tính
+        </th>
+        <th>
+            CMND
+        </th>
+        <th>
+            Địa chỉ
+        </th>
+        <th>
+            Hình ảnh
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaNV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoTen)
+        </td>
+        @{var tendonvi = db.DonVis.FirstOrDefault(a=>a.MaDonVi.Equals(item.MaDonVi));}
+        <td>
+            @tendonvi.TenDonVi
+        </td>
+        @{var chucvu = db.ChucVus.FirstOrDefault(a => a.MaChucVu.Equals(item.MaChucVu));
+          }
+        <td>
+            @chucvu.TenChucVu
+        </td>
+        @{var ngaysinh = db.NhanViens.First(a => a.MaNV.Equals(item.MaNV));}
+        <td>
+            @ngaysinh.NgaySinh.ToShortDateString()
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DanToc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GioiTinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CMND)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChi)
+        </td>
+        <td>
+            <img src="../../Images/@Html.DisplayFor(modelItem => item.HinhAnh)" width="128" height="98"/>
+        </td>
+    </tr>
+}
+
+</table>
