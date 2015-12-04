@@ -9,7 +9,7 @@
 }
 
 <h2>Dach sách nhân viên trong đơn vị</h2>
-
+                      @Html.ActionLink("Xuất dữ liệu ra Excel", "ExportDataNVTrongDV", new { MaDonVi = @Request.QueryString["MaDonVi"] })
 <table class="table">
     <tr>
         <th>

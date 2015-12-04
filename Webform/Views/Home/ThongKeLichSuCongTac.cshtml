@@ -1,0 +1,43 @@
+﻿@model IEnumerable<_3Layer.NhanVien>
+    @using _3Layer;
+    @{QuanLyLuongEntities db = new QuanLyLuongEntities();
+      int countsl;
+      }
+    
+
+@{
+    ViewBag.Title = "ThongKeLichSuCongTac";
+}
+
+<h2>Thống kê lịch sử công tác của một nhân viên</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Mã nhân viên
+        </th>
+        <th>
+            Họ và tên
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaNV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoTen)
+        </td>
+        @{
+    countsl = (from u in db.LichSuCongTacs where u.MaNV.Equals(item.MaNV) select u).Count();
+        }
+        <td>@countsl</td>
+        <td>
+            @Html.ActionLink("Chi tiết", "ChiTietCongTac", new { MaNV = item.MaNV })
+        </td>
+    </tr>
+}
+
+</table>

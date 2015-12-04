@@ -217,6 +217,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\DanhSachNhanVienTrongDonVi.cshtml" />
     <Content Include="Views\Home\ThongKeNhanVienTrongDonVi.cshtml" />
+    <Content Include="Views\Home\ThongKeLichSuCongTac.cshtml" />
+    <Content Include="Views\Home\ChiTietCongTac.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
