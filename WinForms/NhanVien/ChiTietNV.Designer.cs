@@ -54,12 +54,14 @@
             this.lbNgayNghi = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(388, 242);
+            this.pictureBox1.Location = new System.Drawing.Point(386, 256);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(272, 150);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -92,9 +94,9 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(393, 80);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(74, 13);
+            this.label10.Size = new System.Drawing.Size(53, 13);
             this.label10.TabIndex = 40;
-            this.label10.Text = "Mã Đơn Vị :";
+            this.label10.Text = "Đơn Vị :";
             // 
             // label9
             // 
@@ -110,7 +112,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(393, 197);
+            this.label8.Location = new System.Drawing.Point(393, 224);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(74, 13);
             this.label8.TabIndex = 38;
@@ -120,7 +122,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(393, 157);
+            this.label7.Location = new System.Drawing.Point(393, 184);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(94, 13);
             this.label7.TabIndex = 37;
@@ -162,9 +164,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(393, 118);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 13);
+            this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 33;
-            this.label2.Text = "Mã Chức Vụ :";
+            this.label2.Text = "Chức Vụ :";
             // 
             // label1
             // 
@@ -179,7 +181,7 @@
             // 
             // btnDong
             // 
-            this.btnDong.Location = new System.Drawing.Point(314, 406);
+            this.btnDong.Location = new System.Drawing.Point(315, 426);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(75, 23);
             this.btnDong.TabIndex = 52;
@@ -262,7 +264,7 @@
             // lbNgayBD
             // 
             this.lbNgayBD.AutoSize = true;
-            this.lbNgayBD.Location = new System.Drawing.Point(508, 157);
+            this.lbNgayBD.Location = new System.Drawing.Point(508, 184);
             this.lbNgayBD.Name = "lbNgayBD";
             this.lbNgayBD.Size = new System.Drawing.Size(41, 13);
             this.lbNgayBD.TabIndex = 61;
@@ -280,7 +282,7 @@
             // lbNgayNghi
             // 
             this.lbNgayNghi.AutoSize = true;
-            this.lbNgayNghi.Location = new System.Drawing.Point(508, 197);
+            this.lbNgayNghi.Location = new System.Drawing.Point(508, 224);
             this.lbNgayNghi.Name = "lbNgayNghi";
             this.lbNgayNghi.Size = new System.Drawing.Size(41, 13);
             this.lbNgayNghi.TabIndex = 63;
@@ -306,12 +308,33 @@
             this.label13.TabIndex = 65;
             this.label13.Text = "label13";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(508, 153);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(41, 13);
+            this.label14.TabIndex = 67;
+            this.label14.Text = "label21";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(393, 153);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(48, 13);
+            this.label15.TabIndex = 66;
+            this.label15.Text = "Ngạch:";
+            // 
             // ChiTietNV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(708, 451);
+            this.ClientSize = new System.Drawing.Size(708, 461);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label15);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lbNgayNghi);
@@ -375,5 +398,7 @@
         private System.Windows.Forms.Label lbNgayNghi;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
     }
 }
