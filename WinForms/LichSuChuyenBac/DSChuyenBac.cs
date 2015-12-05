@@ -38,7 +38,7 @@ namespace WinForms.LichSuChuyenBac
             dtp2.Format = DateTimePickerFormat.Custom;
             
 
-            dataGridView1.DataSource = DAL_LichSuChuyenBac.listall();                
+            dataGridView1.DataSource = _bizlichsucb.BIZLayDS();                
         }
         
         private void dtp1_ValueChanged(Object sender, EventArgs e)
@@ -76,13 +76,12 @@ namespace WinForms.LichSuChuyenBac
              
                 else
 
-                dataGridView1.DataSource = DAL_LichSuChuyenBac.timkiem(ten, ngay1, ngay2);
+                dataGridView1.DataSource = _bizlichsucb.BIZTimLSChuyenBac(ten, ngay1, ngay2);
                  if(dataGridView1.RowCount == 0)
                 {
                     MessageBox.Show("Không tìm thấy dữ liệu cần tìm !!");
-                }
+                }          
 
-                
             }
                    
         }
@@ -108,8 +107,8 @@ namespace WinForms.LichSuChuyenBac
             try
             {
                 txtttma.Text = dataGridView1.Rows[VT].Cells[1].Value.ToString();
-                txtttngach.Text = dataGridView1.Rows[VT].Cells[5].Value.ToString();
-                txttths.Text = dataGridView1.Rows[VT].Cells[8].Value.ToString();
+                txtttngach.Text = dataGridView1.Rows[VT].Cells[6].Value.ToString();
+                txttths.Text = dataGridView1.Rows[VT].Cells[5].Value.ToString();
                 
             }
             catch (Exception e) { }

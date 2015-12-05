@@ -37,11 +37,13 @@ namespace _3Layer.DAL
             
         }
 
-        public static dynamic timkiem(string tim, string tungay, string denngay)
+        public List<LichSuChuyenBac> timkiem(string tim, string tungay, string denngay)
         {
             QuanLyLuongEntities db = new QuanLyLuongEntities();
             List<LichSuChuyenBac> KQTim = new List<LichSuChuyenBac>();
-            if (tim != "")
+            try
+            {
+                if (tim != "")
             {
                 DateTime ngaytu = Convert.ToDateTime(tungay);
                 DateTime ngayden = Convert.ToDateTime(denngay);
@@ -96,10 +98,15 @@ namespace _3Layer.DAL
                 }
           
                 return KQTim;
-                
-            
-            
-            
+        }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
         }
         public bool themchuyenbac(LichSuChuyenBac lichsuchuyenbac)
         {
@@ -115,7 +122,24 @@ namespace _3Layer.DAL
                 return false;
             }
             return true;
-
         }
+
+        public List<NgachLuong> LayNgach()
+        {
+            QuanLyLuongEntities db = new QuanLyLuongEntities();
+            try
+            {
+                List<NgachLuong> list = new List<NgachLuong>();
+                var ds = from a in db.NgachLuongs select a;
+                list = ds.ToList();
+                return list;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 }

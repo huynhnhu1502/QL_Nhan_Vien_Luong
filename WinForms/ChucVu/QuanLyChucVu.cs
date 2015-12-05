@@ -26,7 +26,7 @@ namespace WinForms.ChucVu
         public void load()
         {
 
-            dataGridView1.DataSource = DAL_ChucVu.listall();
+            dataGridView1.DataSource = _bizchucvu.DSChucVu();
             
             
         }     
@@ -90,7 +90,7 @@ namespace WinForms.ChucVu
                 
                 if (_bizchucvu.TimKiem(_chucvu) == true)
                 {
-                    var result = (from u in db.ChucVus where u.MaChucVu.Contains(_chucvu.MaChucVu) && u.TenChucVu.Contains(_chucvu.TenChucVu) &&u.HeSoCV==_chucvu.HeSoCV select u).ToList();
+                    var result = (from u in db.ChucVus where u.MaChucVu.Contains(_chucvu.MaChucVu) && u.TenChucVu.Contains(_chucvu.TenChucVu) &&u.HeSoCV ==_chucvu.HeSoCV select u).ToList();
                     dataGridView1.DataSource = result;
                 }
                    
@@ -119,6 +119,7 @@ namespace WinForms.ChucVu
             txttimma.Text = "";
             txttimten.Text = "";
             txttimhs.Text = "";
+            load();
         }
 
         private void QuanLyChucVu_Load(object sender, EventArgs e)

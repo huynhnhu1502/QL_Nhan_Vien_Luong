@@ -30,7 +30,7 @@ namespace WinForms.LichSuChuyenBac
         {
             cbngach.DropDownStyle = ComboBoxStyle.DropDownList;
             cbhs.DropDownStyle = ComboBoxStyle.DropDownList;
-            var danhsach1 = from a in db.NgachLuongs select a;
+            var danhsach1 = _bizchucvu.BIZLayNgach();
             cbngach.DataSource = danhsach1.ToList();
             cbngach.ValueMember = "MaNgach";
             cbngach.DisplayMember = "TenNgach";
@@ -63,30 +63,31 @@ namespace WinForms.LichSuChuyenBac
         private void btluu_Click(object sender, EventArgs e)
         {
 
-            //var cv = db.LichSuChuyenBacs.ToList();
-            //foreach (var item in cv)
-            //{
-            //    if (item.MaNV == txtmanv.Text && item.MaHeSo == cbhs.SelectedValue.ToString() && item.NgayChuyen <= )
-            //    {
-            //        MessageBox.Show("Tên chức vụ bị trùng");
-            //        return;
-            //    }
-            //}
+            var cv = db.NhanViens.ToList();
+            foreach (var item in cv)
+            {
+                if (item.MaNV == txtmanv.Text && item.MaHeSo == cbhs.SelectedValue.ToString() && item.MaNgach == cbngach.SelectedValue.ToString())
+                {
+                    MessageBox.Show("Nhân viên đang đạt hệ số này!!");
+                    return;
+                }
+            }
 
             _lichsuchuyenbac.MaNV = txtmanv.Text.Trim();
-            _lichsuchuyenbac.Mangach = cbngach.SelectedValue.ToString();
-            _lichsuchuyenbac.MaHeSo = cbhs.SelectedValue.ToString();
-            _lichsuchuyenbac.NgayChuyen = Convert.ToDateTime(dateTimePicker1.Text.Trim());
+                _lichsuchuyenbac.Mangach = cbngach.SelectedValue.ToString();
+                _lichsuchuyenbac.MaHeSo = cbhs.SelectedValue.ToString();
+                _lichsuchuyenbac.NgayChuyen = Convert.ToDateTime(dateTimePicker1.Text.Trim());
 
-            if (_bizchucvu.ThemLichSu(_lichsuchuyenbac) == true)
-            {
-                MessageBox.Show("Thêm thành công");
+                if (_bizchucvu.ThemLichSu(_lichsuchuyenbac) == true)
+                {
+                    MessageBox.Show("Thêm thành công");
 
-            }
-            else
-            {
-                MessageBox.Show("Thêm thất bại");
-            }
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại");
+                }
+            
         }
     }
     

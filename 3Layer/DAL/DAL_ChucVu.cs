@@ -16,6 +16,7 @@ namespace _3Layer.DAL
             List<ChucVu> list = new List<ChucVu>();
             list = (from n in model.ChucVus select n).ToList();
             return list;
+           
         }
 
         //Tim chuc vu
