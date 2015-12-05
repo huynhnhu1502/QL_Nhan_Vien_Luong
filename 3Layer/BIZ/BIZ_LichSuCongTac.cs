@@ -49,5 +49,15 @@ namespace _3Layer.BIZ
         {
             return dalLSCongTac.KiemTraMaNV(maNhap);
         }
+
+        public NhanVien BIZTimNhanVien(string maTim)
+        {
+            return dalLSCongTac.TimNhanVien(maTim);
+        }
+
+        public bool BIZCapNhatNhanVien(NhanVien nhanVienMoi)
+        {
+            return dalLSCongTac.CapNhatNhanVien(nhanVienMoi);
+        }
     }
 }

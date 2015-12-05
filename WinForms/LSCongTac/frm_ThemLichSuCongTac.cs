@@ -33,10 +33,15 @@ namespace WinForms.LSCongTac
             //string ngayChuyen = dateNgayChuyen.Value.ToString("dd-mm-yyyy");
             DateTime ngayChuyen = dateNgayChuyen.Value.Date;
 
+            
             //lấy mã nhân viên từ form -- kiểm tra nhập if(txtManv.trim() == "") thông báo phải nhập
             if(txtMaNV.Text.Trim() == "")
             {
                 MessageBox.Show("Phải nhập mã nhân viên!");
+            }
+            else  if(KiemTraNgayChuyen() == false)
+            {
+                MessageBox.Show("Ngày chuyển phải lớn hơn ngày làm và ngày hiện tại!");
             }
             else
             {
@@ -54,6 +59,14 @@ namespace WinForms.LSCongTac
                     if (bizLSCongTac.BIZThemLSCongTac(lsct) == true)
                     {
                         MessageBox.Show("Thêm thành công!");
+
+                        //cập nhật lại thông tin nhân viên
+                        _3Layer.NhanVien nvCapNhat = bizLSCongTac.BIZTimNhanVien(maNV);
+                            //gán vào thuộc tính của nhân viên tìm được
+                        nvCapNhat.MaDonVi = donVi.MaDonVi;
+                        nvCapNhat.MaChucVu = chucVu.MaChucVu;
+                        bizLSCongTac.BIZCapNhatNhanVien(nvCapNhat);
+
                         //thêm thành công thì reset lại form thêm để thêm đối tượng khác
                         txtMaNV.Text = "";
                         cbDonVi.SelectedIndex = 0;
@@ -79,6 +92,17 @@ namespace WinForms.LSCongTac
             
         }
 
+        public bool KiemTraNgayChuyen()
+        {
+            DateTime ngayChuyen = dateNgayChuyen.Value.Date;
+            DateTime ngayLam = dateNgayLam.Value.Date;
+            DateTime ngayHienTai = DateTime.Now;
+            if (ngayChuyen > ngayHienTai && ngayChuyen > ngayLam)
+            {
+                return true;
+            }
+            return false;
+        }
         //hàm tạo mã
 
         //hàm kiểm tra mã nhân viên
@@ -107,7 +131,8 @@ namespace WinForms.LSCongTac
                 List<NgachLuong> dsNgach = bizLSCongTac.BIZLayDLNgachLuong();
                 cbNgachLuong.DataSource = dsNgach;
                 cbNgachLuong.DisplayMember = "TenNgach";
-                cbNgachLuong.ValueMember = "MaNgach"; 
+                cbNgachLuong.ValueMember = "MaNgach";
+                
             }
             catch (Exception)
             {
@@ -119,6 +144,39 @@ namespace WinForms.LSCongTac
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string maNV = txtMaNV.Text.Trim();
+                if(maNV == "")
+                {
+                    MessageBox.Show("Nhập mã nhân viên!");
+                }
+                else
+                {
+                    _3Layer.NhanVien nhanVien = bizLSCongTac.BIZTimNhanVien(maNV);
+                    if (nhanVien==null)
+                    {
+                        MessageBox.Show("Không tìm thấy nhân viên mã " + maNV);
+                    }
+                    else
+                    {
+                    txtTenNV.Text = nhanVien.HoTen;
+                    cbDonVi.SelectedItem = nhanVien.DonVi;
+                    cbChucVu.SelectedItem = nhanVien.ChucVu;
+                    cbNgachLuong.SelectedItem = nhanVien.NgachLuong;
+                    }
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
     }
 }

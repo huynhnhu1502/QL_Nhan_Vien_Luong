@@ -44,6 +44,9 @@
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnLamMoi = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.btnTim = new System.Windows.Forms.Button();
+            this.lbTenNV = new System.Windows.Forms.Label();
+            this.txtTenNV = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -52,7 +55,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label1.Location = new System.Drawing.Point(264, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(194, 16);
+            this.label1.Size = new System.Drawing.Size(195, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "THÊM LỊCH SỬ CÔNG TÁC";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -136,6 +139,7 @@
             // 
             // cbNgachLuong
             // 
+            this.cbNgachLuong.Enabled = false;
             this.cbNgachLuong.FormattingEnabled = true;
             this.cbNgachLuong.Location = new System.Drawing.Point(509, 174);
             this.cbNgachLuong.Name = "cbNgachLuong";
@@ -185,11 +189,41 @@
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
+            // btnTim
+            // 
+            this.btnTim.Location = new System.Drawing.Point(314, 91);
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(75, 23);
+            this.btnTim.TabIndex = 20;
+            this.btnTim.Text = "Tìm";
+            this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
+            // 
+            // lbTenNV
+            // 
+            this.lbTenNV.AutoSize = true;
+            this.lbTenNV.Location = new System.Drawing.Point(49, 139);
+            this.lbTenNV.Name = "lbTenNV";
+            this.lbTenNV.Size = new System.Drawing.Size(76, 13);
+            this.lbTenNV.TabIndex = 21;
+            this.lbTenNV.Text = "Tên nhân viên";
+            // 
+            // txtTenNV
+            // 
+            this.txtTenNV.Enabled = false;
+            this.txtTenNV.Location = new System.Drawing.Point(144, 132);
+            this.txtTenNV.Name = "txtTenNV";
+            this.txtTenNV.Size = new System.Drawing.Size(163, 20);
+            this.txtTenNV.TabIndex = 22;
+            // 
             // frmThemLSCongTac
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(726, 381);
+            this.Controls.Add(this.txtTenNV);
+            this.Controls.Add(this.lbTenNV);
+            this.Controls.Add(this.btnTim);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnLamMoi);
             this.Controls.Add(this.btnLuu);
@@ -232,5 +266,8 @@
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnLamMoi;
         private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.Button btnTim;
+        private System.Windows.Forms.Label lbTenNV;
+        private System.Windows.Forms.TextBox txtTenNV;
     }
 }

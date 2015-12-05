@@ -14,9 +14,10 @@ namespace _3Layer
     
     public partial class LoaiDonVi
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LoaiDonVi()
         {
-            this.DonVis = new HashSet<DonVi>();
+            this.DonVi = new HashSet<DonVi>();
         }
     
         public int id { get; set; }
@@ -24,6 +25,7 @@ namespace _3Layer
         public string TenLoai { get; set; }
         public string MoTa { get; set; }
     
-        public virtual ICollection<DonVi> DonVis { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DonVi> DonVi { get; set; }
     }
 }
