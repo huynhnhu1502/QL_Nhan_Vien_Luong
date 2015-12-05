@@ -53,7 +53,32 @@ namespace WinForms
                 panel1.Controls.Add(ldv);
                 ldv.Show();
             }
+
             if (listBox1.SelectedIndex == 3)
+            {
+                panel1.Visible = true;
+                panel1.Controls.Clear();
+                ChucVu.QuanLyChucVu dv = new ChucVu.QuanLyChucVu();
+                dv.TopLevel = false;
+                dv.AutoScroll = true;
+                dv.Size = panel1.Size;
+                panel1.Controls.Add(dv);
+                dv.Show();
+            }
+
+            if (listBox1.SelectedIndex == 4)
+            {
+                panel1.Visible = true;
+                panel1.Controls.Clear();
+                LichSuChuyenBac.DSChuyenBac dscb = new LichSuChuyenBac.DSChuyenBac();
+                dscb.TopLevel = false;
+                dscb.AutoScroll = true;
+                dscb.Size = panel1.Size;
+                panel1.Controls.Add(dscb);
+                dscb.Show();
+            }
+
+            if (listBox1.SelectedIndex == 5)
             {
                 panel1.Visible = true;
                 panel1.Controls.Clear();
