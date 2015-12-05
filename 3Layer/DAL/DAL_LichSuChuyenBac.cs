@@ -116,6 +116,15 @@ namespace _3Layer.DAL
                 LichSuChuyenBac lscb = new LichSuChuyenBac {  MaNV = lichsuchuyenbac.MaNV, MaHeSo = lichsuchuyenbac.MaHeSo, Mangach = lichsuchuyenbac.Mangach  , NgayChuyen = lichsuchuyenbac.NgayChuyen};
                 db.LichSuChuyenBacs.Add(lscb);
                 db.SaveChanges();
+                var cv = db.NhanViens.ToList();
+                foreach (var item in cv)
+                {
+                    if (item.MaNV == lichsuchuyenbac.MaNV )
+                    {
+                        item.MaHeSo = lichsuchuyenbac.MaHeSo;
+                    }
+                }
+
             }
             catch
             {
