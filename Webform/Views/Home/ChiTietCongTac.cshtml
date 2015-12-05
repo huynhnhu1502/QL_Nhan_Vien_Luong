@@ -1,0 +1,63 @@
+﻿@model IEnumerable<_3Layer.LichSuCongTac>
+    @using _3Layer;
+    @{QuanLyLuongEntities db = new QuanLyLuongEntities();}
+
+@{
+    ViewBag.Title = "ChiTietCongTac";
+}
+    @{string manv = Request.QueryString["MaNV"];
+      var tennv = db.NhanViens.FirstOrDefault(a => a.MaNV.Equals(manv));}
+
+<h2>Lịch sử công tác của @tennv.HoTen</h2>
+                      @Html.ActionLink("Xuất dữ liệu ra Excel", "ExportDataLichSuCongTac", new { maNhanVien = @Request.QueryString["MaNV"] })
+<table class="table">
+    <tr>
+        <th>
+          Mã công tác
+        </th>
+        <th>
+            Tên đơn vị
+        </th>
+        <th>
+            Tên chức vụ
+        </th>
+        <th>
+            Tên ngạch
+        </th>
+        <th>
+           Ngày làm
+        </th>
+        <th>
+           Ngày chuyển
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaCongTac)
+        </td>
+        @{var donvi = db.DonVis.FirstOrDefault(a => a.MaDonVi.Equals(item.MaDonVi));}
+        <td>
+            @donvi.TenDonVi
+        </td>
+        @{var chucvu = db.ChucVus.FirstOrDefault(a => a.MaChucVu.Equals(item.MaChucVu));}
+        <td>
+            @chucvu.TenChucVu
+        </td>
+        @{var tenngach = db.NgachLuongs.FirstOrDefault(a => a.MaNgach.Equals(item.MaNgach));}
+        <td>
+           @tenngach.TenNgach
+        </td>
+        @{var ngay = db.LichSuCongTacs.FirstOrDefault(a => a.MaCongTac.Equals(item.MaCongTac));}
+        <td>
+            @ngay.NgayLam.ToShortDateString()
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayChuyen)
+        </td>
+    </tr>
+}
+
+</table>

@@ -59,13 +59,15 @@
             this.lbErr = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtCMND = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyLuongDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(166, 361);
+            this.btnThem.Location = new System.Drawing.Point(166, 391);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 23);
             this.btnThem.TabIndex = 0;
@@ -129,7 +131,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(344, 109);
+            this.label7.Location = new System.Drawing.Point(344, 132);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(74, 13);
             this.label7.TabIndex = 8;
@@ -138,7 +140,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(361, 150);
+            this.label8.Location = new System.Drawing.Point(361, 173);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(57, 13);
             this.label8.TabIndex = 9;
@@ -147,7 +149,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(338, 191);
+            this.label9.Location = new System.Drawing.Point(338, 214);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(80, 13);
             this.label9.TabIndex = 10;
@@ -203,7 +205,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(439, 238);
+            this.pictureBox1.Location = new System.Drawing.Point(439, 279);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(180, 106);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -212,7 +214,7 @@
             // 
             // btnThemAnh
             // 
-            this.btnThemAnh.Location = new System.Drawing.Point(355, 235);
+            this.btnThemAnh.Location = new System.Drawing.Point(355, 276);
             this.btnThemAnh.Name = "btnThemAnh";
             this.btnThemAnh.Size = new System.Drawing.Size(75, 23);
             this.btnThemAnh.TabIndex = 27;
@@ -222,7 +224,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(313, 361);
+            this.btnReset.Location = new System.Drawing.Point(313, 391);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 28;
@@ -260,21 +262,21 @@
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(439, 185);
+            this.dateTimePicker2.Location = new System.Drawing.Point(439, 208);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker2.TabIndex = 32;
             // 
             // dateTimePicker3
             // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(439, 103);
+            this.dateTimePicker3.Location = new System.Drawing.Point(439, 126);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker3.TabIndex = 33;
             // 
             // dateTimePicker4
             // 
-            this.dateTimePicker4.Location = new System.Drawing.Point(439, 144);
+            this.dateTimePicker4.Location = new System.Drawing.Point(439, 167);
             this.dateTimePicker4.Name = "dateTimePicker4";
             this.dateTimePicker4.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker4.TabIndex = 34;
@@ -292,7 +294,7 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(439, 361);
+            this.btnThoat.Location = new System.Drawing.Point(439, 391);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(75, 23);
             this.btnThoat.TabIndex = 36;
@@ -328,12 +330,31 @@
             this.txtCMND.TabIndex = 39;
             this.txtCMND.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCMND_KeyPress);
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(377, 97);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(39, 13);
+            this.label13.TabIndex = 40;
+            this.label13.Text = "Ngạch";
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(439, 94);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(180, 21);
+            this.comboBox4.TabIndex = 41;
+            // 
             // ThemNV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(672, 396);
+            this.ClientSize = new System.Drawing.Size(725, 426);
+            this.Controls.Add(this.comboBox4);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.txtCMND);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lbErr);
@@ -408,5 +429,7 @@
         private System.Windows.Forms.Label lbErr;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtCMND;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox comboBox4;
     }
 }

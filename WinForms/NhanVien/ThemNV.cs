@@ -17,6 +17,7 @@ namespace WinForms
         _3Layer.NhanVien nv = new _3Layer.NhanVien();
         _3Layer.BIZ.BIZ_NV biz = new _3Layer.BIZ.BIZ_NV();
         QuanLyLuongEntities _db11 = new QuanLyLuongEntities();
+        int counthieutruong;
         public ThemNV()
         {
             InitializeComponent();           
@@ -26,17 +27,33 @@ namespace WinForms
         }
         public void loadcb()
         {
+            counthieutruong = (from u in _db11.NhanViens where u.MaChucVu == "CV001" select u).Count();
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox4.DropDownStyle = ComboBoxStyle.DropDownList;
             var result1 = from a in _db11.DonVis select a;
             var result2 = from a in _db11.ChucVus select a;
             comboBox1.DataSource = result1.ToList();
             comboBox1.ValueMember = "MaDonVi";
             comboBox1.DisplayMember = "TenDonVi";
-            comboBox2.DataSource = result2.ToList();
-            comboBox2.ValueMember = "MaChucVu";
-            comboBox2.DisplayMember = "TenChucVu";
+            var result133 = from a in _db11.NgachLuongs select a;
+            comboBox4.DataSource = result133.ToList();
+            comboBox4.ValueMember = "MaNgach";
+            comboBox4.DisplayMember = "TenNgach";
+            if (counthieutruong == 0)
+            {
+                comboBox2.DataSource = result2.ToList();
+                comboBox2.ValueMember = "MaChucVu";
+                comboBox2.DisplayMember = "TenChucVu";
+            }
+            else
+            {
+                var resultnohieutruong = from a in _db11.ChucVus where a.TenChucVu != "Hiệu trưởng" select a;
+                comboBox2.DataSource = resultnohieutruong.ToList();
+                comboBox2.ValueMember = "MaChucVu";
+                comboBox2.DisplayMember = "TenChucVu";
+            }
         }
         private static Random random = new Random((int)DateTime.Now.Ticks);//thanks to McAden
         private string RandomString(int size)
@@ -69,6 +86,7 @@ namespace WinForms
             nv.HoTen = txtHoTen.Text.Trim();
             nv.MaDonVi = comboBox1.SelectedValue.ToString();
             nv.MaChucVu = comboBox2.SelectedValue.ToString();
+            nv.MaNgach = comboBox4.SelectedValue.ToString();
             nv.DanToc = txtDT.Text.Trim();
             nv.DiaChi = txtDC.Text.Trim();
             nv.NgayBatDau = Convert.ToDateTime(dateTimePicker3.Text.Trim());
@@ -129,6 +147,7 @@ namespace WinForms
             comboBox2.Text = "";
             txtDT.Text = "";
             txtDC.Text = "";
+            txtCMND.Text = "";
             pictureBox1.Image = null;
             
         }
@@ -181,6 +200,7 @@ namespace WinForms
             comboBox2.Text = "";
             txtDT.Text = "";
             txtDC.Text = "";
+            txtCMND.Text = "";
             pictureBox1.Image = null;
         }
     }

@@ -29,6 +29,7 @@ namespace _3Layer.DAL
                     NgayHuu = nv.NgayHuu,
                     NgayNghi = nv.NgayNghi,
                     NgaySinh = nv.NgaySinh,
+                    MaNgach = nv.MaNgach,
                     CMND = nv.CMND
                 };
                 db.NhanViens.Add(them);
