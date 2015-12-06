@@ -178,5 +178,17 @@ namespace WinForms.LSCongTac
                 throw;
             }
         }
+
+        private void checkNgayChuyen_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkNgayChuyen.Checked == true)
+            {
+                dateNgayChuyen.Enabled = true;
+            }
+            else
+            {
+                dateNgayChuyen.Enabled = false;
+            }
+        }
     }
 }

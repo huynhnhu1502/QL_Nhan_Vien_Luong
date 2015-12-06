@@ -67,16 +67,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BIZ\BIZ_ChucVu.cs" />
     <Compile Include="BIZ\BIZ_DonVi.cs" />
+    <Compile Include="BIZ\BIZ_LichSuChuyenBac.cs" />
     <Compile Include="BIZ\BIZ_LichSuCongTac.cs" />
     <Compile Include="BIZ\BIZ_LoaiDonVi.cs" />
+    <Compile Include="BIZ\BIZ_NgachLuong.cs" />
     <Compile Include="BIZ\BIZ_NV.cs" />
     <Compile Include="ChucVu.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\DAL_ChucVu.cs" />
     <Compile Include="DAL\DAL_DonVi.cs" />
+    <Compile Include="DAL\DAL_LichSuChuyenBac.cs" />
     <Compile Include="DAL\DAL_LichSuCongTac.cs" />
     <Compile Include="DAL\DAL_LoaiDonVi.cs" />
+    <Compile Include="DAL\DAL_NgachLuong.cs" />
     <Compile Include="DAL\DAL_NV.cs" />
     <Compile Include="DonVi.cs">
       <DependentUpon>Model1.tt</DependentUpon>

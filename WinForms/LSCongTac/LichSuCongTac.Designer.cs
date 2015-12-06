@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,7 +49,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridLSCongTac)).BeginInit();
@@ -158,8 +156,6 @@
             // 
             // gridLSCongTac
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.gridLSCongTac.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.gridLSCongTac.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridLSCongTac.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.maCongTac,
@@ -222,7 +218,6 @@
             // 
             this.groupBox2.Controls.Add(this.btnThoat);
             this.groupBox2.Controls.Add(this.btnXoa);
-            this.groupBox2.Controls.Add(this.btnSua);
             this.groupBox2.Controls.Add(this.btnThem);
             this.groupBox2.Controls.Add(this.gridLSCongTac);
             this.groupBox2.Location = new System.Drawing.Point(13, 167);
@@ -230,13 +225,13 @@
             this.groupBox2.Size = new System.Drawing.Size(739, 295);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Text = "Danh sách";
             // 
             // btnThoat
             // 
             this.btnThoat.Location = new System.Drawing.Point(624, 254);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(86, 23);
+            this.btnThoat.Size = new System.Drawing.Size(86, 26);
             this.btnThoat.TabIndex = 4;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
@@ -246,23 +241,15 @@
             // 
             this.btnXoa.Location = new System.Drawing.Point(521, 253);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(75, 25);
+            this.btnXoa.Size = new System.Drawing.Size(75, 27);
             this.btnXoa.TabIndex = 3;
             this.btnXoa.Text = "Xoá";
             this.btnXoa.UseVisualStyleBackColor = true;
-            // 
-            // btnSua
-            // 
-            this.btnSua.Location = new System.Drawing.Point(417, 253);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(75, 26);
-            this.btnSua.TabIndex = 2;
-            this.btnSua.Text = "Sửa";
-            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(313, 254);
+            this.btnThem.Location = new System.Drawing.Point(409, 254);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(80, 26);
             this.btnThem.TabIndex = 1;
@@ -305,7 +292,6 @@
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.DataGridViewTextBoxColumn maCongTac;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenDonVi;
