@@ -11,7 +11,7 @@ namespace _3Layer
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class LichSuChuyenBac
     {
         public int id { get; set; }
@@ -20,12 +20,11 @@ namespace _3Layer
         public string Tenheso { get; set; }
         public string Mangach { get; set; }
         public string Tenngach { get; set; }
-
         public string TenNV { get; set; }
         public double NienHan { get; set; }
         public double Heso { get; set; }
         public System.DateTime NgayChuyen { get; set; }
-    
+
         public virtual HeSoLuongPhuCap HeSoLuongPhuCap { get; set; }
         public virtual NhanVien NhanVien { get; set; }
     }
