@@ -240,5 +240,21 @@ namespace _3Layer.DAL
                 return false;
             }
         }
+
+        public bool XoaLichSuCongTac(string maXoa)
+        {
+            try
+            {
+                LichSuCongTac lsct = (LichSuCongTac)entity.LichSuCongTacs.Where(b => b.MaCongTac == maXoa).First();
+                entity.LichSuCongTacs.Remove(lsct);
+                entity.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+            }
+        }
     }
 }

@@ -116,24 +116,29 @@ namespace WinForms.LSCongTac
                     MessageBox.Show("Không tìm thấy!");
                     gridLSCongTac.Rows.Clear();
                 }
-
-                //hiển thị danh sách sau khi tìm
-                int row = 0;
-                foreach (LichSuCongTac item in dsTim)
+                else
                 {
-                    gridLSCongTac.Rows[row].Cells["MaCongTac"].Value = item.MaChucVu;
-                    gridLSCongTac.Rows[row].Cells["tenNV"].Value = item.NhanVien.HoTen;
-                    gridLSCongTac.Rows[row].Cells["tenDonVi"].Value = item.DonVi.TenDonVi;
-                    gridLSCongTac.Rows[row].Cells["tenChucVu"].Value = item.ChucVu.TenChucVu;
-                    gridLSCongTac.Rows[row].Cells["tenNgach"].Value = item.NgachLuong.TenNgach;
-                    gridLSCongTac.Rows[row].Cells["ngayLam"].Value = item.NgayLam;
-                    gridLSCongTac.Rows[row].Cells["ngayChuyen"].Value = item.NgayChuyen;
-                    row++;
+                    gridLSCongTac.Rows.Clear();
+                    //hiển thị danh sách sau khi tìm
+                    int row = 0;
+                    foreach (LichSuCongTac item in dsTim)
+                    {
+                        gridLSCongTac.Rows.Add(new DataGridViewRow());
+                        gridLSCongTac.Rows[row].Cells["maCongTac"].Value = item.MaChucVu;
+                        gridLSCongTac.Rows[row].Cells["tenNV"].Value = item.NhanVien.HoTen;
+                        gridLSCongTac.Rows[row].Cells["tenDonVi"].Value = item.DonVi.TenDonVi;
+                        gridLSCongTac.Rows[row].Cells["tenChucVu"].Value = item.ChucVu.TenChucVu;
+                        gridLSCongTac.Rows[row].Cells["tenNgach"].Value = item.NgachLuong.TenNgach;
+                        gridLSCongTac.Rows[row].Cells["ngayLam"].Value = item.NgayLam;
+                        gridLSCongTac.Rows[row].Cells["ngayChuyen"].Value = item.NgayChuyen;
+                        row++;
+                    }
                 }
+                
             }
             catch (Exception)
             {
-                
+                MessageBox.Show("Lỗi hệ thống!");
             }
             
         }
@@ -147,6 +152,69 @@ namespace WinForms.LSCongTac
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(MessageBox.Show("Bạn có chắc muốn xoá?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int viTri = gridLSCongTac.CurrentCell.RowIndex;
+                    if (viTri < 0)
+                    {
+                        MessageBox.Show("Bạn phải chọn mục cần xoá!");
+                    }
+                    else
+                    {
+                        string maXoa = gridLSCongTac.Rows[viTri].Cells["maCongTac"].Value.ToString();
+                        if (bizLSCongTac.BIZXoaLichSuCongTac(maXoa) == true)
+                        {
+                            MessageBox.Show("Đã xoá!");
+                            LayDanhSach();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không xoá được!");
+                        }
+                    }
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi hệ thống!");
+            }
+        }
+
+        //Load danh sách (khi xoá xong...)
+        private void LayDanhSach()
+        {
+            try
+            {
+                //đổ DL vào GridTable
+                gridLSCongTac.Rows.Clear();
+                gridLSCongTac.AutoGenerateColumns = false; // ko cho tự động tạo cột
+                List<LichSuCongTac> ds = bizLSCongTac.BIZLayDuLieu();
+                int row = 0;
+                foreach (LichSuCongTac lsct in ds)
+                {
+                    gridLSCongTac.Rows.Add(new DataGridViewRow()); //them dong moi trong grid khi trong CSDL co them dong
+                    gridLSCongTac.Rows[row].Cells["maCongTac"].Value = lsct.MaCongTac;
+                    gridLSCongTac.Rows[row].Cells["tenNV"].Value = lsct.NhanVien.HoTen;
+                    gridLSCongTac.Rows[row].Cells["tenDonVi"].Value = lsct.DonVi.TenDonVi;
+                    gridLSCongTac.Rows[row].Cells["tenChucVu"].Value = lsct.ChucVu.TenChucVu;
+                    gridLSCongTac.Rows[row].Cells["tenNgach"].Value = lsct.NgachLuong.TenNgach;
+                    gridLSCongTac.Rows[row].Cells["ngayLam"].Value = lsct.NgayLam;
+                    gridLSCongTac.Rows[row].Cells["ngayChuyen"].Value = lsct.NgayChuyen;
+                    row++;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
     }
 }

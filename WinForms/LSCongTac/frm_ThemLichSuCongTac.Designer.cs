@@ -42,11 +42,11 @@
             this.dateNgayLam = new System.Windows.Forms.DateTimePicker();
             this.dateNgayChuyen = new System.Windows.Forms.DateTimePicker();
             this.btnLuu = new System.Windows.Forms.Button();
-            this.btnLamMoi = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnTim = new System.Windows.Forms.Button();
             this.lbTenNV = new System.Windows.Forms.Label();
             this.txtTenNV = new System.Windows.Forms.TextBox();
+            this.checkNgayChuyen = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -63,7 +63,7 @@
             // lbMaNV
             // 
             this.lbMaNV.AutoSize = true;
-            this.lbMaNV.Location = new System.Drawing.Point(49, 101);
+            this.lbMaNV.Location = new System.Drawing.Point(49, 85);
             this.lbMaNV.Name = "lbMaNV";
             this.lbMaNV.Size = new System.Drawing.Size(72, 13);
             this.lbMaNV.TabIndex = 3;
@@ -72,7 +72,7 @@
             // lbDonVi
             // 
             this.lbDonVi.AutoSize = true;
-            this.lbDonVi.Location = new System.Drawing.Point(415, 101);
+            this.lbDonVi.Location = new System.Drawing.Point(415, 139);
             this.lbDonVi.Name = "lbDonVi";
             this.lbDonVi.Size = new System.Drawing.Size(38, 13);
             this.lbDonVi.TabIndex = 4;
@@ -81,7 +81,7 @@
             // lbChucVu
             // 
             this.lbChucVu.AutoSize = true;
-            this.lbChucVu.Location = new System.Drawing.Point(49, 182);
+            this.lbChucVu.Location = new System.Drawing.Point(49, 197);
             this.lbChucVu.Name = "lbChucVu";
             this.lbChucVu.Size = new System.Drawing.Size(47, 13);
             this.lbChucVu.TabIndex = 5;
@@ -90,7 +90,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(415, 182);
+            this.label7.Location = new System.Drawing.Point(415, 197);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(68, 13);
             this.label7.TabIndex = 6;
@@ -116,7 +116,7 @@
             // 
             // txtMaNV
             // 
-            this.txtMaNV.Location = new System.Drawing.Point(144, 94);
+            this.txtMaNV.Location = new System.Drawing.Point(144, 78);
             this.txtMaNV.Name = "txtMaNV";
             this.txtMaNV.Size = new System.Drawing.Size(164, 20);
             this.txtMaNV.TabIndex = 11;
@@ -124,7 +124,7 @@
             // cbDonVi
             // 
             this.cbDonVi.FormattingEnabled = true;
-            this.cbDonVi.Location = new System.Drawing.Point(509, 93);
+            this.cbDonVi.Location = new System.Drawing.Point(509, 131);
             this.cbDonVi.Name = "cbDonVi";
             this.cbDonVi.Size = new System.Drawing.Size(164, 21);
             this.cbDonVi.TabIndex = 12;
@@ -132,7 +132,7 @@
             // cbChucVu
             // 
             this.cbChucVu.FormattingEnabled = true;
-            this.cbChucVu.Location = new System.Drawing.Point(144, 174);
+            this.cbChucVu.Location = new System.Drawing.Point(144, 189);
             this.cbChucVu.Name = "cbChucVu";
             this.cbChucVu.Size = new System.Drawing.Size(164, 21);
             this.cbChucVu.TabIndex = 13;
@@ -141,7 +141,7 @@
             // 
             this.cbNgachLuong.Enabled = false;
             this.cbNgachLuong.FormattingEnabled = true;
-            this.cbNgachLuong.Location = new System.Drawing.Point(509, 174);
+            this.cbNgachLuong.Location = new System.Drawing.Point(509, 189);
             this.cbNgachLuong.Name = "cbNgachLuong";
             this.cbNgachLuong.Size = new System.Drawing.Size(164, 21);
             this.cbNgachLuong.TabIndex = 14;
@@ -155,6 +155,7 @@
             // 
             // dateNgayChuyen
             // 
+            this.dateNgayChuyen.Enabled = false;
             this.dateNgayChuyen.Location = new System.Drawing.Point(510, 250);
             this.dateNgayChuyen.Name = "dateNgayChuyen";
             this.dateNgayChuyen.Size = new System.Drawing.Size(163, 20);
@@ -162,22 +163,13 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(390, 325);
+            this.btnLuu.Location = new System.Drawing.Point(494, 325);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(72, 28);
             this.btnLuu.TabIndex = 17;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
-            // 
-            // btnLamMoi
-            // 
-            this.btnLamMoi.Location = new System.Drawing.Point(496, 325);
-            this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(72, 28);
-            this.btnLamMoi.TabIndex = 18;
-            this.btnLamMoi.Text = "Làm mới";
-            this.btnLamMoi.UseVisualStyleBackColor = true;
             // 
             // btnThoat
             // 
@@ -191,9 +183,9 @@
             // 
             // btnTim
             // 
-            this.btnTim.Location = new System.Drawing.Point(314, 91);
+            this.btnTim.Location = new System.Drawing.Point(314, 75);
             this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(75, 23);
+            this.btnTim.Size = new System.Drawing.Size(60, 23);
             this.btnTim.TabIndex = 20;
             this.btnTim.Text = "Tìm";
             this.btnTim.UseVisualStyleBackColor = true;
@@ -216,16 +208,26 @@
             this.txtTenNV.Size = new System.Drawing.Size(163, 20);
             this.txtTenNV.TabIndex = 22;
             // 
+            // checkNgayChuyen
+            // 
+            this.checkNgayChuyen.AutoSize = true;
+            this.checkNgayChuyen.Location = new System.Drawing.Point(390, 253);
+            this.checkNgayChuyen.Name = "checkNgayChuyen";
+            this.checkNgayChuyen.Size = new System.Drawing.Size(15, 14);
+            this.checkNgayChuyen.TabIndex = 23;
+            this.checkNgayChuyen.UseVisualStyleBackColor = true;
+            this.checkNgayChuyen.CheckedChanged += new System.EventHandler(this.checkNgayChuyen_CheckedChanged);
+            // 
             // frmThemLSCongTac
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(726, 381);
+            this.Controls.Add(this.checkNgayChuyen);
             this.Controls.Add(this.txtTenNV);
             this.Controls.Add(this.lbTenNV);
             this.Controls.Add(this.btnTim);
             this.Controls.Add(this.btnThoat);
-            this.Controls.Add(this.btnLamMoi);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.dateNgayChuyen);
             this.Controls.Add(this.dateNgayLam);
@@ -264,10 +266,10 @@
         private System.Windows.Forms.DateTimePicker dateNgayLam;
         private System.Windows.Forms.DateTimePicker dateNgayChuyen;
         private System.Windows.Forms.Button btnLuu;
-        private System.Windows.Forms.Button btnLamMoi;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.Label lbTenNV;
         private System.Windows.Forms.TextBox txtTenNV;
+        private System.Windows.Forms.CheckBox checkNgayChuyen;
     }
 }
