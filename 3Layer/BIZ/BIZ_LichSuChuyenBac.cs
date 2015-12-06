@@ -30,5 +30,9 @@ namespace _3Layer.BIZ
         {
             return _dallscb.LayNgach();
         }
+        public bool SuaLichSu(LichSuChuyenBac lichsuchuyenbac)
+        {
+            return _dallscb.suachuyenbac(lichsuchuyenbac);
+        }
     }
 }

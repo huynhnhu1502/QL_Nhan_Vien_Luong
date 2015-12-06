@@ -14,7 +14,7 @@ namespace WinForms.LichSuChuyenBac
     public partial class ThemChuyenBac : Form
     {
         QuanLyLuongEntities db = new QuanLyLuongEntities();
-        _3Layer.BIZ.BIZ_LichSuChuyenBac _bizchucvu = new _3Layer.BIZ.BIZ_LichSuChuyenBac();
+        _3Layer.BIZ.BIZ_LichSuChuyenBac _bizlichsucb = new _3Layer.BIZ.BIZ_LichSuChuyenBac();
         _3Layer.LichSuChuyenBac _lichsuchuyenbac = new _3Layer.LichSuChuyenBac();
         public ThemChuyenBac()
         {
@@ -30,7 +30,7 @@ namespace WinForms.LichSuChuyenBac
         {
             cbngach.DropDownStyle = ComboBoxStyle.DropDownList;
             cbhs.DropDownStyle = ComboBoxStyle.DropDownList;
-            var danhsach1 = _bizchucvu.BIZLayNgach();
+            var danhsach1 = _bizlichsucb.BIZLayNgach();
             cbngach.DataSource = danhsach1.ToList();
             cbngach.ValueMember = "MaNgach";
             cbngach.DisplayMember = "TenNgach";
@@ -73,13 +73,14 @@ namespace WinForms.LichSuChuyenBac
                 }
             }
 
-            _lichsuchuyenbac.MaNV = txtmanv.Text.Trim();
-                _lichsuchuyenbac.Mangach = cbngach.SelectedValue.ToString();
-                _lichsuchuyenbac.MaHeSo = cbhs.SelectedValue.ToString();
-                _lichsuchuyenbac.NgayChuyen = Convert.ToDateTime(dateTimePicker1.Text.Trim());
+               _lichsuchuyenbac.MaNV = txtmanv.Text.Trim();
+               _lichsuchuyenbac.Mangach = cbngach.SelectedValue.ToString();
+               _lichsuchuyenbac.MaHeSo = cbhs.SelectedValue.ToString();
+               _lichsuchuyenbac.NgayChuyen = Convert.ToDateTime(dateTimePicker1.Text.Trim());
 
-                if (_bizchucvu.ThemLichSu(_lichsuchuyenbac) == true)
+                if (_bizlichsucb.ThemLichSu(_lichsuchuyenbac) == true)
                 {
+               
                     MessageBox.Show("Thêm thành công");
 
                 }

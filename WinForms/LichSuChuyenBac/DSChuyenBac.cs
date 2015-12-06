@@ -88,13 +88,11 @@ namespace WinForms.LichSuChuyenBac
 
         private void btnhaplai_Click(object sender, EventArgs e)
         {
-            dtp1.CustomFormat = " ";
-            dtp1.Format = DateTimePickerFormat.Custom;
-
-            dtp2.CustomFormat = " ";
-            dtp2.Format = DateTimePickerFormat.Custom;
-
             txtmanv.Text = "";
+            txtttma.Text = "";
+            txttths.Text = "";
+            txtttngach.Text = "";
+            load();
         }
 
         private void btthoat_Click(object sender, EventArgs e)
@@ -107,8 +105,9 @@ namespace WinForms.LichSuChuyenBac
             try
             {
                 txtttma.Text = dataGridView1.Rows[VT].Cells[1].Value.ToString();
-                txtttngach.Text = dataGridView1.Rows[VT].Cells[6].Value.ToString();
+                txtttngach.Text = dataGridView1.Rows[VT].Cells[8].Value.ToString();
                 txttths.Text = dataGridView1.Rows[VT].Cells[5].Value.ToString();
+                txtid.Text = dataGridView1.Rows[VT].Cells[0].Value.ToString();
                 
             }
             catch (Exception e) { }
@@ -136,5 +135,46 @@ namespace WinForms.LichSuChuyenBac
             }
         }
         public delegate void delPassData(TextBox text);
+        public delegate void laymasua(TextBox text);
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            load();
+        }
+
+        private void btSua_Click(object sender, EventArgs e)
+        {
+            QuanLyLuongEntities csdl = new QuanLyLuongEntities();
+            if (txttths.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn nhân viên muốn sửa!");
+            }
+            else
+            {
+
+            var u = from b in csdl.LichSuChuyenBacs where b.MaNV == txtttma.Text select b;
+            int idmax = u.Max(b => b.id);
+            string gttim = idmax.ToString();
+            int VT = dataGridView1.CurrentCell.RowIndex;
+            if (dataGridView1.Rows[VT].Cells[0].Value.ToString() != gttim)
+            {
+                MessageBox.Show("Đây không phải hệ số mới cập nhật của nhân viên!!");
+            }
+            else
+
+                {
+                    int CT = dataGridView1.CurrentCell.RowIndex;
+                    int idtim = int.Parse(dataGridView1.Rows[CT].Cells[0].Value.ToString());
+                    SuaLichSuChuyenBac frmsua = new SuaLichSuChuyenBac();
+                    delPassData del = new delPassData(frmsua.Laydulieu);
+                    laymasua lms = new laymasua(frmsua.Layma);
+                    del(this.txtttma);
+                    lms(this.txtid);
+                    frmsua.Show();
+                 }
+            }
+
+        }
     }
-}
+    }
+
