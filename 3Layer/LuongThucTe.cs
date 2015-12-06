@@ -22,7 +22,9 @@ namespace _3Layer
         public decimal LuongCoBan { get; set; }
         public Nullable<decimal> LuongThucTe1 { get; set; }
         public string TrangThai { get; set; }
+        public string MaHeSo { get; set; }
     
+        public virtual HeSoLuongPhuCap HeSoLuongPhuCap { get; set; }
         public virtual NhanVien NhanVien { get; set; }
     }
 }

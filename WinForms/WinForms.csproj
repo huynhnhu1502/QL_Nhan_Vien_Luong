@@ -52,6 +52,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChucVu\QuanLyChucVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucVu\QuanLyChucVu.Designer.cs">
+      <DependentUpon>QuanLyChucVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChucVu\ThemChucVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucVu\ThemChucVu.Designer.cs">
+      <DependentUpon>ThemChucVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc_NgachLuong\frm_NgachLuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc_NgachLuong\frm_NgachLuong.Designer.cs">
+      <DependentUpon>frm_NgachLuong.cs</DependentUpon>
+    </Compile>
     <Compile Include="DanhSachNhanVienTheoDonVi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,11 +94,41 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="LichSuChuyenBac\DSChuyenBac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LichSuChuyenBac\DSChuyenBac.Designer.cs">
+      <DependentUpon>DSChuyenBac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LichSuChuyenBac\SuaLichSuChuyenBac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LichSuChuyenBac\SuaLichSuChuyenBac.Designer.cs">
+      <DependentUpon>SuaLichSuChuyenBac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LichSuChuyenBac\ThemChuyenBac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LichSuChuyenBac\ThemChuyenBac.Designer.cs">
+      <DependentUpon>ThemChuyenBac.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoaiDonVi\LoaiDonVi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoaiDonVi\LoaiDonVi.Designer.cs">
       <DependentUpon>LoaiDonVi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LSCongTac\frm_ThemLichSuCongTac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LSCongTac\frm_ThemLichSuCongTac.Designer.cs">
+      <DependentUpon>frm_ThemLichSuCongTac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LSCongTac\LichSuCongTac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LSCongTac\LichSuCongTac.Designer.cs">
+      <DependentUpon>LichSuCongTac.cs</DependentUpon>
     </Compile>
     <Compile Include="NhanVien\ChiTietNV.cs">
       <SubType>Form</SubType>
@@ -151,6 +199,15 @@
     <Compile Include="ThongKeNhanVienTheoDonVi.Designer.cs">
       <DependentUpon>ThongKeNhanVienTheoDonVi.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ChucVu\QuanLyChucVu.resx">
+      <DependentUpon>QuanLyChucVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChucVu\ThemChucVu.resx">
+      <DependentUpon>ThemChucVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc_NgachLuong\frm_NgachLuong.resx">
+      <DependentUpon>frm_NgachLuong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DanhSachNhanVienTheoDonVi.resx">
       <DependentUpon>DanhSachNhanVienTheoDonVi.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,8 +220,23 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LichSuChuyenBac\DSChuyenBac.resx">
+      <DependentUpon>DSChuyenBac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LichSuChuyenBac\SuaLichSuChuyenBac.resx">
+      <DependentUpon>SuaLichSuChuyenBac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LichSuChuyenBac\ThemChuyenBac.resx">
+      <DependentUpon>ThemChuyenBac.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoaiDonVi\LoaiDonVi.resx">
       <DependentUpon>LoaiDonVi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LSCongTac\frm_ThemLichSuCongTac.resx">
+      <DependentUpon>frm_ThemLichSuCongTac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LSCongTac\LichSuCongTac.resx">
+      <DependentUpon>LichSuCongTac.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NhanVien\ChiTietNV.resx">
       <DependentUpon>ChiTietNV.cs</DependentUpon>
