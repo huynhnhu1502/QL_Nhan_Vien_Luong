@@ -10,6 +10,14 @@ namespace _3Layer.DAL
     {
         QuanLyLuongEntities db = new QuanLyLuongEntities();
         DonVi _donvi = new DonVi();
+        public static List<DonVi> listall()
+        {
+            QuanLyLuongEntities model = new QuanLyLuongEntities();
+            List<DonVi> list = new List<DonVi>();
+            list = (from n in model.DonVis select n).ToList();
+            return list;
+
+        }
         public bool TimKiem(DonVi donvi)
         {
             var search = db.DonVis.FirstOrDefault(a => a.MaDonVi == donvi.MaDonVi || a.TenDonVi == donvi.TenDonVi || a.MaLoai == donvi.MaLoai);

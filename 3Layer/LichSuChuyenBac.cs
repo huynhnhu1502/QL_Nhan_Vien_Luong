@@ -16,14 +16,15 @@ namespace _3Layer
     {
         public int id { get; set; }
         public string MaNV { get; set; }
+        public string TenNV { get; set; }
         public string MaHeSo { get; set; }
         public System.DateTime NgayChuyen { get; set; }
-        public string TenNV { get; set; }
         public string Tenheso { get; set; }
+        public double Heso { get; set; }
         public string Mangach { get; set; }
         public string Tenngach { get; set; }
         public double NienHan { get; set; }
-        public double Heso { get; set; }
+
         public virtual HeSoLuongPhuCap HeSoLuongPhuCap { get; set; }
         public virtual NhanVien NhanVien { get; set; }
     }

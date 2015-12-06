@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using _3Layer.DAL;
 using _3Layer;
+using _3Layer.BIZ;
 
 namespace WinForms
 {
@@ -22,15 +22,31 @@ namespace WinForms
             loadcb();
             this.dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
+        public void load()
+        {
 
+            dataGridView1.DataSource = _bizdonvi.DSDonVi();
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                dataGridView1.Rows[i].Cells[9].Value = "Xem chi tiết";
+            }
+
+
+        }
         private void DonVi_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'quanLyLuongDataSet1.DonVi' table. You can move, or remove it, as needed.
-            this.donViTableAdapter.Fill(this.quanLyLuongDataSet1.DonVi);
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            try
             {
-                dataGridView1.Rows[i].Cells[5].Value = "Xem chi tiết";
+                dataGridView1.AutoGenerateColumns = false;
+                load();
+               
             }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
 
         }
 
@@ -45,7 +61,7 @@ namespace WinForms
                 dataGridView1.DataSource = result;
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
-                    dataGridView1.Rows[i].Cells[5].Value = "Xem chi tiết";
+                    dataGridView1.Rows[i].Cells[7].Value = "Xem chi tiết";
                 }
             }
         }
@@ -64,18 +80,18 @@ namespace WinForms
             themdv.Show();
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            var a = dataGridView1.Rows[e.RowIndex];
-            if (e.ColumnIndex == dataGridView1.Columns["ChiTiet"].Index && e.RowIndex >= 0)
-            {
-                {
-                    ChiTietDonVi test = new ChiTietDonVi(a.Cells[0].Value.ToString());
-                    test.Show();
+        //private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    var a = dataGridView1.Rows[e.RowIndex];
+        //    if (e.ColumnIndex == dataGridView1.Columns["ChiTiet"].Index && e.RowIndex >= 0)
+        //    {
+        //        {
+        //            ChiTietDonVi test = new ChiTietDonVi(a.Cells[0].Value.ToString());
+        //            test.Show();
 
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
 
         private void button3_Click(object sender, EventArgs e)
         {

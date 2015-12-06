@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btload = new System.Windows.Forms.Button();
             this.dtp2 = new System.Windows.Forms.DateTimePicker();
             this.dtp1 = new System.Windows.Forms.DateTimePicker();
             this.btthoat = new System.Windows.Forms.Button();
@@ -54,12 +55,14 @@
             this.Ngaychuyen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbds = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btSua = new System.Windows.Forms.Button();
             this.txttths = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtttngach = new System.Windows.Forms.TextBox();
             this.txtttma = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtid = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -67,6 +70,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btload);
             this.groupBox1.Controls.Add(this.dtp2);
             this.groupBox1.Controls.Add(this.dtp1);
             this.groupBox1.Controls.Add(this.btthoat);
@@ -82,6 +86,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin tìm kiếm";
+            // 
+            // btload
+            // 
+            this.btload.Location = new System.Drawing.Point(756, 59);
+            this.btload.Name = "btload";
+            this.btload.Size = new System.Drawing.Size(75, 23);
+            this.btload.TabIndex = 13;
+            this.btload.Text = "Tải Lại";
+            this.btload.UseVisualStyleBackColor = true;
+            this.btload.Click += new System.EventHandler(this.button1_Click);
             // 
             // dtp2
             // 
@@ -298,6 +312,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtid);
+            this.groupBox2.Controls.Add(this.btSua);
             this.groupBox2.Controls.Add(this.txttths);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txtttngach);
@@ -311,6 +327,16 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin Nhân Viên chuyển bậc :";
+            // 
+            // btSua
+            // 
+            this.btSua.Location = new System.Drawing.Point(756, 49);
+            this.btSua.Name = "btSua";
+            this.btSua.Size = new System.Drawing.Size(75, 23);
+            this.btSua.TabIndex = 13;
+            this.btSua.Text = "Sửa";
+            this.btSua.UseVisualStyleBackColor = true;
+            this.btSua.Click += new System.EventHandler(this.btSua_Click);
             // 
             // txttths
             // 
@@ -359,6 +385,14 @@
             this.label1.Size = new System.Drawing.Size(75, 13);
             this.label1.TabIndex = 7;
             this.label1.Text = "Mã Nhân Viên";
+            // 
+            // txtid
+            // 
+            this.txtid.Location = new System.Drawing.Point(0, 58);
+            this.txtid.Name = "txtid";
+            this.txtid.Size = new System.Drawing.Size(26, 20);
+            this.txtid.TabIndex = 4;
+            this.txtid.Visible = false;
             // 
             // DSChuyenBac
             // 
@@ -416,5 +450,8 @@
         private System.Windows.Forms.TextBox txtttma;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btload;
+        private System.Windows.Forms.Button btSua;
+        private System.Windows.Forms.TextBox txtid;
     }
 }

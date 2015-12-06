@@ -8,7 +8,7 @@ namespace _3Layer.DAL
 {
     public class DAL_LichSuChuyenBac
     {
-       
+
         public static List<LichSuChuyenBac> listall()
         {
             QuanLyLuongEntities db = new QuanLyLuongEntities();
@@ -29,12 +29,12 @@ namespace _3Layer.DAL
                          Tenngach = ngach.TenNgach,
                          NienHan = ngach.NienHan,
                          Heso = hslpc.HeSo,
-                         NgayChuyen=lscb.NgayChuyen
+                         NgayChuyen = lscb.NgayChuyen
 
                      }).ToList());
 
             return list;
-            
+
         }
 
         public List<LichSuChuyenBac> timkiem(string tim, string tungay, string denngay)
@@ -44,11 +44,11 @@ namespace _3Layer.DAL
             try
             {
                 if (tim != "")
-            {
-                DateTime ngaytu = Convert.ToDateTime(tungay);
-                DateTime ngayden = Convert.ToDateTime(denngay);
-                
-                 KQTim = ((from lscb in db.LichSuChuyenBacs.ToList()
+                {
+                    DateTime ngaytu = Convert.ToDateTime(tungay);
+                    DateTime ngayden = Convert.ToDateTime(denngay);
+
+                    KQTim = ((from lscb in db.LichSuChuyenBacs.ToList()
                               from hslpc in db.HeSoLuongPhuCaps.ToList()
                               from ngach in db.NgachLuongs.ToList()
                               from nv in db.NhanViens.ToList()
@@ -67,38 +67,38 @@ namespace _3Layer.DAL
                                   NgayChuyen = lscb.NgayChuyen
 
                               }).ToList());
-                
-            }
-            else if(tim == "")
-            {
-
-                DateTime ngaytu = Convert.ToDateTime(tungay);
-                DateTime ngayden = Convert.ToDateTime(denngay);
-
-                 KQTim = ((from lscb in db.LichSuChuyenBacs.ToList()
-                                  from hslpc in db.HeSoLuongPhuCaps.ToList()
-                                  from ngach in db.NgachLuongs.ToList()
-                                  from nv in db.NhanViens.ToList()
-                                  where lscb.MaNV == nv.MaNV && lscb.MaHeSo == hslpc.MaHeSo && hslpc.MaNgach == ngach.MaNgach  && ngaytu <= lscb.NgayChuyen && lscb.NgayChuyen <= ngayden
-                                  select new LichSuChuyenBac()
-                                  {
-                                      id = lscb.id,
-                                      MaNV = nv.MaNV,
-                                      TenNV = nv.HoTen,
-                                      MaHeSo = hslpc.MaHeSo,
-                                      Tenheso = hslpc.TenHeSo,
-                                      Mangach = ngach.MaNgach,
-                                      Tenngach = ngach.TenNgach,
-                                      NienHan = ngach.NienHan,
-                                      Heso = hslpc.HeSo,
-                                      NgayChuyen = lscb.NgayChuyen
-
-                                  }).ToList());
 
                 }
-          
+                else if (tim == "")
+                {
+
+                    DateTime ngaytu = Convert.ToDateTime(tungay);
+                    DateTime ngayden = Convert.ToDateTime(denngay);
+
+                    KQTim = ((from lscb in db.LichSuChuyenBacs.ToList()
+                              from hslpc in db.HeSoLuongPhuCaps.ToList()
+                              from ngach in db.NgachLuongs.ToList()
+                              from nv in db.NhanViens.ToList()
+                              where lscb.MaNV == nv.MaNV && lscb.MaHeSo == hslpc.MaHeSo && hslpc.MaNgach == ngach.MaNgach && ngaytu <= lscb.NgayChuyen && lscb.NgayChuyen <= ngayden
+                              select new LichSuChuyenBac()
+                              {
+                                  id = lscb.id,
+                                  MaNV = nv.MaNV,
+                                  TenNV = nv.HoTen,
+                                  MaHeSo = hslpc.MaHeSo,
+                                  Tenheso = hslpc.TenHeSo,
+                                  Mangach = ngach.MaNgach,
+                                  Tenngach = ngach.TenNgach,
+                                  NienHan = ngach.NienHan,
+                                  Heso = hslpc.HeSo,
+                                  NgayChuyen = lscb.NgayChuyen
+
+                              }).ToList());
+
+                }
+
                 return KQTim;
-        }
+            }
             catch (Exception)
             {
 
@@ -113,17 +113,58 @@ namespace _3Layer.DAL
             QuanLyLuongEntities db = new QuanLyLuongEntities();
             try
             {
-                LichSuChuyenBac lscb = new LichSuChuyenBac {  MaNV = lichsuchuyenbac.MaNV, MaHeSo = lichsuchuyenbac.MaHeSo, Mangach = lichsuchuyenbac.Mangach  , NgayChuyen = lichsuchuyenbac.NgayChuyen};
+                LichSuChuyenBac lscb = new LichSuChuyenBac { MaNV = lichsuchuyenbac.MaNV, MaHeSo = lichsuchuyenbac.MaHeSo, Mangach = lichsuchuyenbac.Mangach, NgayChuyen = lichsuchuyenbac.NgayChuyen };
                 db.LichSuChuyenBacs.Add(lscb);
                 db.SaveChanges();
-                var cv = db.NhanViens.ToList();
-                foreach (var item in cv)
+
+                var nhanvien = from p in db.NhanViens
+                               where p.MaNV == lichsuchuyenbac.MaNV
+                               select p;
+                foreach (NhanVien nv in nhanvien)
                 {
-                    if (item.MaNV == lichsuchuyenbac.MaNV )
-                    {
-                        item.MaHeSo = lichsuchuyenbac.MaHeSo;
-                    }
+                    nv.MaHeSo = lichsuchuyenbac.MaHeSo;
+                    nv.MaNgach = lichsuchuyenbac.Mangach;
                 }
+                db.SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool suachuyenbac(LichSuChuyenBac lichsuchuyenbac)
+        {
+            QuanLyLuongEntities csdl = new QuanLyLuongEntities();
+            try
+            {
+                //var u = from b in csdl.LichSuChuyenBacs where b.MaNV == lichsuchuyenbac.MaNV select b;
+
+                //int idmax = u.Max(b => b.id);
+
+
+                //var lscbac = from p in csdl.LichSuChuyenBacs
+                              // where p.id == idmax
+                               //select p;
+                LichSuChuyenBac ls = csdl.LichSuChuyenBacs.SingleOrDefault(n => n.id == lichsuchuyenbac.id );
+                ls.MaHeSo = lichsuchuyenbac.MaHeSo;
+                ls.NgayChuyen = lichsuchuyenbac.NgayChuyen;
+                //foreach (LichSuChuyenBac a in lscbac)
+                //{
+                //    a.MaHeSo = lichsuchuyenbac.MaHeSo;
+                //    a.NgayChuyen = lichsuchuyenbac.NgayChuyen;
+                //}
+                csdl.SaveChanges();
+                var nhanvien = from p in csdl.NhanViens
+                               where p.MaNV == lichsuchuyenbac.MaNV
+                               select p;
+                foreach (NhanVien nv in nhanvien)
+                {
+                    nv.MaHeSo = lichsuchuyenbac.MaHeSo;
+                    nv.MaNgach = lichsuchuyenbac.Mangach;
+                }
+                csdl.SaveChanges();
 
             }
             catch
@@ -149,6 +190,6 @@ namespace _3Layer.DAL
                 throw;
             }
         }
-
+ 
     }
 }
