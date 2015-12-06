@@ -43,6 +43,7 @@
             this.MaNgach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenNgach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MoTa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnTaiLai = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridNgachLuong)).BeginInit();
@@ -108,21 +109,22 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnTaiLai);
             this.groupBox2.Controls.Add(this.btnSua);
             this.groupBox2.Controls.Add(this.btnThoat);
             this.groupBox2.Controls.Add(this.btnXoa);
             this.groupBox2.Controls.Add(this.btnThem);
             this.groupBox2.Controls.Add(this.gridNgachLuong);
-            this.groupBox2.Location = new System.Drawing.Point(12, 135);
+            this.groupBox2.Location = new System.Drawing.Point(12, 127);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(732, 306);
+            this.groupBox2.Size = new System.Drawing.Size(732, 363);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách";
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(431, 267);
+            this.btnSua.Location = new System.Drawing.Point(431, 318);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(80, 26);
             this.btnSua.TabIndex = 8;
@@ -131,7 +133,7 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(632, 268);
+            this.btnThoat.Location = new System.Drawing.Point(632, 319);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(86, 26);
             this.btnThoat.TabIndex = 7;
@@ -141,7 +143,7 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(534, 267);
+            this.btnXoa.Location = new System.Drawing.Point(534, 318);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(75, 27);
             this.btnXoa.TabIndex = 6;
@@ -150,7 +152,7 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(326, 268);
+            this.btnThem.Location = new System.Drawing.Point(326, 319);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(80, 26);
             this.btnThem.TabIndex = 5;
@@ -168,10 +170,10 @@
             this.MaNgach,
             this.TenNgach,
             this.MoTa});
-            this.gridNgachLuong.Location = new System.Drawing.Point(6, 19);
+            this.gridNgachLuong.Location = new System.Drawing.Point(6, 68);
             this.gridNgachLuong.Name = "gridNgachLuong";
             this.gridNgachLuong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridNgachLuong.Size = new System.Drawing.Size(720, 224);
+            this.gridNgachLuong.Size = new System.Drawing.Size(720, 234);
             this.gridNgachLuong.TabIndex = 0;
             // 
             // MaNgach
@@ -192,11 +194,21 @@
             this.MoTa.HeaderText = "Mô tả";
             this.MoTa.Name = "MoTa";
             // 
+            // btnTaiLai
+            // 
+            this.btnTaiLai.Location = new System.Drawing.Point(643, 19);
+            this.btnTaiLai.Name = "btnTaiLai";
+            this.btnTaiLai.Size = new System.Drawing.Size(73, 31);
+            this.btnTaiLai.TabIndex = 9;
+            this.btnTaiLai.Text = "Tải lại";
+            this.btnTaiLai.UseVisualStyleBackColor = true;
+            this.btnTaiLai.Click += new System.EventHandler(this.btnTaiLai_Click);
+            // 
             // frm_NgachLuong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(762, 453);
+            this.ClientSize = new System.Drawing.Size(762, 502);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_NgachLuong";
@@ -227,5 +239,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNgach;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenNgach;
         private System.Windows.Forms.DataGridViewTextBoxColumn MoTa;
+        private System.Windows.Forms.Button btnTaiLai;
     }
 }

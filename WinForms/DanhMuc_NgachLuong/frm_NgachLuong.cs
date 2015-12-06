@@ -86,5 +86,28 @@ namespace WinForms.DanhMuc_NgachLuong
             this.Close();
         }
 
+        private void btnTaiLai_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Đổ DL vào datadgidview
+                gridNgachLuong.AutoGenerateColumns = false;//ko cho tự động tạo cột
+                List<NgachLuong> ds = bizNgach.BIZ_LayDuLieuNgach();
+                gridNgachLuong.Rows.Clear();
+                int row = 0;
+                foreach (NgachLuong ngach in ds)
+                {
+                    gridNgachLuong.Rows.Add(new DataGridViewRow());//them dong moi trong grid khi them DL
+                    gridNgachLuong.Rows[row].Cells["MaNgach"].Value = ngach.MaNgach;
+                    gridNgachLuong.Rows[row].Cells["TenNgach"].Value = ngach.TenNgach;
+                    gridNgachLuong.Rows[row].Cells["MoTa"].Value = ngach.MoTa;
+                    row++;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Không lấy được dữ liệu!");
+            }
+        }
     }
 }
