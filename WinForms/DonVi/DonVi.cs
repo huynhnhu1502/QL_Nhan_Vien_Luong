@@ -97,10 +97,7 @@ namespace WinForms
         {
             var result = from u in db.DonVis select new { u.MaDonVi, u.TenDonVi, u.MaLoai, u.DienThoai, u.NamThanhLap };
             dataGridView1.DataSource = result.ToList();
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
-            {
-                dataGridView1.Rows[i].Cells[5].Value = "Xem chi tiết";
-            }
+
         }
     }
 }

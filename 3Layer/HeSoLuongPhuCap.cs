@@ -18,6 +18,7 @@ namespace _3Layer
         public HeSoLuongPhuCap()
         {
             this.LichSuChuyenBacs = new HashSet<LichSuChuyenBac>();
+            this.LuongThucTes = new HashSet<LuongThucTe>();
             this.NhanViens = new HashSet<NhanVien>();
         }
     
@@ -30,6 +31,8 @@ namespace _3Layer
         public virtual NgachLuong NgachLuong { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LichSuChuyenBac> LichSuChuyenBacs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LuongThucTe> LuongThucTes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NhanVien> NhanViens { get; set; }
     }
