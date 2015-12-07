@@ -28,28 +28,50 @@ namespace WinForms.LichSuChuyenBac
         }
         public void loadcb()
         {
-            cbngach.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbhs.DropDownStyle = ComboBoxStyle.DropDownList;
-            var danhsach1 = _bizlichsucb.BIZLayNgach();
-            cbngach.DataSource = danhsach1.ToList();
-            cbngach.ValueMember = "MaNgach";
+            List<_3Layer.NgachLuong> dsLDV = _bizlichsucb.BIZLayNgach();
+            cbngach.Items.Add("----Tất cả----");
+            foreach (_3Layer.NgachLuong item in dsLDV)
+            {
+                cbngach.Items.Add(item);
+            }
+            //cbDonVi.DataSource = dsDV;
             cbngach.DisplayMember = "TenNgach";
+            cbngach.ValueMember = "MaNgach";
+            cbngach.SelectedIndex = 0;
 
-            var mn = cbngach.SelectedValue.ToString();
-            var danhsach2 = from a in db.HeSoLuongPhuCaps where mn == a.MaNgach select a;
-            cbhs.DataSource = danhsach2.ToList();
-            cbhs.ValueMember = "MaHeSo";
-            cbhs.DisplayMember = "TenHeSo";
-            
+            if (cbngach.SelectedItem.ToString() == "----Tất cả----")
+            {
+                cbheso.Enabled = false;
+            }
+            else
+            {
+                cbheso.Enabled = true;
+                _3Layer.NgachLuong LDV = (_3Layer.NgachLuong)cbngach.SelectedItem;
+                string mangach = LDV.MaNgach;
+                var danhsach2 = from a in db.HeSoLuongPhuCaps where mangach == a.MaNgach select a;
+                cbheso.DataSource = danhsach2.ToList();
+                cbheso.ValueMember = "MaHeSo";
+                cbheso.DisplayMember = "TenHeSo";
+            }
+
         }
 
         private void cbngach_thaydoi(object sender, EventArgs e)
         {
-            var mn = cbngach.SelectedValue.ToString();
-            var danhsach2 = from a in db.HeSoLuongPhuCaps where mn == a.MaNgach select a;
-            cbhs.DataSource = danhsach2.ToList();
-            cbhs.ValueMember = "MaHeSo";
-            cbhs.DisplayMember = "TenHeSo";
+            if (cbngach.SelectedItem.ToString() == "----Tất cả----")
+            {
+                cbheso.Enabled = false;
+            }
+            else
+            {
+                cbheso.Enabled = true;
+                _3Layer.NgachLuong LDV = (_3Layer.NgachLuong)cbngach.SelectedItem;
+                string mangach = LDV.MaNgach;
+                var danhsach2 = from a in db.HeSoLuongPhuCaps where mangach == a.MaNgach select a;
+                cbheso.DataSource = danhsach2.ToList();
+                cbheso.ValueMember = "MaHeSo";
+                cbheso.DisplayMember = "TenHeSo";
+            }
         }
 
         private void btthoat_Click(object sender, EventArgs e)
@@ -66,16 +88,17 @@ namespace WinForms.LichSuChuyenBac
             var cv = db.NhanViens.ToList();
             foreach (var item in cv)
             {
-                if (item.MaNV == txtmanv.Text && item.MaHeSo == cbhs.SelectedValue.ToString() && item.MaNgach == cbngach.SelectedValue.ToString())
+                if (item.MaNV == txtmanv.Text && item.MaHeSo == cbheso.SelectedValue.ToString() && item.MaNgach == cbngach.SelectedValue.ToString())
                 {
                     MessageBox.Show("Nhân viên đang đạt hệ số này!!");
                     return;
                 }
             }
-
+               _3Layer.NgachLuong LDV = (_3Layer.NgachLuong)cbngach.SelectedItem;
+                string mangach = LDV.MaNgach;
                _lichsuchuyenbac.MaNV = txtmanv.Text.Trim();
-               _lichsuchuyenbac.Mangach = cbngach.SelectedValue.ToString();
-               _lichsuchuyenbac.MaHeSo = cbhs.SelectedValue.ToString();
+               _lichsuchuyenbac.Mangach = mangach;
+               _lichsuchuyenbac.MaHeSo = cbheso.SelectedValue.ToString();
                _lichsuchuyenbac.NgayChuyen = Convert.ToDateTime(dateTimePicker1.Text.Trim());
 
                 if (_bizlichsucb.ThemLichSu(_lichsuchuyenbac) == true)

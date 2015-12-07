@@ -127,6 +127,7 @@
             this.btthoat.TabIndex = 9;
             this.btthoat.Text = "Thoát";
             this.btthoat.UseVisualStyleBackColor = true;
+            this.btthoat.Click += new System.EventHandler(this.btthoat_Click);
             // 
             // txtid
             // 

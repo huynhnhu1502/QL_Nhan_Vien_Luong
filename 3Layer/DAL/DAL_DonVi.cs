@@ -18,14 +18,75 @@ namespace _3Layer.DAL
             return list;
 
         }
-        public bool TimKiem(DonVi donvi)
+
+        public List<DonVi> TimKiem(string ma , string ten , string loai)
         {
-            var search = db.DonVis.FirstOrDefault(a => a.MaDonVi == donvi.MaDonVi || a.TenDonVi == donvi.TenDonVi || a.MaLoai == donvi.MaLoai);
-            if (search != null)
+            QuanLyLuongEntities db = new QuanLyLuongEntities();
+            List<DonVi> KQTim = new List<DonVi>();
+            try
             {
-                return true;
+                if (ma != "" && ten != "" && loai != "")
+                {
+                    KQTim = (from dv in db.DonVis.ToList()
+                              where dv.MaDonVi.Contains(ma) && dv.TenDonVi.Contains(ten) && dv.MaLoai == loai
+
+                             select dv).ToList() ;
+                }
+                else if(ma == "" && ten != "" && loai != "")
+                {
+                    KQTim = (from dv in db.DonVis.ToList()
+                             where  dv.TenDonVi.Contains(ten) && dv.MaLoai == loai
+
+                             select dv).ToList();
+                }
+
+                else if (ma != "" && ten == "" && loai != "")
+                {
+                    KQTim = (from dv in db.DonVis.ToList()
+                             where dv.MaDonVi.Contains(ma) &&  dv.MaLoai == loai
+
+                             select dv).ToList();
+                }
+                else if (ma != "" && ten != "" && loai == "")
+                {
+                    KQTim = (from dv in db.DonVis.ToList()
+                             where dv.MaDonVi.Contains(ma) && dv.TenDonVi.Contains(ten) 
+
+                             select dv).ToList();
+                }
+                else if (ma != "" && ten == "" && loai == "")
+                {
+                    KQTim = (from dv in db.DonVis.ToList()
+                             where dv.MaDonVi.Contains(ma) 
+
+                             select dv).ToList();
+                }
+                else if (ma == "" && ten != "" && loai == "")
+                {
+                    KQTim = (from dv in db.DonVis.ToList()
+                             where  dv.TenDonVi.Contains(ten) 
+
+                             select dv).ToList();
+                }
+                else if (ma == "" && ten == "" && loai != "")
+                {
+                    KQTim = (from dv in db.DonVis.ToList()
+                             where  dv.MaLoai == loai
+
+                             select dv).ToList();
+                }
+
+
+                return KQTim;
             }
-            return false;
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
         }
         public bool themDonVi(DonVi donvi)
         {
@@ -41,5 +102,51 @@ namespace _3Layer.DAL
                 return false;
             }
         }
+
+        public List<LoaiDonVi> LayLoai()
+        {
+            QuanLyLuongEntities db = new QuanLyLuongEntities();
+        
+            try
+            {
+                List<LoaiDonVi> list = new List<LoaiDonVi>();
+                var ds = from dv in db.LoaiDonVis
+                         join loaidv in db.LoaiDonVis on dv.MaLoai equals loaidv.MaLoai
+                         select dv;
+                list = ds.ToList();
+                return list;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public bool Suadonvi(DonVi donvi)
+        {
+            QuanLyLuongEntities csdl = new QuanLyLuongEntities();
+            try
+            {
+
+                DonVi dv = csdl.DonVis.SingleOrDefault(n => n.MaDonVi == donvi.MaDonVi);
+                dv.TenDonVi = donvi.TenDonVi;
+                dv.MaLoai = donvi.MaLoai;
+                dv.DienThoai = donvi.DienThoai;
+                dv.DiaChi = donvi.DiaChi;
+                dv.ChucNang = donvi.ChucNang;
+                dv.NhiemVu = donvi.NhiemVu;
+                dv.NamThanhLap = dv.NamThanhLap;
+                csdl.SaveChanges();
+               
+
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
     }
 }
+

@@ -11,9 +11,9 @@ namespace _3Layer.BIZ
     {
         DAL_ChucVu _dalchucvu = new DAL_ChucVu();
         ChucVu _chucvu = new ChucVu();
-        public bool TimKiem(ChucVu chucvu)
+        public List<ChucVu> TimKiem(string ma, string ten, string heso)
         {
-            return _dalchucvu.TimKiem(chucvu);
+            return _dalchucvu.TimKiem(ma,ten,heso);
         }
 
         public bool ThemCV(ChucVu chucvu)
@@ -25,6 +25,9 @@ namespace _3Layer.BIZ
         {
             return DAL_ChucVu.listall();
         }
-
+        public bool BizTimKiem(ChucVu chucvu)
+        {
+            return _dalchucvu.Suachucvu(chucvu);
+        }
     }
 }

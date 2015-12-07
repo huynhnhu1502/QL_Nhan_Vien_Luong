@@ -180,6 +180,7 @@
             // 
             this.suahs.Location = new System.Drawing.Point(345, 29);
             this.suahs.Name = "suahs";
+            this.suahs.ReadOnly = true;
             this.suahs.Size = new System.Drawing.Size(126, 20);
             this.suahs.TabIndex = 5;
             this.suahs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHeSo_KeyPress);
@@ -188,6 +189,7 @@
             // 
             this.suaten.Location = new System.Drawing.Point(85, 29);
             this.suaten.Name = "suaten";
+            this.suaten.ReadOnly = true;
             this.suaten.Size = new System.Drawing.Size(127, 20);
             this.suaten.TabIndex = 4;
             // 
@@ -257,6 +259,7 @@
             this.id.HeaderText = "ID";
             this.id.Name = "id";
             this.id.ReadOnly = true;
+            this.id.Visible = false;
             this.id.Width = 150;
             // 
             // txtMaChucVu
@@ -289,6 +292,7 @@
             this.LSCT.HeaderText = "Lịch Sử Công Tác";
             this.LSCT.Name = "LSCT";
             this.LSCT.ReadOnly = true;
+            this.LSCT.Visible = false;
             this.LSCT.Width = 5;
             // 
             // NV

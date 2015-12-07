@@ -20,14 +20,79 @@ namespace _3Layer.DAL
         }
 
         //Tim chuc vu
-        public bool TimKiem(ChucVu chucvu)
+        public List<ChucVu> TimKiem(string ma, string ten, string heso)
         {
-            var search = db.ChucVus.Where(a => a.MaChucVu.Contains(chucvu.MaChucVu) &&  a.TenChucVu.Contains(chucvu.TenChucVu) && a.HeSoCV == chucvu.HeSoCV).ToList();
-            if (search != null)
+            QuanLyLuongEntities db = new QuanLyLuongEntities();
+            List<ChucVu> KQTim = new List<ChucVu>();
+            try
             {
-                return true;
+                double hesotim;
+                if (ma != "" && ten != "" && heso != "")
+                {
+                    hesotim = Convert.ToDouble(heso);
+                    KQTim = (from dv in db.ChucVus.ToList()
+                             where dv.MaChucVu.Contains(ma) && dv.TenChucVu.Contains(ten) && dv.HeSoCV == hesotim
+
+                             select dv).ToList();
+                }
+                else if (ma == "" && ten != "" && heso != "")
+                {
+                    hesotim = Convert.ToDouble(heso);
+                    KQTim = (from dv in db.ChucVus.ToList()
+                             where dv.TenChucVu.Contains(ten) && dv.HeSoCV == hesotim
+
+                             select dv).ToList();
+                }
+
+                else if (ma != "" && ten == "" && heso != "")
+                {
+                    hesotim = Convert.ToDouble(heso);
+                    KQTim = (from dv in db.ChucVus.ToList()
+                             where dv.MaChucVu.Contains(ma) && dv.HeSoCV == hesotim
+
+                             select dv).ToList();
+                }
+                else if (ma != "" && ten != "" && heso == "")
+                {
+                    KQTim = (from dv in db.ChucVus.ToList()
+                             where dv.MaChucVu.Contains(ma) && dv.TenChucVu.Contains(ten)
+
+                             select dv).ToList();
+                }
+                else if (ma != "" && ten == "" && heso == "")
+                {
+                    KQTim = (from dv in db.ChucVus.ToList()
+                             where dv.MaChucVu.Contains(ma)
+
+                             select dv).ToList();
+                }
+                else if (ma == "" && ten != "" && heso == "")
+                {
+                    KQTim = (from dv in db.ChucVus.ToList()
+                             where dv.TenChucVu.Contains(ten)
+
+                             select dv).ToList();
+                }
+                else if (ma == "" && ten == "" && heso != "")
+                {
+                    hesotim = Convert.ToDouble(heso);
+                    KQTim = (from dv in db.ChucVus.ToList()
+                             where dv.HeSoCV == hesotim
+
+                             select dv).ToList();
+                }
+
+
+                return KQTim;
             }
-            return false;
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
         }
 
         public bool themChucVu(ChucVu chucvu)
@@ -46,6 +111,25 @@ namespace _3Layer.DAL
 
         }
 
+        public bool Suachucvu(ChucVu chucvu)
+        {
+            QuanLyLuongEntities csdl = new QuanLyLuongEntities();
+            try
+            {
+
+                ChucVu cv = csdl.ChucVus.SingleOrDefault(n => n.MaChucVu == chucvu.MaChucVu);
+                cv.TenChucVu = chucvu.TenChucVu;
+                cv.HeSoCV = chucvu.HeSoCV;
+                csdl.SaveChanges();
+
+
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
 
     }
 }
