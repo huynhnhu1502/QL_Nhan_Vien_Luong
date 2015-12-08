@@ -216,5 +216,55 @@ namespace WinForms.LSCongTac
                 throw;
             }
         }
+
+        private void btnTaiLai_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                 //đổ DL vào GridTable
+                gridLSCongTac.AutoGenerateColumns = false; // ko cho tự động tạo cột
+                List<LichSuCongTac> ds = bizLSCongTac.BIZLayDuLieu();
+                gridLSCongTac.Rows.Clear();
+                int row = 0;
+                foreach (LichSuCongTac lsct in ds)
+                {
+                    gridLSCongTac.Rows.Add(new DataGridViewRow()); //them dong moi trong grid khi trong CSDL co them dong
+                    gridLSCongTac.Rows[row].Cells["maCongTac"].Value = lsct.MaCongTac;
+                    gridLSCongTac.Rows[row].Cells["tenNV"].Value = lsct.NhanVien.HoTen;
+                    gridLSCongTac.Rows[row].Cells["tenDonVi"].Value = lsct.DonVi.TenDonVi;
+                    gridLSCongTac.Rows[row].Cells["tenChucVu"].Value = lsct.ChucVu.TenChucVu;
+                    gridLSCongTac.Rows[row].Cells["tenNgach"].Value = lsct.NgachLuong.TenNgach;
+                    gridLSCongTac.Rows[row].Cells["ngayLam"].Value = lsct.NgayLam;
+                    gridLSCongTac.Rows[row].Cells["ngayChuyen"].Value = lsct.NgayChuyen;
+                    row++;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            //try
+            //{
+            //    int viTri = gridLSCongTac.CurrentCell.RowIndex;
+            //    if (viTri < 0)
+            //    {
+            //        MessageBox.Show("Bạn phải chọn mục cần sửa!");
+            //    }
+            //    else
+            //    {
+            //        string maSua = gridLSCongTac.Rows[viTri].Cells["maCongTac"].Value.ToString();
+            //        frmSuaLSCongTac sua = new frmSuaLSCongTac();
+            //}
+            //catch (Exception ex)
+            //{
+
+            //    throw;
+            //}
+        }
     }
 }

@@ -64,5 +64,10 @@ namespace _3Layer.BIZ
         {
             return dalLSCongTac.XoaLichSuCongTac(maXoa);
         }
+
+        public bool BIZSuaLichSuCongTac(LichSuCongTac moi)
+        {
+            return dalLSCongTac.SuaLichSuCongTac(moi);
+        }
     }
 }

@@ -47,9 +47,11 @@
             this.ngayLam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ngayChuyen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnTaiLai = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridLSCongTac)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -165,7 +167,7 @@
             this.tenNgach,
             this.ngayLam,
             this.ngayChuyen});
-            this.gridLSCongTac.Location = new System.Drawing.Point(7, 26);
+            this.gridLSCongTac.Location = new System.Drawing.Point(7, 64);
             this.gridLSCongTac.Name = "gridLSCongTac";
             this.gridLSCongTac.ReadOnly = true;
             this.gridLSCongTac.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -216,20 +218,32 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnSua);
+            this.groupBox2.Controls.Add(this.btnTaiLai);
             this.groupBox2.Controls.Add(this.btnThoat);
             this.groupBox2.Controls.Add(this.btnXoa);
             this.groupBox2.Controls.Add(this.btnThem);
             this.groupBox2.Controls.Add(this.gridLSCongTac);
             this.groupBox2.Location = new System.Drawing.Point(13, 167);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(739, 295);
+            this.groupBox2.Size = new System.Drawing.Size(740, 331);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách";
             // 
+            // btnTaiLai
+            // 
+            this.btnTaiLai.Location = new System.Drawing.Point(655, 21);
+            this.btnTaiLai.Name = "btnTaiLai";
+            this.btnTaiLai.Size = new System.Drawing.Size(67, 26);
+            this.btnTaiLai.TabIndex = 5;
+            this.btnTaiLai.Text = "Tải lại";
+            this.btnTaiLai.UseVisualStyleBackColor = true;
+            this.btnTaiLai.Click += new System.EventHandler(this.btnTaiLai_Click);
+            // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(624, 254);
+            this.btnThoat.Location = new System.Drawing.Point(624, 292);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(86, 26);
             this.btnThoat.TabIndex = 4;
@@ -239,7 +253,7 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(521, 253);
+            this.btnXoa.Location = new System.Drawing.Point(534, 292);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(75, 27);
             this.btnXoa.TabIndex = 3;
@@ -249,7 +263,7 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(409, 254);
+            this.btnThem.Location = new System.Drawing.Point(338, 292);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(80, 26);
             this.btnThem.TabIndex = 1;
@@ -257,11 +271,21 @@
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
+            // btnSua
+            // 
+            this.btnSua.Location = new System.Drawing.Point(435, 292);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(80, 26);
+            this.btnSua.TabIndex = 6;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            // 
             // frmLichSuCongTac
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(765, 474);
+            this.ClientSize = new System.Drawing.Size(765, 510);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmLichSuCongTac";
@@ -299,5 +323,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tenNgach;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngayLam;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngayChuyen;
+        private System.Windows.Forms.Button btnTaiLai;
+        private System.Windows.Forms.Button btnSua;
     }
 }

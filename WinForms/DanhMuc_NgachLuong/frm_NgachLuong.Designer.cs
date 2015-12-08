@@ -35,6 +35,7 @@
             this.txtTenNgach = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnTaiLai = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
@@ -42,8 +43,8 @@
             this.gridNgachLuong = new System.Windows.Forms.DataGridView();
             this.MaNgach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenNgach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NienHan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MoTa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnTaiLai = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridNgachLuong)).BeginInit();
@@ -122,6 +123,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách";
             // 
+            // btnTaiLai
+            // 
+            this.btnTaiLai.Location = new System.Drawing.Point(643, 19);
+            this.btnTaiLai.Name = "btnTaiLai";
+            this.btnTaiLai.Size = new System.Drawing.Size(73, 31);
+            this.btnTaiLai.TabIndex = 9;
+            this.btnTaiLai.Text = "Tải lại";
+            this.btnTaiLai.UseVisualStyleBackColor = true;
+            this.btnTaiLai.Click += new System.EventHandler(this.btnTaiLai_Click);
+            // 
             // btnSua
             // 
             this.btnSua.Location = new System.Drawing.Point(431, 318);
@@ -149,6 +160,7 @@
             this.btnXoa.TabIndex = 6;
             this.btnXoa.Text = "Xoá";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThem
             // 
@@ -158,6 +170,7 @@
             this.btnThem.TabIndex = 5;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // gridNgachLuong
             // 
@@ -169,6 +182,7 @@
             this.gridNgachLuong.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaNgach,
             this.TenNgach,
+            this.NienHan,
             this.MoTa});
             this.gridNgachLuong.Location = new System.Drawing.Point(6, 68);
             this.gridNgachLuong.Name = "gridNgachLuong";
@@ -178,31 +192,27 @@
             // 
             // MaNgach
             // 
-            this.MaNgach.FillWeight = 40.89358F;
+            this.MaNgach.FillWeight = 48.98927F;
             this.MaNgach.HeaderText = "Mã ngạch";
             this.MaNgach.Name = "MaNgach";
             // 
             // TenNgach
             // 
-            this.TenNgach.FillWeight = 76.14214F;
+            this.TenNgach.FillWeight = 91.21597F;
             this.TenNgach.HeaderText = "Tên ngạch";
             this.TenNgach.Name = "TenNgach";
             // 
+            // NienHan
+            // 
+            this.NienHan.FillWeight = 40.60914F;
+            this.NienHan.HeaderText = "Niên hạn";
+            this.NienHan.Name = "NienHan";
+            // 
             // MoTa
             // 
-            this.MoTa.FillWeight = 182.9643F;
+            this.MoTa.FillWeight = 219.1857F;
             this.MoTa.HeaderText = "Mô tả";
             this.MoTa.Name = "MoTa";
-            // 
-            // btnTaiLai
-            // 
-            this.btnTaiLai.Location = new System.Drawing.Point(643, 19);
-            this.btnTaiLai.Name = "btnTaiLai";
-            this.btnTaiLai.Size = new System.Drawing.Size(73, 31);
-            this.btnTaiLai.TabIndex = 9;
-            this.btnTaiLai.Text = "Tải lại";
-            this.btnTaiLai.UseVisualStyleBackColor = true;
-            this.btnTaiLai.Click += new System.EventHandler(this.btnTaiLai_Click);
             // 
             // frm_NgachLuong
             // 
@@ -236,9 +246,10 @@
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Button btnTaiLai;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNgach;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenNgach;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NienHan;
         private System.Windows.Forms.DataGridViewTextBoxColumn MoTa;
-        private System.Windows.Forms.Button btnTaiLai;
     }
 }

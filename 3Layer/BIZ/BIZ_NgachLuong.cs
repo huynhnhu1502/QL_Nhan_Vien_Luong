@@ -20,5 +20,20 @@ namespace _3Layer.BIZ
         {
             return dalNgach.TimNgachLuong(maTim, tenTim);
         }
+
+        public bool BIZ_ThemNgachLuong(NgachLuong ngach)
+        {
+            return dalNgach.ThemNgachLuong(ngach);
+        }
+
+        public bool BIZ_XoaNgachLuong(string maXoa)
+        {
+            return dalNgach.XoaNgachLuong(maXoa);
+        }
+
+        public string BIZ_TaoMaNgachLuong()
+        {
+            return dalNgach.TaoMaNgachLuong();
+        }
     }
 }

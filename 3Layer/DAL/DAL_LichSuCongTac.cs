@@ -144,25 +144,38 @@ namespace _3Layer.DAL
         {
             try
             {
+                string kq = "";
                 var ma = from lsct in entity.LichSuCongTacs
                          orderby lsct.MaCongTac descending
                          select lsct.MaCongTac;
-                string maCongTac = ma.First().ToString();
-                int so = int.Parse(maCongTac.Substring(2));
-                int soTang = so + 1;
-                string kq = "";
-                if (soTang < 10)
+                if(ma.Count() == 0)
                 {
-                    kq = "CT00" + soTang.ToString();
-                }
-                else if(soTang < 100)
-                {
-                    kq = "CT0" + soTang.ToString();
+                    kq = "CT0001";
                 }
                 else
                 {
-                    kq = "CT" + soTang.ToString();
+                    string maCongTac = ma.First().ToString();
+                    int so = int.Parse(maCongTac.Substring(2));
+                    int soTang = so + 1;
+
+                    if (soTang < 10)
+                    {
+                        kq = "CT000" + soTang.ToString();
+                    }
+                    else if (soTang < 100)
+                    {
+                        kq = "CT00" + soTang.ToString();
+                    }
+                    else if (soTang < 1000)
+                    {
+                        kq = "CT0" + soTang.ToString();
+                    }
+                    else
+                    {
+                        kq = "CT" + soTang.ToString();
+                    }
                 }
+                
                 return kq;
             }
             catch (Exception ex)
@@ -241,6 +254,7 @@ namespace _3Layer.DAL
             }
         }
 
+        //Xoá
         public bool XoaLichSuCongTac(string maXoa)
         {
             try
@@ -254,6 +268,24 @@ namespace _3Layer.DAL
             {
 
                 return false;
+            }
+        }
+
+        //Sửa LS công tác (cập nhật ngày chuyển)
+        public bool SuaLichSuCongTac(LichSuCongTac moi)
+        {
+            try
+            {
+                entity.LichSuCongTacs.Attach(moi);
+                var lsct = entity.Entry(moi);
+                lsct.Property(s => s.NgayChuyen).IsModified = true;
+                entity.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
     }

@@ -35,6 +35,7 @@ namespace WinForms.DanhMuc_NgachLuong
                     gridNgachLuong.Rows.Add(new DataGridViewRow());//them dong moi trong grid khi them DL
                     gridNgachLuong.Rows[row].Cells["MaNgach"].Value = ngach.MaNgach;
                     gridNgachLuong.Rows[row].Cells["TenNgach"].Value = ngach.TenNgach;
+                    gridNgachLuong.Rows[row].Cells["NienHan"].Value = ngach.NienHan;
                     gridNgachLuong.Rows[row].Cells["MoTa"].Value = ngach.MoTa;
                     row++;
                 }
@@ -69,6 +70,7 @@ namespace WinForms.DanhMuc_NgachLuong
                         gridNgachLuong.Rows.Add(new DataGridViewRow());
                         gridNgachLuong.Rows[row].Cells["MaNgach"].Value = item.MaNgach;
                         gridNgachLuong.Rows[row].Cells["TenNgach"].Value = item.TenNgach;
+                        gridNgachLuong.Rows[row].Cells["NienHan"].Value = item.NienHan;
                         gridNgachLuong.Rows[row].Cells["MoTa"].Value = item.MoTa;
                         row++;
                     }
@@ -86,6 +88,7 @@ namespace WinForms.DanhMuc_NgachLuong
             this.Close();
         }
 
+        //Tải lại gridView
         private void btnTaiLai_Click(object sender, EventArgs e)
         {
             try
@@ -100,6 +103,7 @@ namespace WinForms.DanhMuc_NgachLuong
                     gridNgachLuong.Rows.Add(new DataGridViewRow());//them dong moi trong grid khi them DL
                     gridNgachLuong.Rows[row].Cells["MaNgach"].Value = ngach.MaNgach;
                     gridNgachLuong.Rows[row].Cells["TenNgach"].Value = ngach.TenNgach;
+                    gridNgachLuong.Rows[row].Cells["NienHan"].Value = ngach.NienHan;
                     gridNgachLuong.Rows[row].Cells["MoTa"].Value = ngach.MoTa;
                     row++;
                 }
@@ -107,6 +111,78 @@ namespace WinForms.DanhMuc_NgachLuong
             catch (Exception ex)
             {
                 MessageBox.Show("Không lấy được dữ liệu!");
+            }
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frm_ThemNgachLuong them = new frm_ThemNgachLuong();
+                them.Show();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Bạn có thực sự muốn xoá?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int viTri = gridNgachLuong.CurrentCell.RowIndex;
+                    if (viTri < 0)
+                    {
+                        MessageBox.Show("Bạn phải chọn mục cần xoá!");
+                    }
+                    else
+                    {
+                        string maXoa = gridNgachLuong.Rows[viTri].Cells["MaNgach"].Value.ToString();
+                        if(bizNgach.BIZ_XoaNgachLuong(maXoa) == true)
+                        {
+                            MessageBox.Show("Đã xoá!");
+                            LayLaiDanhSach();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không xoá được!");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi hệ thống!");
+            }
+        }
+
+        //Load lại DS sau khi xoá xong
+        private void LayLaiDanhSach()
+        {
+            try
+            {
+                gridNgachLuong.Rows.Clear();
+                gridNgachLuong.AutoGenerateColumns = false;
+                List<NgachLuong> list = bizNgach.BIZ_LayDuLieuNgach();
+                int row = 0;
+                foreach(NgachLuong ngach in list)
+                {
+                    gridNgachLuong.Rows.Add(new DataGridViewRow());
+                    gridNgachLuong.Rows[row].Cells["MaNgach"].Value = ngach.MaNgach;
+                    gridNgachLuong.Rows[row].Cells["TenNgach"].Value = ngach.TenNgach;
+                    gridNgachLuong.Rows[row].Cells["NienHan"].Value = ngach.NienHan;
+                    gridNgachLuong.Rows[row].Cells["MoTa"].Value = ngach.MoTa;
+                    row++;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
     }
