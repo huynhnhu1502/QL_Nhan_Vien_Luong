@@ -16,13 +16,21 @@ namespace _3Layer.BIZ
         {
             return DAL_DonVi.listall();
         }
-        public bool TimKiem(DonVi donvi)
+        public List<LoaiDonVi> BIZLayLoai()
         {
-            return _daldonvi.TimKiem(donvi);
+            return _daldonvi.LayLoai();
+        }
+        public List<DonVi> BIZTimKiem(string ma ,string ten ,string loai)
+        {
+            return _daldonvi.TimKiem(ma,ten,loai);
         }
         public bool themDonVi(DonVi donvi)
         {
             return _daldonvi.themDonVi(donvi);
+        }
+        public bool SuaDonVi(DonVi donvi)
+        {
+            return _daldonvi.Suadonvi(donvi);
         }
     }
 }

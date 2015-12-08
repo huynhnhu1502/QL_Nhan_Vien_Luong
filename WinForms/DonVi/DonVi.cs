@@ -9,6 +9,7 @@ using _3Layer.DAL;
 using _3Layer;
 using _3Layer.BIZ;
 
+
 namespace WinForms
 {
     public partial class DonVi : Form
@@ -19,8 +20,8 @@ namespace WinForms
         public DonVi()
         {
             InitializeComponent();
-            loadcb();
-            this.dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            load();
+            this.dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; this.dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         public void load()
         {
@@ -28,7 +29,7 @@ namespace WinForms
             dataGridView1.DataSource = _bizdonvi.DSDonVi();
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                dataGridView1.Rows[i].Cells[9].Value = "Xem chi tiết";
+                dataGridView1.Rows[i].Cells[0].Value = "Xem chi tiết";
             }
 
 
@@ -38,9 +39,9 @@ namespace WinForms
             // TODO: This line of code loads data into the 'quanLyLuongDataSet1.DonVi' table. You can move, or remove it, as needed.
             try
             {
-                dataGridView1.AutoGenerateColumns = false;
-                load();
-               
+                load();         
+                loadcb();
+
             }
             catch (SqlException ex)
             {
@@ -49,29 +50,82 @@ namespace WinForms
             
 
         }
+        public delegate void laymadonvi(TextBox madv);       
 
-        private void button1_Click(object sender, EventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            _donvi.MaDonVi = txtMaDV.Text.Trim();
-            _donvi.TenDonVi = txtTenDV.Text.Trim();
-            _donvi.MaLoai = comboBox1.SelectedValue.ToString();
-            if (_bizdonvi.TimKiem(_donvi) == true)
+            int VT = dataGridView1.CurrentCell.RowIndex;
+            loadCV(VT);
+            var a = dataGridView1.Rows[e.RowIndex];
+            if (e.ColumnIndex == dataGridView1.Columns["ChiTiet"].Index && e.RowIndex >= 0)
             {
-                var result = (from u in db.DonVis where u.MaDonVi == _donvi.MaDonVi || u.TenDonVi == _donvi.TenDonVi || u.MaLoai == _donvi.MaLoai select new { u.MaDonVi, u.TenDonVi, u.MaLoai, u.DienThoai, u.NamThanhLap }).ToList();
-                dataGridView1.DataSource = result;
-                for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
-                    dataGridView1.Rows[i].Cells[7].Value = "Xem chi tiết";
+                    ChiTietDonVi frmchitiet = new ChiTietDonVi();
+                    frmchitiet.Show();
+                    laymadonvi del = new laymadonvi(frmchitiet.Laydulieu);
+                    del(this.txtMaDV);
+                    frmchitiet.Show();
                 }
             }
         }
+
+        private void loadCV(int VT)
+        {
+
+            try
+            {
+                txtMaDV.Text = dataGridView1.Rows[VT].Cells[2].Value.ToString();
+            }
+            catch (Exception e) { }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string maloai = "";
+            if (cbloai.SelectedItem.ToString() == "----Tất cả----")
+            {
+                maloai = "";
+            }
+            else
+            {
+                _3Layer.LoaiDonVi LDV = (_3Layer.LoaiDonVi)cbloai.SelectedItem;
+                maloai = LDV.MaLoai;
+            }
+            if (txtma.Text == "" && txtTenDV.Text == "" && maloai == "")
+            {
+                load();
+            }
+            else
+            {
+                string ma = txtma.Text;
+                string ten = txtTenDV.Text;
+                dataGridView1.DataSource = _bizdonvi.BIZTimKiem(ma,ten,maloai);
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+                    dataGridView1.Rows[i].Cells[0].Value = "Xem chi tiết";
+                }
+
+                if (dataGridView1.RowCount == 0)
+                {
+                    MessageBox.Show("Không tìm thấy dữ liệu cần tìm !!");
+                }
+            }
+            }
+        
+
         public void loadcb()
         {
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            var result = from u in db.LoaiDonVis select u;
-            comboBox1.DataSource = result.ToList();
-            comboBox1.ValueMember = "MaLoai";
-            comboBox1.DisplayMember = "TenLoai";
+            List<_3Layer.LoaiDonVi> dsLDV = _bizdonvi.BIZLayLoai();
+            cbloai.Items.Add("----Tất cả----");
+            foreach (_3Layer.LoaiDonVi item in dsLDV)
+            {
+                cbloai.Items.Add(item);
+            }
+            //cbDonVi.DataSource = dsDV;
+            cbloai.DisplayMember = "TenLoai";
+            cbloai.ValueMember = "MaLoai";
+            cbloai.SelectedIndex = 0;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -80,24 +134,40 @@ namespace WinForms
             themdv.Show();
         }
 
-        //private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    var a = dataGridView1.Rows[e.RowIndex];
-        //    if (e.ColumnIndex == dataGridView1.Columns["ChiTiet"].Index && e.RowIndex >= 0)
-        //    {
-        //        {
-        //            ChiTietDonVi test = new ChiTietDonVi(a.Cells[0].Value.ToString());
-        //            test.Show();
-
-        //        }
-        //    }
-        //}
+  
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var result = from u in db.DonVis select new { u.MaDonVi, u.TenDonVi, u.MaLoai, u.DienThoai, u.NamThanhLap };
-            dataGridView1.DataSource = result.ToList();
+            load();
+            txtma.Text = "";
+            txtTenDV.Text = "";
+            loadcb();
 
+
+        }
+
+        private void btSua_Click(object sender, EventArgs e)
+        {
+            
+            if (txtMaDV.Text != "")
+            {
+                {
+                    SuaDonVi frmsua = new SuaDonVi();
+                    frmsua.Show();
+                    laymadonvi del = new laymadonvi(frmsua.Laydulieu);
+                    del(this.txtMaDV);
+                    frmsua.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn đơn vị muốn sửa!");
+            }
+        }
+
+        private void btthoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

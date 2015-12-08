@@ -67,7 +67,6 @@ namespace WinForms.LichSuChuyenBac
                 string ngay1 = dtp1.Value.Month + "/" + dtp1.Value.Day + "/" + dtp1.Value.Year;
                 string ngay2 = dtp2.Value.Month + "/" + dtp2.Value.Day + "/" + dtp2.Value.Year;
                 if (dtp2.Value == dtp2.MinDate) ngay2 = DateTime.Now.Month + "/" + DateTime.Now.Day + "/" + DateTime.Now.Year;
-                //DAL_LichSuChuyenBac.timkiem(ten, ngay1, ngay2);
                 DateTime dt = new DateTime(1994, 1, 1);
                 if (dtp1.Value > dtp2.Value && dtp2.Value != dt )
                 {
@@ -105,8 +104,8 @@ namespace WinForms.LichSuChuyenBac
             try
             {
                 txtttma.Text = dataGridView1.Rows[VT].Cells[1].Value.ToString();
-                txtttngach.Text = dataGridView1.Rows[VT].Cells[8].Value.ToString();
-                txttths.Text = dataGridView1.Rows[VT].Cells[5].Value.ToString();
+                txtttngach.Text = dataGridView1.Rows[VT].Cells[5].Value.ToString();
+                txttths.Text = dataGridView1.Rows[VT].Cells[3].Value.ToString();
                 txtid.Text = dataGridView1.Rows[VT].Cells[0].Value.ToString();
                 
             }

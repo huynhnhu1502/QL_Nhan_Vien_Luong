@@ -35,7 +35,7 @@
             this.lbHS = new System.Windows.Forms.Label();
             this.btluu = new System.Windows.Forms.Button();
             this.btthoat = new System.Windows.Forms.Button();
-            this.cbhs = new System.Windows.Forms.ComboBox();
+            this.cbheso = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -105,13 +105,13 @@
             this.btthoat.UseVisualStyleBackColor = true;
             this.btthoat.Click += new System.EventHandler(this.btthoat_Click);
             // 
-            // cbhs
+            // cbheso
             // 
-            this.cbhs.FormattingEnabled = true;
-            this.cbhs.Location = new System.Drawing.Point(109, 111);
-            this.cbhs.Name = "cbhs";
-            this.cbhs.Size = new System.Drawing.Size(180, 21);
-            this.cbhs.TabIndex = 8;
+            this.cbheso.FormattingEnabled = true;
+            this.cbheso.Location = new System.Drawing.Point(109, 111);
+            this.cbheso.Name = "cbheso";
+            this.cbheso.Size = new System.Drawing.Size(180, 21);
+            this.cbheso.TabIndex = 8;
             // 
             // dateTimePicker1
             // 
@@ -137,7 +137,7 @@
             this.ClientSize = new System.Drawing.Size(301, 265);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.cbhs);
+            this.Controls.Add(this.cbheso);
             this.Controls.Add(this.btthoat);
             this.Controls.Add(this.btluu);
             this.Controls.Add(this.lbHS);
@@ -161,7 +161,7 @@
         private System.Windows.Forms.Label lbHS;
         private System.Windows.Forms.Button btluu;
         private System.Windows.Forms.Button btthoat;
-        private System.Windows.Forms.ComboBox cbhs;
+        private System.Windows.Forms.ComboBox cbheso;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label1;
     }

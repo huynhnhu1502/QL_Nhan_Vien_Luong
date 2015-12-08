@@ -14,14 +14,17 @@ namespace WinForms
     public partial class ChiTietDonVi : Form
     {
         QuanLyLuongEntities db = new QuanLyLuongEntities();
-        public ChiTietDonVi(string data1)
+        public ChiTietDonVi()
         {
             InitializeComponent();
-            var result = db.DonVis.FirstOrDefault(a => a.MaDonVi == data1);
+        }
+        public void Laydulieu(TextBox txtmadonvi)
+        {
+            txtMaDV.Text = txtmadonvi.Text;
+            var result = db.DonVis.FirstOrDefault(a => a.MaDonVi == txtMaDV.Text);
             if (result != null)
             {
                 label10.Text = result.TenDonVi;
-                txtMaDV.Text = result.MaDonVi;
                 txtTenDV.Text = result.TenDonVi;
                 txtDiaChi.Text = result.DiaChi;
                 txtSoDT.Text = result.DienThoai;
@@ -40,5 +43,7 @@ namespace WinForms
         {
             this.Close();
         }
+
+
     }
 }

@@ -19,7 +19,7 @@ namespace _3Layer.DAL
                      from nv in db.NhanViens.ToList()
                      where lscb.MaNV == nv.MaNV && lscb.MaHeSo == hslpc.MaHeSo && hslpc.MaNgach == ngach.MaNgach
                      select new LichSuChuyenBac()
-                     {
+                     {                         
                          id = lscb.id,
                          MaNV = nv.MaNV,
                          TenNV = nv.HoTen,
@@ -139,22 +139,11 @@ namespace _3Layer.DAL
             QuanLyLuongEntities csdl = new QuanLyLuongEntities();
             try
             {
-                //var u = from b in csdl.LichSuChuyenBacs where b.MaNV == lichsuchuyenbac.MaNV select b;
 
-                //int idmax = u.Max(b => b.id);
-
-
-                //var lscbac = from p in csdl.LichSuChuyenBacs
-                              // where p.id == idmax
-                               //select p;
                 LichSuChuyenBac ls = csdl.LichSuChuyenBacs.SingleOrDefault(n => n.id == lichsuchuyenbac.id );
                 ls.MaHeSo = lichsuchuyenbac.MaHeSo;
                 ls.NgayChuyen = lichsuchuyenbac.NgayChuyen;
-                //foreach (LichSuChuyenBac a in lscbac)
-                //{
-                //    a.MaHeSo = lichsuchuyenbac.MaHeSo;
-                //    a.NgayChuyen = lichsuchuyenbac.NgayChuyen;
-                //}
+
                 csdl.SaveChanges();
                 var nhanvien = from p in csdl.NhanViens
                                where p.MaNV == lichsuchuyenbac.MaNV
@@ -180,7 +169,9 @@ namespace _3Layer.DAL
             try
             {
                 List<NgachLuong> list = new List<NgachLuong>();
-                var ds = from a in db.NgachLuongs select a;
+                var ds = from nl in db.NgachLuongs
+                         join ngach in db.NgachLuongs on nl.MaNgach equals ngach.MaNgach
+                         select nl;
                 list = ds.ToList();
                 return list;
             }

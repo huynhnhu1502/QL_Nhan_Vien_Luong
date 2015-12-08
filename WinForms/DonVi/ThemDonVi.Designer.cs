@@ -47,7 +47,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.lbErr = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -162,6 +161,7 @@
             // 
             // txtNhiemVu
             // 
+            this.txtNhiemVu.BackColor = System.Drawing.SystemColors.Window;
             this.txtNhiemVu.Location = new System.Drawing.Point(146, 272);
             this.txtNhiemVu.Name = "txtNhiemVu";
             this.txtNhiemVu.Size = new System.Drawing.Size(517, 115);
@@ -213,24 +213,12 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 20;
             // 
-            // lbErr
-            // 
-            this.lbErr.AutoSize = true;
-            this.lbErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbErr.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lbErr.Location = new System.Drawing.Point(344, 9);
-            this.lbErr.Name = "lbErr";
-            this.lbErr.Size = new System.Drawing.Size(32, 13);
-            this.lbErr.TabIndex = 21;
-            this.lbErr.Text = "lberr";
-            // 
             // ThemDonVi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(733, 453);
-            this.Controls.Add(this.lbErr);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button3);
@@ -278,6 +266,5 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label lbErr;
     }
 }
