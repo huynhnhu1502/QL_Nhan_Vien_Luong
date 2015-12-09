@@ -12,13 +12,15 @@ using _3Layer.BIZ;
 
 namespace WinForms.DanhMuc_NgachLuong
 {
-    public partial class frm_ThemNgachLuong : Form
+    public partial class frm_SuaNgachLuong : Form
     {
-        QuanLyLuongEntities entity = new QuanLyLuongEntities();
         BIZ_NgachLuong bizNgach = new BIZ_NgachLuong();
+        string MaSua;
+        NgachLuong ngachLuong;
 
-        public frm_ThemNgachLuong()
+        public frm_SuaNgachLuong(string maSua)
         {
+            this.MaSua = maSua;
             InitializeComponent();
         }
 
@@ -31,7 +33,6 @@ namespace WinForms.DanhMuc_NgachLuong
         {
             try
             {
-                
                 if(txtTenNgach.Text.Trim() == "")
                 {
                     MessageBox.Show("Tên ngạch không được trống!");
@@ -42,6 +43,8 @@ namespace WinForms.DanhMuc_NgachLuong
                 }
                 else
                 {
+                    //Lấy các thuộc tính từ form
+                    string maNgach = txtMaNgach.Text;
                     string tenNgach = txtTenNgach.Text;
                     float nienHan;
                     string moTa = txtMoTa.Text;
@@ -49,30 +52,50 @@ namespace WinForms.DanhMuc_NgachLuong
                     {
                         MessageBox.Show("Niên hạn là một số");
                     }
-                    else if (nienHan < 1 || nienHan > 4)
+                    else if(nienHan < 1 || nienHan > 4)
                     {
                         MessageBox.Show("Niên hạn là một số dương không lớn hơn 4");
                     }
                     else
                     {
-                        NgachLuong ngach = new NgachLuong();
-                        ngach.MaNgach = bizNgach.BIZ_TaoMaNgachLuong();
-                        ngach.TenNgach = tenNgach;
-                        ngach.NienHan = nienHan;
-                        ngach.MoTa = moTa;
-                        if (bizNgach.BIZ_ThemNgachLuong(ngach) == true)
+                        ngachLuong.TenNgach = tenNgach;
+                        ngachLuong.NienHan = nienHan;
+                        ngachLuong.MoTa = moTa;
+                        if (bizNgach.BIZ_SuaNgachLuong(ngachLuong) == true)
                         {
-                            MessageBox.Show("Thêm thành công!");
-                            txtTenNgach.Text = "";
-                            txtNienHan.Text = "";
-                            txtMoTa.Text = "";
+                            MessageBox.Show("Đã sửa thành công!");
                         }
-                    }  
+                        else
+                        {
+                            MessageBox.Show("Không sửa được!");
+                        }
+                    }               
+                    
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Không thêm được! Hãy kiểm tra lại");
+                MessageBox.Show("Lỗi hệ thống!");
+            }
+        }
+
+        private void frm_SuaNgachLuong_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                //Lấy thông tin sửa
+                ngachLuong = bizNgach.BIZ_TimNgachLuongTheoMa(MaSua);
+
+                //gán giá trị từ ngạch lương cho form
+                txtMaNgach.Text = ngachLuong.MaNgach;
+                txtTenNgach.Text = ngachLuong.TenNgach;
+                txtNienHan.Text = ngachLuong.NienHan.ToString();
+                txtMoTa.Text = ngachLuong.MoTa;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
     }

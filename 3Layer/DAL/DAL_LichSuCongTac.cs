@@ -9,6 +9,7 @@ namespace _3Layer.DAL
     class DAL_LichSuCongTac
     {
         QuanLyLuongEntities entity = new QuanLyLuongEntities();
+
         //đổ DL vào gridview
         public List<LichSuCongTac> LayDuLieu()
         {
@@ -290,7 +291,7 @@ namespace _3Layer.DAL
             }
         }
 
-        //Tìm LS công tác theo mã công tác
+        //Tìm LS công tác theo mã công tác (để đổ DL vào form sửa)
         public LichSuCongTac TimLSCongTacTheoMa(string maCongTac)
         {
             try

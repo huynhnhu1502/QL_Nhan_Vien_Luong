@@ -188,7 +188,25 @@ namespace WinForms.DanhMuc_NgachLuong
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            try
+            {
+                int viTri = gridNgachLuong.CurrentCell.RowIndex;
+                if(viTri < 0)
+                {
+                    MessageBox.Show("Bạn phải chọn mục cần sửa!");
+                }
+                else
+                {
+                    string maSua = gridNgachLuong.Rows[viTri].Cells["MaNgach"].Value.ToString();
+                    frm_SuaNgachLuong sua = new frm_SuaNgachLuong(maSua);
+                    sua.Show();
+                }
+            }
+            catch (Exception ex)
+            {
 
+                throw;
+            }
         }
     }
 }

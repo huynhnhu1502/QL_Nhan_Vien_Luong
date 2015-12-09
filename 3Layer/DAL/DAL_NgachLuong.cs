@@ -15,6 +15,7 @@ namespace _3Layer.DAL
         {
             try
             {
+                entity = new QuanLyLuongEntities();
                 List<NgachLuong> list = new List<NgachLuong>();
                 var ds = from ngach in entity.NgachLuongs
                          select ngach;
@@ -96,7 +97,7 @@ namespace _3Layer.DAL
                          select ngach.MaNgach;
                 if(ma.Count() == 0)
                 {
-                    kq = "N001";
+                    kq = "N0001";
                 }
                 else
                 {
@@ -106,9 +107,13 @@ namespace _3Layer.DAL
 
                     if(soTang < 10)
                     {
-                        kq = "N00" + soTang.ToString();
+                        kq = "N000" + soTang.ToString();
                     }
                     else if(soTang < 100)
+                    {
+                        kq = "N00" + soTang.ToString();
+                    }
+                    else if(soTang < 1000)
                     {
                         kq = "N0" + soTang.ToString();
                     }
@@ -118,6 +123,50 @@ namespace _3Layer.DAL
                     }
                 }
                 return kq;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        //Sửa ngạch lương
+        public bool SuaNgachLuong(NgachLuong ngachSua)
+        {
+            try
+            {
+                entity.NgachLuongs.Attach(ngachSua);
+                var ngach = entity.Entry(ngachSua);
+                ngach.Property(s => s.TenNgach).IsModified = true;
+                ngach.Property(s => s.NienHan).IsModified = true;
+                ngach.Property(s => s.MoTa).IsModified = true;
+                entity.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        //Tìm ngạch lương theo mã để lấy DL đổ vào form sửa
+        public NgachLuong TimNgachLuongTheoMa(string maTim)
+        {
+            try
+            {
+                var dsTim = (from ngachLuong in entity.NgachLuongs
+                             where ngachLuong.MaNgach == maTim
+                             select ngachLuong).ToList();
+                if(dsTim.Count > 0)
+                {
+                    NgachLuong ngach = dsTim[0];
+                    return ngach;
+                }
+                else
+                {
+                    return null;
+                }
             }
             catch (Exception ex)
             {
