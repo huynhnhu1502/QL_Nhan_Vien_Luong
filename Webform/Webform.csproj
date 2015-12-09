@@ -219,6 +219,13 @@
     <Content Include="Views\Home\ThongKeNhanVienTrongDonVi.cshtml" />
     <Content Include="Views\Home\ThongKeLichSuCongTac.cshtml" />
     <Content Include="Views\Home\ChiTietCongTac.cshtml" />
+<<<<<<< HEAD
+    <Content Include="Views\Home\TinhLuong.cshtml" />
+    <Content Include="Views\Home\ThucHienTinhLuong.cshtml" />
+    <Content Include="Views\Home\ThongKeLuong.cshtml" />
+    <Content Include="Views\Home\ThucHienThongKeLuong.cshtml" />
+=======
+>>>>>>> 9fc114a9e1eb8f9a99fb8313b8da18b32a8cfb69
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

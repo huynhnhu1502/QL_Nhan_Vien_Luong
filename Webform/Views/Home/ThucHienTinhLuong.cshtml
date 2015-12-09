@@ -1,0 +1,51 @@
+﻿@model IEnumerable<_3Layer.NhanVien>
+    @using _3Layer;
+    @{QuanLyLuongEntities db = new QuanLyLuongEntities();}
+@{
+    ViewBag.Title = "ThucHienTinhLuong";
+}
+
+<h2>Thực hiện tính lương</h2>
+    @using (Html.BeginForm("ThucHienTinhLuong", "Home", FormMethod.Post)) { 
+<table class="table">
+@foreach (var item in Model)
+{
+    <tr>
+        <td>Mã nhân viên</td>
+        @{ var donvi = db.DonVis.FirstOrDefault(a=>a.MaDonVi.Equals(item.MaDonVi));}
+        @{ var chucvu = db.ChucVus.FirstOrDefault(a=>a.MaChucVu.Equals(item.MaChucVu));}
+        @{ var ngach = db.NgachLuongs.FirstOrDefault(a=>a.MaNgach.Equals(item.MaNgach));}
+        @{string maheso = db.LichSuChuyenBacs.Where(a => a.MaNV.Equals(item.MaNV)).OrderByDescending(a => a.id).Select(a => a.MaHeSo).FirstOrDefault();}
+        @{var heso = db.HeSoLuongPhuCaps.FirstOrDefault(a=>a.MaHeSo.Equals(maheso));}
+        <td>@Html.DisplayFor(modelItem => item.MaNV)</td>
+        <td><input type="text" name="MaNV" value='@Html.DisplayFor(modelItem => item.MaNV)' readonly hidden></td>
+    </tr>
+    <tr>
+        <td>
+            Họ và tên
+        </td>
+        <td>@Html.DisplayFor(modelItem => item.HoTen)</td>
+    </tr>
+    
+    <tr>
+        <td>Đơn vị</td>
+        <td>@donvi.TenDonVi</td>
+    </tr>
+    <tr>
+        <td>Chức vụ</td>
+        <td>@chucvu.TenChucVu</td>
+    </tr>
+    <tr>
+        <td>Ngạch</td>
+        <td>@ngach.TenNgach</td>
+    </tr>
+    <tr>
+        <td>Hệ số lương</td>
+        <td>@heso.HeSo</td>
+    </tr>
+    <tr>
+        <td><input type="submit" value="Tính lương" class="btn btn-success" /></td>
+    </tr>
+}
+</table>
+    }

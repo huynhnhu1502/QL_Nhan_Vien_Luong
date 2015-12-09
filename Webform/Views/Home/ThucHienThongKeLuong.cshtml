@@ -1,0 +1,96 @@
+﻿@model IEnumerable<_3Layer.LuongThucTe>
+    @using _3Layer;
+    @{QuanLyLuongEntities db = new QuanLyLuongEntities();}
+
+@{
+    ViewBag.Title = "ThucHienThongKeLuong";
+}
+    @{
+        string madonvi = Request.QueryString["MaDonVi"];
+        string tendonvi = db.DonVis.Where(a => a.MaDonVi.Equals(madonvi)).Select(a => a.TenDonVi).FirstOrDefault();
+    }
+<h2>Thống kê lương của đơn vị @tendonvi</h2>
+
+<p>
+    @using(Html.BeginForm("ThucHienThongKeLuong", "Home", FormMethod.Get))
+    {
+        <p><input type="text" name="MaDonVi" value='@madonvi' readonly hidden />
+            <b>Tháng: </b>
+            <select name="thang">
+                @for (int i = 1; i <= 12; i++)
+{
+    string selected;
+    if (!String.IsNullOrEmpty(Request.QueryString["thang"]) && int.Parse(Request.QueryString["thang"]) == i)
+    {
+        <option selected value='@i'>@i</option>
+    }
+    else
+    {
+                        <option value='@i'>@i</option>
+                    }
+                }
+            </select>
+            <b>Năm: </b>
+    <select name="nam">
+        @for (int j = 1900; j <= DateTime.Now.Year; j++)
+        {
+            if (!String.IsNullOrEmpty(Request.QueryString["nam"]) && int.Parse(Request.QueryString["nam"]) == j)
+    {
+        <option selected value='@j'>@j</option>
+    }
+            else
+            {
+                <option value='@j'>@j</option>
+            }
+        }
+    </select>
+            <input type="submit" value="Lọc" class="btn btn-success" />
+        </p>      
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Mã lương
+        </th>
+        <th>
+            Mã nhân viên
+        </th>
+        <th>Họ và tên</th>
+        <th>
+            Ngày lập
+        </th>
+        <th>
+            Lương cơ bản
+        </th>
+        <th>
+           Lương thực tế
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaLuong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaNV)
+        </td>
+        @{
+    string hoten = db.NhanViens.Where(a => a.MaNV.Equals(item.MaNV)).Select(a => a.HoTen).FirstOrDefault();
+        }
+        <td>@hoten</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayLap)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LuongCoBan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LuongThucTe1)
+        </td>
+    </tr>
+}
+
+</table>
