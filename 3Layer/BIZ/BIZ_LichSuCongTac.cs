@@ -69,5 +69,10 @@ namespace _3Layer.BIZ
         {
             return dalLSCongTac.SuaLichSuCongTac(moi);
         }
+
+        public LichSuCongTac BIZTimLSCongTacTheoMa(string maCongTac)
+        {
+            return dalLSCongTac.TimLSCongTacTheoMa(maCongTac);
+        }
     }
 }

@@ -43,7 +43,8 @@ namespace WinForms.LSCongTac
                     gridLSCongTac.Rows[row].Cells["tenChucVu"].Value = lsct.ChucVu.TenChucVu;
                     gridLSCongTac.Rows[row].Cells["tenNgach"].Value = lsct.NgachLuong.TenNgach;
                     gridLSCongTac.Rows[row].Cells["ngayLam"].Value = lsct.NgayLam;
-                    gridLSCongTac.Rows[row].Cells["ngayChuyen"].Value = lsct.NgayChuyen;
+                    if(lsct.NgayChuyen != null)
+                        gridLSCongTac.Rows[row].Cells["ngayChuyen"].Value = lsct.NgayChuyen;
                     row++;
                 }
 
@@ -130,7 +131,8 @@ namespace WinForms.LSCongTac
                         gridLSCongTac.Rows[row].Cells["tenChucVu"].Value = item.ChucVu.TenChucVu;
                         gridLSCongTac.Rows[row].Cells["tenNgach"].Value = item.NgachLuong.TenNgach;
                         gridLSCongTac.Rows[row].Cells["ngayLam"].Value = item.NgayLam;
-                        gridLSCongTac.Rows[row].Cells["ngayChuyen"].Value = item.NgayChuyen;
+                        if(item.NgayChuyen != null)
+                            gridLSCongTac.Rows[row].Cells["ngayChuyen"].Value = item.NgayChuyen;
                         row++;
                     }
                 }
@@ -206,7 +208,8 @@ namespace WinForms.LSCongTac
                     gridLSCongTac.Rows[row].Cells["tenChucVu"].Value = lsct.ChucVu.TenChucVu;
                     gridLSCongTac.Rows[row].Cells["tenNgach"].Value = lsct.NgachLuong.TenNgach;
                     gridLSCongTac.Rows[row].Cells["ngayLam"].Value = lsct.NgayLam;
-                    gridLSCongTac.Rows[row].Cells["ngayChuyen"].Value = lsct.NgayChuyen;
+                    if(lsct.NgayChuyen != null)
+                        gridLSCongTac.Rows[row].Cells["ngayChuyen"].Value = lsct.NgayChuyen;
                     row++;
                 }
             }
@@ -235,7 +238,8 @@ namespace WinForms.LSCongTac
                     gridLSCongTac.Rows[row].Cells["tenChucVu"].Value = lsct.ChucVu.TenChucVu;
                     gridLSCongTac.Rows[row].Cells["tenNgach"].Value = lsct.NgachLuong.TenNgach;
                     gridLSCongTac.Rows[row].Cells["ngayLam"].Value = lsct.NgayLam;
-                    gridLSCongTac.Rows[row].Cells["ngayChuyen"].Value = lsct.NgayChuyen;
+                    if(lsct.NgayChuyen != null)
+                        gridLSCongTac.Rows[row].Cells["ngayChuyen"].Value = lsct.NgayChuyen;
                     row++;
                 }
             }
@@ -248,23 +252,25 @@ namespace WinForms.LSCongTac
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    int viTri = gridLSCongTac.CurrentCell.RowIndex;
-            //    if (viTri < 0)
-            //    {
-            //        MessageBox.Show("Bạn phải chọn mục cần sửa!");
-            //    }
-            //    else
-            //    {
-            //        string maSua = gridLSCongTac.Rows[viTri].Cells["maCongTac"].Value.ToString();
-            //        frmSuaLSCongTac sua = new frmSuaLSCongTac();
-            //}
-            //catch (Exception ex)
-            //{
+            try
+            {
+                int viTri = gridLSCongTac.CurrentCell.RowIndex;
+                if (viTri < 0)
+                {
+                    MessageBox.Show("Bạn phải chọn mục cần sửa!");
+                }
+                else
+                {
+                    string maSua = gridLSCongTac.Rows[viTri].Cells["maCongTac"].Value.ToString();
+                    frmSuaLSCongTac sua = new frmSuaLSCongTac(maSua);
+                    sua.Show();
+                }
+            }
+            catch (Exception ex)
+            {
 
-            //    throw;
-            //}
+                throw;
+            }
         }
     }
 }

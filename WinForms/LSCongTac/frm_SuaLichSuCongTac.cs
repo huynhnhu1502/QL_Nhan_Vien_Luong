@@ -16,15 +16,21 @@ namespace WinForms.LSCongTac
     {
         QuanLyLuongEntities entitty = new QuanLyLuongEntities();
         BIZ_LichSuCongTac bizLSCongTac = new BIZ_LichSuCongTac();
-        public frmSuaLSCongTac()
+        string MaSua;
+        LichSuCongTac LichSuCT;
+
+        public frmSuaLSCongTac(string maSua)
         {
+            this.MaSua = maSua;
             InitializeComponent();
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
             //lấy các thuộc tính từ form
+            string maCT = txtMaCongTac.Text;
             string maNV = txtMaNV.Text;
+            string tenNV = txtTenNV.Text;
             _3Layer.DonVi donVi = (_3Layer.DonVi)cbDonVi.SelectedItem;
             _3Layer.ChucVu chucVu = (_3Layer.ChucVu)cbChucVu.SelectedItem;
             _3Layer.NgachLuong ngach = (_3Layer.NgachLuong)cbNgachLuong.SelectedItem;
@@ -33,60 +39,32 @@ namespace WinForms.LSCongTac
             //string ngayChuyen = dateNgayChuyen.Value.ToString("dd-mm-yyyy");
             DateTime ngayChuyen = dateNgayChuyen.Value.Date;
             
-            
-            if(KiemTraNgayChuyen() == false && checkNgayChuyen.Checked == true)
+            if(KiemTraNgayChuyen() == false)
             {
                 MessageBox.Show("Ngày chuyển phải lớn hơn ngày làm và ngày hiện tại!");
             }
             else
             {
                 //kiểm tra mã nhân viên có tồn tại không - nếu không có thì thông báo
-                if(bizLSCongTac.BIZKiemTraMaNV(maNV) == true)
+                //LichSuCongTac lsct = new LichSuCongTac();
+                //lsct.MaCongTac = maCT;
+                //lsct.MaNV = maNV;
+                //lsct.MaDonVi = donVi.MaDonVi;
+                //lsct.MaChucVu = chucVu.MaChucVu;
+                //lsct.MaNgach = ngach.MaNgach;
+                //lsct.NgayLam = ngayLam;
+                //lsct.NgayChuyen = ngayChuyen;
+
+                LichSuCT.NgayChuyen = ngayChuyen;//giá trị của đối tượng Lịch sử công tác đã được gán ở hàm Load
+
+                if (bizLSCongTac.BIZSuaLichSuCongTac(LichSuCT) == true)
                 {
-                    LichSuCongTac lsct = new LichSuCongTac();
-                    lsct.MaCongTac = bizLSCongTac.BIZTaoMaLSCongTac();
-                    lsct.MaNV = maNV;
-                    lsct.MaDonVi = donVi.MaDonVi;
-                    lsct.MaChucVu = chucVu.MaChucVu;
-                    lsct.MaNgach = ngach.MaNgach;
-                    lsct.NgayLam = ngayLam;
-                    if (checkNgayChuyen.Checked == true)
-                    {
-                        lsct.NgayChuyen = ngayChuyen;
-                    }
-                    else
-                    {
-                        lsct.NgayChuyen = null;
-                    }
-
-                    if (bizLSCongTac.BIZThemLSCongTac(lsct) == true)
-                    {
-                        MessageBox.Show("Thêm thành công!");
-
-                        //cập nhật lại thông tin nhân viên
-                        _3Layer.NhanVien nvCapNhat = bizLSCongTac.BIZTimNhanVien(maNV);
-                            //gán vào thuộc tính của nhân viên tìm được
-                        nvCapNhat.MaDonVi = donVi.MaDonVi;
-                        nvCapNhat.MaChucVu = chucVu.MaChucVu;
-                        bizLSCongTac.BIZCapNhatNhanVien(nvCapNhat);
-
-                        //thêm thành công thì reset lại form thêm để thêm đối tượng khác
-                        txtMaNV.Text = "";
-                        cbDonVi.SelectedIndex = 0;
-                        cbChucVu.SelectedIndex = 0;
-                        cbNgachLuong.SelectedIndex = 0;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Thêm không được dzồi!");
-                    }
+                    MessageBox.Show("Đã sửa thành công!");
                 }
                 else
                 {
-                    MessageBox.Show("Mã nhân viên không đúng!");
+                    MessageBox.Show("Không sửa được!");
                 }
-
-                
             }
 
             //lấy ngày làm - ngày chuyển
@@ -100,10 +78,15 @@ namespace WinForms.LSCongTac
             DateTime ngayChuyen = dateNgayChuyen.Value.Date;
             DateTime ngayLam = dateNgayLam.Value.Date;
             DateTime ngayHienTai = DateTime.Now;
-            if (ngayChuyen > ngayHienTai && ngayChuyen > ngayLam)
+            int kq = DateTime.Compare(ngayLam, ngayChuyen);
+            if (kq < 0)
             {
                 return true;
             }
+            //if (ngayChuyen > ngayHienTai && ngayChuyen > ngayLam)
+            //{
+            //    return true;
+            //}
             return false;
         }
         //hàm tạo mã
@@ -114,7 +97,7 @@ namespace WinForms.LSCongTac
         //if(datengayLam > (new Date().Now) thì thông báo
         //if(dateNgaychuyen < dateNgayLam) thông báo
 
-        private void frmThemLSCongTac_Load(object sender, EventArgs e)
+        private void frmSuaLSCongTac_Load(object sender, EventArgs e)
         {
             try
             {
@@ -135,7 +118,27 @@ namespace WinForms.LSCongTac
                 cbNgachLuong.DataSource = dsNgach;
                 cbNgachLuong.DisplayMember = "TenNgach";
                 cbNgachLuong.ValueMember = "MaNgach";
-                
+
+                //Lấy thông tin sửa
+                LichSuCT = bizLSCongTac.BIZTimLSCongTacTheoMa(MaSua);//gán giá trị cho LichSuCT (biến toàn cục đã khai báo ở trên)
+
+                //gán các giá trị từ LichSuCT cho các thuộc tính trên form
+                txtMaCongTac.Text = LichSuCT.MaCongTac;
+                txtMaNV.Text = LichSuCT.NhanVien.MaNV;
+                txtTenNV.Text = LichSuCT.NhanVien.HoTen;
+                cbDonVi.SelectedItem = LichSuCT.DonVi;
+                cbChucVu.SelectedItem = LichSuCT.ChucVu;
+                cbNgachLuong.SelectedItem = LichSuCT.NgachLuong;
+                dateNgayLam.Value = LichSuCT.NgayLam;
+                if(LichSuCT.NgayChuyen != null)
+                {
+                    DateTime ngayChuyen = LichSuCT.NgayChuyen.Value;
+                    dateNgayChuyen.Value = ngayChuyen;
+                }
+                else
+                {
+                    //dateNgayChuyen.Value = new DateTime();
+                }
             }
             catch (Exception)
             {
@@ -147,50 +150,6 @@ namespace WinForms.LSCongTac
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void btnTim_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string maNV = txtMaNV.Text.Trim();
-                if(maNV == "")
-                {
-                    MessageBox.Show("Nhập mã nhân viên!");
-                }
-                else
-                {
-                    _3Layer.NhanVien nhanVien = bizLSCongTac.BIZTimNhanVien(maNV);
-                    if (nhanVien==null)
-                    {
-                        MessageBox.Show("Không tìm thấy nhân viên mã " + maNV);
-                    }
-                    else
-                    {
-                    txtTenNV.Text = nhanVien.HoTen;
-                    cbDonVi.SelectedItem = nhanVien.DonVi;
-                    cbChucVu.SelectedItem = nhanVien.ChucVu;
-                    cbNgachLuong.SelectedItem = nhanVien.NgachLuong;
-                    }                    
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
-        }
-
-        private void checkNgayChuyen_CheckedChanged(object sender, EventArgs e)
-        {
-            if(checkNgayChuyen.Checked == true)
-            {
-                dateNgayChuyen.Enabled = true;
-            }
-            else
-            {
-                dateNgayChuyen.Enabled = false;
-            }
         }
     }
 }

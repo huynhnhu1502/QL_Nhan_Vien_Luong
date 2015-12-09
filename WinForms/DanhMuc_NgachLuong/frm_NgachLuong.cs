@@ -185,5 +185,10 @@ namespace WinForms.DanhMuc_NgachLuong
                 throw;
             }
         }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

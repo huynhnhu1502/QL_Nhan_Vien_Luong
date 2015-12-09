@@ -14,6 +14,7 @@ namespace _3Layer.DAL
         {
             try
             {
+                entity = new QuanLyLuongEntities();
                 List<LichSuCongTac> list = new List<LichSuCongTac>();
                 var ds = from lsct in entity.LichSuCongTacs
                          join dv in entity.DonVis on lsct.MaDonVi equals dv.MaDonVi
@@ -281,6 +282,36 @@ namespace _3Layer.DAL
                 lsct.Property(s => s.NgayChuyen).IsModified = true;
                 entity.SaveChanges();
                 return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        //Tìm LS công tác theo mã công tác
+        public LichSuCongTac TimLSCongTacTheoMa(string maCongTac)
+        {
+            try
+            {
+                var dsTim = (from lsct in entity.LichSuCongTacs
+                             join nv in entity.NhanViens on lsct.MaNV equals nv.MaNV
+                             join dv in entity.DonVis on lsct.MaDonVi equals dv.MaDonVi
+                             join cv in entity.ChucVus on lsct.MaChucVu equals cv.MaChucVu
+                             join ngach in entity.NgachLuongs on lsct.MaNgach equals ngach.MaNgach
+                             where lsct.MaCongTac == maCongTac
+                             select lsct).ToList();
+                if(dsTim.Count() > 0)
+                {
+                    LichSuCongTac lichSu = dsTim[0];
+                    return lichSu;
+                }
+                else
+                {
+                    return null;
+                }
+
             }
             catch (Exception ex)
             {
