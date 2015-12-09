@@ -7,12 +7,17 @@ using _3Layer;
 using System.Web.UI.WebControls;
 using System.IO;
 using System.Web.UI;
+<<<<<<< HEAD
+using _3Layer;
+=======
 
+>>>>>>> 9fc114a9e1eb8f9a99fb8313b8da18b32a8cfb69
 namespace Webform.Controllers
 {
     public class HomeController : Controller
     {
         QuanLyLuongEntities _db = new QuanLyLuongEntities();
+        _3Layer.BIZ.BIZ_TinhLuong _biztinhluong = new _3Layer.BIZ.BIZ_TinhLuong();
         public ActionResult Index()
         {
             return View();
@@ -65,9 +70,19 @@ namespace Webform.Controllers
 
             return RedirectToAction("ThongKeNhanVienTrongDonVi");
         }
+<<<<<<< HEAD
+        public ActionResult ThongKeLichSuCongTac(string HoTen)
+        {
+            var nhanvien = (from u in _db.NhanViens select u);
+            if (!String.IsNullOrEmpty(HoTen))
+            {
+                nhanvien = nhanvien.Where(c => c.HoTen.Contains(HoTen));
+            }
+=======
         public ActionResult ThongKeLichSuCongTac()
         {
             var nhanvien = (from u in _db.NhanViens select u).ToList();
+>>>>>>> 9fc114a9e1eb8f9a99fb8313b8da18b32a8cfb69
             return View(nhanvien);
         }
         public ActionResult ChiTietCongTac(string MaNV)
@@ -102,5 +117,60 @@ namespace Webform.Controllers
 
             return RedirectToAction("ThongKeNhanVienTrongDonVi");
         }
+<<<<<<< HEAD
+        public ActionResult TinhLuong(string Hoten)
+        {
+            var nhanvien = (from u in _db.NhanViens
+                            select u);
+            if (!String.IsNullOrEmpty(Hoten))
+            {
+                nhanvien = _db.NhanViens.Where(a => a.HoTen.Contains(Hoten));
+            }
+            return View(nhanvien);
+        }
+        public ActionResult ThucHienTinhLuong(string MaNV)
+        {
+            var nhanvien = (from u in _db.NhanViens where u.MaNV.Equals(MaNV)
+                            select u).ToList();
+            return View(nhanvien);
+        }
+        [HttpPost]
+        public ActionResult ThucHienTinhLuong(FormCollection fcl)
+        {
+            string MaNV = fcl["MaNV"];
+            if (_biztinhluong.TinhLuong(MaNV) == true)
+            {
+                return RedirectToAction("TinhLuong");
+            }
+            return RedirectToAction("Contact");
+        }
+        public ActionResult ThongKeLuong()
+        {
+            var result = (from u in _db.DonVis select u).ToList();
+            return View(result);
+        }
+        public ActionResult ThucHienThongKeLuong(string MaDonVi, string thang, string nam)
+        {
+            var result = (from e in _db.NhanViens
+                          from o in _db.LuongThucTes
+                          where e.MaDonVi == MaDonVi && e.MaNV == o.MaNV
+                          select o).OrderByDescending(a => a.NgayLap).ToList();
+            if (!String.IsNullOrEmpty(thang) && !String.IsNullOrEmpty(nam))
+            {
+                int thang1 = int.Parse(thang);
+                int nam1 = int.Parse(nam);
+                result = (from e in _db.NhanViens
+                          from o in _db.LuongThucTes
+                          where e.MaDonVi == MaDonVi && e.MaNV == o.MaNV && o.NgayLap.Month == thang1 && o.NgayLap.Year == nam1
+                          select o).OrderByDescending(a => a.NgayLap).ToList();
+                if (result == null)
+                {
+                    Response.Write("Không tìm thấy");
+                }
+            }
+            return View(result);
+        }
+=======
+>>>>>>> 9fc114a9e1eb8f9a99fb8313b8da18b32a8cfb69
     }
 }

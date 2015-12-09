@@ -1,0 +1,34 @@
+﻿@model IEnumerable<_3Layer.DonVi>
+
+@{
+    ViewBag.Title = "ThongKeLuong";
+}
+
+<h2>Thống kê lương theo đơn vị</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Mã đơn vị
+        </th>
+        <th>
+            Tên đơn vị
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaDonVi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenDonVi)
+        </td>
+        <td>
+            @Html.ActionLink("Thống kê lương", "ThucHienThongKeLuong", new { MaDonVi = item.MaDonVi })
+        </td>
+    </tr>
+}
+
+</table>
