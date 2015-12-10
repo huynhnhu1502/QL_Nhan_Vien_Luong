@@ -10,7 +10,7 @@ namespace _3Layer.DAL
     {
         QuanLyLuongEntities entity = new QuanLyLuongEntities();
 
-        //đổ DL vào gridview
+        //Lấy DL đổ vào gridview
         public List<LichSuCongTac> LayDuLieu()
         {
             try
