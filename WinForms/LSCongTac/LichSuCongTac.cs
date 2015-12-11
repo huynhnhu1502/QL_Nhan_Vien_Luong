@@ -14,7 +14,6 @@ namespace WinForms.LSCongTac
 {
     public partial class frmLichSuCongTac : Form
     {
-        QuanLyLuongEntities entity = new QuanLyLuongEntities();
         BIZ_LichSuCongTac bizLSCongTac = new BIZ_LichSuCongTac();
         public frmLichSuCongTac()
         {

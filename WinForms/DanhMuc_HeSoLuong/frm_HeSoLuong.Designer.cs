@@ -1,6 +1,6 @@
 ﻿namespace WinForms.DanhMuc_HeSoLuong
 {
-    partial class HeSoLuong
+    partial class frm_HeSoLuong
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbNgachLuong = new System.Windows.Forms.ComboBox();
             this.btnTim = new System.Windows.Forms.Button();
             this.txtHeSo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,20 +40,19 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnTaiLai = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gridHeSoLuong = new System.Windows.Forms.DataGridView();
             this.MaHeSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenNgach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenHeSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HeSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridHeSoLuong)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cbNgachLuong);
             this.groupBox1.Controls.Add(this.btnTim);
             this.groupBox1.Controls.Add(this.txtHeSo);
             this.groupBox1.Controls.Add(this.label2);
@@ -64,6 +64,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tuỳ chọn";
             // 
+            // cbNgachLuong
+            // 
+            this.cbNgachLuong.FormattingEnabled = true;
+            this.cbNgachLuong.Location = new System.Drawing.Point(105, 42);
+            this.cbNgachLuong.Name = "cbNgachLuong";
+            this.cbNgachLuong.Size = new System.Drawing.Size(262, 21);
+            this.cbNgachLuong.TabIndex = 5;
+            // 
             // btnTim
             // 
             this.btnTim.Location = new System.Drawing.Point(658, 40);
@@ -72,6 +80,7 @@
             this.btnTim.TabIndex = 4;
             this.btnTim.Text = "Tìm";
             this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // txtHeSo
             // 
@@ -105,7 +114,7 @@
             this.groupBox2.Controls.Add(this.btnSua);
             this.groupBox2.Controls.Add(this.btnThem);
             this.groupBox2.Controls.Add(this.btnTaiLai);
-            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.gridHeSoLuong);
             this.groupBox2.Location = new System.Drawing.Point(12, 127);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(770, 328);
@@ -121,6 +130,7 @@
             this.btnThoat.TabIndex = 5;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnXoa
             // 
@@ -130,6 +140,7 @@
             this.btnXoa.TabIndex = 4;
             this.btnXoa.Text = "Xoá";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
@@ -139,6 +150,7 @@
             this.btnSua.TabIndex = 3;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
@@ -148,6 +160,7 @@
             this.btnThem.TabIndex = 2;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnTaiLai
             // 
@@ -157,21 +170,22 @@
             this.btnTaiLai.TabIndex = 1;
             this.btnTaiLai.Text = "Tải lại";
             this.btnTaiLai.UseVisualStyleBackColor = true;
+            this.btnTaiLai.Click += new System.EventHandler(this.btnTaiLai_Click);
             // 
-            // dataGridView1
+            // gridHeSoLuong
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gridHeSoLuong.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridHeSoLuong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridHeSoLuong.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaHeSo,
             this.TenNgach,
             this.TenHeSo,
             this.HeSo});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 54);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(759, 220);
-            this.dataGridView1.TabIndex = 0;
+            this.gridHeSoLuong.Location = new System.Drawing.Point(6, 54);
+            this.gridHeSoLuong.Name = "gridHeSoLuong";
+            this.gridHeSoLuong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridHeSoLuong.Size = new System.Drawing.Size(759, 220);
+            this.gridHeSoLuong.TabIndex = 0;
             // 
             // MaHeSo
             // 
@@ -197,27 +211,20 @@
             this.HeSo.HeaderText = "Hệ số";
             this.HeSo.Name = "HeSo";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(105, 42);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(262, 21);
-            this.comboBox1.TabIndex = 5;
-            // 
-            // HeSoLuong
+            // frm_HeSoLuong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(792, 463);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "HeSoLuong";
+            this.Name = "frm_HeSoLuong";
             this.Text = "Hệ số lương";
+            this.Load += new System.EventHandler(this.frm_HeSoLuong_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridHeSoLuong)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -235,11 +242,11 @@
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnTaiLai;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView gridHeSoLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaHeSo;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenNgach;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenHeSo;
         private System.Windows.Forms.DataGridViewTextBoxColumn HeSo;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbNgachLuong;
     }
 }

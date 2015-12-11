@@ -7,11 +7,8 @@ using _3Layer;
 using System.Web.UI.WebControls;
 using System.IO;
 using System.Web.UI;
-<<<<<<< HEAD
 using _3Layer;
-=======
 
->>>>>>> 9fc114a9e1eb8f9a99fb8313b8da18b32a8cfb69
 namespace Webform.Controllers
 {
     public class HomeController : Controller
@@ -48,12 +45,12 @@ namespace Webform.Controllers
         }
         public ActionResult ExportDataNVTrongDV(string maDonVi)
         {
-            
+
             GridView gv = new GridView();
             var result111 = (from u in _db.NhanViens
                              from e in _db.ChucVus
                              where u.MaDonVi == maDonVi && u.MaChucVu == e.MaChucVu
-                             select new {u.MaNV,u.HoTen,e.TenChucVu,u.NgaySinh,u.DanToc,u.GioiTinh,u.CMND,u.DiaChi});
+                             select new { u.MaNV, u.HoTen, e.TenChucVu, u.NgaySinh, u.DanToc, u.GioiTinh, u.CMND, u.DiaChi });
             gv.DataSource = result111.ToList();
             gv.DataBind();
             Response.ClearContent();
@@ -70,7 +67,6 @@ namespace Webform.Controllers
 
             return RedirectToAction("ThongKeNhanVienTrongDonVi");
         }
-<<<<<<< HEAD
         public ActionResult ThongKeLichSuCongTac(string HoTen)
         {
             var nhanvien = (from u in _db.NhanViens select u);
@@ -78,11 +74,11 @@ namespace Webform.Controllers
             {
                 nhanvien = nhanvien.Where(c => c.HoTen.Contains(HoTen));
             }
-=======
+            return View(nhanvien);
+        }
         public ActionResult ThongKeLichSuCongTac()
         {
             var nhanvien = (from u in _db.NhanViens select u).ToList();
->>>>>>> 9fc114a9e1eb8f9a99fb8313b8da18b32a8cfb69
             return View(nhanvien);
         }
         public ActionResult ChiTietCongTac(string MaNV)
@@ -117,7 +113,6 @@ namespace Webform.Controllers
 
             return RedirectToAction("ThongKeNhanVienTrongDonVi");
         }
-<<<<<<< HEAD
         public ActionResult TinhLuong(string Hoten)
         {
             var nhanvien = (from u in _db.NhanViens
@@ -130,7 +125,8 @@ namespace Webform.Controllers
         }
         public ActionResult ThucHienTinhLuong(string MaNV)
         {
-            var nhanvien = (from u in _db.NhanViens where u.MaNV.Equals(MaNV)
+            var nhanvien = (from u in _db.NhanViens
+                            where u.MaNV.Equals(MaNV)
                             select u).ToList();
             return View(nhanvien);
         }
@@ -170,7 +166,5 @@ namespace Webform.Controllers
             }
             return View(result);
         }
-=======
->>>>>>> 9fc114a9e1eb8f9a99fb8313b8da18b32a8cfb69
     }
 }

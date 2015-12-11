@@ -44,16 +44,6 @@ namespace WinForms.LSCongTac
             }
             else
             {
-                //kiểm tra mã nhân viên có tồn tại không - nếu không có thì thông báo
-                //LichSuCongTac lsct = new LichSuCongTac();
-                //lsct.MaCongTac = maCT;
-                //lsct.MaNV = maNV;
-                //lsct.MaDonVi = donVi.MaDonVi;
-                //lsct.MaChucVu = chucVu.MaChucVu;
-                //lsct.MaNgach = ngach.MaNgach;
-                //lsct.NgayLam = ngayLam;
-                //lsct.NgayChuyen = ngayChuyen;
-
                 LichSuCT.NgayChuyen = ngayChuyen;//giá trị của đối tượng Lịch sử công tác đã được gán ở hàm Load
 
                 if (bizLSCongTac.BIZSuaLichSuCongTac(LichSuCT) == true)
@@ -136,7 +126,7 @@ namespace WinForms.LSCongTac
                 }
                 else
                 {
-                    //dateNgayChuyen.Value = new DateTime();
+                    //dateNgayChuyen.Visible = false;
                 }
             }
             catch (Exception)

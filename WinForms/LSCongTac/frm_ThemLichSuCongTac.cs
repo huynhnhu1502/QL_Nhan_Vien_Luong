@@ -14,7 +14,6 @@ namespace WinForms.LSCongTac
 {
     public partial class frmThemLSCongTac : Form
     {
-        QuanLyLuongEntities entitty = new QuanLyLuongEntities();
         BIZ_LichSuCongTac bizLSCongTac = new BIZ_LichSuCongTac();
         public frmThemLSCongTac()
         {
@@ -98,8 +97,7 @@ namespace WinForms.LSCongTac
             }
             catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show("Lỗi hệ thống");
             }
 
             //lấy ngày làm - ngày chuyển
@@ -151,8 +149,7 @@ namespace WinForms.LSCongTac
             }
             catch (Exception)
             {
-
-                throw;
+                MessageBox.Show("Không thể lấy dữ liệu!");
             }
         }
 
