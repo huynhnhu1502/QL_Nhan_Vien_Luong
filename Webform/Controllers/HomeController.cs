@@ -14,6 +14,8 @@ namespace Webform.Controllers
     {
         QuanLyLuongEntities _db = new QuanLyLuongEntities();
         _3Layer.BIZ.BIZ_TinhLuong _biztinhluong = new _3Layer.BIZ.BIZ_TinhLuong();
+        _3Layer.DAL.DAL_TinhLuong _daltinhluong = new _3Layer.DAL.DAL_TinhLuong();
+        _3Layer.BIZ.BIZ_LichSuCongTac _bizLSct = new _3Layer.BIZ.BIZ_LichSuCongTac();
         public ActionResult Index()
         {
             return View();
@@ -68,17 +70,11 @@ namespace Webform.Controllers
         }
         public ActionResult ThongKeLichSuCongTac(string HoTen)
         {
-            var nhanvien = (from u in _db.NhanViens select u);
-            if (!String.IsNullOrEmpty(HoTen))
-            {
-                nhanvien = nhanvien.Where(c => c.HoTen.Contains(HoTen));
-            }
-            return View(nhanvien);
+            return View(_bizLSct.XuatThongKeLichSuCongTac(HoTen));
         }
         public ActionResult ChiTietCongTac(string MaNV)
         {
-            var congtac = (from u in _db.LichSuCongTacs where u.MaNV.Equals(MaNV) select u).ToList();
-            return View(congtac);
+            return View(_bizLSct.XuatChiTietCongTac(MaNV));
         }
         public ActionResult ExportDataLichSuCongTac(string maNhanVien)
         {
@@ -109,19 +105,11 @@ namespace Webform.Controllers
         }
         public ActionResult TinhLuong(string Hoten)
         {
-            var nhanvien = (from u in _db.NhanViens
-                            select u);
-            if (!String.IsNullOrEmpty(Hoten))
-            {
-                nhanvien = _db.NhanViens.Where(a => a.HoTen.Contains(Hoten));
-            }
-            return View(nhanvien);
+            return View(_biztinhluong.XuatTinhLuong(Hoten));
         }
         public ActionResult ThucHienTinhLuong(string MaNV)
         {
-            var nhanvien = (from u in _db.NhanViens where u.MaNV.Equals(MaNV)
-                            select u).ToList();
-            return View(nhanvien);
+            return View(_biztinhluong.XuatThucHienTinhLuong(MaNV));
         }
         [HttpPost]
         public ActionResult ThucHienTinhLuong(FormCollection fcl)
@@ -135,29 +123,11 @@ namespace Webform.Controllers
         }
         public ActionResult ThongKeLuong()
         {
-            var result = (from u in _db.DonVis select u).ToList();
-            return View(result);
+            return View(_daltinhluong.XuatThongKeLuongTheoDonVi());
         }
         public ActionResult ThucHienThongKeLuong(string MaDonVi, string thang, string nam)
         {
-            var result = (from e in _db.NhanViens
-                          from o in _db.LuongThucTes
-                          where e.MaDonVi == MaDonVi && e.MaNV == o.MaNV
-                          select o).OrderByDescending(a => a.NgayLap).ToList();
-            if (!String.IsNullOrEmpty(thang) && !String.IsNullOrEmpty(nam))
-            {
-                int thang1 = int.Parse(thang);
-                int nam1 = int.Parse(nam);
-                result = (from e in _db.NhanViens
-                          from o in _db.LuongThucTes
-                          where e.MaDonVi == MaDonVi && e.MaNV == o.MaNV && o.NgayLap.Month == thang1 && o.NgayLap.Year == nam1
-                          select o).OrderByDescending(a => a.NgayLap).ToList();
-                if (result == null)
-                {
-                    Response.Write("Không tìm thấy");
-                }
-            }
-            return View(result);
+            return View(_biztinhluong.ThongKeLuong(MaDonVi, thang, nam));
         }
         public ActionResult ExportDataThongKeLuong(string MaDonVi, string thang, string nam)
         {
@@ -172,7 +142,7 @@ namespace Webform.Controllers
                 gv.DataBind();
                 Response.ClearContent();
                 Response.Buffer = true;
-                Response.AddHeader("content-disposition", "attachment; filename=LichSuCongTac.xls");
+                Response.AddHeader("content-disposition", "attachment; filename=ThongKeLuong.xls");
                 Response.ContentType = "application/ms-excel";
                 Response.Charset = "";
                 StringWriter sw = new StringWriter();
@@ -195,7 +165,7 @@ namespace Webform.Controllers
                 gv.DataBind();
                 Response.ClearContent();
                 Response.Buffer = true;
-                Response.AddHeader("content-disposition", "attachment; filename=LichSuCongTac.xls");
+                Response.AddHeader("content-disposition", "attachment; filename=ThongKeLuongThang.xls");
                 Response.ContentType = "application/ms-excel";
                 Response.Charset = "";
                 StringWriter sw = new StringWriter();
