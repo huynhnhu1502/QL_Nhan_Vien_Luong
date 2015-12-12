@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using _3Layer.DAL;
 
 namespace _3Layer.BIZ
 {
@@ -10,9 +11,14 @@ namespace _3Layer.BIZ
     {
         LoaiDonVi _loaidonvi = new LoaiDonVi();
         DAL.DAL_LoaiDonVi _dalloaidv = new DAL.DAL_LoaiDonVi();
-        public bool TimKiem(LoaiDonVi loaidonvi)
+
+        public List<LoaiDonVi> DSLoaidv()
         {
-            return _dalloaidv.TimKiem(loaidonvi);
+            return _dalloaidv.listall();
+        }
+        public List<LoaiDonVi> BIZTimKiem(string ma , string ten)
+        {
+            return _dalloaidv.TimKiem(ma, ten );
         }
         public bool ThemLoai(LoaiDonVi loaidonvi)
         {

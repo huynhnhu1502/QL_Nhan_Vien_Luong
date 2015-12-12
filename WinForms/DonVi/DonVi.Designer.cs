@@ -52,10 +52,11 @@
             this.ChiTiet = new System.Windows.Forms.DataGridViewLinkColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btthoat = new System.Windows.Forms.Button();
             this.txtma = new System.Windows.Forms.TextBox();
             this.btSua = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.btthoat = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -147,7 +148,7 @@
             this.LichSuCongTac,
             this.ldvs,
             this.ChiTiet});
-            this.dataGridView1.Location = new System.Drawing.Point(11, 219);
+            this.dataGridView1.Location = new System.Drawing.Point(11, 275);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(874, 175);
             this.dataGridView1.TabIndex = 12;
@@ -242,7 +243,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(7, 165);
+            this.label5.Location = new System.Drawing.Point(7, 221);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(175, 20);
             this.label5.TabIndex = 11;
@@ -262,12 +263,22 @@
             this.groupBox1.Controls.Add(this.txtTenDV);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 68);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(873, 124);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin đơn vị";
+            // 
+            // btthoat
+            // 
+            this.btthoat.Location = new System.Drawing.Point(781, 81);
+            this.btthoat.Name = "btthoat";
+            this.btthoat.Size = new System.Drawing.Size(75, 23);
+            this.btthoat.TabIndex = 16;
+            this.btthoat.Text = "Thoát";
+            this.btthoat.UseVisualStyleBackColor = true;
+            this.btthoat.Click += new System.EventHandler(this.btthoat_Click);
             // 
             // txtma
             // 
@@ -296,26 +307,29 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // btthoat
+            // label4
             // 
-            this.btthoat.Location = new System.Drawing.Point(781, 81);
-            this.btthoat.Name = "btthoat";
-            this.btthoat.Size = new System.Drawing.Size(75, 23);
-            this.btthoat.TabIndex = 16;
-            this.btthoat.Text = "Thoát";
-            this.btthoat.UseVisualStyleBackColor = true;
-            this.btthoat.Click += new System.EventHandler(this.btthoat_Click);
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(332, 24);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(218, 29);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "QUẢN LÝ ĐƠN VỊ";
             // 
             // DonVi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(896, 410);
+            this.ClientSize = new System.Drawing.Size(896, 453);
             this.ControlBox = false;
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DonVi";
             this.Text = "DonVi";
             this.Load += new System.EventHandler(this.DonVi_Load);
@@ -357,5 +371,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ldvs;
         private System.Windows.Forms.DataGridViewLinkColumn ChiTiet;
         private System.Windows.Forms.Button btthoat;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -55,6 +55,7 @@
             this.Ngaychuyen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbds = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtid = new System.Windows.Forms.TextBox();
             this.btSua = new System.Windows.Forms.Button();
             this.txttths = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -62,7 +63,7 @@
             this.txtttma = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtid = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -80,7 +81,7 @@
             this.groupBox1.Controls.Add(this.lbtungay);
             this.groupBox1.Controls.Add(this.txtmanv);
             this.groupBox1.Controls.Add(this.lbMaNV);
-            this.groupBox1.Location = new System.Drawing.Point(13, 13);
+            this.groupBox1.Location = new System.Drawing.Point(13, 49);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(846, 100);
             this.groupBox1.TabIndex = 0;
@@ -205,7 +206,7 @@
             this.hslpc,
             this.nv,
             this.Ngaychuyen});
-            this.dataGridView1.Location = new System.Drawing.Point(4, 235);
+            this.dataGridView1.Location = new System.Drawing.Point(4, 271);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(865, 218);
             this.dataGridView1.TabIndex = 1;
@@ -304,7 +305,7 @@
             // 
             this.lbds.AutoSize = true;
             this.lbds.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbds.Location = new System.Drawing.Point(8, 201);
+            this.lbds.Location = new System.Drawing.Point(8, 237);
             this.lbds.Name = "lbds";
             this.lbds.Size = new System.Drawing.Size(257, 20);
             this.lbds.TabIndex = 2;
@@ -321,12 +322,20 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.btchuyenbac);
-            this.groupBox2.Location = new System.Drawing.Point(13, 120);
+            this.groupBox2.Location = new System.Drawing.Point(13, 156);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(846, 78);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin Nhân Viên chuyển bậc :";
+            // 
+            // txtid
+            // 
+            this.txtid.Location = new System.Drawing.Point(0, 58);
+            this.txtid.Name = "txtid";
+            this.txtid.Size = new System.Drawing.Size(26, 20);
+            this.txtid.TabIndex = 4;
+            this.txtid.Visible = false;
             // 
             // btSua
             // 
@@ -386,23 +395,28 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Mã Nhân Viên";
             // 
-            // txtid
+            // label4
             // 
-            this.txtid.Location = new System.Drawing.Point(0, 58);
-            this.txtid.Name = "txtid";
-            this.txtid.Size = new System.Drawing.Size(26, 20);
-            this.txtid.TabIndex = 4;
-            this.txtid.Visible = false;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(277, 14);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(343, 25);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "QUẢN LÝ LỊCH SỬ CHUYỂN BẬC";
             // 
             // DSChuyenBac
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(871, 454);
+            this.ClientSize = new System.Drawing.Size(871, 505);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.lbds);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DSChuyenBac";
             this.Text = "DSChuyenBac";
             this.Load += new System.EventHandler(this.DSChuyenBac_Load);
@@ -453,5 +467,6 @@
         private System.Windows.Forms.Button btload;
         private System.Windows.Forms.Button btSua;
         private System.Windows.Forms.TextBox txtid;
+        private System.Windows.Forms.Label label4;
     }
 }
