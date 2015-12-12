@@ -30,9 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.quanLyLuongDataSet4 = new WinForms.QuanLyLuongDataSet4();
             this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nhanVienTableAdapter = new WinForms.QuanLyLuongDataSet4TableAdapters.NhanVienTableAdapter();
             this.maNVDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hoTenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maChucVuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,7 +39,6 @@
             this.cMNDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hinhAnhDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyLuongDataSet4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,17 +62,13 @@
             // 
             // quanLyLuongDataSet4
             // 
-            this.quanLyLuongDataSet4.DataSetName = "QuanLyLuongDataSet4";
-            this.quanLyLuongDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // nhanVienBindingSource
             // 
             this.nhanVienBindingSource.DataMember = "NhanVien";
-            this.nhanVienBindingSource.DataSource = this.quanLyLuongDataSet4;
             // 
             // nhanVienTableAdapter
             // 
-            this.nhanVienTableAdapter.ClearBeforeFill = true;
             // 
             // maNVDataGridViewTextBoxColumn
             // 
@@ -129,7 +122,6 @@
             this.Text = "DanhSachNhanVienTheoDonVi";
             this.Load += new System.EventHandler(this.DanhSachNhanVienTheoDonVi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyLuongDataSet4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -138,9 +130,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private QuanLyLuongDataSet4 quanLyLuongDataSet4;
         private System.Windows.Forms.BindingSource nhanVienBindingSource;
-        private QuanLyLuongDataSet4TableAdapters.NhanVienTableAdapter nhanVienTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn maNVDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn hoTenDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn maChucVuDataGridViewTextBoxColumn;

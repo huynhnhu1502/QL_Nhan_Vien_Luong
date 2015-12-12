@@ -24,9 +24,9 @@ namespace WinForms
         private void ThongKeNhanVienTheoDonVi_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'quanLyLuongDataSet3.DonVi' table. You can move, or remove it, as needed.
-            this.donViTableAdapter.Fill(this.quanLyLuongDataSet3.DonVi);
+            //this.donViTableAdapter.Fill(this.quanLyLuongDataSet3.DonVi);
             // TODO: This line of code loads data into the 'quanLyLuongDataSet3.DonVi' table. You can move, or remove it, as needed.
-            this.donViTableAdapter.Fill(this.quanLyLuongDataSet3.DonVi);
+            //this.donViTableAdapter.Fill(this.quanLyLuongDataSet3.DonVi);
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 if (dataGridView1.Rows[i].Cells[0].Value != null)

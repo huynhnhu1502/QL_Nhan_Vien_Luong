@@ -18,5 +18,20 @@ namespace _3Layer.BIZ
         {
             return dal.Search(nv);
         }
+
+        public List<NhanVien> BIZ_LayDuLieuNV()
+        {
+            return dal.LayDuLieuNV();
+        }
+
+        public List<DonVi> BIZ_LayDLDonVi()
+        {
+            return dal.LayDLDonVi();
+        }
+
+        public List<ChucVu> BIZ_LayDLChucVu()
+        {
+            return dal.LayDLChucVu();
+        }
     }
 }

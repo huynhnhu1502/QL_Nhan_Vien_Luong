@@ -208,5 +208,116 @@ namespace _3Layer.DAL
             }
             return nhanvien.ToList();
         }
+
+        //Tìm nhân viên theo mã
+        public NhanVien TimNhanVien(string maTim)
+        {
+            try
+            {
+                var list = (from nv in entity.NhanViens
+                            join dv in entity.DonVis on nv.MaDonVi equals dv.MaDonVi
+                            join cv in entity.ChucVus on nv.MaChucVu equals cv.MaChucVu
+                            join ngach in entity.NgachLuongs on nv.MaNgach equals ngach.MaNgach
+                            where nv.MaNV == maTim
+                            select nv).ToList();
+                if (list.Count() > 0)
+                {
+                    NhanVien nVien = list[0];
+                    return nVien;
+                }
+                else
+                    return null;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        //Cập nhật nhân viên
+        public bool CapNhatNhanVien(NhanVien nhanVienMoi)
+        {
+            try
+            {
+                entity.NhanViens.Attach(nhanVienMoi);
+                var muc = entity.Entry(nhanVienMoi);
+
+                //đổi thuộc tính nào trong csdl thì lấy thuộc tính đó .IsModified = true 
+                muc.Property(s => s.MaDonVi).IsModified = true;
+                muc.Property(s => s.MaChucVu).IsModified = true;
+                entity.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        //Xoá
+        public bool XoaLichSuCongTac(string maXoa)
+        {
+            try
+            {
+                LichSuCongTac lsct = (LichSuCongTac)entity.LichSuCongTacs.Where(b => b.MaCongTac == maXoa).First();
+                entity.LichSuCongTacs.Remove(lsct);
+                entity.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+            }
+        }
+
+        //Sửa LS công tác (cập nhật ngày chuyển)
+        public bool SuaLichSuCongTac(LichSuCongTac moi)
+        {
+            try
+            {
+                entity.LichSuCongTacs.Attach(moi);
+                var lsct = entity.Entry(moi);
+                lsct.Property(s => s.NgayChuyen).IsModified = true;
+                entity.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        //Tìm LS công tác theo mã công tác (để đổ DL vào form sửa)
+        public LichSuCongTac TimLSCongTacTheoMa(string maCongTac)
+        {
+            try
+            {
+                var dsTim = (from lsct in entity.LichSuCongTacs
+                             join nv in entity.NhanViens on lsct.MaNV equals nv.MaNV
+                             join dv in entity.DonVis on lsct.MaDonVi equals dv.MaDonVi
+                             join cv in entity.ChucVus on lsct.MaChucVu equals cv.MaChucVu
+                             join ngach in entity.NgachLuongs on lsct.MaNgach equals ngach.MaNgach
+                             where lsct.MaCongTac == maCongTac
+                             select lsct).ToList();
+                if (dsTim.Count() > 0)
+                {
+                    LichSuCongTac lichSu = dsTim[0];
+                    return lichSu;
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
     }
 }

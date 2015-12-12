@@ -37,11 +37,11 @@ namespace WinForms
                 lbNgayNghi.Text = search.NgayNghi.ToString();
                 lbNgayHuu.Text = search.NgayHuu.ToString();
                 lbNgaySinh.Text = search.NgaySinh.ToShortDateString();
-                pictureBox1.Image = Image.FromFile(@"../../../Webform/Images/" + search.HinhAnh);
+                //pictureBox1.Image = Image.FromFile(@"../../../Webform/Images/" + search.HinhAnh);
             }
         }
 
-        private void ChiTietNV_Load(object sender, EventArgs e, NhanVien nv)
+        private void ChiTietNV_Load(object sender, EventArgs e, frm_NhanVien nv)
         {
 
         }

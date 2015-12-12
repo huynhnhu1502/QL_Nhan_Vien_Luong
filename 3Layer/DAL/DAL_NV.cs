@@ -54,5 +54,65 @@ namespace _3Layer.DAL
                 return false;
             }
         }
+
+        //Lấy DL đổ vào gridview
+        public List<NhanVien> LayDuLieuNV()
+        {
+            try
+            {
+                db = new QuanLyLuongEntities();
+                List<NhanVien> list = new List<NhanVien>();
+                var ds = from nv in db.NhanViens
+                         join dv in db.DonVis on nv.MaDonVi equals dv.MaDonVi
+                         join cv in db.ChucVus on nv.MaChucVu equals cv.MaChucVu
+                         join ngach in db.NgachLuongs on nv.MaNgach equals ngach.MaNgach
+                         join hs in db.HeSoLuongPhuCaps on nv.MaHeSo equals hs.MaHeSo
+                         select nv;
+                list = ds.ToList();
+                return list;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        //Đổ DL vào combobox đơn vị
+        public List<DonVi> LayDLDonVi()
+        {
+            try
+            {
+                List<DonVi> list = new List<DonVi>();
+                var ds = from dv in db.DonVis
+                         join loaidv in db.LoaiDonVis on dv.MaLoai equals loaidv.MaLoai
+                         select dv;
+                list = ds.ToList();
+                return list;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        //Đổ DL vào combobox chức vụ
+        public List<ChucVu> LayDLChucVu()
+        {
+            try
+            {
+                List<ChucVu> list = new List<ChucVu>();
+                var dsCV = from cv in db.ChucVus
+                           select cv;
+                list = dsCV.ToList();
+                return list;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
