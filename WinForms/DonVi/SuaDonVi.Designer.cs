@@ -185,9 +185,9 @@
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(148, 9);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(162, 20);
+            this.label11.Size = new System.Drawing.Size(175, 20);
             this.label11.TabIndex = 47;
-            this.label11.Text = "TÔNG TIN ĐƠN VỊ:";
+            this.label11.Text = "THÔNG TIN ĐƠN VỊ:";
             // 
             // cbloaidv
             // 
