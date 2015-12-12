@@ -19,7 +19,7 @@ namespace WinForms
         public ThemLoaiDV()
         {
             InitializeComponent();
-            lbErr.Visible = false;
+           
             autoMa();
         }
 
