@@ -19,43 +19,36 @@ namespace WinForms
         public LoaiDonVi()
         {
             InitializeComponent();
+            load();
+
+        }
+
+     
+        public void load()
+        {
+
+            dataGridView1.DataSource = _bizloaidv.DSLoaidv();
             this.dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            lbErr.Visible = false;
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                dataGridView1.Rows[i].Cells[4].Value = "Sửa";
+                dataGridView1.Rows[i].Cells[0].Value = "Sửa";
             }
-        }
 
-        private void LoaiDonVi_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'quanLyLuongDataSet2.LoaiDonVi' table. You can move, or remove it, as needed.
-            this.loaiDonViTableAdapter.Fill(this.quanLyLuongDataSet2.LoaiDonVi);
-            
         }
-
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            bool flag = true;
-            if (txtMaLoai.Text == "" && txtTenLoai.Text == "")
+
+            string ma = txtMaLoai.Text;
+            string ten = txtTenLoai.Text;
+            dataGridView1.DataSource = _bizloaidv.BIZTimKiem(ma, ten);
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                lbErr.Visible = true;
-                lbErr.Text = "Nhập dữ liệu cần tìm";
-                flag = false;
+                dataGridView1.Rows[i].Cells[0].Value = "Sửa";
             }
-            if (flag)
+
+            if (dataGridView1.RowCount == 0)
             {
-                _loaidv.MaLoai = txtMaLoai.Text.Trim();
-                _loaidv.TenLoai = txtTenLoai.Text.Trim();
-                if (_bizloaidv.TimKiem(_loaidv) == true)
-                {
-                    var result = from u in _db.LoaiDonVis where u.MaLoai.Equals(_loaidv.MaLoai) || u.TenLoai.Equals(_loaidv.TenLoai) select u;
-                    dataGridView1.DataSource = result.ToList();
-                }
-                for (int i = 0; i < dataGridView1.Rows.Count; i++)
-                {
-                    dataGridView1.Rows[i].Cells[4].Value = "Sửa";
-                }
+                MessageBox.Show("Không tìm thấy dữ liệu cần tìm !!");
             }
         }
 
@@ -71,7 +64,7 @@ namespace WinForms
             dataGridView1.DataSource = result.ToList();
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                dataGridView1.Rows[i].Cells[4].Value = "Sửa";
+                dataGridView1.Rows[i].Cells[0].Value = "Sửa";
             }
         }
 
@@ -81,10 +74,15 @@ namespace WinForms
             if (e.ColumnIndex == dataGridView1.Columns["Sua"].Index && e.RowIndex >= 0)
             {
                 {
-                    SuaLoaiDV test = new SuaLoaiDV(a.Cells[1].Value.ToString());
+                    SuaLoaiDV test = new SuaLoaiDV(a.Cells[2].Value.ToString());
                     test.Show();
                 }
             }
+        }
+
+        private void LoaiDonVi_Load(object sender, EventArgs e)
+        {
+            load();
         }
     }
 }

@@ -37,7 +37,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.lbErr = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -120,24 +119,12 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // lbErr
-            // 
-            this.lbErr.AutoSize = true;
-            this.lbErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbErr.ForeColor = System.Drawing.Color.Red;
-            this.lbErr.Location = new System.Drawing.Point(281, 9);
-            this.lbErr.Name = "lbErr";
-            this.lbErr.Size = new System.Drawing.Size(51, 16);
-            this.lbErr.TabIndex = 9;
-            this.lbErr.Text = "label4";
-            // 
             // ThemLoaiDV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(638, 382);
-            this.Controls.Add(this.lbErr);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -165,6 +152,5 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label lbErr;
     }
 }

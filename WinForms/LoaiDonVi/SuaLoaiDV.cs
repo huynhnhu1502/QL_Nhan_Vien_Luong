@@ -32,7 +32,7 @@ namespace WinForms
         private void button1_Click(object sender, EventArgs e)
         {
             bool flag = true;
-            if (txtTenLoai.Text == "" || txtMoTa.Text == "")
+            if (txtTenLoai.Text == "" )
             {
                 lbErr.Visible = true;
                 lbErr.Text = "Điền đầy đủ thông tin";

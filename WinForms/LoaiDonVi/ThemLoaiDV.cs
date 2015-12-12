@@ -26,11 +26,10 @@ namespace WinForms
         private void button1_Click(object sender, EventArgs e)
         {
             bool flag = true;
-            if (txtMoTa.Text == "" || txtTenLoai.Text == "")
+            if ( txtTenLoai.Text == "")
             {
-                lbErr.Visible = true;
-                lbErr.Text = "Nhập đầy đủ thông tin";
-                flag = false;
+
+                MessageBox.Show("Vui lòng nhập đủ thông tin");
             }
             _loaidv.MaLoai = txtMaLoai.Text.Trim();
             _loaidv.TenLoai = txtTenLoai.Text.Trim();
@@ -61,8 +60,13 @@ namespace WinForms
             else
             {
                 idhientai = _db.LoaiDonVis.Max(a => a.id);
-                int idthemvao = idhientai + 1;
-                txtMaLoai.Text = "LDV00" + idthemvao;
+                int idthemvao = idhientai + 1;  
+                if (idthemvao < 10)
+                    txtMaLoai.Text = "LDV00" + idthemvao;
+                else if (idthemvao >= 10 && countid < 100)
+                    txtMaLoai.Text = "LDV0" + idthemvao;
+                else if (idthemvao >= 100)
+                    txtMaLoai.Text = "LDV" + idthemvao;
             }
         }
 

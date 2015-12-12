@@ -10,14 +10,60 @@ namespace _3Layer.DAL
     {
         QuanLyLuongEntities _db = new QuanLyLuongEntities();
         LoaiDonVi _loaidonvi = new LoaiDonVi();
-        public bool TimKiem(LoaiDonVi loaidonvi)
+
+        public  List<LoaiDonVi> listall()
         {
-            var search = _db.LoaiDonVis.Where(a => a.MaLoai == loaidonvi.MaLoai || a.TenLoai == loaidonvi.TenLoai);
-            if (search != null)
+            QuanLyLuongEntities model = new QuanLyLuongEntities();
+            List<LoaiDonVi> list = new List<LoaiDonVi>();
+            list = (from n in model.LoaiDonVis select n).ToList();
+            return list;
+
+        }
+        public List<LoaiDonVi> TimKiem(string ma, string ten)
+        {
+            QuanLyLuongEntities db = new QuanLyLuongEntities();
+            List<LoaiDonVi> KQTim = new List<LoaiDonVi>();
+            try
             {
-                return true;
+                if (ma != "" && ten != "" )
+                {
+                    KQTim = (from ldv in db.LoaiDonVis.ToList()
+                             where ldv.MaLoai.Contains(ma) && ldv.TenLoai.Contains(ten) 
+
+                             select ldv).ToList();
+                }
+                else if (ma == "" && ten != "")
+                {
+                    KQTim = (from ldv in db.LoaiDonVis.ToList()
+                             where ldv.TenLoai.Contains(ten) 
+
+                             select ldv).ToList();
+                }
+
+                else if (ma != "" && ten == "" )
+                {
+                    KQTim = (from ldv in db.LoaiDonVis.ToList()
+                             where ldv.MaLoai.Contains(ma) 
+
+                             select ldv).ToList();
+                }
+                else if (ma == "" && ten == "")
+                {
+                    KQTim = (from ldv in db.LoaiDonVis.ToList()
+                             select ldv).ToList();
+                }
+              
+
+                return KQTim;
             }
-            return false;
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
         }
         public bool ThemLoai(LoaiDonVi loaidonvi)
         {
