@@ -49,30 +49,13 @@ namespace _3Layer.BIZ
         {
             return dalLSCongTac.KiemTraMaNV(maNhap);
         }
-
-        public NhanVien BIZTimNhanVien(string maTim)
+        public List<LichSuCongTac> XuatChiTietCongTac(string MaNV)
         {
-            return dalLSCongTac.TimNhanVien(maTim);
+            return dalLSCongTac.XuatChiTietCongTac(MaNV);
         }
-
-        public bool BIZCapNhatNhanVien(NhanVien nhanVienMoi)
+        public List<NhanVien> XuatThongKeLichSuCongTac(string HoTen)
         {
-            return dalLSCongTac.CapNhatNhanVien(nhanVienMoi);
-        }
-
-        public bool BIZXoaLichSuCongTac(string maXoa)
-        {
-            return dalLSCongTac.XoaLichSuCongTac(maXoa);
-        }
-
-        public bool BIZSuaLichSuCongTac(LichSuCongTac moi)
-        {
-            return dalLSCongTac.SuaLichSuCongTac(moi);
-        }
-
-        public LichSuCongTac BIZTimLSCongTacTheoMa(string maCongTac)
-        {
-            return dalLSCongTac.TimLSCongTacTheoMa(maCongTac);
+            return dalLSCongTac.XuatThongKeLichSuCongTac(HoTen);
         }
     }
 }

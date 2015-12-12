@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _3Layer.DAL
 {
-    class DAL_TinhLuong
+    public class DAL_TinhLuong
     {
         QuanLyLuongEntities db = new QuanLyLuongEntities();
         NhanVien _nhanvien = new NhanVien();
@@ -171,6 +171,49 @@ namespace _3Layer.DAL
                 MaLuong = "ML00" + idketiep;
             }
             return MaLuong;
+        }
+        public List<LuongThucTe> ThongKeLuong(string MaDonVi, string thang, string nam)
+        {
+            var result = (from e in db.NhanViens
+                          from o in db.LuongThucTes
+                          where e.MaDonVi == MaDonVi && e.MaNV == o.MaNV
+                          select o).OrderByDescending(a => a.NgayLap);
+            if (!String.IsNullOrEmpty(thang) && !String.IsNullOrEmpty(nam))
+            {
+                int thang1 = int.Parse(thang);
+                int nam1 = int.Parse(nam);
+                result = (from e in db.NhanViens
+                          from o in db.LuongThucTes
+                          where e.MaDonVi == MaDonVi && e.MaNV == o.MaNV && o.NgayLap.Month == thang1 && o.NgayLap.Year == nam1
+                          select o).OrderByDescending(a => a.NgayLap);
+                if (result == null)
+                {
+                    Console.Write("Không tìm thấy");
+                }
+            }
+            return result.ToList();
+        }
+        public List<DonVi> XuatThongKeLuongTheoDonVi()
+        {
+            var result = (from u in db.DonVis select u);
+            return result.ToList();
+        }
+        public List<NhanVien> XuatThucHienTinhLuong(string MaNV)
+        {
+            var nhanvien = (from u in db.NhanViens
+                            where u.MaNV.Equals(MaNV)
+                            select u);
+            return nhanvien.ToList();
+        }
+        public List<NhanVien> XuatTinhLuong(string Hoten)
+        {
+            var nhanvien = (from u in db.NhanViens
+                            select u);
+            if (!String.IsNullOrEmpty(Hoten))
+            {
+                nhanvien = db.NhanViens.Where(a => a.HoTen.Contains(Hoten));
+            }
+            return nhanvien.ToList();
         }
     }
 }

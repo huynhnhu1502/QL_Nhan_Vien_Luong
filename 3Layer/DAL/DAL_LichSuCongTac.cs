@@ -9,13 +9,11 @@ namespace _3Layer.DAL
     class DAL_LichSuCongTac
     {
         QuanLyLuongEntities entity = new QuanLyLuongEntities();
-
-        //Lấy DL đổ vào gridview
+        //đổ DL vào gridview
         public List<LichSuCongTac> LayDuLieu()
         {
             try
             {
-                entity = new QuanLyLuongEntities();
                 List<LichSuCongTac> list = new List<LichSuCongTac>();
                 var ds = from lsct in entity.LichSuCongTacs
                          join dv in entity.DonVis on lsct.MaDonVi equals dv.MaDonVi
@@ -146,38 +144,25 @@ namespace _3Layer.DAL
         {
             try
             {
-                string kq = "";
                 var ma = from lsct in entity.LichSuCongTacs
                          orderby lsct.MaCongTac descending
                          select lsct.MaCongTac;
-                if(ma.Count() == 0)
+                string maCongTac = ma.First().ToString();
+                int so = int.Parse(maCongTac.Substring(2));
+                int soTang = so + 1;
+                string kq = "";
+                if (soTang < 10)
                 {
-                    kq = "CT0001";
+                    kq = "CT00" + soTang.ToString();
+                }
+                else if(soTang < 100)
+                {
+                    kq = "CT0" + soTang.ToString();
                 }
                 else
                 {
-                    string maCongTac = ma.First().ToString();
-                    int so = int.Parse(maCongTac.Substring(2));
-                    int soTang = so + 1;
-
-                    if (soTang < 10)
-                    {
-                        kq = "CT000" + soTang.ToString();
-                    }
-                    else if (soTang < 100)
-                    {
-                        kq = "CT00" + soTang.ToString();
-                    }
-                    else if (soTang < 1000)
-                    {
-                        kq = "CT0" + soTang.ToString();
-                    }
-                    else
-                    {
-                        kq = "CT" + soTang.ToString();
-                    }
+                    kq = "CT" + soTang.ToString();
                 }
-                
                 return kq;
             }
             catch (Exception ex)
@@ -209,116 +194,19 @@ namespace _3Layer.DAL
                 throw;
             }
         }
-
-        //Tìm nhân viên theo mã
-        public NhanVien TimNhanVien(string maTim)
+        public List<LichSuCongTac> XuatChiTietCongTac(string MaNV)
         {
-            try
-            {
-                var list = (from nv in entity.NhanViens
-                                     join dv in entity.DonVis on nv.MaDonVi equals dv.MaDonVi
-                                     join cv in entity.ChucVus on nv.MaChucVu equals cv.MaChucVu
-                                     join ngach in entity.NgachLuongs on nv.MaNgach equals ngach.MaNgach
-                                     where nv.MaNV == maTim
-                                     select nv).ToList();
-                if(list.Count() > 0)
-                {
-                    NhanVien nVien = list[0];
-                    return nVien;
-                }
-                else
-                    return null;
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
+            var congtac = (from u in entity.LichSuCongTacs where u.MaNV.Equals(MaNV) select u);
+            return congtac.ToList();
         }
-
-        //Cập nhật nhân viên
-        public bool CapNhatNhanVien(NhanVien nhanVienMoi)
+        public List<NhanVien> XuatThongKeLichSuCongTac(string HoTen)
         {
-            try
+            var nhanvien = (from u in entity.NhanViens select u);
+            if (!String.IsNullOrEmpty(HoTen))
             {
-                entity.NhanViens.Attach(nhanVienMoi);
-                var muc = entity.Entry(nhanVienMoi);
-
-                //đổi thuộc tính nào trong csdl thì lấy thuộc tính đó .IsModified = true 
-                muc.Property(s => s.MaDonVi).IsModified = true;
-                muc.Property(s => s.MaChucVu).IsModified = true;
-                entity.SaveChanges();
-                return true;
+                nhanvien = nhanvien.Where(c => c.HoTen.Contains(HoTen));
             }
-            catch (Exception ex)
-            {
-                return false;
-            }
-        }
-
-        //Xoá
-        public bool XoaLichSuCongTac(string maXoa)
-        {
-            try
-            {
-                LichSuCongTac lsct = (LichSuCongTac)entity.LichSuCongTacs.Where(b => b.MaCongTac == maXoa).First();
-                entity.LichSuCongTacs.Remove(lsct);
-                entity.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-
-                return false;
-            }
-        }
-
-        //Sửa LS công tác (cập nhật ngày chuyển)
-        public bool SuaLichSuCongTac(LichSuCongTac moi)
-        {
-            try
-            {
-                entity.LichSuCongTacs.Attach(moi);
-                var lsct = entity.Entry(moi);
-                lsct.Property(s => s.NgayChuyen).IsModified = true;
-                entity.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
-        }
-
-        //Tìm LS công tác theo mã công tác (để đổ DL vào form sửa)
-        public LichSuCongTac TimLSCongTacTheoMa(string maCongTac)
-        {
-            try
-            {
-                var dsTim = (from lsct in entity.LichSuCongTacs
-                             join nv in entity.NhanViens on lsct.MaNV equals nv.MaNV
-                             join dv in entity.DonVis on lsct.MaDonVi equals dv.MaDonVi
-                             join cv in entity.ChucVus on lsct.MaChucVu equals cv.MaChucVu
-                             join ngach in entity.NgachLuongs on lsct.MaNgach equals ngach.MaNgach
-                             where lsct.MaCongTac == maCongTac
-                             select lsct).ToList();
-                if(dsTim.Count() > 0)
-                {
-                    LichSuCongTac lichSu = dsTim[0];
-                    return lichSu;
-                }
-                else
-                {
-                    return null;
-                }
-
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
+            return nhanvien.ToList();
         }
     }
 }
