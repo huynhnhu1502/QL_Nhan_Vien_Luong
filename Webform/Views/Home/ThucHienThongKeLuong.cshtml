@@ -10,7 +10,7 @@
         string tendonvi = db.DonVis.Where(a => a.MaDonVi.Equals(madonvi)).Select(a => a.TenDonVi).FirstOrDefault();
     }
 <h2>Thống kê lương của đơn vị @tendonvi</h2>
-
+                      @Html.ActionLink("Xuất dữ liệu ra Excel", "ExportDataThongKeLuong", new { MaDonVi = @Request.QueryString["MaDonVi"], nam = @Request.QueryString["nam"], thang = @Request.QueryString["thang"] })
 <p>
     @using(Html.BeginForm("ThucHienThongKeLuong", "Home", FormMethod.Get))
     {
@@ -85,10 +85,10 @@
             @Html.DisplayFor(modelItem => item.NgayLap)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.LuongCoBan)
+            @Html.DisplayFor(modelItem => item.LuongCoBan) đồng
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.LuongThucTe1)
+            @Html.DisplayFor(modelItem => item.LuongThucTe1) đồng
         </td>
     </tr>
 }

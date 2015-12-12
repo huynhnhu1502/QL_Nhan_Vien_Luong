@@ -8,7 +8,6 @@ using System.Web.UI.WebControls;
 using System.IO;
 using System.Web.UI;
 using _3Layer;
-
 namespace Webform.Controllers
 {
     public class HomeController : Controller
@@ -45,12 +44,12 @@ namespace Webform.Controllers
         }
         public ActionResult ExportDataNVTrongDV(string maDonVi)
         {
-
+            
             GridView gv = new GridView();
             var result111 = (from u in _db.NhanViens
                              from e in _db.ChucVus
                              where u.MaDonVi == maDonVi && u.MaChucVu == e.MaChucVu
-                             select new { u.MaNV, u.HoTen, e.TenChucVu, u.NgaySinh, u.DanToc, u.GioiTinh, u.CMND, u.DiaChi });
+                             select new {u.MaNV,u.HoTen,e.TenChucVu,u.NgaySinh,u.DanToc,u.GioiTinh,u.CMND,u.DiaChi});
             gv.DataSource = result111.ToList();
             gv.DataBind();
             Response.ClearContent();
@@ -74,11 +73,6 @@ namespace Webform.Controllers
             {
                 nhanvien = nhanvien.Where(c => c.HoTen.Contains(HoTen));
             }
-            return View(nhanvien);
-        }
-        public ActionResult ThongKeLichSuCongTac()
-        {
-            var nhanvien = (from u in _db.NhanViens select u).ToList();
             return View(nhanvien);
         }
         public ActionResult ChiTietCongTac(string MaNV)
@@ -125,8 +119,7 @@ namespace Webform.Controllers
         }
         public ActionResult ThucHienTinhLuong(string MaNV)
         {
-            var nhanvien = (from u in _db.NhanViens
-                            where u.MaNV.Equals(MaNV)
+            var nhanvien = (from u in _db.NhanViens where u.MaNV.Equals(MaNV)
                             select u).ToList();
             return View(nhanvien);
         }
@@ -165,6 +158,55 @@ namespace Webform.Controllers
                 }
             }
             return View(result);
+        }
+        public ActionResult ExportDataThongKeLuong(string MaDonVi, string thang, string nam)
+        {
+            if (thang == null && nam == null)
+            {
+                GridView gv = new GridView();
+                var result111 = (from e in _db.NhanViens
+                                 from o in _db.LuongThucTes
+                                 where e.MaDonVi == MaDonVi && e.MaNV == o.MaNV
+                                 select o).OrderByDescending(a => a.NgayLap);
+                gv.DataSource = result111.ToList();
+                gv.DataBind();
+                Response.ClearContent();
+                Response.Buffer = true;
+                Response.AddHeader("content-disposition", "attachment; filename=LichSuCongTac.xls");
+                Response.ContentType = "application/ms-excel";
+                Response.Charset = "";
+                StringWriter sw = new StringWriter();
+                HtmlTextWriter htw = new HtmlTextWriter(sw);
+                gv.RenderControl(htw);
+                Response.Output.Write(sw.ToString());
+                Response.Flush();
+                Response.End();
+            }
+            else
+            {
+                GridView gv = new GridView();
+                int thang1 = int.Parse(thang);
+                int nam1 = int.Parse(nam);
+                var result111 = (from e in _db.NhanViens
+                          from o in _db.LuongThucTes
+                          where e.MaDonVi == MaDonVi && e.MaNV == o.MaNV && o.NgayLap.Month == thang1 && o.NgayLap.Year == nam1
+                          select o).OrderByDescending(a => a.NgayLap).ToList();
+                gv.DataSource = result111.ToList();
+                gv.DataBind();
+                Response.ClearContent();
+                Response.Buffer = true;
+                Response.AddHeader("content-disposition", "attachment; filename=LichSuCongTac.xls");
+                Response.ContentType = "application/ms-excel";
+                Response.Charset = "";
+                StringWriter sw = new StringWriter();
+                HtmlTextWriter htw = new HtmlTextWriter(sw);
+                gv.RenderControl(htw);
+                Response.Output.Write(sw.ToString());
+                Response.Flush();
+                Response.End();
+            }
+
+            return RedirectToAction("ThongKeNhanVienTrongDonVi");
         }
     }
 }
