@@ -174,16 +174,16 @@ namespace _3Layer.DAL
         }
         public List<LuongThucTe> ThongKeLuong(string MaDonVi, string thang, string nam)
         {
-            var result = (from e in db.NhanViens
-                          from o in db.LuongThucTes
+            var result = (from o in db.LuongThucTes
+                          from e in db.NhanViens
                           where e.MaDonVi == MaDonVi && e.MaNV == o.MaNV
                           select o).OrderByDescending(a => a.NgayLap);
             if (!String.IsNullOrEmpty(thang) && !String.IsNullOrEmpty(nam))
             {
                 int thang1 = int.Parse(thang);
                 int nam1 = int.Parse(nam);
-                result = (from e in db.NhanViens
-                          from o in db.LuongThucTes
+                result = (from o in db.LuongThucTes
+                          from e in db.NhanViens
                           where e.MaDonVi == MaDonVi && e.MaNV == o.MaNV && o.NgayLap.Month == thang1 && o.NgayLap.Year == nam1
                           select o).OrderByDescending(a => a.NgayLap);
                 if (result == null)
@@ -201,6 +201,9 @@ namespace _3Layer.DAL
         public List<NhanVien> XuatThucHienTinhLuong(string MaNV)
         {
             var nhanvien = (from u in db.NhanViens
+                            join donvi in db.DonVis on u.MaDonVi equals donvi.MaDonVi
+                            join chucvu in db.ChucVus on u.MaChucVu equals chucvu.MaChucVu
+                            join ngach in db.NgachLuongs on u.MaNgach equals ngach.MaNgach
                             where u.MaNV.Equals(MaNV)
                             select u);
             return nhanvien.ToList();
