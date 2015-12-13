@@ -72,8 +72,7 @@ namespace _3Layer.BIZ
                 return ngayHuu;
             }
             catch (Exception ex)
-            {
-                MessageBox.Show("Không thể tính ngày hưu");
+            {                
                 return null;
             }
         }
