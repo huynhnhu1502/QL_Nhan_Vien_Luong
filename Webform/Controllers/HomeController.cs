@@ -68,7 +68,7 @@ namespace Webform.Controllers
 
             return RedirectToAction("ThongKeNhanVienTrongDonVi");
         }
-        public ActionResult ThongKeLichSuCongTac(string HoTen, int? page)
+        public ActionResult ThongKeLichSuCongTac(string HoTen)
         {
             List<NhanVien> list = _bizLSct.XuatThongKeLichSuCongTac(HoTen);
             return View(list);
