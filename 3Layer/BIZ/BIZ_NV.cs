@@ -53,5 +53,29 @@ namespace _3Layer.BIZ
         {
             return dal.LayDLNgachLuong();
         }
+
+        public DateTime? BIZ_TinhNgayHuu(DateTime ngaySinh, string gioiTinh)
+        {
+            try
+            {
+                DateTime ngayHuu;
+                int nam;
+                if (gioiTinh == "Nữ")
+                {
+                    nam = ngaySinh.Year + 55;
+                }
+                else
+                {
+                    nam = ngaySinh.Year + 60;
+                }
+                ngayHuu = new DateTime(nam, ngaySinh.Month, ngaySinh.Day);
+                return ngayHuu;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Không thể tính ngày hưu");
+                return null;
+            }
+        }
     }
 }

@@ -61,6 +61,7 @@ namespace WinForms
                 nv.NgaySinh = Convert.ToDateTime(dateNgaySinh.Text.Trim());
                 nv.HinhAnh = System.IO.Path.GetFileName(ofd.FileName);
                 nv.CMND = txtCMND.Text.Trim();
+                nv.NgayHuu = biz.BIZ_TinhNgayHuu(dateNgaySinh.Value, cbGioiTinh.SelectedItem.ToString());
 
                 if (nv.HoTen == "" || nv.DanToc == "" || nv.DiaChi == "" || ofd.CheckFileExists == false || cbGioiTinh.SelectedIndex == -1 || nv.CMND == "")
                 {
@@ -162,5 +163,7 @@ namespace WinForms
                 throw;
             }
         }
+
+        
     }
 }

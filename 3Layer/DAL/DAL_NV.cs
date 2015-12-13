@@ -184,16 +184,16 @@ namespace _3Layer.DAL
                 
                 if(soTang < 10)
                 {
-                    kq = "NV000" + soTang.ToString();
+                    kq = "NV00" + soTang.ToString();
                 }
                 else if(soTang < 100)
                 {
-                    kq = "NV00" + soTang.ToString();
-                }
-                else if(soTang < 1000)
-                {
                     kq = "NV0" + soTang.ToString();
                 }
+                //else if(soTang < 1000)
+                //{
+                //    kq = "NV0" + soTang.ToString();
+                //}
                 else
                 {
                     kq = "NV" + soTang.ToString();
