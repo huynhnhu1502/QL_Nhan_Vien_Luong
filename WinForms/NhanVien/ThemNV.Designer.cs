@@ -165,7 +165,6 @@
             // 
             // cbGioiTinh
             // 
-            this.cbGioiTinh.FormattingEnabled = true;
             this.cbGioiTinh.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
@@ -258,6 +257,7 @@
             this.Name = "frmThemNV";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm nhân viên";
+            this.Load += new System.EventHandler(this.frmThemNV_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picNV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

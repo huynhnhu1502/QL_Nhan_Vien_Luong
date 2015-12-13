@@ -17,9 +17,9 @@ namespace _3Layer
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public HeSoLuongPhuCap()
         {
-            this.LichSuChuyenBacs = new HashSet<LichSuChuyenBac>();
-            this.LuongThucTes = new HashSet<LuongThucTe>();
-            this.NhanViens = new HashSet<NhanVien>();
+            this.LichSuChuyenBac = new HashSet<LichSuChuyenBac>();
+            this.LuongThucTe = new HashSet<LuongThucTe>();
+            this.NhanVien = new HashSet<NhanVien>();
         }
     
         public int id { get; set; }
@@ -30,10 +30,10 @@ namespace _3Layer
     
         public virtual NgachLuong NgachLuong { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LichSuChuyenBac> LichSuChuyenBacs { get; set; }
+        public virtual ICollection<LichSuChuyenBac> LichSuChuyenBac { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LuongThucTe> LuongThucTes { get; set; }
+        public virtual ICollection<LuongThucTe> LuongThucTe { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<NhanVien> NhanViens { get; set; }
+        public virtual ICollection<NhanVien> NhanVien { get; set; }
     }
 }

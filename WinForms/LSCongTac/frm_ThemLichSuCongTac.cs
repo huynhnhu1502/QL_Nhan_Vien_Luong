@@ -29,7 +29,6 @@ namespace WinForms.LSCongTac
                 _3Layer.DonVi donVi = (_3Layer.DonVi)cbDonVi.SelectedItem;
                 _3Layer.ChucVu chucVu = (_3Layer.ChucVu)cbChucVu.SelectedItem;
                 _3Layer.NgachLuong ngach = (_3Layer.NgachLuong)cbNgachLuong.SelectedItem;
-                //string ngayLam = dateNgayLam.Value.ToString("dd-mm-yyyy");
                 DateTime ngayLam = this.dateNgayLam.Value.Date;
                 //string ngayChuyen = dateNgayChuyen.Value.ToString("dd-mm-yyyy");
                 DateTime ngayChuyen = dateNgayChuyen.Value.Date;

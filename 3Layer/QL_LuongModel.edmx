@@ -38,15 +38,6 @@
           <Property Name="HeSo" Type="float" Nullable="false" />
           <Property Name="MaNgach" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="LichSuChuyenBac">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MaNV" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="MaHeSo" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="NgayChuyen" Type="date" Nullable="false" />
-        </EntityType>
         <EntityType Name="LichSuCongTac">
           <Key>
             <PropertyRef Name="MaCongTac" />
@@ -59,6 +50,15 @@
           <Property Name="MaNgach" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="NgayLam" Type="date" Nullable="false" />
           <Property Name="NgayChuyen" Type="date" />
+        </EntityType>
+        <EntityType Name="LichSuChuyenBac">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaNV" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MaHeSo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NgayChuyen" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="LoaiDonVi">
           <Key>
@@ -100,8 +100,8 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MaNV" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="HoTen" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="MaDonVi" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="MaChucVu" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MaDonVi" Type="varchar" MaxLength="50" />
+          <Property Name="MaChucVu" Type="varchar" MaxLength="50" />
           <Property Name="MaNgach" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="MaHeSo" Type="varchar" MaxLength="50" />
           <Property Name="NgaySinh" Type="date" Nullable="false" />
@@ -110,7 +110,7 @@
           <Property Name="CMND" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DiaChi" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="HinhAnh" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="NgayBatDau" Type="date" Nullable="false" />
+          <Property Name="NgayBatDau" Type="date" />
           <Property Name="NgayNghi" Type="date" />
           <Property Name="NgayHuu" Type="date" />
         </EntityType>
@@ -145,30 +145,6 @@
             </Principal>
             <Dependent Role="HeSoLuongPhuCap">
               <PropertyRef Name="MaNgach" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LichSuChuyenBac_HeSoLuongPhuCap">
-          <End Role="HeSoLuongPhuCap" Type="Self.HeSoLuongPhuCap" Multiplicity="1" />
-          <End Role="LichSuChuyenBac" Type="Self.LichSuChuyenBac" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HeSoLuongPhuCap">
-              <PropertyRef Name="MaHeSo" />
-            </Principal>
-            <Dependent Role="LichSuChuyenBac">
-              <PropertyRef Name="MaHeSo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LichSuChuyenBac_NhanVien">
-          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
-          <End Role="LichSuChuyenBac" Type="Self.LichSuChuyenBac" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhanVien">
-              <PropertyRef Name="MaNV" />
-            </Principal>
-            <Dependent Role="LichSuChuyenBac">
-              <PropertyRef Name="MaNV" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -220,6 +196,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_LichSuChuyenBac_HeSoLuongPhuCap">
+          <End Role="HeSoLuongPhuCap" Type="Self.HeSoLuongPhuCap" Multiplicity="1" />
+          <End Role="LichSuChuyenBac" Type="Self.LichSuChuyenBac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HeSoLuongPhuCap">
+              <PropertyRef Name="MaHeSo" />
+            </Principal>
+            <Dependent Role="LichSuChuyenBac">
+              <PropertyRef Name="MaHeSo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LichSuChuyenBac_NhanVien">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="LichSuChuyenBac" Type="Self.LichSuChuyenBac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="MaNV" />
+            </Principal>
+            <Dependent Role="LichSuChuyenBac">
+              <PropertyRef Name="MaNV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_LuongThucTe_HeSoLuongPhuCap">
           <End Role="HeSoLuongPhuCap" Type="Self.HeSoLuongPhuCap" Multiplicity="1" />
           <End Role="LuongThucTe" Type="Self.LuongThucTe" Multiplicity="*" />
@@ -245,7 +245,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_NhanVien_ChucVu">
-          <End Role="ChucVu" Type="Self.ChucVu" Multiplicity="1" />
+          <End Role="ChucVu" Type="Self.ChucVu" Multiplicity="0..1" />
           <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ChucVu">
@@ -257,7 +257,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_NhanVien_DonVi">
-          <End Role="DonVi" Type="Self.DonVi" Multiplicity="1" />
+          <End Role="DonVi" Type="Self.DonVi" Multiplicity="0..1" />
           <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DonVi">
@@ -296,8 +296,8 @@
           <EntitySet Name="ChucVu" EntityType="Self.ChucVu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DonVi" EntityType="Self.DonVi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HeSoLuongPhuCap" EntityType="Self.HeSoLuongPhuCap" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LichSuChuyenBac" EntityType="Self.LichSuChuyenBac" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LichSuCongTac" EntityType="Self.LichSuCongTac" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LichSuChuyenBac" EntityType="Self.LichSuChuyenBac" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LoaiDonVi" EntityType="Self.LoaiDonVi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LuongThucTe" EntityType="Self.LuongThucTe" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NgachLuong" EntityType="Self.NgachLuong" Schema="dbo" store:Type="Tables" />
@@ -310,14 +310,6 @@
           <AssociationSet Name="FK_HeSoLuongPhuCap_NgachLuong" Association="Self.FK_HeSoLuongPhuCap_NgachLuong">
             <End Role="NgachLuong" EntitySet="NgachLuong" />
             <End Role="HeSoLuongPhuCap" EntitySet="HeSoLuongPhuCap" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LichSuChuyenBac_HeSoLuongPhuCap" Association="Self.FK_LichSuChuyenBac_HeSoLuongPhuCap">
-            <End Role="HeSoLuongPhuCap" EntitySet="HeSoLuongPhuCap" />
-            <End Role="LichSuChuyenBac" EntitySet="LichSuChuyenBac" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LichSuChuyenBac_NhanVien" Association="Self.FK_LichSuChuyenBac_NhanVien">
-            <End Role="NhanVien" EntitySet="NhanVien" />
-            <End Role="LichSuChuyenBac" EntitySet="LichSuChuyenBac" />
           </AssociationSet>
           <AssociationSet Name="FK_LichSuCongTac_ChucVu" Association="Self.FK_LichSuCongTac_ChucVu">
             <End Role="ChucVu" EntitySet="ChucVu" />
@@ -334,6 +326,14 @@
           <AssociationSet Name="FK_LichSuCongTac_NhanVien" Association="Self.FK_LichSuCongTac_NhanVien">
             <End Role="NhanVien" EntitySet="NhanVien" />
             <End Role="LichSuCongTac" EntitySet="LichSuCongTac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LichSuChuyenBac_HeSoLuongPhuCap" Association="Self.FK_LichSuChuyenBac_HeSoLuongPhuCap">
+            <End Role="HeSoLuongPhuCap" EntitySet="HeSoLuongPhuCap" />
+            <End Role="LichSuChuyenBac" EntitySet="LichSuChuyenBac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LichSuChuyenBac_NhanVien" Association="Self.FK_LichSuChuyenBac_NhanVien">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="LichSuChuyenBac" EntitySet="LichSuChuyenBac" />
           </AssociationSet>
           <AssociationSet Name="FK_LuongThucTe_HeSoLuongPhuCap" Association="Self.FK_LuongThucTe_HeSoLuongPhuCap">
             <End Role="HeSoLuongPhuCap" EntitySet="HeSoLuongPhuCap" />
@@ -373,8 +373,8 @@
           <Property Name="MaChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="HeSoCV" Type="Double" Nullable="false" />
-          <NavigationProperty Name="LichSuCongTacs" Relationship="Self.FK_LichSuCongTac_ChucVu" FromRole="ChucVu" ToRole="LichSuCongTac" />
-          <NavigationProperty Name="NhanViens" Relationship="Self.FK_NhanVien_ChucVu" FromRole="ChucVu" ToRole="NhanVien" />
+          <NavigationProperty Name="LichSuCongTac" Relationship="Self.FK_LichSuCongTac_ChucVu" FromRole="ChucVu" ToRole="LichSuCongTac" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK_NhanVien_ChucVu" FromRole="ChucVu" ToRole="NhanVien" />
         </EntityType>
         <EntityType Name="DonVi">
           <Key>
@@ -390,8 +390,8 @@
           <Property Name="ChucNang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NhiemVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="LoaiDonVi" Relationship="Self.FK_DonVi_LoaiDonVi" FromRole="DonVi" ToRole="LoaiDonVi" />
-          <NavigationProperty Name="LichSuCongTacs" Relationship="Self.FK_LichSuCongTac_DonVi" FromRole="DonVi" ToRole="LichSuCongTac" />
-          <NavigationProperty Name="NhanViens" Relationship="Self.FK_NhanVien_DonVi" FromRole="DonVi" ToRole="NhanVien" />
+          <NavigationProperty Name="LichSuCongTac" Relationship="Self.FK_LichSuCongTac_DonVi" FromRole="DonVi" ToRole="LichSuCongTac" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK_NhanVien_DonVi" FromRole="DonVi" ToRole="NhanVien" />
         </EntityType>
         <EntityType Name="HeSoLuongPhuCap">
           <Key>
@@ -403,20 +403,9 @@
           <Property Name="HeSo" Type="Double" Nullable="false" />
           <Property Name="MaNgach" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="NgachLuong" Relationship="Self.FK_HeSoLuongPhuCap_NgachLuong" FromRole="HeSoLuongPhuCap" ToRole="NgachLuong" />
-          <NavigationProperty Name="LichSuChuyenBacs" Relationship="Self.FK_LichSuChuyenBac_HeSoLuongPhuCap" FromRole="HeSoLuongPhuCap" ToRole="LichSuChuyenBac" />
-          <NavigationProperty Name="LuongThucTes" Relationship="Self.FK_LuongThucTe_HeSoLuongPhuCap" FromRole="HeSoLuongPhuCap" ToRole="LuongThucTe" />
-          <NavigationProperty Name="NhanViens" Relationship="Self.FK_NhanVien_HeSoLuongPhuCap" FromRole="HeSoLuongPhuCap" ToRole="NhanVien" />
-        </EntityType>
-        <EntityType Name="LichSuChuyenBac">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MaNV" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MaHeSo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NgayChuyen" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="HeSoLuongPhuCap" Relationship="Self.FK_LichSuChuyenBac_HeSoLuongPhuCap" FromRole="LichSuChuyenBac" ToRole="HeSoLuongPhuCap" />
-          <NavigationProperty Name="NhanVien" Relationship="Self.FK_LichSuChuyenBac_NhanVien" FromRole="LichSuChuyenBac" ToRole="NhanVien" />
+          <NavigationProperty Name="LichSuChuyenBac" Relationship="Self.FK_LichSuChuyenBac_HeSoLuongPhuCap" FromRole="HeSoLuongPhuCap" ToRole="LichSuChuyenBac" />
+          <NavigationProperty Name="LuongThucTe" Relationship="Self.FK_LuongThucTe_HeSoLuongPhuCap" FromRole="HeSoLuongPhuCap" ToRole="LuongThucTe" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK_NhanVien_HeSoLuongPhuCap" FromRole="HeSoLuongPhuCap" ToRole="NhanVien" />
         </EntityType>
         <EntityType Name="LichSuCongTac">
           <Key>
@@ -435,6 +424,17 @@
           <NavigationProperty Name="NgachLuong" Relationship="Self.FK_LichSuCongTac_NgachLuong" FromRole="LichSuCongTac" ToRole="NgachLuong" />
           <NavigationProperty Name="NhanVien" Relationship="Self.FK_LichSuCongTac_NhanVien" FromRole="LichSuCongTac" ToRole="NhanVien" />
         </EntityType>
+        <EntityType Name="LichSuChuyenBac">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaNV" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaHeSo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NgayChuyen" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="HeSoLuongPhuCap" Relationship="Self.FK_LichSuChuyenBac_HeSoLuongPhuCap" FromRole="LichSuChuyenBac" ToRole="HeSoLuongPhuCap" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK_LichSuChuyenBac_NhanVien" FromRole="LichSuChuyenBac" ToRole="NhanVien" />
+        </EntityType>
         <EntityType Name="LoaiDonVi">
           <Key>
             <PropertyRef Name="MaLoai" />
@@ -443,7 +443,7 @@
           <Property Name="MaLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenLoai" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="DonVis" Relationship="Self.FK_DonVi_LoaiDonVi" FromRole="LoaiDonVi" ToRole="DonVi" />
+          <NavigationProperty Name="DonVi" Relationship="Self.FK_DonVi_LoaiDonVi" FromRole="LoaiDonVi" ToRole="DonVi" />
         </EntityType>
         <EntityType Name="LuongThucTe">
           <Key>
@@ -470,9 +470,9 @@
           <Property Name="TenNgach" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NienHan" Type="Double" Nullable="false" />
           <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="HeSoLuongPhuCaps" Relationship="Self.FK_HeSoLuongPhuCap_NgachLuong" FromRole="NgachLuong" ToRole="HeSoLuongPhuCap" />
-          <NavigationProperty Name="LichSuCongTacs" Relationship="Self.FK_LichSuCongTac_NgachLuong" FromRole="NgachLuong" ToRole="LichSuCongTac" />
-          <NavigationProperty Name="NhanViens" Relationship="Self.FK_NhanVien_NgachLuong" FromRole="NgachLuong" ToRole="NhanVien" />
+          <NavigationProperty Name="HeSoLuongPhuCap" Relationship="Self.FK_HeSoLuongPhuCap_NgachLuong" FromRole="NgachLuong" ToRole="HeSoLuongPhuCap" />
+          <NavigationProperty Name="LichSuCongTac" Relationship="Self.FK_LichSuCongTac_NgachLuong" FromRole="NgachLuong" ToRole="LichSuCongTac" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK_NhanVien_NgachLuong" FromRole="NgachLuong" ToRole="NhanVien" />
         </EntityType>
         <EntityType Name="NhanVien">
           <Key>
@@ -481,8 +481,8 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MaNV" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="HoTen" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MaDonVi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MaChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaDonVi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MaChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="MaNgach" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MaHeSo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="NgaySinh" Type="DateTime" Nullable="false" Precision="0" />
@@ -491,18 +491,18 @@
           <Property Name="CMND" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DiaChi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="HinhAnh" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NgayBatDau" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NgayBatDau" Type="DateTime" Precision="0" />
           <Property Name="NgayNghi" Type="DateTime" Precision="0" />
           <Property Name="NgayHuu" Type="DateTime" Precision="0" />
           <NavigationProperty Name="ChucVu" Relationship="Self.FK_NhanVien_ChucVu" FromRole="NhanVien" ToRole="ChucVu" />
           <NavigationProperty Name="DonVi" Relationship="Self.FK_NhanVien_DonVi" FromRole="NhanVien" ToRole="DonVi" />
           <NavigationProperty Name="HeSoLuongPhuCap" Relationship="Self.FK_NhanVien_HeSoLuongPhuCap" FromRole="NhanVien" ToRole="HeSoLuongPhuCap" />
-          <NavigationProperty Name="LichSuChuyenBacs" Relationship="Self.FK_LichSuChuyenBac_NhanVien" FromRole="NhanVien" ToRole="LichSuChuyenBac" />
-          <NavigationProperty Name="LichSuCongTacs" Relationship="Self.FK_LichSuCongTac_NhanVien" FromRole="NhanVien" ToRole="LichSuCongTac" />
-          <NavigationProperty Name="LuongThucTes" Relationship="Self.FK_LuongThucTe_NhanVien" FromRole="NhanVien" ToRole="LuongThucTe" />
+          <NavigationProperty Name="LichSuCongTac" Relationship="Self.FK_LichSuCongTac_NhanVien" FromRole="NhanVien" ToRole="LichSuCongTac" />
+          <NavigationProperty Name="LichSuChuyenBac" Relationship="Self.FK_LichSuChuyenBac_NhanVien" FromRole="NhanVien" ToRole="LichSuChuyenBac" />
+          <NavigationProperty Name="LuongThucTe" Relationship="Self.FK_LuongThucTe_NhanVien" FromRole="NhanVien" ToRole="LuongThucTe" />
           <NavigationProperty Name="NgachLuong" Relationship="Self.FK_NhanVien_NgachLuong" FromRole="NhanVien" ToRole="NgachLuong" />
         </EntityType>
-        <EntityType Name="sysdiagram">
+        <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
@@ -525,7 +525,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_NhanVien_ChucVu">
-          <End Role="ChucVu" Type="Self.ChucVu" Multiplicity="1" />
+          <End Role="ChucVu" Type="Self.ChucVu" Multiplicity="0..1" />
           <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ChucVu">
@@ -561,7 +561,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_NhanVien_DonVi">
-          <End Role="DonVi" Type="Self.DonVi" Multiplicity="1" />
+          <End Role="DonVi" Type="Self.DonVi" Multiplicity="0..1" />
           <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DonVi">
@@ -620,18 +620,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_LichSuChuyenBac_NhanVien">
-          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
-          <End Role="LichSuChuyenBac" Type="Self.LichSuChuyenBac" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhanVien">
-              <PropertyRef Name="MaNV" />
-            </Principal>
-            <Dependent Role="LichSuChuyenBac">
-              <PropertyRef Name="MaNV" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_LichSuCongTac_NgachLuong">
           <End Role="NgachLuong" Type="Self.NgachLuong" Multiplicity="1" />
           <End Role="LichSuCongTac" Type="Self.LichSuCongTac" Multiplicity="*" />
@@ -652,6 +640,18 @@
               <PropertyRef Name="MaNV" />
             </Principal>
             <Dependent Role="LichSuCongTac">
+              <PropertyRef Name="MaNV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LichSuChuyenBac_NhanVien">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="LichSuChuyenBac" Type="Self.LichSuChuyenBac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="MaNV" />
+            </Principal>
+            <Dependent Role="LichSuChuyenBac">
               <PropertyRef Name="MaNV" />
             </Dependent>
           </ReferentialConstraint>
@@ -681,71 +681,71 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="QuanLyLuongEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="ChucVus" EntityType="Self.ChucVu" />
-          <EntitySet Name="DonVis" EntityType="Self.DonVi" />
-          <EntitySet Name="HeSoLuongPhuCaps" EntityType="Self.HeSoLuongPhuCap" />
-          <EntitySet Name="LichSuChuyenBacs" EntityType="Self.LichSuChuyenBac" />
-          <EntitySet Name="LichSuCongTacs" EntityType="Self.LichSuCongTac" />
-          <EntitySet Name="LoaiDonVis" EntityType="Self.LoaiDonVi" />
-          <EntitySet Name="LuongThucTes" EntityType="Self.LuongThucTe" />
-          <EntitySet Name="NgachLuongs" EntityType="Self.NgachLuong" />
-          <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="ChucVu" EntityType="Self.ChucVu" />
+          <EntitySet Name="DonVi" EntityType="Self.DonVi" />
+          <EntitySet Name="HeSoLuongPhuCap" EntityType="Self.HeSoLuongPhuCap" />
+          <EntitySet Name="LichSuCongTac" EntityType="Self.LichSuCongTac" />
+          <EntitySet Name="LichSuChuyenBac" EntityType="Self.LichSuChuyenBac" />
+          <EntitySet Name="LoaiDonVi" EntityType="Self.LoaiDonVi" />
+          <EntitySet Name="LuongThucTe" EntityType="Self.LuongThucTe" />
+          <EntitySet Name="NgachLuong" EntityType="Self.NgachLuong" />
+          <EntitySet Name="NhanVien" EntityType="Self.NhanVien" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <AssociationSet Name="FK_LichSuCongTac_ChucVu" Association="Self.FK_LichSuCongTac_ChucVu">
-            <End Role="ChucVu" EntitySet="ChucVus" />
-            <End Role="LichSuCongTac" EntitySet="LichSuCongTacs" />
+            <End Role="ChucVu" EntitySet="ChucVu" />
+            <End Role="LichSuCongTac" EntitySet="LichSuCongTac" />
           </AssociationSet>
           <AssociationSet Name="FK_NhanVien_ChucVu" Association="Self.FK_NhanVien_ChucVu">
-            <End Role="ChucVu" EntitySet="ChucVus" />
-            <End Role="NhanVien" EntitySet="NhanViens" />
+            <End Role="ChucVu" EntitySet="ChucVu" />
+            <End Role="NhanVien" EntitySet="NhanVien" />
           </AssociationSet>
           <AssociationSet Name="FK_DonVi_LoaiDonVi" Association="Self.FK_DonVi_LoaiDonVi">
-            <End Role="LoaiDonVi" EntitySet="LoaiDonVis" />
-            <End Role="DonVi" EntitySet="DonVis" />
+            <End Role="LoaiDonVi" EntitySet="LoaiDonVi" />
+            <End Role="DonVi" EntitySet="DonVi" />
           </AssociationSet>
           <AssociationSet Name="FK_LichSuCongTac_DonVi" Association="Self.FK_LichSuCongTac_DonVi">
-            <End Role="DonVi" EntitySet="DonVis" />
-            <End Role="LichSuCongTac" EntitySet="LichSuCongTacs" />
+            <End Role="DonVi" EntitySet="DonVi" />
+            <End Role="LichSuCongTac" EntitySet="LichSuCongTac" />
           </AssociationSet>
           <AssociationSet Name="FK_NhanVien_DonVi" Association="Self.FK_NhanVien_DonVi">
-            <End Role="DonVi" EntitySet="DonVis" />
-            <End Role="NhanVien" EntitySet="NhanViens" />
+            <End Role="DonVi" EntitySet="DonVi" />
+            <End Role="NhanVien" EntitySet="NhanVien" />
           </AssociationSet>
           <AssociationSet Name="FK_HeSoLuongPhuCap_NgachLuong" Association="Self.FK_HeSoLuongPhuCap_NgachLuong">
-            <End Role="NgachLuong" EntitySet="NgachLuongs" />
-            <End Role="HeSoLuongPhuCap" EntitySet="HeSoLuongPhuCaps" />
+            <End Role="NgachLuong" EntitySet="NgachLuong" />
+            <End Role="HeSoLuongPhuCap" EntitySet="HeSoLuongPhuCap" />
           </AssociationSet>
           <AssociationSet Name="FK_LichSuChuyenBac_HeSoLuongPhuCap" Association="Self.FK_LichSuChuyenBac_HeSoLuongPhuCap">
-            <End Role="HeSoLuongPhuCap" EntitySet="HeSoLuongPhuCaps" />
-            <End Role="LichSuChuyenBac" EntitySet="LichSuChuyenBacs" />
+            <End Role="HeSoLuongPhuCap" EntitySet="HeSoLuongPhuCap" />
+            <End Role="LichSuChuyenBac" EntitySet="LichSuChuyenBac" />
           </AssociationSet>
           <AssociationSet Name="FK_LuongThucTe_HeSoLuongPhuCap" Association="Self.FK_LuongThucTe_HeSoLuongPhuCap">
-            <End Role="HeSoLuongPhuCap" EntitySet="HeSoLuongPhuCaps" />
-            <End Role="LuongThucTe" EntitySet="LuongThucTes" />
+            <End Role="HeSoLuongPhuCap" EntitySet="HeSoLuongPhuCap" />
+            <End Role="LuongThucTe" EntitySet="LuongThucTe" />
           </AssociationSet>
           <AssociationSet Name="FK_NhanVien_HeSoLuongPhuCap" Association="Self.FK_NhanVien_HeSoLuongPhuCap">
-            <End Role="HeSoLuongPhuCap" EntitySet="HeSoLuongPhuCaps" />
-            <End Role="NhanVien" EntitySet="NhanViens" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LichSuChuyenBac_NhanVien" Association="Self.FK_LichSuChuyenBac_NhanVien">
-            <End Role="NhanVien" EntitySet="NhanViens" />
-            <End Role="LichSuChuyenBac" EntitySet="LichSuChuyenBacs" />
+            <End Role="HeSoLuongPhuCap" EntitySet="HeSoLuongPhuCap" />
+            <End Role="NhanVien" EntitySet="NhanVien" />
           </AssociationSet>
           <AssociationSet Name="FK_LichSuCongTac_NgachLuong" Association="Self.FK_LichSuCongTac_NgachLuong">
-            <End Role="NgachLuong" EntitySet="NgachLuongs" />
-            <End Role="LichSuCongTac" EntitySet="LichSuCongTacs" />
+            <End Role="NgachLuong" EntitySet="NgachLuong" />
+            <End Role="LichSuCongTac" EntitySet="LichSuCongTac" />
           </AssociationSet>
           <AssociationSet Name="FK_LichSuCongTac_NhanVien" Association="Self.FK_LichSuCongTac_NhanVien">
-            <End Role="NhanVien" EntitySet="NhanViens" />
-            <End Role="LichSuCongTac" EntitySet="LichSuCongTacs" />
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="LichSuCongTac" EntitySet="LichSuCongTac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LichSuChuyenBac_NhanVien" Association="Self.FK_LichSuChuyenBac_NhanVien">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="LichSuChuyenBac" EntitySet="LichSuChuyenBac" />
           </AssociationSet>
           <AssociationSet Name="FK_LuongThucTe_NhanVien" Association="Self.FK_LuongThucTe_NhanVien">
-            <End Role="NhanVien" EntitySet="NhanViens" />
-            <End Role="LuongThucTe" EntitySet="LuongThucTes" />
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="LuongThucTe" EntitySet="LuongThucTe" />
           </AssociationSet>
           <AssociationSet Name="FK_NhanVien_NgachLuong" Association="Self.FK_NhanVien_NgachLuong">
-            <End Role="NgachLuong" EntitySet="NgachLuongs" />
-            <End Role="NhanVien" EntitySet="NhanViens" />
+            <End Role="NgachLuong" EntitySet="NgachLuong" />
+            <End Role="NhanVien" EntitySet="NhanVien" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -754,7 +754,7 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="QuanLyLuongModelStoreContainer" CdmEntityContainer="QuanLyLuongEntities">
-          <EntitySetMapping Name="ChucVus">
+          <EntitySetMapping Name="ChucVu">
             <EntityTypeMapping TypeName="QuanLyLuongModel.ChucVu">
               <MappingFragment StoreEntitySet="ChucVu">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -764,7 +764,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="DonVis">
+          <EntitySetMapping Name="DonVi">
             <EntityTypeMapping TypeName="QuanLyLuongModel.DonVi">
               <MappingFragment StoreEntitySet="DonVi">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -779,7 +779,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="HeSoLuongPhuCaps">
+          <EntitySetMapping Name="HeSoLuongPhuCap">
             <EntityTypeMapping TypeName="QuanLyLuongModel.HeSoLuongPhuCap">
               <MappingFragment StoreEntitySet="HeSoLuongPhuCap">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -790,17 +790,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="LichSuChuyenBacs">
-            <EntityTypeMapping TypeName="QuanLyLuongModel.LichSuChuyenBac">
-              <MappingFragment StoreEntitySet="LichSuChuyenBac">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="MaNV" ColumnName="MaNV" />
-                <ScalarProperty Name="MaHeSo" ColumnName="MaHeSo" />
-                <ScalarProperty Name="NgayChuyen" ColumnName="NgayChuyen" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LichSuCongTacs">
+          <EntitySetMapping Name="LichSuCongTac">
             <EntityTypeMapping TypeName="QuanLyLuongModel.LichSuCongTac">
               <MappingFragment StoreEntitySet="LichSuCongTac">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -814,7 +804,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="LoaiDonVis">
+          <EntitySetMapping Name="LichSuChuyenBac">
+            <EntityTypeMapping TypeName="QuanLyLuongModel.LichSuChuyenBac">
+              <MappingFragment StoreEntitySet="LichSuChuyenBac">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+                <ScalarProperty Name="MaHeSo" ColumnName="MaHeSo" />
+                <ScalarProperty Name="NgayChuyen" ColumnName="NgayChuyen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoaiDonVi">
             <EntityTypeMapping TypeName="QuanLyLuongModel.LoaiDonVi">
               <MappingFragment StoreEntitySet="LoaiDonVi">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -824,7 +824,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="LuongThucTes">
+          <EntitySetMapping Name="LuongThucTe">
             <EntityTypeMapping TypeName="QuanLyLuongModel.LuongThucTe">
               <MappingFragment StoreEntitySet="LuongThucTe">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -839,7 +839,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="NgachLuongs">
+          <EntitySetMapping Name="NgachLuong">
             <EntityTypeMapping TypeName="QuanLyLuongModel.NgachLuong">
               <MappingFragment StoreEntitySet="NgachLuong">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -850,7 +850,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="NhanViens">
+          <EntitySetMapping Name="NhanVien">
             <EntityTypeMapping TypeName="QuanLyLuongModel.NhanVien">
               <MappingFragment StoreEntitySet="NhanVien">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -873,7 +873,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="QuanLyLuongModel.sysdiagram">
+            <EntityTypeMapping TypeName="QuanLyLuongModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -897,7 +897,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

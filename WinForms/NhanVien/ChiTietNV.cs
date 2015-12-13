@@ -33,7 +33,7 @@ namespace WinForms
                 lbDT.Text = search.DanToc;
                 lbGT.Text = search.GioiTinh;
                 lbHoTen.Text = search.HoTen;
-                lbNgayBD.Text = search.NgayBatDau.ToShortDateString();
+                lbNgayBD.Text = search.NgayBatDau.ToString();
                 lbNgayNghi.Text = search.NgayNghi.ToString();
                 lbNgayHuu.Text = search.NgayHuu.ToString();
                 lbNgaySinh.Text = search.NgaySinh.ToShortDateString();

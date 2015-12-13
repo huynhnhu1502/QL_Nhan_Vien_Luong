@@ -17,9 +17,9 @@ namespace _3Layer
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NhanVien()
         {
-            this.LichSuChuyenBacs = new HashSet<LichSuChuyenBac>();
-            this.LichSuCongTacs = new HashSet<LichSuCongTac>();
-            this.LuongThucTes = new HashSet<LuongThucTe>();
+            this.LichSuCongTac = new HashSet<LichSuCongTac>();
+            this.LichSuChuyenBac = new HashSet<LichSuChuyenBac>();
+            this.LuongThucTe = new HashSet<LuongThucTe>();
         }
     
         public int id { get; set; }
@@ -35,7 +35,7 @@ namespace _3Layer
         public string CMND { get; set; }
         public string DiaChi { get; set; }
         public string HinhAnh { get; set; }
-        public System.DateTime NgayBatDau { get; set; }
+        public Nullable<System.DateTime> NgayBatDau { get; set; }
         public Nullable<System.DateTime> NgayNghi { get; set; }
         public Nullable<System.DateTime> NgayHuu { get; set; }
     
@@ -43,11 +43,11 @@ namespace _3Layer
         public virtual DonVi DonVi { get; set; }
         public virtual HeSoLuongPhuCap HeSoLuongPhuCap { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LichSuChuyenBac> LichSuChuyenBacs { get; set; }
+        public virtual ICollection<LichSuCongTac> LichSuCongTac { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LichSuCongTac> LichSuCongTacs { get; set; }
+        public virtual ICollection<LichSuChuyenBac> LichSuChuyenBac { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LuongThucTe> LuongThucTes { get; set; }
+        public virtual ICollection<LuongThucTe> LuongThucTe { get; set; }
         public virtual NgachLuong NgachLuong { get; set; }
     }
 }

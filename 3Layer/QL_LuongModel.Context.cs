@@ -28,12 +28,12 @@ namespace _3Layer
         public virtual DbSet<ChucVu> ChucVus { get; set; }
         public virtual DbSet<DonVi> DonVis { get; set; }
         public virtual DbSet<HeSoLuongPhuCap> HeSoLuongPhuCaps { get; set; }
-        public virtual DbSet<LichSuChuyenBac> LichSuChuyenBacs { get; set; }
         public virtual DbSet<LichSuCongTac> LichSuCongTacs { get; set; }
+        public virtual DbSet<LichSuChuyenBac> LichSuChuyenBacs { get; set; }
         public virtual DbSet<LoaiDonVi> LoaiDonVis { get; set; }
         public virtual DbSet<LuongThucTe> LuongThucTes { get; set; }
         public virtual DbSet<NgachLuong> NgachLuongs { get; set; }
         public virtual DbSet<NhanVien> NhanViens { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }
