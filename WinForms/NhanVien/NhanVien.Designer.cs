@@ -95,6 +95,7 @@
             this.btnTim.TabIndex = 8;
             this.btnTim.Text = "Tìm Kiếm";
             this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // txtTenNV
             // 
@@ -154,6 +155,7 @@
             this.btnTaiLai.TabIndex = 10;
             this.btnTaiLai.Text = "Làm mới";
             this.btnTaiLai.UseVisualStyleBackColor = true;
+            this.btnTaiLai.Click += new System.EventHandler(this.btnTaiLai_Click);
             // 
             // btnThem
             // 
@@ -163,6 +165,7 @@
             this.btnThem.TabIndex = 9;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // groupBox2
             // 

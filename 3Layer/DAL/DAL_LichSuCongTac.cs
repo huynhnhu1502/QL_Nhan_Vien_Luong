@@ -194,11 +194,13 @@ namespace _3Layer.DAL
                 throw;
             }
         }
+
         public List<LichSuCongTac> XuatChiTietCongTac(string MaNV)
         {
             var congtac = (from u in entity.LichSuCongTacs where u.MaNV.Equals(MaNV) select u);
             return congtac.ToList();
         }
+
         public List<NhanVien> XuatThongKeLichSuCongTac(string HoTen)
         {
             var nhanvien = (from u in entity.NhanViens select u);

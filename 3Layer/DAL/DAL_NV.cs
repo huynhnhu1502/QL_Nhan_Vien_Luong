@@ -114,5 +114,115 @@ namespace _3Layer.DAL
                 throw;
             }
         }
+
+        //Tìm nhân viên
+        public List<NhanVien> TimNhanVien(string maNV, string tenNV, string donVi, string chucVu)
+        {
+            try
+            {
+                List<NhanVien> list = new List<NhanVien>();
+                var dsTim = from nv in db.NhanViens
+                         join dv in db.DonVis on nv.MaDonVi equals dv.MaDonVi
+                         join cv in db.ChucVus on nv.MaChucVu equals cv.MaChucVu
+                         join ngach in db.NgachLuongs on nv.MaNgach equals ngach.MaNgach
+                         join hs in db.HeSoLuongPhuCaps on nv.MaHeSo equals hs.MaHeSo
+                         select nv;
+                if(maNV != "")
+                {
+                    dsTim = dsTim.Where(s => s.MaNV.Equals(maNV));
+                }
+                if(tenNV != "")
+                {
+                    dsTim = dsTim.Where(s => s.HoTen.Contains(tenNV));
+                }
+                if(donVi != "----Tất cả----")
+                {
+                    dsTim = dsTim.Where(s => s.MaDonVi.Equals(donVi));
+                }
+                if(chucVu != "----Tất cả----")
+                {
+                    dsTim = dsTim.Where(s => s.MaChucVu.Equals(chucVu));
+                }
+                list = dsTim.ToList();
+                return list;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        //Thêm nhân viên
+        public bool ThemNhanVien(NhanVien nv)
+        {
+            try
+            {
+                db.NhanViens.Add(nv);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        //Tạo mã tự động
+        public string TaoMaNV()
+        {
+            try
+            {
+                var ma = from nv in db.NhanViens
+                         orderby nv.MaNV descending
+                         select nv.MaNV;
+
+                string maNV = ma.First().ToString();
+                int so = int.Parse(maNV.Substring(2));
+                int soTang = so + 1;
+                string kq = "";
+                
+                if(soTang < 10)
+                {
+                    kq = "NV000" + soTang.ToString();
+                }
+                else if(soTang < 100)
+                {
+                    kq = "NV00" + soTang.ToString();
+                }
+                else if(soTang < 1000)
+                {
+                    kq = "NV0" + soTang.ToString();
+                }
+                else
+                {
+                    kq = "NV" + soTang.ToString();
+                }
+                return kq;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        //đổ DL vào combobox Ngạch lương
+        public List<NgachLuong> LayDLNgachLuong()
+        {
+            try
+            {
+                List<NgachLuong> list = new List<NgachLuong>();
+                var dsNgach = from ngach in db.NgachLuongs
+                              select ngach;
+                list = dsNgach.ToList();
+                return list;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
