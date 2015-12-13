@@ -14,8 +14,8 @@
     @using (Html.BeginForm("ThongKeLichSuCongTac","Home",FormMethod.Get))
     {
         <p>
-            Họ tên: @Html.TextBox("HoTen") &nbsp
-            <input type="submit" value="Tìm kiếm" />
+            <b>Họ tên:</b> @Html.TextBox("HoTen") &nbsp
+            <input type="submit" value="Tìm kiếm" class="btn btn-success" />
         </p>
     }
     </p>
@@ -27,6 +27,7 @@
         <th>
             Họ và tên
         </th>
+        <th>Số lần công tác</th>
         <th></th>
     </tr>
 

@@ -68,12 +68,14 @@ namespace Webform.Controllers
 
             return RedirectToAction("ThongKeNhanVienTrongDonVi");
         }
-        public ActionResult ThongKeLichSuCongTac(string HoTen)
+        public ActionResult ThongKeLichSuCongTac(string HoTen, int? page)
         {
-            return View(_bizLSct.XuatThongKeLichSuCongTac(HoTen));
+            List<NhanVien> list = _bizLSct.XuatThongKeLichSuCongTac(HoTen);
+            return View(list);
         }
         public ActionResult ChiTietCongTac(string MaNV)
         {
+            List<LichSuCongTac> list = _bizLSct.XuatChiTietCongTac(MaNV);
             return View(_bizLSct.XuatChiTietCongTac(MaNV));
         }
         public ActionResult ExportDataLichSuCongTac(string maNhanVien)
@@ -105,10 +107,18 @@ namespace Webform.Controllers
         }
         public ActionResult TinhLuong(string Hoten)
         {
+            List<NhanVien> list = _biztinhluong.XuatTinhLuong(Hoten);
             return View(_biztinhluong.XuatTinhLuong(Hoten));
         }
         public ActionResult ThucHienTinhLuong(string MaNV)
         {
+            List<NhanVien> list = _biztinhluong.XuatThucHienTinhLuong(MaNV);
+            foreach (NhanVien nv in list)
+            {
+                ViewBag.TenDonVi = nv.DonVi.TenDonVi;
+                ViewBag.TenChucVu = nv.ChucVu.TenChucVu;
+                ViewBag.Ngach = nv.NgachLuong.TenNgach;
+            }
             return View(_biztinhluong.XuatThucHienTinhLuong(MaNV));
         }
         [HttpPost]

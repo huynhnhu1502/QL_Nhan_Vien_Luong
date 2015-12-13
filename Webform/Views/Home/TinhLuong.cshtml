@@ -77,7 +77,7 @@
     var ngaysinh = db.NhanViens.FirstOrDefault(a => a.MaNV.Equals(item.MaNV));
         }
         <td>
-            @ngaysinh.NgaySinh
+            @ngaysinh.NgaySinh.ToShortDateString()
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DanToc)
