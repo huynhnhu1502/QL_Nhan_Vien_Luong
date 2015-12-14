@@ -26,5 +26,9 @@ namespace _3Layer.BIZ
         {
             return _dalTinhLuong.XuatTinhLuong(Hoten);
         }
+        public List<LuongThucTe> XuatLuongThang(string MaNV)
+        {
+            return _dalTinhLuong.XuatLuongThang(MaNV);
+        }
     }
 }
