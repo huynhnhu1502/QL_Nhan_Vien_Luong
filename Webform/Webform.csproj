@@ -223,6 +223,7 @@
     <Content Include="Views\Home\ThucHienTinhLuong.cshtml" />
     <Content Include="Views\Home\ThongKeLuong.cshtml" />
     <Content Include="Views\Home\ThucHienThongKeLuong.cshtml" />
+    <Content Include="Views\Home\XemLuongThang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

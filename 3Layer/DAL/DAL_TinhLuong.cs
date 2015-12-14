@@ -174,24 +174,41 @@ namespace _3Layer.DAL
         }
         public List<LuongThucTe> ThongKeLuong(string MaDonVi, string thang, string nam)
         {
-            var result = (from o in db.LuongThucTes
-                          from e in db.NhanViens
-                          where e.MaDonVi == MaDonVi && e.MaNV == o.MaNV
-                          select o).OrderByDescending(a => a.NgayLap);
+            List<LuongThucTe> result = new List<LuongThucTe>();
+            result = ((from o in db.LuongThucTes.ToList()
+                       from e in db.NhanViens.ToList()
+                       where e.MaDonVi == MaDonVi && o.MaNV==e.MaNV 
+                       select new LuongThucTe()
+                       {
+                           MaLuong = o.MaLuong,
+                           MaNV = o.MaNV,
+                           TenNV = e.HoTen,
+                           NgayLap = o.NgayLap,
+                           LuongCoBan = o.LuongCoBan,
+                           LuongThucTe1 = o.LuongThucTe1
+                       }).OrderByDescending(a => a.NgayLap).ToList());
             if (!String.IsNullOrEmpty(thang) && !String.IsNullOrEmpty(nam))
             {
                 int thang1 = int.Parse(thang);
                 int nam1 = int.Parse(nam);
-                result = (from o in db.LuongThucTes
-                          from e in db.NhanViens
-                          where e.MaDonVi == MaDonVi && e.MaNV == o.MaNV && o.NgayLap.Month == thang1 && o.NgayLap.Year == nam1
-                          select o).OrderByDescending(a => a.NgayLap);
+                result = (from o in db.LuongThucTes.ToList()
+                          from e in db.NhanViens.ToList()
+                          where e.MaDonVi == MaDonVi && o.MaNV == e.MaNV && o.NgayLap.Month == thang1 && o.NgayLap.Year == nam1
+                          select new LuongThucTe()
+                          {
+                              MaLuong = o.MaLuong,
+                              MaNV = o.MaNV,
+                              TenNV = e.HoTen,
+                              NgayLap = o.NgayLap,
+                              LuongCoBan = o.LuongCoBan,
+                              LuongThucTe1 = o.LuongThucTe1
+                          }).OrderByDescending(a => a.NgayLap).ToList();
                 if (result == null)
                 {
                     Console.Write("Không tìm thấy");
                 }
             }
-            return result.ToList();
+            return result;
         }
         public List<DonVi> XuatThongKeLuongTheoDonVi()
         {
@@ -210,13 +227,45 @@ namespace _3Layer.DAL
         }
         public List<NhanVien> XuatTinhLuong(string Hoten)
         {
-            var nhanvien = (from u in db.NhanViens
-                            select u);
+            List<NhanVien> nhanvien = new List<NhanVien>();
+            nhanvien = ((from u in db.NhanViens.ToList()
+                        from t in db.DonVis.ToList()
+                        from y in db.ChucVus.ToList()
+                        where u.MaDonVi == t.MaDonVi && u.MaChucVu == y.MaChucVu
+                        select new NhanVien()
+                        {
+                            MaNV = u.MaNV,
+                            HoTen = u.HoTen,
+                            TenDonVi = t.TenDonVi,
+                            TenChucVu = y.TenChucVu,
+                            NgaySinh = Convert.ToDateTime(u.NgaySinh.ToShortDateString()),
+                            DanToc = u.DanToc,
+                            GioiTinh = u.GioiTinh,
+                            CMND = u.CMND,
+                            DiaChi = u.DiaChi
+                        }).ToList());
             if (!String.IsNullOrEmpty(Hoten))
             {
-                nhanvien = db.NhanViens.Where(a => a.HoTen.Contains(Hoten));
+                nhanvien = db.NhanViens.Where(a => a.HoTen.Contains(Hoten)).ToList();
             }
             return nhanvien.ToList();
+        }
+        public List<LuongThucTe> XuatLuongThang(string MaNV)
+        {
+            List<LuongThucTe> result = new List<LuongThucTe>();
+            int thang = DateTime.Now.Month;
+            int nam = DateTime.Now.Year;
+            result = ((from u in db.LuongThucTes.ToList()
+                      from t in db.NhanViens.ToList()
+                      where u.MaNV == MaNV && u.MaNV == t.MaNV && u.NgayLap.Month == thang && u.NgayLap.Year == nam
+                      select new LuongThucTe()
+                      {
+                          MaNV = u.MaNV,
+                          TenNV = t.HoTen,
+                          NgayLap = u.NgayLap,
+                          LuongThucTe1 = u.LuongThucTe1
+                      }).ToList());
+            return result;
         }
     }
 }

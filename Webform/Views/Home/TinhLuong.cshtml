@@ -61,23 +61,14 @@
     int countmanv = (from u in db.LuongThucTes where u.MaNV.Equals(item.MaNV) select u).Count();
     
         }
-        @{
-    var donvi = db.DonVis.FirstOrDefault(a => a.MaDonVi.Equals(item.MaDonVi));
-        }
         <td>
-           @donvi.TenDonVi
+           @Html.DisplayFor(modelItem => item.TenDonVi)
         </td>
-        @{
-    var chucvu = db.ChucVus.FirstOrDefault(a => a.MaChucVu.Equals(item.MaChucVu));
-        }
         <td>
-            @chucvu.TenChucVu
+            @Html.DisplayFor(modelItem => item.TenChucVu)
         </td>
-        @{
-    var ngaysinh = db.NhanViens.FirstOrDefault(a => a.MaNV.Equals(item.MaNV));
-        }
         <td>
-            @ngaysinh.NgaySinh.ToShortDateString()
+            @Html.DisplayFor(modelItem => item.NgaySinh)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DanToc)
@@ -105,13 +96,13 @@
         </td>
         }
         if(ngaythang.Month == month && ngaythang.Year == year) { 
-        <td>Đã tính lương</td>
+        <td>@Html.ActionLink("Xem lương tháng", "XemLuongThang", new { MaNV=item.MaNV })</td>
         }
     }
     else
     {
         <td>
-            @Html.ActionLink("Tính lương", "ThucHienTinhLuong", new { MaNV=item.MaNV })
+            @Html.ActionLink("Tính lương", "ThucHienTinhLuong", new { MaNV = item.MaNV })
         </td>
     }
         }

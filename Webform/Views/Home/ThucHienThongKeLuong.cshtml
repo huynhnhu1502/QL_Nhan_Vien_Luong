@@ -77,10 +77,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.MaNV)
         </td>
-        @{
-    string hoten = db.NhanViens.Where(a => a.MaNV.Equals(item.MaNV)).Select(a => a.HoTen).FirstOrDefault();
-        }
-        <td>@hoten</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenNV)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.NgayLap)
         </td>

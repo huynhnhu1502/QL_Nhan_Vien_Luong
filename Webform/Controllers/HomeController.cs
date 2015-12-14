@@ -47,11 +47,7 @@ namespace Webform.Controllers
         {
             
             GridView gv = new GridView();
-            var result111 = (from u in _db.NhanViens
-                             from e in _db.ChucVus
-                             where u.MaDonVi == maDonVi && u.MaChucVu == e.MaChucVu
-                             select new {u.MaNV,u.HoTen,e.TenChucVu,u.NgaySinh,u.DanToc,u.GioiTinh,u.CMND,u.DiaChi});
-            gv.DataSource = result111.ToList();
+            gv.DataSource = _bizDonVi.ExportDataNVTrongDV(maDonVi);
             gv.DataBind();
             Response.ClearContent();
             Response.Buffer = true;
@@ -80,14 +76,7 @@ namespace Webform.Controllers
         {
 
             GridView gv = new GridView();
-            var result111 = (from u in _db.LichSuCongTacs
-                             from q in _db.DonVis
-                             from t in _db.ChucVus
-                             from p in _db.NgachLuongs
-                             from m in _db.NhanViens
-                             where u.MaNV == maNhanVien && u.MaDonVi == q.MaDonVi && u.MaChucVu == t.MaChucVu && u.MaNgach == p.MaNgach && u.MaNV == m.MaNV
-                             select new { u.MaCongTac, m.HoTen, q.TenDonVi, t.TenChucVu, p.TenNgach, u.NgayLam, u.NgayChuyen });
-            gv.DataSource = result111.ToList();
+            gv.DataSource = _bizLSct.XuatChiTietCongTac(maNhanVien);
             gv.DataBind();
             Response.ClearContent();
             Response.Buffer = true;
@@ -138,14 +127,8 @@ namespace Webform.Controllers
         }
         public ActionResult ExportDataThongKeLuong(string MaDonVi, string thang, string nam)
         {
-            if (thang == null && nam == null)
-            {
                 GridView gv = new GridView();
-                var result111 = (from e in _db.NhanViens
-                                 from o in _db.LuongThucTes
-                                 where e.MaDonVi == MaDonVi && e.MaNV == o.MaNV
-                                 select o).OrderByDescending(a => a.NgayLap);
-                gv.DataSource = result111.ToList();
+                gv.DataSource = _biztinhluong.ThongKeLuong(MaDonVi, thang, nam);
                 gv.DataBind();
                 Response.ClearContent();
                 Response.Buffer = true;
@@ -158,32 +141,13 @@ namespace Webform.Controllers
                 Response.Output.Write(sw.ToString());
                 Response.Flush();
                 Response.End();
-            }
-            else
-            {
-                GridView gv = new GridView();
-                int thang1 = int.Parse(thang);
-                int nam1 = int.Parse(nam);
-                var result111 = (from e in _db.NhanViens
-                          from o in _db.LuongThucTes
-                          where e.MaDonVi == MaDonVi && e.MaNV == o.MaNV && o.NgayLap.Month == thang1 && o.NgayLap.Year == nam1
-                          select o).OrderByDescending(a => a.NgayLap).ToList();
-                gv.DataSource = result111.ToList();
-                gv.DataBind();
-                Response.ClearContent();
-                Response.Buffer = true;
-                Response.AddHeader("content-disposition", "attachment; filename=ThongKeLuongThang.xls");
-                Response.ContentType = "application/ms-excel";
-                Response.Charset = "";
-                StringWriter sw = new StringWriter();
-                HtmlTextWriter htw = new HtmlTextWriter(sw);
-                gv.RenderControl(htw);
-                Response.Output.Write(sw.ToString());
-                Response.Flush();
-                Response.End();
-            }
 
             return RedirectToAction("ThongKeLuong");
+        }
+
+        public ActionResult XemLuongThang(string MaNV)
+        {
+            return View(_biztinhluong.XuatLuongThang(MaNV));
         }
     }
 }

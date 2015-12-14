@@ -197,8 +197,22 @@ namespace _3Layer.DAL
 
         public List<LichSuCongTac> XuatChiTietCongTac(string MaNV)
         {
-            var congtac = (from u in entity.LichSuCongTacs where u.MaNV.Equals(MaNV) select u);
-            return congtac.ToList();
+            List<LichSuCongTac> congtac = new List<LichSuCongTac>();
+            congtac = ((from u in entity.LichSuCongTacs.ToList()
+                        from t in entity.DonVis.ToList()
+                        from e in entity.ChucVus.ToList()
+                        from p in entity.NgachLuongs.ToList()
+                        where u.MaNV.Equals(MaNV) && u.MaDonVi == t.MaDonVi && u.MaChucVu == e.MaChucVu && u.MaNgach == p.MaNgach
+                        select new LichSuCongTac()
+                        {
+                            MaCongTac = u.MaCongTac,
+                            TenDonVi = t.TenDonVi,
+                            TenChucVu = e.TenChucVu,
+                            TenNgach = p.TenNgach,
+                            NgayLam = u.NgayLam,
+                            NgayChuyen = u.NgayChuyen
+                        }).ToList());
+            return congtac;
         }
 
         public List<NhanVien> XuatThongKeLichSuCongTac(string HoTen)

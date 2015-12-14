@@ -38,21 +38,17 @@
         <td>
             @Html.DisplayFor(modelItem => item.MaCongTac)
         </td>
-        @{var donvi = db.DonVis.FirstOrDefault(a => a.MaDonVi.Equals(item.MaDonVi));}
         <td>
-            @donvi.TenDonVi
+            @Html.DisplayFor(modelItem => item.TenDonVi)
         </td>
-        @{var chucvu = db.ChucVus.FirstOrDefault(a => a.MaChucVu.Equals(item.MaChucVu));}
         <td>
-            @chucvu.TenChucVu
+            @Html.DisplayFor(modelItem => item.TenChucVu)
         </td>
-        @{var tenngach = db.NgachLuongs.FirstOrDefault(a => a.MaNgach.Equals(item.MaNgach));}
         <td>
-           @tenngach.TenNgach
+           @Html.DisplayFor(modelItem => item.TenNgach)
         </td>
-        @{var ngay = db.LichSuCongTacs.FirstOrDefault(a => a.MaCongTac.Equals(item.MaCongTac));}
         <td>
-            @ngay.NgayLam.ToShortDateString()
+            @Html.DisplayFor(modelItem => item.NgayLam)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.NgayChuyen)

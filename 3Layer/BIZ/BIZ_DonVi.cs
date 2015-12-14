@@ -36,5 +36,9 @@ namespace _3Layer.BIZ
         {
             return _daldonvi.XuatDSNVTrongDonVi(MaDonVi);
         }
+        public List<NhanVien> ExportDataNVTrongDV(string maDonVi)
+        {
+            return _daldonvi.ExportDataNVTrongDV(maDonVi);
+        }
     }
 }

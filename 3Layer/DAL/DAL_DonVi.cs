@@ -148,8 +148,34 @@ namespace _3Layer.DAL
         }
         public List<NhanVien> XuatDSNVTrongDonVi(string MaDonVi)
         {
-            var result = (from u in db.NhanViens where u.MaDonVi == MaDonVi select u);
-            return result.ToList();
+            List<NhanVien> result = new List<NhanVien>();
+            result = ((from u in db.NhanViens.ToList()
+                       from e in db.DonVis.ToList()
+                       from t in db.ChucVus.ToList()
+                       where u.MaDonVi == MaDonVi && u.MaDonVi == e.MaDonVi && u.MaChucVu == t.MaChucVu
+                       select new NhanVien()
+                       {
+                           MaNV = u.MaNV,
+                           HoTen = u.HoTen,
+                           TenDonVi = e.TenDonVi,
+                           TenChucVu = t.TenChucVu,
+                           NgaySinh = u.NgaySinh,
+                           DanToc = u.DanToc,
+                           GioiTinh = u.GioiTinh,
+                           CMND = u.CMND,
+                           DiaChi = u.DiaChi,
+                           HinhAnh = u.HinhAnh
+                       }).ToList());
+            return result;
+        }
+        public List<NhanVien> ExportDataNVTrongDV(string maDonVi)
+        {
+            List<NhanVien> result111 = new List<NhanVien>();
+            result111 = ((from u in db.NhanViens.ToList()
+                         from e in db.ChucVus.ToList()
+                         where u.MaDonVi == maDonVi && u.MaChucVu == e.MaChucVu
+                         select new NhanVien() { MaNV = u.MaNV, HoTen = u.HoTen, TenChucVu = e.TenChucVu, NgaySinh = u.NgaySinh, DanToc = u.DanToc, GioiTinh = u.GioiTinh, CMND = u.CMND, DiaChi = u.DiaChi }).ToList());
+            return result111;
         }
 
     }

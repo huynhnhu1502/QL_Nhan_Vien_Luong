@@ -1,0 +1,44 @@
+﻿@model IEnumerable<_3Layer.LuongThucTe>
+
+@{
+    ViewBag.Title = "XemLuongThang";
+}
+
+<h2>Xem lương tháng</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Mã nhân viên
+        </th>
+        <th>
+            Tên nhân viên
+        </th>
+        <th>
+            Ngày lập
+        </th>
+        <th>
+            Lương
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaNV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenNV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayLap)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LuongThucTe1) đồng
+        </td>
+    </tr>
+}
+
+</table>
