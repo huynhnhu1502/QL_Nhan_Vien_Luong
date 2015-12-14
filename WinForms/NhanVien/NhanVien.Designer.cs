@@ -41,6 +41,7 @@
             this.btnTaiLai = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.gridNhanVien = new System.Windows.Forms.DataGridView();
             this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -159,7 +160,7 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(514, 239);
+            this.btnThem.Location = new System.Drawing.Point(416, 243);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 23);
             this.btnThem.TabIndex = 9;
@@ -169,6 +170,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnXoa);
             this.groupBox2.Controls.Add(this.btnSua);
             this.groupBox2.Controls.Add(this.btnThem);
             this.groupBox2.Controls.Add(this.btnTaiLai);
@@ -180,9 +182,19 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin cơ bản";
             // 
+            // btnXoa
+            // 
+            this.btnXoa.Location = new System.Drawing.Point(620, 243);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(75, 23);
+            this.btnXoa.TabIndex = 12;
+            this.btnXoa.Text = "Xoá";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(620, 239);
+            this.btnSua.Location = new System.Drawing.Point(520, 243);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(75, 23);
             this.btnSua.TabIndex = 11;
@@ -203,6 +215,7 @@
             this.gridNhanVien.Name = "gridNhanVien";
             this.gridNhanVien.Size = new System.Drawing.Size(697, 168);
             this.gridNhanVien.TabIndex = 5;
+            this.gridNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridNhanVien_CellClick);
             // 
             // MaNV
             // 
@@ -277,5 +290,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NgaySinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn GioiTinh;
         private System.Windows.Forms.DataGridViewLinkColumn ChiTiet;
+        private System.Windows.Forms.Button btnXoa;
     }
 }

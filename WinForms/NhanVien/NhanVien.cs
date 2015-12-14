@@ -165,5 +165,83 @@ namespace WinForms
             frm_SuaNhanVien form = new frm_SuaNhanVien();
             form.Show();
         }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Bạn thực sự muốn xoá?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int viTri = gridNhanVien.CurrentCell.RowIndex;
+                    if(viTri < 0)
+                    {
+                        MessageBox.Show("Bạn phải chọn mục cần xoá!");
+                    }
+                    else
+                    {
+                        string maXoa = gridNhanVien.Rows[viTri].Cells["MaNV"].Value.ToString();
+                        if(bizNV.BIZ_XoaNhanVien(maXoa) == true)
+                        {
+                            MessageBox.Show("Đã xoá!");
+                            LayDSNhanVien();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Không xoá được!");
+            }
+        }
+
+        //Load lại bảng sau khi xoá
+        private void LayDSNhanVien()
+        {
+            try
+            {
+                gridNhanVien.Rows.Clear();
+                gridNhanVien.AutoGenerateColumns = false;
+                List<_3Layer.NhanVien> list = bizNV.BIZ_LayDuLieuNV();
+                //Lấy DL đổ vào grid
+                int row = 0;
+                foreach (_3Layer.NhanVien nv in list)
+                {
+                    gridNhanVien.Rows.Add(new DataGridViewRow());
+                    gridNhanVien.Rows[row].Cells["MaNV"].Value = nv.MaNV;
+                    gridNhanVien.Rows[row].Cells["HoTen"].Value = nv.HoTen;
+                    gridNhanVien.Rows[row].Cells["NgaySinh"].Value = nv.NgaySinh;
+                    gridNhanVien.Rows[row].Cells["GioiTinh"].Value = nv.GioiTinh;
+                    gridNhanVien.Rows[row].Cells["ChiTiet"].Value = "Xem chi tiết";
+                    row++;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi tải dữ liệu!");
+            }
+        }
+
+        private void gridNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                int dong = gridNhanVien.CurrentCell.RowIndex;
+                if(dong > -1)
+                {
+                    if(gridNhanVien.Rows[dong].Cells["ChiTiet"].Value.ToString() == "Xem chi tiết")
+                    {
+                        string maNV = gridNhanVien.Rows[dong].Cells["MaNV"].Value.ToString();
+                        ChiTietNV ct = new ChiTietNV(maNV);
+                        ct.Show();
+                        //_3Layer.NhanVien nv = bizNV.BIZ_TimNhanVienTheoMa(maNV);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
     }
 }

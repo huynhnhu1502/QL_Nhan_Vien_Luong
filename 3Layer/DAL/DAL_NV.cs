@@ -36,15 +36,15 @@ namespace _3Layer.DAL
                 db.SaveChanges();
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                Console.WriteLine("Lỗi: "+ ex);
+                Console.WriteLine("Lỗi: " + ex);
                 return false;
             }
         }
         public bool Search(NhanVien nv)
         {
-            var search = db.NhanViens.FirstOrDefault(a=> a.MaNV == nv.MaNV || a.HoTen == nv.HoTen || a.MaDonVi == nv.MaDonVi || a.MaChucVu == nv.MaChucVu);
+            var search = db.NhanViens.FirstOrDefault(a => a.MaNV == nv.MaNV || a.HoTen == nv.HoTen || a.MaDonVi == nv.MaDonVi || a.MaChucVu == nv.MaChucVu);
             if (search != null)
             {
                 return true;
@@ -122,24 +122,24 @@ namespace _3Layer.DAL
             {
                 List<NhanVien> list = new List<NhanVien>();
                 var dsTim = from nv in db.NhanViens
-                         join dv in db.DonVis on nv.MaDonVi equals dv.MaDonVi
-                         join cv in db.ChucVus on nv.MaChucVu equals cv.MaChucVu
-                         join ngach in db.NgachLuongs on nv.MaNgach equals ngach.MaNgach
-                         join hs in db.HeSoLuongPhuCaps on nv.MaHeSo equals hs.MaHeSo
-                         select nv;
-                if(maNV != "")
+                            join dv in db.DonVis on nv.MaDonVi equals dv.MaDonVi
+                            join cv in db.ChucVus on nv.MaChucVu equals cv.MaChucVu
+                            join ngach in db.NgachLuongs on nv.MaNgach equals ngach.MaNgach
+                            join hs in db.HeSoLuongPhuCaps on nv.MaHeSo equals hs.MaHeSo
+                            select nv;
+                if (maNV != "")
                 {
                     dsTim = dsTim.Where(s => s.MaNV.Equals(maNV));
                 }
-                if(tenNV != "")
+                if (tenNV != "")
                 {
                     dsTim = dsTim.Where(s => s.HoTen.Contains(tenNV));
                 }
-                if(donVi != "----Tất cả----")
+                if (donVi != "----Tất cả----")
                 {
                     dsTim = dsTim.Where(s => s.MaDonVi.Equals(donVi));
                 }
-                if(chucVu != "----Tất cả----")
+                if (chucVu != "----Tất cả----")
                 {
                     dsTim = dsTim.Where(s => s.MaChucVu.Equals(chucVu));
                 }
@@ -181,12 +181,12 @@ namespace _3Layer.DAL
                 int so = int.Parse(maNV.Substring(2));
                 int soTang = so + 1;
                 string kq = "";
-                
-                if(soTang < 10)
+
+                if (soTang < 10)
                 {
                     kq = "NV00" + soTang.ToString();
                 }
-                else if(soTang < 100)
+                else if (soTang < 100)
                 {
                     kq = "NV0" + soTang.ToString();
                 }
@@ -233,6 +233,14 @@ namespace _3Layer.DAL
                 db.NhanViens.Attach(nvSua);
                 var nhanvien = db.Entry(nvSua);
                 nhanvien.Property(s => s.HoTen).IsModified = true;
+                nhanvien.Property(s => s.MaNgach).IsModified = true;
+                nhanvien.Property(s => s.MaHeSo).IsModified = true;
+                nhanvien.Property(s => s.NgaySinh).IsModified = true;
+                nhanvien.Property(s => s.DanToc).IsModified = true;
+                nhanvien.Property(s => s.GioiTinh).IsModified = true;
+                nhanvien.Property(s => s.CMND).IsModified = true;
+                nhanvien.Property(s => s.DiaChi).IsModified = true;
+
                 return true;
             }
             catch (Exception ex)
@@ -261,7 +269,43 @@ namespace _3Layer.DAL
             }
         }
 
-        //Lấy hệ số lương cho form_load
+        //Xoá nhân viên
+        public bool XoaNhanVien(string maXoa)
+        {
+            try
+            {
+                NhanVien nvXoa = (NhanVien)db.NhanViens.Where(s => s.MaNV == maXoa).First();
+                db.NhanViens.Remove(nvXoa);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        //tìm  nhân viên theo mã
+        public NhanVien TimNhanVienTheoMa(string maNV)
+        {
+            try
+            {
+                var query = from nv in db.NhanViens
+                            join dv in db.DonVis on nv.MaDonVi equals dv.MaDonVi
+                            join cv in db.ChucVus on nv.MaChucVu equals cv.MaChucVu
+                            join ng in db.NgachLuongs on nv.MaNgach equals ng.MaNgach
+                            join hs in db.HeSoLuongPhuCaps on nv.MaHeSo equals hs.MaHeSo
+                            where nv.MaNV == maNV
+                            select nv;
+                NhanVien nhanVien = query.FirstOrDefault();
+                return nhanVien;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
 
     }
 }

@@ -169,6 +169,8 @@ namespace WinForms
             }
         }
 
+
+        //Load các hệ số của ngạch được chọn
         private void cbNgach_SelectedIndexChanged(object sender, EventArgs e)
         {
             try

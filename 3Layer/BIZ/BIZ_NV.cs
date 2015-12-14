@@ -81,5 +81,15 @@ namespace _3Layer.BIZ
         {
             return dal.LayHeSoTheoMaNgach(maNgach);
         }
+
+        public bool BIZ_XoaNhanVien(string maXoa)
+        {
+            return dal.XoaNhanVien(maXoa);
+        }
+
+        public NhanVien BIZ_TimNhanVienTheoMa(string maNV)
+        {
+            return dal.TimNhanVienTheoMa(maNV);
+        }
     }
 }

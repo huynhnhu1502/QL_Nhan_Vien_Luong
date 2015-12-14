@@ -214,8 +214,7 @@ namespace WinForms.LSCongTac
             }
             catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show("Lỗi tải dữ liệu!");
             }
         }
 
