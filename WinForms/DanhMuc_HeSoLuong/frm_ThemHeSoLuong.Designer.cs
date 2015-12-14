@@ -43,6 +43,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(194, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(176, 18);
@@ -64,7 +65,7 @@
             this.cbNgach.Location = new System.Drawing.Point(176, 93);
             this.cbNgach.Name = "cbNgach";
             this.cbNgach.Size = new System.Drawing.Size(270, 21);
-            this.cbNgach.TabIndex = 2;
+            this.cbNgach.TabIndex = 1;
             // 
             // label3
             // 
@@ -80,14 +81,14 @@
             this.txtTenHeSo.Location = new System.Drawing.Point(176, 141);
             this.txtTenHeSo.Name = "txtTenHeSo";
             this.txtTenHeSo.Size = new System.Drawing.Size(270, 20);
-            this.txtTenHeSo.TabIndex = 4;
+            this.txtTenHeSo.TabIndex = 2;
             // 
             // txtHeSo
             // 
             this.txtHeSo.Location = new System.Drawing.Point(176, 190);
             this.txtHeSo.Name = "txtHeSo";
             this.txtHeSo.Size = new System.Drawing.Size(270, 20);
-            this.txtHeSo.TabIndex = 6;
+            this.txtHeSo.TabIndex = 3;
             // 
             // label4
             // 
@@ -103,7 +104,7 @@
             this.btnThoat.Location = new System.Drawing.Point(427, 264);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(72, 28);
-            this.btnThoat.TabIndex = 21;
+            this.btnThoat.TabIndex = 5;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
@@ -113,7 +114,7 @@
             this.btnLuu.Location = new System.Drawing.Point(320, 264);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(72, 28);
-            this.btnLuu.TabIndex = 20;
+            this.btnLuu.TabIndex = 4;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);

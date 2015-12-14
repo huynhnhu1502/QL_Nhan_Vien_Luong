@@ -83,7 +83,7 @@
             this.txttimhs.Location = new System.Drawing.Point(595, 30);
             this.txttimhs.Name = "txttimhs";
             this.txttimhs.Size = new System.Drawing.Size(133, 20);
-            this.txttimhs.TabIndex = 13;
+            this.txttimhs.TabIndex = 4;
             this.txttimhs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHeSo_KeyPress);
             // 
             // txttimten
@@ -91,7 +91,7 @@
             this.txttimten.Location = new System.Drawing.Point(369, 30);
             this.txttimten.Name = "txttimten";
             this.txttimten.Size = new System.Drawing.Size(129, 20);
-            this.txttimten.TabIndex = 12;
+            this.txttimten.TabIndex = 3;
             // 
             // label6
             // 
@@ -116,7 +116,7 @@
             this.Thoát.Location = new System.Drawing.Point(621, 74);
             this.Thoát.Name = "Thoát";
             this.Thoát.Size = new System.Drawing.Size(83, 23);
-            this.Thoát.TabIndex = 9;
+            this.Thoát.TabIndex = 8;
             this.Thoát.Text = "Thoát";
             this.Thoát.UseVisualStyleBackColor = true;
             this.Thoát.Click += new System.EventHandler(this.Thoát_Click);
@@ -126,7 +126,7 @@
             this.btkhoitao.Location = new System.Drawing.Point(497, 74);
             this.btkhoitao.Name = "btkhoitao";
             this.btkhoitao.Size = new System.Drawing.Size(83, 23);
-            this.btkhoitao.TabIndex = 8;
+            this.btkhoitao.TabIndex = 7;
             this.btkhoitao.Text = "Khởi tạo lại";
             this.btkhoitao.UseVisualStyleBackColor = true;
             this.btkhoitao.Click += new System.EventHandler(this.btkhoitao_Click);
@@ -136,7 +136,7 @@
             this.btthemmoi.Location = new System.Drawing.Point(369, 74);
             this.btthemmoi.Name = "btthemmoi";
             this.btthemmoi.Size = new System.Drawing.Size(83, 23);
-            this.btthemmoi.TabIndex = 7;
+            this.btthemmoi.TabIndex = 6;
             this.btthemmoi.Text = "Thêm Mới";
             this.btthemmoi.UseVisualStyleBackColor = true;
             this.btthemmoi.Click += new System.EventHandler(this.btthemmoi_Click);
@@ -146,7 +146,7 @@
             this.bttim.Location = new System.Drawing.Point(248, 74);
             this.bttim.Name = "bttim";
             this.bttim.Size = new System.Drawing.Size(83, 23);
-            this.bttim.TabIndex = 6;
+            this.bttim.TabIndex = 5;
             this.bttim.Text = "Tìm Kiếm";
             this.bttim.UseVisualStyleBackColor = true;
             this.bttim.Click += new System.EventHandler(this.bttim_Click);
@@ -156,7 +156,7 @@
             this.txttimma.Location = new System.Drawing.Point(85, 33);
             this.txttimma.Name = "txttimma";
             this.txttimma.Size = new System.Drawing.Size(135, 20);
-            this.txttimma.TabIndex = 3;
+            this.txttimma.TabIndex = 2;
             // 
             // label1
             // 
@@ -172,7 +172,7 @@
             this.btSua.Location = new System.Drawing.Point(595, 26);
             this.btSua.Name = "btSua";
             this.btSua.Size = new System.Drawing.Size(83, 23);
-            this.btSua.TabIndex = 10;
+            this.btSua.TabIndex = 1;
             this.btSua.Text = "Sửa ";
             this.btSua.UseVisualStyleBackColor = true;
             this.btSua.Click += new System.EventHandler(this.btSua_Click);

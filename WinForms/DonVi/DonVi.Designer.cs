@@ -63,20 +63,20 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(472, 81);
+            this.button1.Location = new System.Drawing.Point(631, 81);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
+            this.button1.TabIndex = 4;
             this.button1.Text = "Tìm kiếm";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(371, 81);
+            this.button2.Location = new System.Drawing.Point(580, 468);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 10;
+            this.button2.TabIndex = 6;
             this.button2.Text = "Thêm mới";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -84,15 +84,15 @@
             // cbloai
             // 
             this.cbloai.FormattingEnabled = true;
-            this.cbloai.Location = new System.Drawing.Point(699, 26);
+            this.cbloai.Location = new System.Drawing.Point(684, 26);
             this.cbloai.Name = "cbloai";
-            this.cbloai.Size = new System.Drawing.Size(157, 21);
-            this.cbloai.TabIndex = 12;
+            this.cbloai.Size = new System.Drawing.Size(172, 21);
+            this.cbloai.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(617, 29);
+            this.label2.Location = new System.Drawing.Point(602, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 11;
@@ -100,10 +100,10 @@
             // 
             // txtTenDV
             // 
-            this.txtTenDV.Location = new System.Drawing.Point(395, 26);
+            this.txtTenDV.Location = new System.Drawing.Point(360, 26);
             this.txtTenDV.Name = "txtTenDV";
             this.txtTenDV.Size = new System.Drawing.Size(181, 20);
-            this.txtTenDV.TabIndex = 7;
+            this.txtTenDV.TabIndex = 2;
             // 
             // txtMaDV
             // 
@@ -116,7 +116,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(301, 29);
+            this.label3.Location = new System.Drawing.Point(266, 29);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 13);
             this.label3.TabIndex = 4;
@@ -251,13 +251,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btthoat);
             this.groupBox1.Controls.Add(this.txtma);
-            this.groupBox1.Controls.Add(this.btSua);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.txtMaDV);
-            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.cbloai);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtTenDV);
@@ -272,10 +269,10 @@
             // 
             // btthoat
             // 
-            this.btthoat.Location = new System.Drawing.Point(781, 81);
+            this.btthoat.Location = new System.Drawing.Point(777, 468);
             this.btthoat.Name = "btthoat";
             this.btthoat.Size = new System.Drawing.Size(75, 23);
-            this.btthoat.TabIndex = 16;
+            this.btthoat.TabIndex = 8;
             this.btthoat.Text = "Thoát";
             this.btthoat.UseVisualStyleBackColor = true;
             this.btthoat.Click += new System.EventHandler(this.btthoat_Click);
@@ -284,25 +281,25 @@
             // 
             this.txtma.Location = new System.Drawing.Point(85, 26);
             this.txtma.Name = "txtma";
-            this.txtma.Size = new System.Drawing.Size(149, 20);
-            this.txtma.TabIndex = 15;
+            this.txtma.Size = new System.Drawing.Size(143, 20);
+            this.txtma.TabIndex = 1;
             // 
             // btSua
             // 
-            this.btSua.Location = new System.Drawing.Point(576, 81);
+            this.btSua.Location = new System.Drawing.Point(677, 468);
             this.btSua.Name = "btSua";
             this.btSua.Size = new System.Drawing.Size(75, 23);
-            this.btSua.TabIndex = 14;
+            this.btSua.TabIndex = 7;
             this.btSua.Text = "Sửa";
             this.btSua.UseVisualStyleBackColor = true;
             this.btSua.Click += new System.EventHandler(this.btSua_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(680, 81);
+            this.button3.Location = new System.Drawing.Point(745, 81);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 13;
+            this.button3.TabIndex = 5;
             this.button3.Text = "Khởi tạo lại";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -323,10 +320,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(896, 453);
+            this.ClientSize = new System.Drawing.Size(896, 518);
             this.ControlBox = false;
+            this.Controls.Add(this.btthoat);
+            this.Controls.Add(this.btSua);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

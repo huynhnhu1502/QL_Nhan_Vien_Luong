@@ -46,7 +46,7 @@
             this.btnThoat.Location = new System.Drawing.Point(421, 291);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(72, 28);
-            this.btnThoat.TabIndex = 30;
+            this.btnThoat.TabIndex = 6;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
@@ -56,7 +56,7 @@
             this.btnLuu.Location = new System.Drawing.Point(314, 291);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(72, 28);
-            this.btnLuu.TabIndex = 29;
+            this.btnLuu.TabIndex = 5;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
@@ -66,7 +66,7 @@
             this.txtHeSo.Location = new System.Drawing.Point(170, 217);
             this.txtHeSo.Name = "txtHeSo";
             this.txtHeSo.Size = new System.Drawing.Size(270, 20);
-            this.txtHeSo.TabIndex = 28;
+            this.txtHeSo.TabIndex = 4;
             // 
             // label4
             // 
@@ -82,7 +82,7 @@
             this.txtTenHeSo.Location = new System.Drawing.Point(170, 168);
             this.txtTenHeSo.Name = "txtTenHeSo";
             this.txtTenHeSo.Size = new System.Drawing.Size(270, 20);
-            this.txtTenHeSo.TabIndex = 26;
+            this.txtTenHeSo.TabIndex = 3;
             // 
             // label3
             // 
@@ -100,7 +100,7 @@
             this.cbNgach.Location = new System.Drawing.Point(170, 120);
             this.cbNgach.Name = "cbNgach";
             this.cbNgach.Size = new System.Drawing.Size(270, 21);
-            this.cbNgach.TabIndex = 24;
+            this.cbNgach.TabIndex = 2;
             // 
             // label2
             // 
@@ -115,6 +115,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(201, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(162, 18);
@@ -127,7 +128,7 @@
             this.txtMaHeSo.Location = new System.Drawing.Point(170, 72);
             this.txtMaHeSo.Name = "txtMaHeSo";
             this.txtMaHeSo.Size = new System.Drawing.Size(270, 20);
-            this.txtMaHeSo.TabIndex = 32;
+            this.txtMaHeSo.TabIndex = 1;
             // 
             // label5
             // 

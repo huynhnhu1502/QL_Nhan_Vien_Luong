@@ -69,7 +69,7 @@
             this.btnSearch.Location = new System.Drawing.Point(643, 34);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(67, 30);
-            this.btnSearch.TabIndex = 13;
+            this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "Tìm";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -79,7 +79,7 @@
             this.txtMaNgach.Location = new System.Drawing.Point(112, 41);
             this.txtMaNgach.Name = "txtMaNgach";
             this.txtMaNgach.Size = new System.Drawing.Size(162, 20);
-            this.txtMaNgach.TabIndex = 9;
+            this.txtMaNgach.TabIndex = 1;
             // 
             // label3
             // 
@@ -96,7 +96,7 @@
             this.txtTenNgach.Location = new System.Drawing.Point(439, 41);
             this.txtTenNgach.Name = "txtTenNgach";
             this.txtTenNgach.Size = new System.Drawing.Size(158, 20);
-            this.txtTenNgach.TabIndex = 10;
+            this.txtTenNgach.TabIndex = 2;
             // 
             // label1
             // 
@@ -128,7 +128,7 @@
             this.btnTaiLai.Location = new System.Drawing.Point(643, 19);
             this.btnTaiLai.Name = "btnTaiLai";
             this.btnTaiLai.Size = new System.Drawing.Size(73, 31);
-            this.btnTaiLai.TabIndex = 9;
+            this.btnTaiLai.TabIndex = 4;
             this.btnTaiLai.Text = "Tải lại";
             this.btnTaiLai.UseVisualStyleBackColor = true;
             this.btnTaiLai.Click += new System.EventHandler(this.btnTaiLai_Click);
@@ -138,7 +138,7 @@
             this.btnSua.Location = new System.Drawing.Point(431, 318);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(80, 26);
-            this.btnSua.TabIndex = 8;
+            this.btnSua.TabIndex = 6;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
@@ -148,7 +148,7 @@
             this.btnThoat.Location = new System.Drawing.Point(632, 319);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(86, 26);
-            this.btnThoat.TabIndex = 7;
+            this.btnThoat.TabIndex = 8;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
@@ -158,7 +158,7 @@
             this.btnXoa.Location = new System.Drawing.Point(534, 318);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(75, 27);
-            this.btnXoa.TabIndex = 6;
+            this.btnXoa.TabIndex = 7;
             this.btnXoa.Text = "Xoá";
             this.btnXoa.UseVisualStyleBackColor = true;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
@@ -223,7 +223,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_NgachLuong";
-            this.Text = "frm_NgachLuong";
+            this.Text = "Ngạch lương";
             this.Load += new System.EventHandler(this.frm_NgachLuong_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

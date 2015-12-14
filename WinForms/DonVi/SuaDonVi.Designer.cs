@@ -117,7 +117,7 @@
             this.txtSoDT.Location = new System.Drawing.Point(471, 92);
             this.txtSoDT.Name = "txtSoDT";
             this.txtSoDT.Size = new System.Drawing.Size(174, 20);
-            this.txtSoDT.TabIndex = 31;
+            this.txtSoDT.TabIndex = 3;
             this.txtSoDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoDT_KeyPress);
             // 
             // txtTenDV
@@ -125,14 +125,14 @@
             this.txtTenDV.Location = new System.Drawing.Point(471, 56);
             this.txtTenDV.Name = "txtTenDV";
             this.txtTenDV.Size = new System.Drawing.Size(174, 20);
-            this.txtTenDV.TabIndex = 30;
+            this.txtTenDV.TabIndex = 1;
             // 
             // txtDiaChi
             // 
             this.txtDiaChi.Location = new System.Drawing.Point(128, 127);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(174, 20);
-            this.txtDiaChi.TabIndex = 32;
+            this.txtDiaChi.TabIndex = 4;
             // 
             // txtMaDV
             // 
@@ -153,6 +153,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Red;
             this.label10.Location = new System.Drawing.Point(308, 9);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(60, 20);
@@ -164,7 +165,7 @@
             this.button1.Location = new System.Drawing.Point(570, 447);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 42;
+            this.button1.TabIndex = 8;
             this.button1.Text = "Đóng";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -174,7 +175,7 @@
             this.btSua.Location = new System.Drawing.Point(457, 447);
             this.btSua.Name = "btSua";
             this.btSua.Size = new System.Drawing.Size(75, 23);
-            this.btSua.TabIndex = 46;
+            this.btSua.TabIndex = 7;
             this.btSua.Text = "Sửa";
             this.btSua.UseVisualStyleBackColor = true;
             this.btSua.Click += new System.EventHandler(this.btSua_Click);
@@ -183,6 +184,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Red;
             this.label11.Location = new System.Drawing.Point(148, 9);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(175, 20);
@@ -195,14 +197,14 @@
             this.cbloaidv.Location = new System.Drawing.Point(128, 95);
             this.cbloaidv.Name = "cbloaidv";
             this.cbloaidv.Size = new System.Drawing.Size(174, 21);
-            this.cbloaidv.TabIndex = 48;
+            this.cbloaidv.TabIndex = 2;
             // 
             // txtChucNang
             // 
             this.txtChucNang.Location = new System.Drawing.Point(128, 171);
             this.txtChucNang.Name = "txtChucNang";
             this.txtChucNang.Size = new System.Drawing.Size(517, 97);
-            this.txtChucNang.TabIndex = 49;
+            this.txtChucNang.TabIndex = 5;
             this.txtChucNang.Text = "";
             // 
             // txtNhiemVu
@@ -210,7 +212,7 @@
             this.txtNhiemVu.Location = new System.Drawing.Point(128, 302);
             this.txtNhiemVu.Name = "txtNhiemVu";
             this.txtNhiemVu.Size = new System.Drawing.Size(517, 115);
-            this.txtNhiemVu.TabIndex = 50;
+            this.txtNhiemVu.TabIndex = 6;
             this.txtNhiemVu.Text = "";
             // 
             // SuaDonVi
