@@ -73,7 +73,7 @@
             this.cbngach.Location = new System.Drawing.Point(109, 66);
             this.cbngach.Name = "cbngach";
             this.cbngach.Size = new System.Drawing.Size(180, 21);
-            this.cbngach.TabIndex = 3;
+            this.cbngach.TabIndex = 1;
             this.cbngach.SelectedIndexChanged += new System.EventHandler(this.cbngach_thaydoi);
             // 
             // lbHS
@@ -90,7 +90,7 @@
             this.btluu.Location = new System.Drawing.Point(62, 221);
             this.btluu.Name = "btluu";
             this.btluu.Size = new System.Drawing.Size(75, 23);
-            this.btluu.TabIndex = 6;
+            this.btluu.TabIndex = 4;
             this.btluu.Text = "Lưu";
             this.btluu.UseVisualStyleBackColor = true;
             this.btluu.Click += new System.EventHandler(this.btluu_Click);
@@ -100,7 +100,7 @@
             this.btthoat.Location = new System.Drawing.Point(183, 221);
             this.btthoat.Name = "btthoat";
             this.btthoat.Size = new System.Drawing.Size(75, 23);
-            this.btthoat.TabIndex = 7;
+            this.btthoat.TabIndex = 5;
             this.btthoat.Text = "Thoát";
             this.btthoat.UseVisualStyleBackColor = true;
             this.btthoat.Click += new System.EventHandler(this.btthoat_Click);
@@ -111,14 +111,14 @@
             this.cbheso.Location = new System.Drawing.Point(109, 111);
             this.cbheso.Name = "cbheso";
             this.cbheso.Size = new System.Drawing.Size(180, 21);
-            this.cbheso.TabIndex = 8;
+            this.cbheso.TabIndex = 2;
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(109, 148);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(180, 20);
-            this.dateTimePicker1.TabIndex = 9;
+            this.dateTimePicker1.TabIndex = 3;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dtp1_ValueChanged);
             // 
             // label1
@@ -146,7 +146,7 @@
             this.Controls.Add(this.lbngach);
             this.Controls.Add(this.MaNV);
             this.Name = "ThemChuyenBac";
-            this.Text = "ThemChuyenBac";
+            this.Text = "Thêm lịch sử chuyển bậc";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -93,7 +93,7 @@
             this.btload.Location = new System.Drawing.Point(756, 59);
             this.btload.Name = "btload";
             this.btload.Size = new System.Drawing.Size(75, 23);
-            this.btload.TabIndex = 13;
+            this.btload.TabIndex = 6;
             this.btload.Text = "Tải Lại";
             this.btload.UseVisualStyleBackColor = true;
             this.btload.Click += new System.EventHandler(this.button1_Click);
@@ -103,7 +103,7 @@
             this.dtp2.Location = new System.Drawing.Point(511, 20);
             this.dtp2.Name = "dtp2";
             this.dtp2.Size = new System.Drawing.Size(180, 20);
-            this.dtp2.TabIndex = 11;
+            this.dtp2.TabIndex = 3;
             this.dtp2.ValueChanged += new System.EventHandler(this.dtp2_ValueChanged);
             // 
             // dtp1
@@ -112,7 +112,7 @@
             this.dtp1.Location = new System.Drawing.Point(264, 20);
             this.dtp1.Name = "dtp1";
             this.dtp1.Size = new System.Drawing.Size(183, 20);
-            this.dtp1.TabIndex = 10;
+            this.dtp1.TabIndex = 2;
             this.dtp1.Value = new System.DateTime(2015, 12, 3, 22, 4, 1, 0);
             this.dtp1.ValueChanged += new System.EventHandler(this.dtp1_ValueChanged);
             // 
@@ -121,7 +121,7 @@
             this.btthoat.Location = new System.Drawing.Point(656, 59);
             this.btthoat.Name = "btthoat";
             this.btthoat.Size = new System.Drawing.Size(75, 23);
-            this.btthoat.TabIndex = 9;
+            this.btthoat.TabIndex = 5;
             this.btthoat.Text = "Thoát";
             this.btthoat.UseVisualStyleBackColor = true;
             this.btthoat.Click += new System.EventHandler(this.btthoat_Click);
@@ -131,7 +131,7 @@
             this.btnhaplai.Location = new System.Drawing.Point(555, 59);
             this.btnhaplai.Name = "btnhaplai";
             this.btnhaplai.Size = new System.Drawing.Size(75, 23);
-            this.btnhaplai.TabIndex = 8;
+            this.btnhaplai.TabIndex = 5;
             this.btnhaplai.Text = "Nhập Lại";
             this.btnhaplai.UseVisualStyleBackColor = true;
             this.btnhaplai.Click += new System.EventHandler(this.btnhaplai_Click);
@@ -141,7 +141,7 @@
             this.bttim.Location = new System.Drawing.Point(456, 59);
             this.bttim.Name = "bttim";
             this.bttim.Size = new System.Drawing.Size(75, 23);
-            this.bttim.TabIndex = 7;
+            this.bttim.TabIndex = 4;
             this.bttim.Text = "Tìm";
             this.bttim.UseVisualStyleBackColor = true;
             this.bttim.Click += new System.EventHandler(this.bttim_Click);
@@ -185,7 +185,7 @@
             this.btchuyenbac.Location = new System.Drawing.Point(656, 49);
             this.btchuyenbac.Name = "btchuyenbac";
             this.btchuyenbac.Size = new System.Drawing.Size(75, 23);
-            this.btchuyenbac.TabIndex = 6;
+            this.btchuyenbac.TabIndex = 10;
             this.btchuyenbac.Text = "Chuyển Bậc";
             this.btchuyenbac.UseVisualStyleBackColor = true;
             this.btchuyenbac.Click += new System.EventHandler(this.btchuyenbac_Click);
@@ -342,7 +342,7 @@
             this.btSua.Location = new System.Drawing.Point(756, 49);
             this.btSua.Name = "btSua";
             this.btSua.Size = new System.Drawing.Size(75, 23);
-            this.btSua.TabIndex = 13;
+            this.btSua.TabIndex = 11;
             this.btSua.Text = "Sửa";
             this.btSua.UseVisualStyleBackColor = true;
             this.btSua.Click += new System.EventHandler(this.btSua_Click);
@@ -352,7 +352,7 @@
             this.txttths.Location = new System.Drawing.Point(511, 29);
             this.txttths.Name = "txttths";
             this.txttths.Size = new System.Drawing.Size(137, 20);
-            this.txttths.TabIndex = 12;
+            this.txttths.TabIndex = 9;
             // 
             // label3
             // 
@@ -368,14 +368,14 @@
             this.txtttngach.Location = new System.Drawing.Point(293, 29);
             this.txtttngach.Name = "txtttngach";
             this.txtttngach.Size = new System.Drawing.Size(134, 20);
-            this.txtttngach.TabIndex = 10;
+            this.txtttngach.TabIndex = 8;
             // 
             // txtttma
             // 
             this.txtttma.Location = new System.Drawing.Point(88, 29);
             this.txtttma.Name = "txtttma";
             this.txtttma.Size = new System.Drawing.Size(125, 20);
-            this.txtttma.TabIndex = 9;
+            this.txtttma.TabIndex = 7;
             // 
             // label2
             // 

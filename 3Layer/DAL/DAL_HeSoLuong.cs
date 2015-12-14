@@ -100,7 +100,7 @@ namespace _3Layer.DAL
                          select hs.MaHeSo;
                 if(ma.Count() == 0)
                 {
-                    kq = "0001";
+                    kq = "HS0001";
                 }
                 else
                 {

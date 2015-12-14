@@ -73,7 +73,7 @@
             this.cbngach.Location = new System.Drawing.Point(92, 72);
             this.cbngach.Name = "cbngach";
             this.cbngach.Size = new System.Drawing.Size(200, 21);
-            this.cbngach.TabIndex = 3;
+            this.cbngach.TabIndex = 1;
             this.cbngach.SelectedIndexChanged += new System.EventHandler(this.cbngach_thaydoi);
             // 
             // label3
@@ -91,14 +91,14 @@
             this.cbheso.Location = new System.Drawing.Point(92, 117);
             this.cbheso.Name = "cbheso";
             this.cbheso.Size = new System.Drawing.Size(200, 21);
-            this.cbheso.TabIndex = 5;
+            this.cbheso.TabIndex = 2;
             // 
             // btsua
             // 
             this.btsua.Location = new System.Drawing.Point(138, 246);
             this.btsua.Name = "btsua";
             this.btsua.Size = new System.Drawing.Size(75, 23);
-            this.btsua.TabIndex = 6;
+            this.btsua.TabIndex = 4;
             this.btsua.Text = "Sửa";
             this.btsua.UseVisualStyleBackColor = true;
             this.btsua.Click += new System.EventHandler(this.btsua_Click);
@@ -117,14 +117,14 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(92, 161);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 8;
+            this.dateTimePicker1.TabIndex = 3;
             // 
             // btthoat
             // 
             this.btthoat.Location = new System.Drawing.Point(246, 246);
             this.btthoat.Name = "btthoat";
             this.btthoat.Size = new System.Drawing.Size(75, 23);
-            this.btthoat.TabIndex = 9;
+            this.btthoat.TabIndex = 5;
             this.btthoat.Text = "Thoát";
             this.btthoat.UseVisualStyleBackColor = true;
             this.btthoat.Click += new System.EventHandler(this.btthoat_Click);
@@ -154,7 +154,7 @@
             this.Controls.Add(this.txtmnv);
             this.Controls.Add(this.label1);
             this.Name = "SuaLichSuChuyenBac";
-            this.Text = "SuaLichSuChuyenBac";
+            this.Text = "Sửa LS chuyển bậc";
             this.Load += new System.EventHandler(this.SuaLichSuChuyenBac_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

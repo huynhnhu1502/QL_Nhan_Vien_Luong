@@ -45,18 +45,18 @@
             this.lbErr.AutoSize = true;
             this.lbErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbErr.ForeColor = System.Drawing.Color.Red;
-            this.lbErr.Location = new System.Drawing.Point(267, 22);
+            this.lbErr.Location = new System.Drawing.Point(230, 22);
             this.lbErr.Name = "lbErr";
-            this.lbErr.Size = new System.Drawing.Size(51, 16);
+            this.lbErr.Size = new System.Drawing.Size(130, 16);
             this.lbErr.TabIndex = 19;
-            this.lbErr.Text = "label4";
+            this.lbErr.Text = "SỬA LOẠI ĐƠN VỊ";
             // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(508, 333);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 18;
+            this.button3.TabIndex = 5;
             this.button3.Text = "Thoát";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -66,7 +66,7 @@
             this.button2.Location = new System.Drawing.Point(402, 333);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 17;
+            this.button2.TabIndex = 4;
             this.button2.Text = "Nhập lại";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -76,7 +76,7 @@
             this.button1.Location = new System.Drawing.Point(287, 333);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 16;
+            this.button1.TabIndex = 3;
             this.button1.Text = "Sửa";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -86,7 +86,7 @@
             this.txtMoTa.Location = new System.Drawing.Point(31, 156);
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Size = new System.Drawing.Size(552, 171);
-            this.txtMoTa.TabIndex = 15;
+            this.txtMoTa.TabIndex = 2;
             this.txtMoTa.Text = "";
             // 
             // txtTenLoai
@@ -94,7 +94,7 @@
             this.txtTenLoai.Location = new System.Drawing.Point(433, 59);
             this.txtTenLoai.Name = "txtTenLoai";
             this.txtTenLoai.Size = new System.Drawing.Size(150, 20);
-            this.txtTenLoai.TabIndex = 14;
+            this.txtTenLoai.TabIndex = 1;
             // 
             // txtMaLoai
             // 

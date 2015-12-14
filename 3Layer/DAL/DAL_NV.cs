@@ -118,29 +118,29 @@ namespace _3Layer.DAL
             try
             {
                 List<NhanVien> list = new List<NhanVien>();
-                var dsTim = from nv in db.NhanViens
-                            join dv in db.DonVis on nv.MaDonVi equals dv.MaDonVi
-                            join cv in db.ChucVus on nv.MaChucVu equals cv.MaChucVu
-                            join ngach in db.NgachLuongs on nv.MaNgach equals ngach.MaNgach
-                            join hs in db.HeSoLuongPhuCaps on nv.MaHeSo equals hs.MaHeSo
-                            select nv;
+                string cauTruyVan = "select * from dbo.Nhanvien nv" +
+                                            " left join dbo.Chucvu cv on nv.machucvu=cv.machucvu" +
+                                            " left join dbo.Donvi dv on nv.madonvi=dv.madonvi" +
+                                            " left join dbo.NgachLuong ngach on nv.mangach=ngach.mangach ";
+                
                 if (maNV != "")
                 {
-                    dsTim = dsTim.Where(s => s.MaNV.Equals(maNV));
+                    cauTruyVan += " where nv.maNV = '" + maNV + "'";
                 }
                 if (tenNV != "")
                 {
-                    dsTim = dsTim.Where(s => s.HoTen.Contains(tenNV));
+                    cauTruyVan += " where nv.maNV like '%" + tenNV + "%'";
                 }
                 if (donVi != "----Tất cả----")
                 {
-                    dsTim = dsTim.Where(s => s.MaDonVi.Equals(donVi));
+                    cauTruyVan += " where nv.maDonVi = '" + donVi + "'";
                 }
                 if (chucVu != "----Tất cả----")
                 {
-                    dsTim = dsTim.Where(s => s.MaChucVu.Equals(chucVu));
+                    cauTruyVan += " where nv.maChucVu = '" + chucVu + "'";
                 }
-                list = dsTim.ToList();
+
+                list = db.NhanViens.SqlQuery(cauTruyVan).ToList();
                 return list;
             }
             catch (Exception ex)
@@ -178,7 +178,10 @@ namespace _3Layer.DAL
                 int so = int.Parse(maNV.Substring(2));
                 int soTang = so + 1;
                 string kq = "";
-
+                if(ma.Count() == 0)
+                {
+                    kq = "NV0001";
+                }
                 if (soTang < 10)
                 {
                     kq = "NV000" + soTang.ToString();

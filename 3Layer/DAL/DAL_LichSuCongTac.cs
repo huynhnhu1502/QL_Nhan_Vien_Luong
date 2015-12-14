@@ -151,11 +151,19 @@ namespace _3Layer.DAL
                 int so = int.Parse(maCongTac.Substring(2));
                 int soTang = so + 1;
                 string kq = "";
+                if(ma.Count() == 0)
+                {
+                    kq = "CT0001";
+                }
                 if (soTang < 10)
+                {
+                    kq = "CT000" + soTang.ToString();
+                }
+                else if(soTang < 100)
                 {
                     kq = "CT00" + soTang.ToString();
                 }
-                else if(soTang < 100)
+                else if(soTang <1000)
                 {
                     kq = "CT0" + soTang.ToString();
                 }

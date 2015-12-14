@@ -125,6 +125,14 @@ namespace WinForms
                         gridNhanVien.Rows[row].Cells["HoTen"].Value = nv.HoTen;
                         gridNhanVien.Rows[row].Cells["NgaySinh"].Value = nv.NgaySinh;
                         gridNhanVien.Rows[row].Cells["GioiTinh"].Value = nv.GioiTinh;
+                        if (nv.DonVi != null)
+                        {
+                            gridNhanVien.Rows[row].Cells["DonVi"].Value = nv.DonVi.TenDonVi;
+                        }
+                        if (nv.ChucVu != null)
+                        {
+                            gridNhanVien.Rows[row].Cells["ChucVu"].Value = nv.ChucVu.TenChucVu;
+                        }
                         gridNhanVien.Rows[row].Cells["ChiTiet"].Value = "Xem chi tiết";
                         row++;
                     }
@@ -152,6 +160,14 @@ namespace WinForms
                     gridNhanVien.Rows[row].Cells["HoTen"].Value = nv.HoTen;
                     gridNhanVien.Rows[row].Cells["NgaySinh"].Value = nv.NgaySinh;
                     gridNhanVien.Rows[row].Cells["GioiTinh"].Value = nv.GioiTinh;
+                    if (nv.DonVi != null)
+                    {
+                        gridNhanVien.Rows[row].Cells["DonVi"].Value = nv.DonVi.TenDonVi;
+                    }
+                    if (nv.ChucVu != null)
+                    {
+                        gridNhanVien.Rows[row].Cells["ChucVu"].Value = nv.ChucVu.TenChucVu;
+                    }
                     gridNhanVien.Rows[row].Cells["ChiTiet"].Value = "Xem chi tiết";
                     row++;
                 }
