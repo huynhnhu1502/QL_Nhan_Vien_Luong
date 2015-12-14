@@ -146,6 +146,11 @@ namespace _3Layer.DAL
             }
             return true;
         }
+        public List<NhanVien> XuatDSNVTrongDonVi(string MaDonVi)
+        {
+            var result = (from u in db.NhanViens where u.MaDonVi == MaDonVi select u);
+            return result.ToList();
+        }
 
     }
 }
