@@ -16,6 +16,7 @@ namespace Webform.Controllers
         _3Layer.BIZ.BIZ_TinhLuong _biztinhluong = new _3Layer.BIZ.BIZ_TinhLuong();
         _3Layer.DAL.DAL_TinhLuong _daltinhluong = new _3Layer.DAL.DAL_TinhLuong();
         _3Layer.BIZ.BIZ_LichSuCongTac _bizLSct = new _3Layer.BIZ.BIZ_LichSuCongTac();
+        _3Layer.BIZ.BIZ_DonVi _bizDonVi = new _3Layer.BIZ.BIZ_DonVi();
         public ActionResult Index()
         {
             return View();
@@ -36,13 +37,11 @@ namespace Webform.Controllers
         }
         public ActionResult ThongKeNhanVienTrongDonVi()
         {
-            var result = (from u in _db.DonVis select u).ToList();
-            return View(result);
+            return View(_bizDonVi.DSDonVi());
         }
         public ActionResult DanhSachNhanVienTrongDonVi(string MaDonVi)
         {
-            var result = (from u in _db.NhanViens where u.MaDonVi == MaDonVi select u).ToList();
-            return View(result);
+            return View(_bizDonVi.XuatDSNVTrongDonVi(MaDonVi));
         }
         public ActionResult ExportDataNVTrongDV(string maDonVi)
         {
@@ -75,7 +74,6 @@ namespace Webform.Controllers
         }
         public ActionResult ChiTietCongTac(string MaNV)
         {
-            List<LichSuCongTac> list = _bizLSct.XuatChiTietCongTac(MaNV);
             return View(_bizLSct.XuatChiTietCongTac(MaNV));
         }
         public ActionResult ExportDataLichSuCongTac(string maNhanVien)
@@ -107,7 +105,6 @@ namespace Webform.Controllers
         }
         public ActionResult TinhLuong(string Hoten)
         {
-            List<NhanVien> list = _biztinhluong.XuatTinhLuong(Hoten);
             return View(_biztinhluong.XuatTinhLuong(Hoten));
         }
         public ActionResult ThucHienTinhLuong(string MaNV)
