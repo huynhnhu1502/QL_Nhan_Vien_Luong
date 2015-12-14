@@ -165,7 +165,7 @@ namespace WinForms
             catch (Exception ex)
             {
 
-                throw;
+                MessageBox.Show("Lỗi tải dữ liệu ngạch và hệ số!");
             }
         }
 
@@ -182,8 +182,7 @@ namespace WinForms
             }
             catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show("Lỗi tải dữ liệu hệ số!");
             }
         }
     }
