@@ -36,6 +36,14 @@ namespace WinForms
                     gridNhanVien.Rows[row].Cells["HoTen"].Value = nv.HoTen;
                     gridNhanVien.Rows[row].Cells["NgaySinh"].Value = nv.NgaySinh;
                     gridNhanVien.Rows[row].Cells["GioiTinh"].Value = nv.GioiTinh;
+                    if(nv.DonVi != null)
+                    {
+                        gridNhanVien.Rows[row].Cells["DonVi"].Value = nv.DonVi.TenDonVi;
+                    }
+                    if(nv.ChucVu != null)
+                    {
+                        gridNhanVien.Rows[row].Cells["ChucVu"].Value = nv.ChucVu.TenChucVu;
+                    }
                     gridNhanVien.Rows[row].Cells["ChiTiet"].Value = "Xem chi tiết";
                     row++;
                 }
@@ -162,8 +170,26 @@ namespace WinForms
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            frm_SuaNhanVien form = new frm_SuaNhanVien();
-            form.Show();
+            
+            try
+            {
+                int viTri = gridNhanVien.CurrentCell.RowIndex;
+                if(viTri < 0)
+                {
+                    MessageBox.Show("Bạn phải chọn mục cần sửa!");
+                }
+                else
+                {
+                    string maSua = gridNhanVien.Rows[viTri].Cells["MaNV"].Value.ToString();
+                    frm_SuaNhanVien form = new frm_SuaNhanVien(maSua);
+                    form.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -228,7 +254,7 @@ namespace WinForms
                 int dong = gridNhanVien.CurrentCell.RowIndex;
                 if(dong > -1)
                 {
-                    if(gridNhanVien.Rows[dong].Cells["ChiTiet"].Value.ToString() == "Xem chi tiết")
+                    if(gridNhanVien.CurrentCell.Value.ToString() == "Xem chi tiết")
                     {
                         string maNV = gridNhanVien.Rows[dong].Cells["MaNV"].Value.ToString();
                         ChiTietNV ct = new ChiTietNV(maNV);
@@ -240,7 +266,7 @@ namespace WinForms
             catch (Exception ex)
             {
 
-                throw;
+                MessageBox.Show("Lỗi chọn danh sách");
             }
         }
     }

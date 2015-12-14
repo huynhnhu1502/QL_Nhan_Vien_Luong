@@ -48,6 +48,8 @@
             this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonVi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ChiTiet = new System.Windows.Forms.DataGridViewLinkColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -210,6 +212,8 @@
             this.HoTen,
             this.NgaySinh,
             this.GioiTinh,
+            this.DonVi,
+            this.ChucVu,
             this.ChiTiet});
             this.gridNhanVien.Location = new System.Drawing.Point(6, 59);
             this.gridNhanVien.Name = "gridNhanVien";
@@ -236,6 +240,16 @@
             // 
             this.GioiTinh.HeaderText = "Giới tính";
             this.GioiTinh.Name = "GioiTinh";
+            // 
+            // DonVi
+            // 
+            this.DonVi.HeaderText = "Đơn vị";
+            this.DonVi.Name = "DonVi";
+            // 
+            // ChucVu
+            // 
+            this.ChucVu.HeaderText = "Chức vụ";
+            this.ChucVu.Name = "ChucVu";
             // 
             // ChiTiet
             // 
@@ -285,11 +299,13 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView gridNhanVien;
         private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgaySinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn GioiTinh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DonVi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChucVu;
         private System.Windows.Forms.DataGridViewLinkColumn ChiTiet;
-        private System.Windows.Forms.Button btnXoa;
     }
 }

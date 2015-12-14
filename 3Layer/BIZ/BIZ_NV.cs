@@ -91,5 +91,10 @@ namespace _3Layer.BIZ
         {
             return dal.TimNhanVienTheoMa(maNV);
         }
+
+        public bool BIZ_SuaNhanVien(NhanVien nvSua)
+        {
+            return dal.SuaNhanVien(nvSua);
+        }
     }
 }

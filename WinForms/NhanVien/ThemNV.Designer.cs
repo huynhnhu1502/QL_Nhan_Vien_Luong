@@ -58,7 +58,7 @@
             this.btnThem.Location = new System.Drawing.Point(357, 431);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 23);
-            this.btnThem.TabIndex = 0;
+            this.btnThem.TabIndex = 10;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
@@ -113,21 +113,21 @@
             this.txtHoTen.Location = new System.Drawing.Point(421, 60);
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Size = new System.Drawing.Size(214, 20);
-            this.txtHoTen.TabIndex = 14;
+            this.txtHoTen.TabIndex = 1;
             // 
             // txtDanToc
             // 
             this.txtDanToc.Location = new System.Drawing.Point(421, 186);
             this.txtDanToc.Name = "txtDanToc";
             this.txtDanToc.Size = new System.Drawing.Size(214, 20);
-            this.txtDanToc.TabIndex = 17;
+            this.txtDanToc.TabIndex = 4;
             // 
             // txtDiaChi
             // 
             this.txtDiaChi.Location = new System.Drawing.Point(421, 228);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(214, 20);
-            this.txtDiaChi.TabIndex = 18;
+            this.txtDiaChi.TabIndex = 5;
             // 
             // picNV
             // 
@@ -143,7 +143,7 @@
             this.btnThemAnh.Location = new System.Drawing.Point(213, 60);
             this.btnThemAnh.Name = "btnThemAnh";
             this.btnThemAnh.Size = new System.Drawing.Size(72, 32);
-            this.btnThemAnh.TabIndex = 27;
+            this.btnThemAnh.TabIndex = 9;
             this.btnThemAnh.Text = "Thêm ảnh";
             this.btnThemAnh.UseVisualStyleBackColor = true;
             this.btnThemAnh.Click += new System.EventHandler(this.btnThemAnh_Click);
@@ -153,7 +153,7 @@
             this.btnReset.Location = new System.Drawing.Point(459, 431);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 28;
+            this.btnReset.TabIndex = 11;
             this.btnReset.Text = "Làm mới";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -163,7 +163,7 @@
             this.dateNgaySinh.Location = new System.Drawing.Point(421, 145);
             this.dateNgaySinh.Name = "dateNgaySinh";
             this.dateNgaySinh.Size = new System.Drawing.Size(214, 20);
-            this.dateNgaySinh.TabIndex = 31;
+            this.dateNgaySinh.TabIndex = 3;
             // 
             // cbGioiTinh
             // 
@@ -173,14 +173,14 @@
             this.cbGioiTinh.Location = new System.Drawing.Point(421, 101);
             this.cbGioiTinh.Name = "cbGioiTinh";
             this.cbGioiTinh.Size = new System.Drawing.Size(214, 21);
-            this.cbGioiTinh.TabIndex = 35;
+            this.cbGioiTinh.TabIndex = 2;
             // 
             // btnThoat
             // 
             this.btnThoat.Location = new System.Drawing.Point(560, 431);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(75, 23);
-            this.btnThoat.TabIndex = 36;
+            this.btnThoat.TabIndex = 12;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
@@ -210,7 +210,7 @@
             this.txtCMND.Location = new System.Drawing.Point(421, 268);
             this.txtCMND.Name = "txtCMND";
             this.txtCMND.Size = new System.Drawing.Size(214, 20);
-            this.txtCMND.TabIndex = 39;
+            this.txtCMND.TabIndex = 6;
             this.txtCMND.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCMND_KeyPress);
             // 
             // label13
@@ -228,7 +228,7 @@
             this.cbNgach.Location = new System.Drawing.Point(421, 308);
             this.cbNgach.Name = "cbNgach";
             this.cbNgach.Size = new System.Drawing.Size(214, 21);
-            this.cbNgach.TabIndex = 41;
+            this.cbNgach.TabIndex = 7;
             this.cbNgach.SelectedIndexChanged += new System.EventHandler(this.cbNgach_SelectedIndexChanged);
             // 
             // cbHeSo
@@ -237,7 +237,7 @@
             this.cbHeSo.Location = new System.Drawing.Point(421, 350);
             this.cbHeSo.Name = "cbHeSo";
             this.cbHeSo.Size = new System.Drawing.Size(214, 21);
-            this.cbHeSo.TabIndex = 43;
+            this.cbHeSo.TabIndex = 8;
             // 
             // label1
             // 

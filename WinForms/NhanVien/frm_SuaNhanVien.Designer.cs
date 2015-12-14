@@ -28,15 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cbNgach = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.txtCMND = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lbErr = new System.Windows.Forms.Label();
             this.btnThoat = new System.Windows.Forms.Button();
             this.cbGioiTinh = new System.Windows.Forms.ComboBox();
             this.dateNgaySinh = new System.Windows.Forms.DateTimePicker();
-            this.btnReset = new System.Windows.Forms.Button();
             this.btnThemAnh = new System.Windows.Forms.Button();
             this.picNV = new System.Windows.Forms.PictureBox();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
@@ -47,30 +44,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnThem = new System.Windows.Forms.Button();
+            this.btnLuu = new System.Windows.Forms.Button();
             this.dateNgayNghi = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMaNV = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picNV)).BeginInit();
             this.SuspendLayout();
-            // 
-            // cbNgach
-            // 
-            this.cbNgach.FormattingEnabled = true;
-            this.cbNgach.Location = new System.Drawing.Point(415, 364);
-            this.cbNgach.Name = "cbNgach";
-            this.cbNgach.Size = new System.Drawing.Size(214, 21);
-            this.cbNgach.TabIndex = 61;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(339, 367);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(39, 13);
-            this.label13.TabIndex = 60;
-            this.label13.Text = "Ngạch";
             // 
             // txtCMND
             // 
@@ -101,7 +81,7 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(554, 456);
+            this.btnThoat.Location = new System.Drawing.Point(554, 429);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(75, 23);
             this.btnThoat.TabIndex = 56;
@@ -126,15 +106,6 @@
             this.dateNgaySinh.Size = new System.Drawing.Size(214, 20);
             this.dateNgaySinh.TabIndex = 54;
             // 
-            // btnReset
-            // 
-            this.btnReset.Location = new System.Drawing.Point(453, 456);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 53;
-            this.btnReset.Text = "Làm mới";
-            this.btnReset.UseVisualStyleBackColor = true;
-            // 
             // btnThemAnh
             // 
             this.btnThemAnh.Location = new System.Drawing.Point(207, 76);
@@ -143,6 +114,7 @@
             this.btnThemAnh.TabIndex = 52;
             this.btnThemAnh.Text = "Thêm ảnh";
             this.btnThemAnh.UseVisualStyleBackColor = true;
+            this.btnThemAnh.Click += new System.EventHandler(this.btnThemAnh_Click);
             // 
             // picNV
             // 
@@ -219,18 +191,19 @@
             this.label3.TabIndex = 43;
             this.label3.Text = "Dân tộc";
             // 
-            // btnThem
+            // btnLuu
             // 
-            this.btnThem.Location = new System.Drawing.Point(351, 456);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(75, 23);
-            this.btnThem.TabIndex = 42;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnLuu.Location = new System.Drawing.Point(439, 429);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(75, 23);
+            this.btnLuu.TabIndex = 42;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // dateNgayNghi
             // 
-            this.dateNgayNghi.Location = new System.Drawing.Point(415, 408);
+            this.dateNgayNghi.Location = new System.Drawing.Point(415, 366);
             this.dateNgayNghi.Name = "dateNgayNghi";
             this.dateNgayNghi.Size = new System.Drawing.Size(214, 20);
             this.dateNgayNghi.TabIndex = 63;
@@ -238,7 +211,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(339, 413);
+            this.label1.Location = new System.Drawing.Point(339, 371);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 62;
@@ -265,20 +238,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 502);
+            this.ClientSize = new System.Drawing.Size(684, 479);
             this.Controls.Add(this.txtMaNV);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dateNgayNghi);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.cbNgach);
-            this.Controls.Add(this.label13);
             this.Controls.Add(this.txtCMND);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lbErr);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.cbGioiTinh);
             this.Controls.Add(this.dateNgaySinh);
-            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnThemAnh);
             this.Controls.Add(this.picNV);
             this.Controls.Add(this.txtDiaChi);
@@ -289,9 +259,10 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnThem);
+            this.Controls.Add(this.btnLuu);
             this.Name = "frm_SuaNhanVien";
             this.Text = "Sửa thông tin nhân viên";
+            this.Load += new System.EventHandler(this.frm_SuaNhanVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picNV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -299,16 +270,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox cbNgach;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtCMND;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lbErr;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.ComboBox cbGioiTinh;
         private System.Windows.Forms.DateTimePicker dateNgaySinh;
-        private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnThemAnh;
         private System.Windows.Forms.PictureBox picNV;
         private System.Windows.Forms.TextBox txtDiaChi;
@@ -319,7 +286,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.DateTimePicker dateNgayNghi;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtMaNV;

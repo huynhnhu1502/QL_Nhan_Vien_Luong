@@ -62,13 +62,10 @@ namespace _3Layer.DAL
             {
                 db = new QuanLyLuongEntities();
                 List<NhanVien> list = new List<NhanVien>();
-                var ds = from nv in db.NhanViens
-                         join dv in db.DonVis on nv.MaDonVi equals dv.MaDonVi
-                         join cv in db.ChucVus on nv.MaChucVu equals cv.MaChucVu
-                         join ngach in db.NgachLuongs on nv.MaNgach equals ngach.MaNgach
-                         join hs in db.HeSoLuongPhuCaps on nv.MaHeSo equals hs.MaHeSo
-                         select nv;
-                list = ds.ToList();
+                list = db.NhanViens.SqlQuery("select * from dbo.Nhanvien nv" +
+                                                " left join dbo.Chucvu cv on nv.machucvu=cv.machucvu" +
+                                                " left join dbo.Donvi dv on nv.madonvi=dv.madonvi" +
+                                                " left join dbo.NgachLuong ngach on nv.mangach=ngach.mangach").ToList();
                 return list;
             }
             catch (Exception ex)
@@ -233,14 +230,15 @@ namespace _3Layer.DAL
                 db.NhanViens.Attach(nvSua);
                 var nhanvien = db.Entry(nvSua);
                 nhanvien.Property(s => s.HoTen).IsModified = true;
-                nhanvien.Property(s => s.MaNgach).IsModified = true;
-                nhanvien.Property(s => s.MaHeSo).IsModified = true;
+                //nhanvien.Property(s => s.MaNgach).IsModified = true;
+                //nhanvien.Property(s => s.MaHeSo).IsModified = true;
                 nhanvien.Property(s => s.NgaySinh).IsModified = true;
                 nhanvien.Property(s => s.DanToc).IsModified = true;
                 nhanvien.Property(s => s.GioiTinh).IsModified = true;
                 nhanvien.Property(s => s.CMND).IsModified = true;
                 nhanvien.Property(s => s.DiaChi).IsModified = true;
-
+                nhanvien.Property(s => s.HinhAnh).IsModified = true;
+                db.SaveChanges();
                 return true;
             }
             catch (Exception ex)
@@ -290,13 +288,10 @@ namespace _3Layer.DAL
         {
             try
             {
-                var query = from nv in db.NhanViens
-                            join dv in db.DonVis on nv.MaDonVi equals dv.MaDonVi
-                            join cv in db.ChucVus on nv.MaChucVu equals cv.MaChucVu
-                            join ng in db.NgachLuongs on nv.MaNgach equals ng.MaNgach
-                            join hs in db.HeSoLuongPhuCaps on nv.MaHeSo equals hs.MaHeSo
-                            where nv.MaNV == maNV
-                            select nv;
+                var query = db.NhanViens.SqlQuery("select * from dbo.Nhanvien nv" +
+                                                " left join dbo.Chucvu cv on nv.machucvu=cv.machucvu" +
+                                                " left join dbo.Donvi dv on nv.madonvi=dv.madonvi" +
+                                                " left join dbo.NgachLuong ngach on nv.mangach=ngach.mangach where nv.maNV='"+maNV+"'");
                 NhanVien nhanVien = query.FirstOrDefault();
                 return nhanVien;
             }

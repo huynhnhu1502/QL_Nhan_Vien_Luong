@@ -16,7 +16,7 @@ namespace WinForms
     {
         _3Layer.NhanVien nv = new _3Layer.NhanVien();
         _3Layer.BIZ.BIZ_NV biz = new _3Layer.BIZ.BIZ_NV();
-        QuanLyLuongEntities _db11 = new QuanLyLuongEntities();
+
         
         public frmThemNV()
         {
@@ -48,6 +48,7 @@ namespace WinForms
                 picNV.Image = Image.FromFile(ofd.FileName);
             }
         }
+
         private void btnThem_Click(object sender, EventArgs e)
         {
             try

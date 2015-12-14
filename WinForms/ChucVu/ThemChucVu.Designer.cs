@@ -72,21 +72,21 @@
             this.txtmacv.Name = "txtmacv";
             this.txtmacv.ReadOnly = true;
             this.txtmacv.Size = new System.Drawing.Size(139, 20);
-            this.txtmacv.TabIndex = 3;
+            this.txtmacv.TabIndex = 1;
             // 
             // txttencv
             // 
             this.txttencv.Location = new System.Drawing.Point(87, 74);
             this.txttencv.Name = "txttencv";
             this.txttencv.Size = new System.Drawing.Size(139, 20);
-            this.txttencv.TabIndex = 4;
+            this.txttencv.TabIndex = 2;
             // 
             // txtheso
             // 
             this.txtheso.Location = new System.Drawing.Point(87, 122);
             this.txtheso.Name = "txtheso";
             this.txtheso.Size = new System.Drawing.Size(139, 20);
-            this.txtheso.TabIndex = 5;
+            this.txtheso.TabIndex = 3;
             this.txtheso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtheso_KeyPress);
             // 
             // btthem
@@ -94,7 +94,7 @@
             this.btthem.Location = new System.Drawing.Point(9, 202);
             this.btthem.Name = "btthem";
             this.btthem.Size = new System.Drawing.Size(75, 23);
-            this.btthem.TabIndex = 6;
+            this.btthem.TabIndex = 4;
             this.btthem.Text = "Thêm";
             this.btthem.UseVisualStyleBackColor = true;
             this.btthem.Click += new System.EventHandler(this.btthem_Click);
@@ -104,7 +104,7 @@
             this.btxoa.Location = new System.Drawing.Point(111, 202);
             this.btxoa.Name = "btxoa";
             this.btxoa.Size = new System.Drawing.Size(75, 23);
-            this.btxoa.TabIndex = 7;
+            this.btxoa.TabIndex = 5;
             this.btxoa.Text = "Nhập Lại";
             this.btxoa.UseVisualStyleBackColor = true;
             this.btxoa.Click += new System.EventHandler(this.btxoa_Click);
@@ -114,7 +114,7 @@
             this.btthoat.Location = new System.Drawing.Point(221, 203);
             this.btthoat.Name = "btthoat";
             this.btthoat.Size = new System.Drawing.Size(75, 23);
-            this.btthoat.TabIndex = 8;
+            this.btthoat.TabIndex = 6;
             this.btthoat.Text = "Thoát";
             this.btthoat.UseVisualStyleBackColor = true;
             this.btthoat.Click += new System.EventHandler(this.btthoat_Click);

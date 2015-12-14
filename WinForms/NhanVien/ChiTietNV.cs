@@ -28,19 +28,41 @@ namespace WinForms
                 label13.Text = nVien.HoTen;
                 lbMaNV.Text = nVien.MaNV;
                 //var donvi = db.DonVis.First(a => a.MaDonVi == search.MaDonVi);
-                lbMaDonVi.Text = nVien.DonVi.TenDonVi;
+                if(nVien.DonVi != null)
+                {
+                    lbMaDonVi.Text = nVien.DonVi.TenDonVi;
+                }
                 //var chucvu = db.ChucVus.First(a => a.MaChucVu == search.MaChucVu);
-                lbMaChucVu.Text = nVien.ChucVu.TenChucVu;
+                if(nVien.ChucVu != null)
+                {
+                    lbMaChucVu.Text = nVien.ChucVu.TenChucVu;
+                }
                 //var ngach = db.NgachLuongs.FirstOrDefault(a => a.MaNgach == search.MaNgach);
+                if(nVien.HeSoLuongPhuCap != null)
+                {
+                    lbTenHeSo.Text = nVien.HeSoLuongPhuCap.TenHeSo + " - ";
+                    label16.Text = nVien.HeSoLuongPhuCap.HeSo.ToString();
+                }
                 label14.Text = nVien.NgachLuong.TenNgach;
                 lbDC.Text = nVien.DiaChi;
                 lbDT.Text = nVien.DanToc;
                 lbGT.Text = nVien.GioiTinh;
                 lbHoTen.Text = nVien.HoTen;
-                lbNgayBD.Text = nVien.NgayBatDau.ToString();
-                lbNgayNghi.Text = nVien.NgayNghi.ToString();
-                lbNgayHuu.Text = nVien.NgayHuu.ToString();
+                if(nVien.NgayBatDau != null)
+                {
+                    lbNgayBD.Text = nVien.NgayBatDau.ToString();
+                }
+                if(nVien.NgayNghi != null)
+                {
+                    lbNgayNghi.Text = nVien.NgayNghi.ToString();
+                }
+                if(nVien.NgayHuu != null)
+                {
+                    lbNgayHuu.Text = nVien.NgayHuu.ToString();
+                }
+                
                 lbNgaySinh.Text = nVien.NgaySinh.ToShortDateString();
+                lbCMND.Text = nVien.CMND.ToString();
                 if (File.Exists(@"../../../Webform/Images/" + nVien.HinhAnh))
                     pictureBox1.Image = Image.FromFile(@"../../../Webform/Images/" + nVien.HinhAnh);
             }
