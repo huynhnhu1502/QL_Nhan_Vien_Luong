@@ -157,8 +157,6 @@ namespace _3Layer.DAL
                        {
                            MaNV = u.MaNV,
                            HoTen = u.HoTen,
-                           TenDonVi = e.TenDonVi,
-                           TenChucVu = t.TenChucVu,
                            NgaySinh = u.NgaySinh,
                            DanToc = u.DanToc,
                            GioiTinh = u.GioiTinh,
@@ -174,7 +172,7 @@ namespace _3Layer.DAL
             result111 = ((from u in db.NhanViens.ToList()
                          from e in db.ChucVus.ToList()
                          where u.MaDonVi == maDonVi && u.MaChucVu == e.MaChucVu
-                         select new NhanVien() { MaNV = u.MaNV, HoTen = u.HoTen, TenChucVu = e.TenChucVu, NgaySinh = u.NgaySinh, DanToc = u.DanToc, GioiTinh = u.GioiTinh, CMND = u.CMND, DiaChi = u.DiaChi }).ToList());
+                         select new NhanVien() { MaNV = u.MaNV, HoTen = u.HoTen,  NgaySinh = u.NgaySinh, DanToc = u.DanToc, GioiTinh = u.GioiTinh, CMND = u.CMND, DiaChi = u.DiaChi }).ToList());
             return result111;
         }
 

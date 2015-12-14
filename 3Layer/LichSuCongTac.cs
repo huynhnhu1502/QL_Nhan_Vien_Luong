@@ -20,9 +20,6 @@ namespace _3Layer
         public string MaDonVi { get; set; }
         public string MaChucVu { get; set; }
         public string MaNgach { get; set; }
-        public string TenDonVi { get; set; }
-        public string TenChucVu { get; set; }
-        public string TenNgach { get; set; }
         public System.DateTime NgayLam { get; set; }
         public Nullable<System.DateTime> NgayChuyen { get; set; }
     

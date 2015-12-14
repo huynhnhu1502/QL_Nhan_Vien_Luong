@@ -11,7 +11,7 @@ namespace _3Layer
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class LichSuChuyenBac
     {
         public int id { get; set; }

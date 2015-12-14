@@ -206,9 +206,6 @@ namespace _3Layer.DAL
                         select new LichSuCongTac()
                         {
                             MaCongTac = u.MaCongTac,
-                            TenDonVi = t.TenDonVi,
-                            TenChucVu = e.TenChucVu,
-                            TenNgach = p.TenNgach,
                             NgayLam = u.NgayLam,
                             NgayChuyen = u.NgayChuyen
                         }).ToList());
