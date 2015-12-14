@@ -96,5 +96,10 @@ namespace _3Layer.BIZ
         {
             return dal.SuaNhanVien(nvSua);
         }
+
+        public List<NhanVien> BIZ_ThongKeNhanVienVeHuu(string tuNgay, string denNgay)
+        {
+            return dal.ThongKeNhanVienVeHuu(tuNgay, denNgay);
+        }
     }
 }

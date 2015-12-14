@@ -24,7 +24,7 @@ namespace WinForms
             {
                 panel1.Visible = true;
                 panel1.Controls.Clear();
-                NhanVien nv = new NhanVien();
+                frm_NhanVien nv = new frm_NhanVien();
                 nv.TopLevel = false;
                 nv.Size = panel1.Size;
                 nv.AutoScroll = true;
@@ -58,36 +58,60 @@ namespace WinForms
             {
                 panel1.Visible = true;
                 panel1.Controls.Clear();
-                ChucVu.QuanLyChucVu dv = new ChucVu.QuanLyChucVu();
-                dv.TopLevel = false;
-                dv.AutoScroll = true;
-                dv.Size = panel1.Size;
-                panel1.Controls.Add(dv);
-                dv.Show();
+                DanhMuc_NgachLuong.frm_NgachLuong ngach = new DanhMuc_NgachLuong.frm_NgachLuong();
+                ngach.TopLevel = false;
+                ngach.AutoScroll = true;
+                ngach.Size = panel1.Size;
+                panel1.Controls.Add(ngach);
+                ngach.Show();
             }
 
             if (listBox1.SelectedIndex == 4)
             {
                 panel1.Visible = true;
                 panel1.Controls.Clear();
-                LichSuChuyenBac.DSChuyenBac dscb = new LichSuChuyenBac.DSChuyenBac();
-                dscb.TopLevel = false;
-                dscb.AutoScroll = true;
-                dscb.Size = panel1.Size;
-                panel1.Controls.Add(dscb);
-                dscb.Show();
+                DanhMuc_HeSoLuong.frm_HeSoLuong hsl = new DanhMuc_HeSoLuong.frm_HeSoLuong();
+                hsl.TopLevel = false;
+                hsl.AutoScroll = true;
+                hsl.Size = panel1.Size;
+                panel1.Controls.Add(hsl);
+                hsl.Show();
             }
 
             if (listBox1.SelectedIndex == 5)
             {
                 panel1.Visible = true;
                 panel1.Controls.Clear();
-                ThongKeNhanVienTheoDonVi tknv = new ThongKeNhanVienTheoDonVi();
-                tknv.TopLevel = false;
-                tknv.AutoScroll = true;
-                tknv.Size = panel1.Size;
-                panel1.Controls.Add(tknv);
-                tknv.Show();
+                ChucVu.QuanLyChucVu cv = new ChucVu.QuanLyChucVu();
+                cv.TopLevel = false;
+                cv.AutoScroll = true;
+                cv.Size = panel1.Size;
+                panel1.Controls.Add(cv);
+                cv.Show();
+            }
+
+            if (listBox1.SelectedIndex == 6)
+            {
+                panel1.Visible = true;
+                panel1.Controls.Clear();
+                LSCongTac.frmLichSuCongTac lsct = new LSCongTac.frmLichSuCongTac();
+                lsct.TopLevel = false;
+                lsct.AutoScroll = true;
+                lsct.Size = panel1.Size;
+                panel1.Controls.Add(lsct);
+                lsct.Show();
+            }
+
+            if (listBox1.SelectedIndex == 7)
+            {
+                panel1.Visible = true;
+                panel1.Controls.Clear();
+                LichSuChuyenBac.DSChuyenBac lscb = new LichSuChuyenBac.DSChuyenBac();
+                lscb.TopLevel = false;
+                lscb.AutoScroll = true;
+                lscb.Size = panel1.Size;
+                panel1.Controls.Add(lscb);
+                lscb.Show();
             }
         }
     }

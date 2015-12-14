@@ -189,7 +189,7 @@
             this.btnDong.Location = new System.Drawing.Point(392, 354);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(75, 23);
-            this.btnDong.TabIndex = 52;
+            this.btnDong.TabIndex = 1;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = true;
             this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
@@ -292,6 +292,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
             this.label5.Location = new System.Drawing.Point(234, 9);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(210, 20);
@@ -302,6 +303,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Red;
             this.label13.Location = new System.Drawing.Point(452, 9);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(60, 20);

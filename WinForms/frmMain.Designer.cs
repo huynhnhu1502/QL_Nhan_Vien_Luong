@@ -39,7 +39,11 @@
             "Nhân viên",
             "Đơn vị",
             "Loại đơn vị",
-            "Thống kê nhân viên theo đơn vị"});
+            "Ngạch lương",
+            "Hệ số lương",
+            "Chức vụ",
+            "Lịch sử công tác",
+            "Lịch sử chuyển bậc"});
             this.listBox1.Location = new System.Drawing.Point(12, 12);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(191, 472);
@@ -48,6 +52,7 @@
             // 
             // panel1
             // 
+            this.panel1.AutoSize = true;
             this.panel1.Location = new System.Drawing.Point(209, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(938, 472);
@@ -63,6 +68,7 @@
             this.Name = "frmMain";
             this.Text = "Quản Lý Lương";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

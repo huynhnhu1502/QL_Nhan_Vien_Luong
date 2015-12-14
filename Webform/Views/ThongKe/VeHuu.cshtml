@@ -1,0 +1,104 @@
+﻿@model PagedList.IPagedList<_3Layer.NhanVien>
+@using _3Layer;
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "VeHuu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thống kê nhân viên về hưu theo năm tháng</h2>
+
+
+<div class="filter">
+    @using (Html.BeginForm("VeHuu", "ThongKe", FormMethod.Post, htmlAttributes: new { @class = "form-inline" }))
+    {
+        <h3>Chọn ngày cần xem</h3>
+        <div class="form-group">
+            <label>Từ ngày</label>
+            <input name="from" type="date" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Đến ngày</label>
+            <input name="to" type="date" class="form-control" />
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-default">Xem</button>
+        </div>
+    }
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Mã nhân viên</th>
+            <th>Tên nhân viên</th>
+            <th>Giới tính</th>
+            <th>Ngày sinh</th>
+            <th>
+                Địa chỉ
+            </th>
+            <th>
+                Ngày bắt đầu làm
+            </th>
+            <th>
+                Ngày về hưu
+            </th>
+            <th>
+                Chức vụ
+            </th>
+            <th>
+                Đơn vị
+            </th>
+            <th>
+                Ngạch lương
+            </th>
+            <th>Hệ số</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaNV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoTen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GioiTinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgaySinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiaChi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayBatDau)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayHuu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ChucVu.TenChucVu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonVi.TenDonVi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgachLuong.TenNgach)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HeSoLuongPhuCap.HeSo)
+                </td>                
+            </tr>
+        }
+    </tbody>
+</table>
+
+    <div class="export">
+        <a class="btn btn-default" href="@Url.Action("ExportToExcel", "ThongKe")">Xuất danh sách ra excel</a>
+    </div>

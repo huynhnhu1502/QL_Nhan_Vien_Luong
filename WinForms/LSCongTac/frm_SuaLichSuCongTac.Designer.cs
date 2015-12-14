@@ -52,10 +52,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(264, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(230, 16);
+            this.label1.Size = new System.Drawing.Size(267, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "CẬP NHẬT LỊCH SỬ CÔNG TÁC";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -120,7 +121,7 @@
             this.txtMaNV.Location = new System.Drawing.Point(509, 78);
             this.txtMaNV.Name = "txtMaNV";
             this.txtMaNV.Size = new System.Drawing.Size(164, 20);
-            this.txtMaNV.TabIndex = 11;
+            this.txtMaNV.TabIndex = 2;
             // 
             // cbDonVi
             // 
@@ -129,7 +130,7 @@
             this.cbDonVi.Location = new System.Drawing.Point(509, 131);
             this.cbDonVi.Name = "cbDonVi";
             this.cbDonVi.Size = new System.Drawing.Size(164, 21);
-            this.cbDonVi.TabIndex = 12;
+            this.cbDonVi.TabIndex = 4;
             // 
             // cbChucVu
             // 
@@ -138,7 +139,7 @@
             this.cbChucVu.Location = new System.Drawing.Point(144, 189);
             this.cbChucVu.Name = "cbChucVu";
             this.cbChucVu.Size = new System.Drawing.Size(164, 21);
-            this.cbChucVu.TabIndex = 13;
+            this.cbChucVu.TabIndex = 5;
             // 
             // cbNgachLuong
             // 
@@ -147,7 +148,7 @@
             this.cbNgachLuong.Location = new System.Drawing.Point(509, 189);
             this.cbNgachLuong.Name = "cbNgachLuong";
             this.cbNgachLuong.Size = new System.Drawing.Size(164, 21);
-            this.cbNgachLuong.TabIndex = 14;
+            this.cbNgachLuong.TabIndex = 6;
             // 
             // dateNgayLam
             // 
@@ -155,21 +156,21 @@
             this.dateNgayLam.Location = new System.Drawing.Point(144, 250);
             this.dateNgayLam.Name = "dateNgayLam";
             this.dateNgayLam.Size = new System.Drawing.Size(163, 20);
-            this.dateNgayLam.TabIndex = 15;
+            this.dateNgayLam.TabIndex = 7;
             // 
             // dateNgayChuyen
             // 
             this.dateNgayChuyen.Location = new System.Drawing.Point(510, 250);
             this.dateNgayChuyen.Name = "dateNgayChuyen";
             this.dateNgayChuyen.Size = new System.Drawing.Size(163, 20);
-            this.dateNgayChuyen.TabIndex = 16;
+            this.dateNgayChuyen.TabIndex = 8;
             // 
             // btnLuu
             // 
             this.btnLuu.Location = new System.Drawing.Point(494, 325);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(72, 28);
-            this.btnLuu.TabIndex = 17;
+            this.btnLuu.TabIndex = 9;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
@@ -179,7 +180,7 @@
             this.btnThoat.Location = new System.Drawing.Point(601, 325);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(72, 28);
-            this.btnThoat.TabIndex = 19;
+            this.btnThoat.TabIndex = 10;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
@@ -199,7 +200,7 @@
             this.txtTenNV.Location = new System.Drawing.Point(144, 132);
             this.txtTenNV.Name = "txtTenNV";
             this.txtTenNV.Size = new System.Drawing.Size(163, 20);
-            this.txtTenNV.TabIndex = 22;
+            this.txtTenNV.TabIndex = 3;
             // 
             // txtMaCongTac
             // 
@@ -207,7 +208,7 @@
             this.txtMaCongTac.Location = new System.Drawing.Point(144, 78);
             this.txtMaCongTac.Name = "txtMaCongTac";
             this.txtMaCongTac.Size = new System.Drawing.Size(164, 20);
-            this.txtMaCongTac.TabIndex = 25;
+            this.txtMaCongTac.TabIndex = 1;
             // 
             // label2
             // 

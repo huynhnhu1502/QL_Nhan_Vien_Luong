@@ -59,14 +59,14 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(733, 98);
+            this.groupBox1.Size = new System.Drawing.Size(914, 98);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tuỳ chọn";
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(643, 34);
+            this.btnSearch.Location = new System.Drawing.Point(800, 34);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(67, 30);
             this.btnSearch.TabIndex = 3;
@@ -76,16 +76,16 @@
             // 
             // txtMaNgach
             // 
-            this.txtMaNgach.Location = new System.Drawing.Point(112, 41);
+            this.txtMaNgach.Location = new System.Drawing.Point(131, 41);
             this.txtMaNgach.Name = "txtMaNgach";
-            this.txtMaNgach.Size = new System.Drawing.Size(162, 20);
+            this.txtMaNgach.Size = new System.Drawing.Size(226, 20);
             this.txtMaNgach.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.Location = new System.Drawing.Point(344, 48);
+            this.label3.Location = new System.Drawing.Point(421, 48);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 13);
             this.label3.TabIndex = 12;
@@ -93,16 +93,16 @@
             // 
             // txtTenNgach
             // 
-            this.txtTenNgach.Location = new System.Drawing.Point(439, 41);
+            this.txtTenNgach.Location = new System.Drawing.Point(516, 41);
             this.txtTenNgach.Name = "txtTenNgach";
-            this.txtTenNgach.Size = new System.Drawing.Size(158, 20);
+            this.txtTenNgach.Size = new System.Drawing.Size(257, 20);
             this.txtTenNgach.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(19, 48);
+            this.label1.Location = new System.Drawing.Point(38, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 11;
@@ -118,14 +118,14 @@
             this.groupBox2.Controls.Add(this.gridNgachLuong);
             this.groupBox2.Location = new System.Drawing.Point(12, 127);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(732, 363);
+            this.groupBox2.Size = new System.Drawing.Size(914, 363);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách";
             // 
             // btnTaiLai
             // 
-            this.btnTaiLai.Location = new System.Drawing.Point(643, 19);
+            this.btnTaiLai.Location = new System.Drawing.Point(798, 19);
             this.btnTaiLai.Name = "btnTaiLai";
             this.btnTaiLai.Size = new System.Drawing.Size(73, 31);
             this.btnTaiLai.TabIndex = 4;
@@ -135,7 +135,7 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(431, 318);
+            this.btnSua.Location = new System.Drawing.Point(593, 318);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(80, 26);
             this.btnSua.TabIndex = 6;
@@ -145,7 +145,7 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(632, 319);
+            this.btnThoat.Location = new System.Drawing.Point(794, 319);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(86, 26);
             this.btnThoat.TabIndex = 8;
@@ -155,7 +155,7 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(534, 318);
+            this.btnXoa.Location = new System.Drawing.Point(696, 318);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(75, 27);
             this.btnXoa.TabIndex = 7;
@@ -165,7 +165,7 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(326, 319);
+            this.btnThem.Location = new System.Drawing.Point(488, 319);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(80, 26);
             this.btnThem.TabIndex = 5;
@@ -188,7 +188,7 @@
             this.gridNgachLuong.Location = new System.Drawing.Point(6, 68);
             this.gridNgachLuong.Name = "gridNgachLuong";
             this.gridNgachLuong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridNgachLuong.Size = new System.Drawing.Size(720, 234);
+            this.gridNgachLuong.Size = new System.Drawing.Size(902, 234);
             this.gridNgachLuong.TabIndex = 0;
             // 
             // MaNgach
@@ -219,9 +219,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(762, 502);
+            this.ClientSize = new System.Drawing.Size(938, 502);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_NgachLuong";
             this.Text = "Ngạch lương";
             this.Load += new System.EventHandler(this.frm_NgachLuong_Load);

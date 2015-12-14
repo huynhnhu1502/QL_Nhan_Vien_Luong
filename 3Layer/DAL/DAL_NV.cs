@@ -305,5 +305,27 @@ namespace _3Layer.DAL
             }
         }
 
+        public List<NhanVien> ThongKeNhanVienVeHuu(string tuNgay, string denNgay)
+        {
+            try
+            {
+                var query = db.NhanViens.SqlQuery("select * from dbo.Nhanvien nv" +
+                                                " left join dbo.Chucvu cv on nv.machucvu=cv.machucvu" +
+                                                " left join dbo.Donvi dv on nv.madonvi=dv.madonvi" +
+                                                " left join dbo.NgachLuong ngach on nv.mangach=ngach.mangach where nv.NgayHuu between '" + tuNgay + "' and '" + denNgay + "'").ToList();
+                List<NhanVien> list = new List<NhanVien>();
+                list = query;
+                return list;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
     }
+
+    
 }

@@ -59,7 +59,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 11);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(771, 97);
+            this.groupBox1.Size = new System.Drawing.Size(933, 97);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tuỳ chọn";
@@ -67,14 +67,14 @@
             // cbNgachLuong
             // 
             this.cbNgachLuong.FormattingEnabled = true;
-            this.cbNgachLuong.Location = new System.Drawing.Point(105, 42);
+            this.cbNgachLuong.Location = new System.Drawing.Point(134, 42);
             this.cbNgachLuong.Name = "cbNgachLuong";
             this.cbNgachLuong.Size = new System.Drawing.Size(262, 21);
             this.cbNgachLuong.TabIndex = 1;
             // 
             // btnTim
             // 
-            this.btnTim.Location = new System.Drawing.Point(658, 40);
+            this.btnTim.Location = new System.Drawing.Point(825, 40);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(66, 23);
             this.btnTim.TabIndex = 3;
@@ -84,15 +84,15 @@
             // 
             // txtHeSo
             // 
-            this.txtHeSo.Location = new System.Drawing.Point(464, 43);
+            this.txtHeSo.Location = new System.Drawing.Point(562, 43);
             this.txtHeSo.Name = "txtHeSo";
-            this.txtHeSo.Size = new System.Drawing.Size(137, 20);
+            this.txtHeSo.Size = new System.Drawing.Size(223, 20);
             this.txtHeSo.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(402, 46);
+            this.label2.Location = new System.Drawing.Point(502, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 2;
@@ -101,7 +101,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 46);
+            this.label1.Location = new System.Drawing.Point(47, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 13);
             this.label1.TabIndex = 0;
@@ -117,14 +117,14 @@
             this.groupBox2.Controls.Add(this.gridHeSoLuong);
             this.groupBox2.Location = new System.Drawing.Point(12, 127);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(770, 328);
+            this.groupBox2.Size = new System.Drawing.Size(933, 328);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách";
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(680, 289);
+            this.btnThoat.Location = new System.Drawing.Point(833, 289);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(75, 23);
             this.btnThoat.TabIndex = 8;
@@ -134,7 +134,7 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(586, 289);
+            this.btnXoa.Location = new System.Drawing.Point(739, 289);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(75, 23);
             this.btnXoa.TabIndex = 7;
@@ -144,7 +144,7 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(491, 289);
+            this.btnSua.Location = new System.Drawing.Point(644, 289);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(75, 23);
             this.btnSua.TabIndex = 6;
@@ -154,7 +154,7 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(396, 289);
+            this.btnThem.Location = new System.Drawing.Point(549, 289);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 23);
             this.btnThem.TabIndex = 5;
@@ -164,7 +164,7 @@
             // 
             // btnTaiLai
             // 
-            this.btnTaiLai.Location = new System.Drawing.Point(658, 19);
+            this.btnTaiLai.Location = new System.Drawing.Point(833, 19);
             this.btnTaiLai.Name = "btnTaiLai";
             this.btnTaiLai.Size = new System.Drawing.Size(65, 22);
             this.btnTaiLai.TabIndex = 4;
@@ -184,7 +184,7 @@
             this.gridHeSoLuong.Location = new System.Drawing.Point(6, 54);
             this.gridHeSoLuong.Name = "gridHeSoLuong";
             this.gridHeSoLuong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridHeSoLuong.Size = new System.Drawing.Size(759, 220);
+            this.gridHeSoLuong.Size = new System.Drawing.Size(921, 220);
             this.gridHeSoLuong.TabIndex = 0;
             // 
             // MaHeSo
@@ -215,9 +215,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(792, 463);
+            this.ClientSize = new System.Drawing.Size(957, 463);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_HeSoLuong";
             this.Text = "Hệ số lương";
             this.Load += new System.EventHandler(this.frm_HeSoLuong_Load);

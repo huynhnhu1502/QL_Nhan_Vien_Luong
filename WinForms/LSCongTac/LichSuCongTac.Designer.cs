@@ -70,14 +70,14 @@
             this.groupBox1.Controls.Add(this.txtMaNV);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(741, 130);
+            this.groupBox1.Size = new System.Drawing.Size(920, 130);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tùy chọn";
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(656, 36);
+            this.btnSearch.Location = new System.Drawing.Point(821, 34);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(67, 30);
             this.btnSearch.TabIndex = 5;
@@ -89,7 +89,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(357, 90);
+            this.label4.Location = new System.Drawing.Point(449, 90);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 13);
             this.label4.TabIndex = 7;
@@ -99,7 +99,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.Location = new System.Drawing.Point(357, 43);
+            this.label3.Location = new System.Drawing.Point(449, 43);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 13);
             this.label3.TabIndex = 6;
@@ -129,9 +129,9 @@
             // cbChucVu
             // 
             this.cbChucVu.FormattingEnabled = true;
-            this.cbChucVu.Location = new System.Drawing.Point(452, 82);
+            this.cbChucVu.Location = new System.Drawing.Point(544, 82);
             this.cbChucVu.Name = "cbChucVu";
-            this.cbChucVu.Size = new System.Drawing.Size(157, 21);
+            this.cbChucVu.Size = new System.Drawing.Size(242, 21);
             this.cbChucVu.TabIndex = 4;
             // 
             // cbDonVi
@@ -139,21 +139,21 @@
             this.cbDonVi.FormattingEnabled = true;
             this.cbDonVi.Location = new System.Drawing.Point(126, 82);
             this.cbDonVi.Name = "cbDonVi";
-            this.cbDonVi.Size = new System.Drawing.Size(161, 21);
+            this.cbDonVi.Size = new System.Drawing.Size(242, 21);
             this.cbDonVi.TabIndex = 3;
             // 
             // txtTenNV
             // 
-            this.txtTenNV.Location = new System.Drawing.Point(452, 36);
+            this.txtTenNV.Location = new System.Drawing.Point(544, 36);
             this.txtTenNV.Name = "txtTenNV";
-            this.txtTenNV.Size = new System.Drawing.Size(158, 20);
+            this.txtTenNV.Size = new System.Drawing.Size(242, 20);
             this.txtTenNV.TabIndex = 2;
             // 
             // txtMaNV
             // 
             this.txtMaNV.Location = new System.Drawing.Point(125, 36);
             this.txtMaNV.Name = "txtMaNV";
-            this.txtMaNV.Size = new System.Drawing.Size(162, 20);
+            this.txtMaNV.Size = new System.Drawing.Size(243, 20);
             this.txtMaNV.TabIndex = 1;
             // 
             // gridLSCongTac
@@ -171,7 +171,7 @@
             this.gridLSCongTac.Name = "gridLSCongTac";
             this.gridLSCongTac.ReadOnly = true;
             this.gridLSCongTac.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridLSCongTac.Size = new System.Drawing.Size(727, 212);
+            this.gridLSCongTac.Size = new System.Drawing.Size(906, 212);
             this.gridLSCongTac.TabIndex = 0;
             // 
             // maCongTac
@@ -226,14 +226,14 @@
             this.groupBox2.Controls.Add(this.gridLSCongTac);
             this.groupBox2.Location = new System.Drawing.Point(13, 167);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(740, 331);
+            this.groupBox2.Size = new System.Drawing.Size(919, 331);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách";
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(435, 292);
+            this.btnSua.Location = new System.Drawing.Point(622, 292);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(80, 26);
             this.btnSua.TabIndex = 8;
@@ -243,7 +243,7 @@
             // 
             // btnTaiLai
             // 
-            this.btnTaiLai.Location = new System.Drawing.Point(655, 21);
+            this.btnTaiLai.Location = new System.Drawing.Point(823, 21);
             this.btnTaiLai.Name = "btnTaiLai";
             this.btnTaiLai.Size = new System.Drawing.Size(67, 26);
             this.btnTaiLai.TabIndex = 6;
@@ -253,7 +253,7 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(624, 292);
+            this.btnThoat.Location = new System.Drawing.Point(811, 292);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(86, 26);
             this.btnThoat.TabIndex = 10;
@@ -263,7 +263,7 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(534, 292);
+            this.btnXoa.Location = new System.Drawing.Point(721, 292);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(75, 27);
             this.btnXoa.TabIndex = 9;
@@ -273,7 +273,7 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(338, 292);
+            this.btnThem.Location = new System.Drawing.Point(525, 292);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(80, 26);
             this.btnThem.TabIndex = 7;
@@ -285,9 +285,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(765, 510);
+            this.ClientSize = new System.Drawing.Size(944, 510);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmLichSuCongTac";
             this.Text = "Lịch sử công tác";
             this.Load += new System.EventHandler(this.LichSuCongTac_Load);
