@@ -224,5 +224,44 @@ namespace _3Layer.DAL
                 throw;
             }
         }
+
+        //Sửa thông tin nhân viên
+        public bool SuaNhanVien(NhanVien nvSua)
+        {
+            try
+            {
+                db.NhanViens.Attach(nvSua);
+                var nhanvien = db.Entry(nvSua);
+                nhanvien.Property(s => s.HoTen).IsModified = true;
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        //Lấy hệ số lương theo mã ngạch==> đổ vào cb
+        public List<HeSoLuongPhuCap> LayHeSoTheoMaNgach(string maNgach)
+        {
+            try
+            {
+                var query = from hs in db.HeSoLuongPhuCaps
+                            where hs.MaNgach == maNgach
+                            select hs;
+                List<HeSoLuongPhuCap> list = new List<HeSoLuongPhuCap>();
+                list = query.ToList();
+                return list;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        //Lấy hệ số lương cho form_load
+
     }
 }

@@ -76,5 +76,10 @@ namespace _3Layer.BIZ
                 return null;
             }
         }
+
+        public List<HeSoLuongPhuCap> BIZ_LayHeSoTheoMaNgach(string maNgach)
+        {
+            return dal.LayHeSoTheoMaNgach(maNgach);
+        }
     }
 }

@@ -48,12 +48,14 @@
             this.txtCMND = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.cbNgach = new System.Windows.Forms.ComboBox();
+            this.cbHeSo = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picNV)).BeginInit();
             this.SuspendLayout();
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(357, 362);
+            this.btnThem.Location = new System.Drawing.Point(357, 431);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 23);
             this.btnThem.TabIndex = 0;
@@ -148,7 +150,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(459, 362);
+            this.btnReset.Location = new System.Drawing.Point(459, 431);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 28;
@@ -175,7 +177,7 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(560, 362);
+            this.btnThoat.Location = new System.Drawing.Point(560, 431);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(75, 23);
             this.btnThoat.TabIndex = 36;
@@ -227,13 +229,33 @@
             this.cbNgach.Name = "cbNgach";
             this.cbNgach.Size = new System.Drawing.Size(214, 21);
             this.cbNgach.TabIndex = 41;
+            this.cbNgach.SelectedIndexChanged += new System.EventHandler(this.cbNgach_SelectedIndexChanged);
+            // 
+            // cbHeSo
+            // 
+            this.cbHeSo.FormattingEnabled = true;
+            this.cbHeSo.Location = new System.Drawing.Point(421, 350);
+            this.cbHeSo.Name = "cbHeSo";
+            this.cbHeSo.Size = new System.Drawing.Size(214, 21);
+            this.cbHeSo.TabIndex = 43;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(345, 353);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 42;
+            this.label1.Text = "Hệ số";
             // 
             // frmThemNV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(689, 418);
+            this.ClientSize = new System.Drawing.Size(689, 486);
+            this.Controls.Add(this.cbHeSo);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cbNgach);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txtCMND);
@@ -287,5 +309,7 @@
         private System.Windows.Forms.TextBox txtCMND;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cbNgach;
+        private System.Windows.Forms.ComboBox cbHeSo;
+        private System.Windows.Forms.Label label1;
     }
 }

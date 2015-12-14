@@ -17,7 +17,7 @@ namespace WinForms
         _3Layer.NhanVien nv = new _3Layer.NhanVien();
         _3Layer.BIZ.BIZ_NV biz = new _3Layer.BIZ.BIZ_NV();
         QuanLyLuongEntities _db11 = new QuanLyLuongEntities();
-        int counthieutruong;
+        
         public frmThemNV()
         {
             InitializeComponent();
@@ -154,7 +154,13 @@ namespace WinForms
                 cbNgach.DataSource = list;
                 cbNgach.ValueMember = "MaNgach";
                 cbNgach.DisplayMember = "TenNgach";
-                
+
+                cbHeSo.SelectedItem = 0;
+                string maNgach = cbNgach.SelectedValue.ToString();
+                List<HeSoLuongPhuCap> dsHS = biz.BIZ_LayHeSoTheoMaNgach(maNgach);
+                cbHeSo.DataSource = dsHS;
+                cbHeSo.ValueMember = "MaHeSo";
+                cbHeSo.DisplayMember = "TenHeSo";
             }
             catch (Exception ex)
             {
@@ -163,6 +169,22 @@ namespace WinForms
             }
         }
 
-        
+        private void cbNgach_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                cbHeSo.SelectedItem = 0;
+                string maNgach = cbNgach.SelectedValue.ToString();
+                List<HeSoLuongPhuCap> dsHS = biz.BIZ_LayHeSoTheoMaNgach(maNgach);
+                cbHeSo.DataSource = dsHS;
+                cbHeSo.ValueMember = "MaHeSo";
+                cbHeSo.DisplayMember = "TenHeSo";
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
     }
 }

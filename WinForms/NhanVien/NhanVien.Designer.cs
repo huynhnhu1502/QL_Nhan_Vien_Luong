@@ -45,8 +45,8 @@
             this.gridNhanVien = new System.Windows.Forms.DataGridView();
             this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DonVi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ChiTiet = new System.Windows.Forms.DataGridViewLinkColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -188,6 +188,7 @@
             this.btnSua.TabIndex = 11;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // gridNhanVien
             // 
@@ -195,8 +196,8 @@
             this.gridNhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaNV,
             this.HoTen,
-            this.DonVi,
-            this.ChucVu,
+            this.NgaySinh,
+            this.GioiTinh,
             this.ChiTiet});
             this.gridNhanVien.Location = new System.Drawing.Point(6, 59);
             this.gridNhanVien.Name = "gridNhanVien";
@@ -213,15 +214,15 @@
             this.HoTen.HeaderText = "Họ tên";
             this.HoTen.Name = "HoTen";
             // 
-            // DonVi
+            // NgaySinh
             // 
-            this.DonVi.HeaderText = "Đơn vị";
-            this.DonVi.Name = "DonVi";
+            this.NgaySinh.HeaderText = "Ngày sinh";
+            this.NgaySinh.Name = "NgaySinh";
             // 
-            // ChucVu
+            // GioiTinh
             // 
-            this.ChucVu.HeaderText = "Chức vụ";
-            this.ChucVu.Name = "ChucVu";
+            this.GioiTinh.HeaderText = "Giới tính";
+            this.GioiTinh.Name = "GioiTinh";
             // 
             // ChiTiet
             // 
@@ -273,8 +274,8 @@
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DonVi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ChucVu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgaySinh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GioiTinh;
         private System.Windows.Forms.DataGridViewLinkColumn ChiTiet;
     }
 }

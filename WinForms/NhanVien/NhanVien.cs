@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using _3Layer;
 using _3Layer.BIZ;
+using WinForms.NhanVien;
 
 namespace WinForms
 {
@@ -25,16 +26,16 @@ namespace WinForms
             try
             {
                 gridNhanVien.AutoGenerateColumns = false;
-                List<NhanVien> list = bizNV.BIZ_LayDuLieuNV();
+                List<_3Layer.NhanVien> list = bizNV.BIZ_LayDuLieuNV();
                 //Lấy DL đổ vào grid
                 int row = 0;
-                foreach(NhanVien nv in list)
+                foreach(_3Layer.NhanVien nv in list)
                 {
                     gridNhanVien.Rows.Add(new DataGridViewRow());
                     gridNhanVien.Rows[row].Cells["MaNV"].Value = nv.MaNV;
                     gridNhanVien.Rows[row].Cells["HoTen"].Value = nv.HoTen;
-                    gridNhanVien.Rows[row].Cells["DonVi"].Value = nv.DonVi.TenDonVi;
-                    gridNhanVien.Rows[row].Cells["ChucVu"].Value = nv.ChucVu.TenChucVu;
+                    gridNhanVien.Rows[row].Cells["NgaySinh"].Value = nv.NgaySinh;
+                    gridNhanVien.Rows[row].Cells["GioiTinh"].Value = nv.GioiTinh;
                     gridNhanVien.Rows[row].Cells["ChiTiet"].Value = "Xem chi tiết";
                     row++;
                 }
@@ -99,7 +100,7 @@ namespace WinForms
 
                 string maNV = txtMaNV.Text.ToString();
                 string tenNV = txtTenNV.Text.ToString();
-                List<NhanVien> dsTim = bizNV.BIZ_TimNhanVien(maNV, tenNV, donVi, chucVu);
+                List<_3Layer.NhanVien> dsTim = bizNV.BIZ_TimNhanVien(maNV, tenNV, donVi, chucVu);
                 if(dsTim.Count == 0)
                 {
                     MessageBox.Show("Không tìm thấy!");
@@ -109,13 +110,13 @@ namespace WinForms
                 {
                     gridNhanVien.Rows.Clear();
                     int row = 0;
-                    foreach (NhanVien nv in dsTim)
+                    foreach (_3Layer.NhanVien nv in dsTim)
                     {
                         gridNhanVien.Rows.Add(new DataGridViewRow());
                         gridNhanVien.Rows[row].Cells["MaNV"].Value = nv.MaNV;
                         gridNhanVien.Rows[row].Cells["HoTen"].Value = nv.HoTen;
-                        gridNhanVien.Rows[row].Cells["DonVi"].Value = nv.DonVi.TenDonVi;
-                        gridNhanVien.Rows[row].Cells["ChucVu"].Value = nv.ChucVu.TenChucVu;
+                        gridNhanVien.Rows[row].Cells["NgaySinh"].Value = nv.NgaySinh;
+                        gridNhanVien.Rows[row].Cells["GioiTinh"].Value = nv.GioiTinh;
                         gridNhanVien.Rows[row].Cells["ChiTiet"].Value = "Xem chi tiết";
                         row++;
                     }
@@ -132,17 +133,17 @@ namespace WinForms
             try
             {
                 gridNhanVien.AutoGenerateColumns = false;
-                List<NhanVien> list = bizNV.BIZ_LayDuLieuNV();
+                List<_3Layer.NhanVien> list = bizNV.BIZ_LayDuLieuNV();
                 gridNhanVien.Rows.Clear();
                 //Lấy DL đổ vào grid
                 int row = 0;
-                foreach (NhanVien nv in list)
+                foreach (_3Layer.NhanVien nv in list)
                 {
                     gridNhanVien.Rows.Add(new DataGridViewRow());
                     gridNhanVien.Rows[row].Cells["MaNV"].Value = nv.MaNV;
                     gridNhanVien.Rows[row].Cells["HoTen"].Value = nv.HoTen;
-                    gridNhanVien.Rows[row].Cells["DonVi"].Value = nv.DonVi.TenDonVi;
-                    gridNhanVien.Rows[row].Cells["ChucVu"].Value = nv.ChucVu.TenChucVu;
+                    gridNhanVien.Rows[row].Cells["NgaySinh"].Value = nv.NgaySinh;
+                    gridNhanVien.Rows[row].Cells["GioiTinh"].Value = nv.GioiTinh;
                     gridNhanVien.Rows[row].Cells["ChiTiet"].Value = "Xem chi tiết";
                     row++;
                 }
@@ -157,6 +158,12 @@ namespace WinForms
         {
             frmThemNV them = new frmThemNV();
             them.Show();
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            frm_SuaNhanVien form = new frm_SuaNhanVien();
+            form.Show();
         }
     }
 }
