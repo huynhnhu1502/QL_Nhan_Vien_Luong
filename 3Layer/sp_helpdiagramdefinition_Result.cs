@@ -10,20 +10,10 @@
 namespace _3Layer
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class LoaiDonVi
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public LoaiDonVi()
-        {
-            this.DonVis = new HashSet<DonVi>();
-        }
-    
-        public int id { get; set; }
-        public string MaLoai { get; set; }
-        public string TenLoai { get; set; }
-        public string MoTa { get; set; }
-    
-        public virtual ICollection<DonVi> DonVis { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

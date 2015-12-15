@@ -69,21 +69,25 @@
   <ItemGroup>
     <Compile Include="BIZ\BIZ_ChucVu.cs" />
     <Compile Include="BIZ\BIZ_DonVi.cs" />
+    <Compile Include="BIZ\BIZ_HeSoLuong.cs" />
     <Compile Include="BIZ\BIZ_LichSuChuyenBac.cs" />
     <Compile Include="BIZ\BIZ_LichSuCongTac.cs" />
     <Compile Include="BIZ\BIZ_LoaiDonVi.cs" />
     <Compile Include="BIZ\BIZ_NgachLuong.cs" />
     <Compile Include="BIZ\BIZ_NV.cs" />
+    <Compile Include="BIZ\BIZ_TinhLuong.cs" />
     <Compile Include="ChucVu.cs">
       <DependentUpon>QL_LuongModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\DAL_ChucVu.cs" />
     <Compile Include="DAL\DAL_DonVi.cs" />
+    <Compile Include="DAL\DAL_HeSoLuong.cs" />
     <Compile Include="DAL\DAL_LichSuChuyenBac.cs" />
     <Compile Include="DAL\DAL_LichSuCongTac.cs" />
     <Compile Include="DAL\DAL_LoaiDonVi.cs" />
     <Compile Include="DAL\DAL_NgachLuong.cs" />
     <Compile Include="DAL\DAL_NV.cs" />
+    <Compile Include="DAL\DAL_TinhLuong.cs" />
     <Compile Include="DonVi.cs">
       <DependentUpon>QL_LuongModel.tt</DependentUpon>
     </Compile>
@@ -130,6 +134,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QL_LuongModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>QL_LuongModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>QL_LuongModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="sysdiagram.cs">
       <DependentUpon>QL_LuongModel.tt</DependentUpon>
     </Compile>
@@ -145,8 +155,18 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>QL_LuongModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="QL_LuongModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QL_LuongModel.edmx</DependentUpon>
+      <LastGenOutput>QL_LuongModel.Context.cs</LastGenOutput>
+    </None>
     <None Include="QL_LuongModel.edmx.diagram">
       <DependentUpon>QL_LuongModel.edmx</DependentUpon>
+    </None>
+    <None Include="QL_LuongModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QL_LuongModel.edmx</DependentUpon>
+      <LastGenOutput>QL_LuongModel.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -171,18 +191,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="QL_LuongModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QL_LuongModel.edmx</DependentUpon>
-      <LastGenOutput>QL_LuongModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="QL_LuongModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QL_LuongModel.edmx</DependentUpon>
-      <LastGenOutput>QL_LuongModel.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

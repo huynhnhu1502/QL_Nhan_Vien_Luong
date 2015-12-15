@@ -182,6 +182,7 @@ namespace _3Layer.DAL
                        {
                            MaLuong = o.MaLuong,
                            MaNV = o.MaNV,
+                           TenNV = e.HoTen,
                            NgayLap = o.NgayLap,
                            LuongCoBan = o.LuongCoBan,
                            LuongThucTe1 = o.LuongThucTe1
@@ -197,6 +198,7 @@ namespace _3Layer.DAL
                           {
                               MaLuong = o.MaLuong,
                               MaNV = o.MaNV,
+                              TenNV = e.HoTen,
                               NgayLap = o.NgayLap,
                               LuongCoBan = o.LuongCoBan,
                               LuongThucTe1 = o.LuongThucTe1
@@ -234,6 +236,8 @@ namespace _3Layer.DAL
                         {
                             MaNV = u.MaNV,
                             HoTen = u.HoTen,
+                            TenDonVi = t.TenDonVi,
+                            TenChucVu = y.TenChucVu,
                             NgaySinh = Convert.ToDateTime(u.NgaySinh.ToShortDateString()),
                             DanToc = u.DanToc,
                             GioiTinh = u.GioiTinh,
@@ -257,6 +261,7 @@ namespace _3Layer.DAL
                       select new LuongThucTe()
                       {
                           MaNV = u.MaNV,
+                          TenNV = t.HoTen,
                           NgayLap = u.NgayLap,
                           LuongThucTe1 = u.LuongThucTe1
                       }).ToList());

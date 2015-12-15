@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\CHUYEN MON\XDPM THEO MO HINH PHAN LOP\QL_Nhan_Vien_Luong\3Layer\QL_LuongModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\ADAM\Documents\QL_Nhan_Vien_Luong\3Layer\QL_LuongModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

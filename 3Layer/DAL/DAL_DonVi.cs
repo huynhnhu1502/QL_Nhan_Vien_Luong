@@ -157,6 +157,8 @@ namespace _3Layer.DAL
                        {
                            MaNV = u.MaNV,
                            HoTen = u.HoTen,
+                           TenDonVi = e.TenDonVi,
+                           TenChucVu = t.TenChucVu,
                            NgaySinh = u.NgaySinh,
                            DanToc = u.DanToc,
                            GioiTinh = u.GioiTinh,
