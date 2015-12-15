@@ -134,7 +134,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QL_LuongModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs" />
+    <Compile Include="sp_helpdiagramdefinition_Result.cs" />
+    <Compile Include="sp_helpdiagrams_Result.cs" />
+    <Compile Include="sysdiagram.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
