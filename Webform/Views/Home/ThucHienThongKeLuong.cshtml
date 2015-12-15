@@ -12,40 +12,46 @@
 <h2>Thống kê lương của đơn vị @tendonvi</h2>
                       @Html.ActionLink("Xuất dữ liệu ra Excel", "ExportDataThongKeLuong", new { MaDonVi = @Request.QueryString["MaDonVi"], nam = @Request.QueryString["nam"], thang = @Request.QueryString["thang"] })
 <p>
-    @using(Html.BeginForm("ThucHienThongKeLuong", "Home", FormMethod.Get))
+    @using (Html.BeginForm("ThucHienThongKeLuong", "Home", FormMethod.Get, htmlAttributes: new { @class = "form-inline" }))
     {
-        <p><input type="text" name="MaDonVi" value='@madonvi' readonly hidden />
-            <b>Tháng: </b>
-            <select name="thang">
-                @for (int i = 1; i <= 12; i++)
-{
-    string selected;
-    if (!String.IsNullOrEmpty(Request.QueryString["thang"]) && int.Parse(Request.QueryString["thang"]) == i)
-    {
-        <option selected value='@i'>@i</option>
-    }
-    else
-    {
-                        <option value='@i'>@i</option>
+        <input type="text" name="MaDonVi" value='@madonvi' readonly hidden />
+            <div class="form-group">
+                <label>Tháng: </label>
+                <select class="form-control" name="thang">
+                    @for (int i = 1; i <= 12; i++)
+                    {
+                        string selected;
+                        if (!String.IsNullOrEmpty(Request.QueryString["thang"]) && int.Parse(Request.QueryString["thang"]) == i)
+                        {
+                            <option selected value='@i'>@i</option>
+                        }
+                        else
+                        {
+                            <option value='@i'>@i</option>
+                        }
                     }
-                }
-            </select>
-            <b>Năm: </b>
-    <select name="nam">
-        @for (int j = 1900; j <= DateTime.Now.Year; j++)
-        {
-            if (!String.IsNullOrEmpty(Request.QueryString["nam"]) && int.Parse(Request.QueryString["nam"]) == j)
-    {
-        <option selected value='@j'>@j</option>
-    }
-            else
-            {
-                <option value='@j'>@j</option>
-            }
-        }
-    </select>
-            <input type="submit" value="Lọc" class="btn btn-success" />
-        </p>      
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Năm: </label>
+                <select class="form-control" name="nam">
+                    @for (int j = 1900; j <= DateTime.Now.Year; j++)
+                    {
+                        if (!String.IsNullOrEmpty(Request.QueryString["nam"]) && int.Parse(Request.QueryString["nam"]) == j)
+                        {
+                            <option selected value='@j'>@j</option>
+                        }
+                        else
+                        {
+                            <option value='@j'>@j</option>
+                        }
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Lọc" class="btn btn-success" />
+            </div>
+              
     }
 </p>
 <table class="table">
@@ -78,7 +84,7 @@
             @Html.DisplayFor(modelItem => item.MaNV)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TenNV)
+            @Html.DisplayFor(modelItem => item.NhanVien.HoTen)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.NgayLap)

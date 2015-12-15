@@ -129,7 +129,7 @@ namespace _3Layer.DAL
                 }
                 if (tenNV != "")
                 {
-                    cauTruyVan += " where nv.maNV like '%" + tenNV + "%'";
+                    cauTruyVan += " where nv.HoTen like '%" + tenNV + "%'";
                 }
                 if (donVi != "----Tất cả----")
                 {

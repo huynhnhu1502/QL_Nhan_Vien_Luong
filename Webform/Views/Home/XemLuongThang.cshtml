@@ -30,13 +30,13 @@
             @Html.DisplayFor(modelItem => item.MaNV)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TenNV)
+            @Html.DisplayFor(modelItem => item.NhanVien.HoTen)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.NgayLap)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.LuongThucTe1) đồng
+            @string.Format("{0:0,0}", @item.LuongThucTe1) VNĐ
         </td>
     </tr>
 }

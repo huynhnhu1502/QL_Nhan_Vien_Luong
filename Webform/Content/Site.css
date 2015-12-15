@@ -5,8 +5,7 @@
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 40px 15px 20px;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -39,4 +38,29 @@ input[type="checkbox"].input-validation-error {
 
 .validation-summary-valid {
     display: none;
+}
+
+.body-content > h2{
+    color: #0c5ea3;
+    margin-bottom: 30px;
+}
+
+.navbar-inverse{
+   background: #206198;
+}
+
+.navbar-inverse .navbar-brand{
+    color: #fff;
+}
+
+.navbar-inverse .navbar-nav > li > a{
+    color: #fff;
+}
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus{
+    color: #ccc;
+}
+
+.navbar .container{
+    padding-top: 15px;
+    padding-bottom: 15px;
 }

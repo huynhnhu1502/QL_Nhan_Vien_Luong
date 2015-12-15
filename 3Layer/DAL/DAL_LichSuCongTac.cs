@@ -211,12 +211,7 @@ namespace _3Layer.DAL
                         from e in entity.ChucVus.ToList()
                         from p in entity.NgachLuongs.ToList()
                         where u.MaNV.Equals(MaNV) && u.MaDonVi == t.MaDonVi && u.MaChucVu == e.MaChucVu && u.MaNgach == p.MaNgach
-                        select new LichSuCongTac()
-                        {
-                            MaCongTac = u.MaCongTac,
-                            NgayLam = u.NgayLam,
-                            NgayChuyen = u.NgayChuyen
-                        }).ToList());
+                        select u).ToList());
             return congtac;
         }
 

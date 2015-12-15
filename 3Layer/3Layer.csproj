@@ -69,21 +69,25 @@
   <ItemGroup>
     <Compile Include="BIZ\BIZ_ChucVu.cs" />
     <Compile Include="BIZ\BIZ_DonVi.cs" />
+    <Compile Include="BIZ\BIZ_HeSoLuong.cs" />
     <Compile Include="BIZ\BIZ_LichSuChuyenBac.cs" />
     <Compile Include="BIZ\BIZ_LichSuCongTac.cs" />
     <Compile Include="BIZ\BIZ_LoaiDonVi.cs" />
     <Compile Include="BIZ\BIZ_NgachLuong.cs" />
     <Compile Include="BIZ\BIZ_NV.cs" />
+    <Compile Include="BIZ\BIZ_TinhLuong.cs" />
     <Compile Include="ChucVu.cs">
       <DependentUpon>QL_LuongModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\DAL_ChucVu.cs" />
     <Compile Include="DAL\DAL_DonVi.cs" />
+    <Compile Include="DAL\DAL_HeSoLuong.cs" />
     <Compile Include="DAL\DAL_LichSuChuyenBac.cs" />
     <Compile Include="DAL\DAL_LichSuCongTac.cs" />
     <Compile Include="DAL\DAL_LoaiDonVi.cs" />
     <Compile Include="DAL\DAL_NgachLuong.cs" />
     <Compile Include="DAL\DAL_NV.cs" />
+    <Compile Include="DAL\DAL_TinhLuong.cs" />
     <Compile Include="DonVi.cs">
       <DependentUpon>QL_LuongModel.tt</DependentUpon>
     </Compile>
@@ -130,9 +134,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QL_LuongModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>QL_LuongModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="sysdiagrams.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

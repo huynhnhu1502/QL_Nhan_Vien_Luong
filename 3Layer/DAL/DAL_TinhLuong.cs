@@ -254,12 +254,7 @@ namespace _3Layer.DAL
             result = ((from u in db.LuongThucTes.ToList()
                       from t in db.NhanViens.ToList()
                       where u.MaNV == MaNV && u.MaNV == t.MaNV && u.NgayLap.Month == thang && u.NgayLap.Year == nam
-                      select new LuongThucTe()
-                      {
-                          MaNV = u.MaNV,
-                          NgayLap = u.NgayLap,
-                          LuongThucTe1 = u.LuongThucTe1
-                      }).ToList());
+                      select u).ToList());
             return result;
         }
     }

@@ -164,6 +164,10 @@ namespace _3Layer.DAL
                            DiaChi = u.DiaChi,
                            HinhAnh = u.HinhAnh
                        }).ToList());
+            result = db.NhanViens.SqlQuery("select * from dbo.Nhanvien nv" +
+                                                " left join dbo.Chucvu cv on nv.machucvu=cv.machucvu" +
+                                                " left join dbo.Donvi dv on nv.madonvi=dv.madonvi" +
+                                                " left join dbo.NgachLuong ngach on nv.mangach=ngach.mangach where nv.maDonVi = '"+MaDonVi+"'").ToList();
             return result;
         }
         public List<NhanVien> ExportDataNVTrongDV(string maDonVi)

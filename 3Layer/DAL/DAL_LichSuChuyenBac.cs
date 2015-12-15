@@ -8,6 +8,7 @@ namespace _3Layer.DAL
 {
     public class DAL_LichSuChuyenBac
     {
+        public DAL_LichSuChuyenBac() { }
 
         public static List<LichSuChuyenBac> listall()
         {

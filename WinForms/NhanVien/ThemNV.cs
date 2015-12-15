@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using _3Layer;
 using System.IO;
+using _3Layer.BIZ;
 
 namespace WinForms
 {
@@ -63,7 +64,7 @@ namespace WinForms
                 nv.HinhAnh = System.IO.Path.GetFileName(ofd.FileName);
                 nv.CMND = txtCMND.Text.Trim();
                 nv.NgayHuu = biz.BIZ_TinhNgayHuu(dateNgaySinh.Value, cbGioiTinh.SelectedItem.ToString());
-
+                nv.MaHeSo = cbHeSo.SelectedValue.ToString();
                 if (nv.HoTen == "" || nv.DanToc == "" || nv.DiaChi == "" || ofd.CheckFileExists == false || cbGioiTinh.SelectedIndex == -1 || nv.CMND == "")
                 {
                     flag = false;
@@ -98,6 +99,14 @@ namespace WinForms
                     }
                     if (biz.Create(nv) == true)
                     {
+                        _3Layer.LichSuChuyenBac _lichsuchuyenbac = new _3Layer.LichSuChuyenBac();
+                        _lichsuchuyenbac.MaNV = nv.MaNV;
+                        _lichsuchuyenbac.Mangach = nv.MaNV;
+                        _lichsuchuyenbac.MaHeSo = nv.MaHeSo;
+                        _lichsuchuyenbac.NgayChuyen = DateTime.Now;
+                        BIZ_LichSuChuyenBac _bizlichsucb = new BIZ_LichSuChuyenBac();
+                        _bizlichsucb.ThemLichSu(_lichsuchuyenbac);
+
                         MessageBox.Show("Đã thêm!");
                         txtHoTen.Text = "";
                         txtDanToc.Text = "";

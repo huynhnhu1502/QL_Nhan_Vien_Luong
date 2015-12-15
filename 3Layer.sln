@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3Layer", "3Layer\3Layer.csproj", "{5550D7EE-63E2-49CE-9B06-1BE6D5CFE90E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms", "WinForms\WinForms.csproj", "{F49832D7-09B4-4313-BFEB-80BE0EB738E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webform", "Webform\Webform.csproj", "{C2F3AF0E-6554-46E2-854E-A50A3291E6A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F49832D7-09B4-4313-BFEB-80BE0EB738E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F49832D7-09B4-4313-BFEB-80BE0EB738E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F49832D7-09B4-4313-BFEB-80BE0EB738E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2F3AF0E-6554-46E2-854E-A50A3291E6A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2F3AF0E-6554-46E2-854E-A50A3291E6A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2F3AF0E-6554-46E2-854E-A50A3291E6A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2F3AF0E-6554-46E2-854E-A50A3291E6A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
